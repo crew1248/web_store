@@ -1,0 +1,4189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfWebParserModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <WebParserModel>
+    <Id>40c9cb42-ecc4-4536-abd9-52f00a0f57c7</Id>
+    <Price>12 478</Price>
+    <СartridgeLength>повышенная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/493556_1.jpg</ImageUrl>
+    <Title>Картридж лазерный Xerox 106R02312</Title>
+    <ModelType>106R02312  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Xerox</Brand>
+    <Referense>Арт. 493556</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>32061f9b-ce70-4092-a27b-e66d622a6dae</Id>
+    <Price>5 820</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/164585_1.jpg</ImageUrl>
+    <Title>Картридж HP 85A</Title>
+    <ModelType>CE285A  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 164585</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>c75418a2-8d74-45c7-83b6-2e52db084097</Id>
+    <Price>9 422</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/254743_1.jpg</ImageUrl>
+    <Title>Картридж HP 85A (двойная упаковка)</Title>
+    <ModelType>CE285AF  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 254743</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>968ac4c7-d15b-4f15-8cb4-2fc217849137</Id>
+    <Price>6 358</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/258222_1.jpg</ImageUrl>
+    <Title>Картридж Kyocera TK-1140</Title>
+    <ModelType>TK-1140  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Kyocera</Brand>
+    <Referense>Арт. 258222</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>77923725-c0a7-4e44-8375-12a55b5b4e0b</Id>
+    <Price>1 499</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/156093_1.jpg</ImageUrl>
+    <Title>Картридж Panasonic KX-FAT411A7</Title>
+    <ModelType>KX-FAT411A/A7  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Panasonic</Brand>
+    <Referense>Арт. 156093</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>a447a624-5c76-4165-b572-46c2b2f41535</Id>
+    <Price>8 716</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/270381_1.jpg</ImageUrl>
+    <Title>Картридж HP 80A</Title>
+    <ModelType>CF280A  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 270381</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>49b20ff3-91e6-44fc-bc4d-9df489cf46f0</Id>
+    <Price>5 723</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/165120_1.jpg</ImageUrl>
+    <Title>Картридж HP 78A</Title>
+    <ModelType>CE278A  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 165120</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>8df96761-c6ed-4391-9f93-66596403448b</Id>
+    <Price>3 458</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/251233_1.jpg</ImageUrl>
+    <Title>Картридж Samsung MLT-D101S</Title>
+    <ModelType>MLT-D101S  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Samsung</Brand>
+    <Referense>Арт. 251233</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>8a046f9a-b84d-403b-be31-d5ebd1910b67</Id>
+    <Price>10 711</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/254742_1.jpg</ImageUrl>
+    <Title>Картридж HP 78A (двойная упаковка)</Title>
+    <ModelType>CE278AF  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 254742</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>91ad8992-8caf-47a0-b255-ee87ecf4bec7</Id>
+    <Price>7 529</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/133284_1.jpg</ImageUrl>
+    <Title>Картридж HP 05A</Title>
+    <ModelType>CE505A  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 133284</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>b49900b5-923b-40c8-8b0f-26563f7a07d6</Id>
+    <Price>6 624</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/50076_1.jpg</ImageUrl>
+    <Title>Картридж HP 12A</Title>
+    <ModelType>Q2612A  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 50076</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>ef94e691-6260-43e6-87f0-f5a19b8c1b4d</Id>
+    <Price>4 515</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/196357_1.jpg</ImageUrl>
+    <Title>Картридж Canon Cartridge 728  3500B002</Title>
+    <ModelType>Cartridge 728  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Canon</Brand>
+    <Referense>Арт. 196357</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>e84eab64-029f-4430-8c4e-b1044a096dbb</Id>
+    <Price>15 181</Price>
+    <СartridgeLength>повышенная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/270382_1.jpg</ImageUrl>
+    <Title>Картридж HP 80X</Title>
+    <ModelType>CF280X  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 270382</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>d59ff129-d761-46ff-ab56-08fa45c7af16</Id>
+    <Price>3 546</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/212904_1.jpg</ImageUrl>
+    <Title>Картридж Brother TN-2275</Title>
+    <ModelType>TN-2275  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Brother</Brand>
+    <Referense>Арт. 212904</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>7546839f-93c5-47c2-9372-a889456e8160</Id>
+    <Price>6 624</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/110496_1.jpg</ImageUrl>
+    <Title>Картридж HP 36A</Title>
+    <ModelType>CB436A  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 110496</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>5f0a08fa-b50e-4c64-b918-8f3649ca11cb</Id>
+    <Price>7 128</Price>
+    <СartridgeLength>повышенная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/143881_1.jpg</ImageUrl>
+    <Title>Картридж Xerox 106R01487</Title>
+    <ModelType>106R01487  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Xerox</Brand>
+    <Referense>Арт. 143881</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>f8547e15-2681-409e-90c4-d7e3db848a2a</Id>
+    <Price>3 897</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/272643_1.jpg</ImageUrl>
+    <Title>Картридж Samsung CLT-K406S</Title>
+    <ModelType>CLT-K406S  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Samsung</Brand>
+    <Referense>Арт. 272643</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>19dd8d71-d720-4b0b-9a97-28b911aeeb0f</Id>
+    <Price>4 689</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/186912_1.jpg</ImageUrl>
+    <Title>Картридж HP 126A</Title>
+    <ModelType>CE310A  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 186912</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>cb7a051c-289b-4b65-b2f8-a1c260482002</Id>
+    <Price>6 876</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/272262_1.jpg</ImageUrl>
+    <Title>Картридж Kyocera TK-475</Title>
+    <ModelType>TK-475  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Kyocera</Brand>
+    <Referense>Арт. 272262</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>813902cb-0a8e-434f-9e56-b2a832bce0f6</Id>
+    <Price>10 605</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/115854_1.jpg</ImageUrl>
+    <Title>Картридж HP 12A (двойная упаковка)</Title>
+    <ModelType>Q2612AF  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 115854</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>b6a83c68-f234-45ee-818f-8efaf6f726c3</Id>
+    <Price>2 944</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/393139_1.jpg</ImageUrl>
+    <Title>Картридж Samsung MLT-D111S</Title>
+    <ModelType>MLT-D111S  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Samsung</Brand>
+    <Referense>Арт. 393139</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>656e674f-fe21-4383-a677-4d5de4cda43d</Id>
+    <Price>11 036</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/159262_1.jpg</ImageUrl>
+    <Title>Картридж HP 55A</Title>
+    <ModelType>CE255A  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 159262</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>a46897d6-55bf-400b-bb78-604ee3b81bef</Id>
+    <Price>3 199</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/167648_1.jpg</ImageUrl>
+    <Title>Картридж Samsung MLT-D104S</Title>
+    <ModelType>MLT-D104S  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Samsung</Brand>
+    <Referense>Арт. 167648</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>d61518d2-87a4-45bd-84bf-237201be521b</Id>
+    <Price>2 338</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/250607_1.jpg</ImageUrl>
+    <Title>Картридж Xerox 106R02181</Title>
+    <ModelType>106R02181  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Xerox</Brand>
+    <Referense>Арт. 250607</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>fc667c8d-d7bf-4335-b7e9-6f29535fe124</Id>
+    <Price>4 071</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/191317_1.jpg</ImageUrl>
+    <Title>Картридж Canon Cartridge 725  3484B002</Title>
+    <ModelType>Cartridge 725  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Canon</Brand>
+    <Referense>Арт. 191317</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>1a86b847-8142-4cfc-b74b-5dcfcbf94bb0</Id>
+    <Price>5 710</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/346380_1.jpg</ImageUrl>
+    <Title>Картридж Samsung MLT-D115L</Title>
+    <ModelType>MLT-D115L  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Samsung</Brand>
+    <Referense>Арт. 346380</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>ea66dd00-97be-4524-aeaa-8353cc02fe49</Id>
+    <Price>12 614</Price>
+    <СartridgeLength>повышенная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/133285_1.jpg</ImageUrl>
+    <Title>Картридж HP 05X</Title>
+    <ModelType>CE505X  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 133285</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>52d37545-0f36-4c09-afeb-26885cc27647</Id>
+    <Price>5 788</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/275973_1.jpg</ImageUrl>
+    <Title>Картридж HP 131A</Title>
+    <ModelType>131A CF210A  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 275973</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>62a92822-a95e-462d-8990-3137dd8f1af5</Id>
+    <Price>4 380</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/250608_1.jpg</ImageUrl>
+    <Title>Картридж Xerox 106R02183</Title>
+    <ModelType>106R02183  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Xerox</Brand>
+    <Referense>Арт. 250608</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>070948b0-1015-47f5-a760-2ea3a6e7ebb0</Id>
+    <Price>3 469</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/309081_1.jpg</ImageUrl>
+    <Title>Картридж Kyocera TK-1120</Title>
+    <ModelType>TK-1120  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Kyocera</Brand>
+    <Referense>Арт. 309081</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>b846dd4a-1768-49a1-8183-068bb7cfccc3</Id>
+    <Price>8 131</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/81633_1.jpg</ImageUrl>
+    <Title>Картридж HP 53A</Title>
+    <ModelType>Q7553A  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 81633</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>04f66fc0-29ae-4775-887d-098c129c35e8</Id>
+    <Price>19 691</Price>
+    <СartridgeLength>повышенная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/159263_1.jpg</ImageUrl>
+    <Title>Картридж HP 55X</Title>
+    <ModelType>CE255X  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 159263</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>9828d423-baf0-4b26-9750-c6e69970f3de</Id>
+    <Price>5 900</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/283439_1.jpg</ImageUrl>
+    <Title>Картридж Kyocera TK-590K</Title>
+    <ModelType>TK-590K  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Kyocera</Brand>
+    <Referense>Арт. 283439</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>e6916222-b5e7-450d-a685-efe53be11dd5</Id>
+    <Price>2 980</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/234676_1.jpg</ImageUrl>
+    <Title>Картридж Panasonic KX-FAT400A7</Title>
+    <ModelType>KX-FAT400A7  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Panasonic</Brand>
+    <Referense>Арт. 234676</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>5aa24fa0-2ad9-4ec3-8db5-9d822fe6e19a</Id>
+    <Price>4 986</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/274970_1.jpg</ImageUrl>
+    <Title>Картридж Samsung MLT-D117S</Title>
+    <ModelType>MLT-D117S  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Samsung</Brand>
+    <Referense>Арт. 274970</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>a7a47278-5f9d-4b40-9a48-7f739721d7ab</Id>
+    <Price>5 830</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/110767_1.jpg</ImageUrl>
+    <Title>Картридж HP 35A</Title>
+    <ModelType>CB435A  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 110767</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>c11cb376-ae5c-4fff-8f21-e635658a78f2</Id>
+    <Price>6 506</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/110719_1.jpg</ImageUrl>
+    <Title>Картридж HP 125A</Title>
+    <ModelType>CB540A  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 110719</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>c7c26b21-9891-4869-9bdb-51b7e2452176</Id>
+    <Price>2 210</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/113444_1.jpg</ImageUrl>
+    <Title>Картридж Xerox 106R01277</Title>
+    <ModelType>106R01277  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Xerox</Brand>
+    <Referense>Арт. 113444</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>ac942a92-5a83-4730-a1fa-0a288b714976</Id>
+    <Price>13 307</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/186597_1.jpg</ImageUrl>
+    <Title>Картридж Xerox 106R01531</Title>
+    <ModelType>106R01531  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Xerox</Brand>
+    <Referense>Арт. 186597</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>1e0e3274-8dbc-41ef-a91a-504098e974fc</Id>
+    <Price>2 727</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/326394_1.jpg</ImageUrl>
+    <Title>Картридж Brother TN-1075</Title>
+    <ModelType>TN-1075  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Brother</Brand>
+    <Referense>Арт. 326394</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>e53d49b3-d1aa-4bfe-8eeb-c71cfe174363</Id>
+    <Price>6 883</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/171417_1.jpg</ImageUrl>
+    <Title>Картридж Kyocera TK-350</Title>
+    <ModelType>TK-350  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Kyocera</Brand>
+    <Referense>Арт. 171417</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>f35f5cd4-5068-406d-91d2-6d1d783892a3</Id>
+    <Price>5 185</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/255361_1.jpg</ImageUrl>
+    <Title>Картридж Kyocera TK-1130</Title>
+    <ModelType>TK-1130  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Kyocera</Brand>
+    <Referense>Арт. 255361</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>47bc7d7d-2f19-4011-95b3-fe7f9699f3df</Id>
+    <Price>2 237</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/215805_1.jpg</ImageUrl>
+    <Title>Картридж Brother TN-2090</Title>
+    <ModelType>TN-2090  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Brother</Brand>
+    <Referense>Арт. 215805</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>91e464fb-cba9-4d46-9249-469b6aa30b99</Id>
+    <Price>4 560</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/277211_1.jpg</ImageUrl>
+    <Title>Картридж Kyocera TK-895K</Title>
+    <ModelType>TK-895K  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Kyocera</Brand>
+    <Referense>Арт. 277211</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>2a6e9989-82b1-47a7-b9c0-cb1818f97550</Id>
+    <Price>7 121</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/251627_1.jpg</ImageUrl>
+    <Title>Картридж HP 305A</Title>
+    <ModelType>CE410A  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 251627</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>96d95133-4f56-481c-90ff-9b7a7551f0ae</Id>
+    <Price>4 580</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/334276_1.jpg</ImageUrl>
+    <Title>Картридж Samsung MLT-D203S</Title>
+    <ModelType>MLT-D203S  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Samsung</Brand>
+    <Referense>Арт. 334276</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>f21855a7-7f0b-4a21-9041-24e57e722f61</Id>
+    <Price>8 964</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/287521_1.jpg</ImageUrl>
+    <Title>Картридж Xerox 106R02310</Title>
+    <ModelType>106R02310  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Xerox</Brand>
+    <Referense>Арт. 287521</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>9e3a473e-6664-43f9-8bbe-25036b514511</Id>
+    <Price>7 710</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/331259_1.jpg</ImageUrl>
+    <Title>Картридж Kyocera TK-3130</Title>
+    <ModelType>TK-3130  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Kyocera</Brand>
+    <Referense>Арт. 331259</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>c67c31ab-ba0c-4324-982b-c16a63083cc4</Id>
+    <Price>4 624</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/134242_1.jpg</ImageUrl>
+    <Title>Картридж Xerox 106R01413</Title>
+    <ModelType>106R01413  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Xerox</Brand>
+    <Referense>Арт. 134242</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>bda56858-8f68-4315-a464-4aa736da1f00</Id>
+    <Price>4 990</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/186917_1.jpg</ImageUrl>
+    <Title>Картридж HP 128A</Title>
+    <ModelType>CE320A  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 186917</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>7942dc04-df6a-4f7f-a09e-345e4aa6b9a9</Id>
+    <Price>7 348</Price>
+    <СartridgeLength>повышенная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/275974_1.jpg</ImageUrl>
+    <Title>Картридж HP 131X</Title>
+    <ModelType>CF210X  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 275974</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>df815ad9-0653-4750-a0cb-d908464acff7</Id>
+    <Price>8 250</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/131511_1.jpg</ImageUrl>
+    <Title>Картридж HP 304A</Title>
+    <ModelType>CC530A  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 131511</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>883c0102-09eb-4c00-a18b-ba66511036ef</Id>
+    <Price>6 216</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/170822_1.jpg</ImageUrl>
+    <Title>Картридж Canon Cartridge 718  2662B002</Title>
+    <ModelType>Cartridge 718  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Canon</Brand>
+    <Referense>Арт. 170822</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>bfd22c10-b305-4dd2-9eba-791ad2d0108c</Id>
+    <Price>5 530</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/207643_1.jpg</ImageUrl>
+    <Title>Картридж Samsung MLT-D205L</Title>
+    <ModelType>MLT-D205L  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Samsung</Brand>
+    <Referense>Арт. 207643</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>cb65aabb-957b-44a6-bf92-613accb9d396</Id>
+    <Price>9 140</Price>
+    <СartridgeLength>повышенная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/251628_1.jpg</ImageUrl>
+    <Title>Картридж HP 305X</Title>
+    <ModelType>CE410X  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 251628</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>bc81db17-010e-4d82-9d84-a25586f6762f</Id>
+    <Price>27 080</Price>
+    <СartridgeLength>повышенная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/242391_1.jpg</ImageUrl>
+    <Title>Картридж HP 55X (двойная упаковка)</Title>
+    <ModelType>CE255XD  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 242391</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>f98b0d29-71a8-477f-bc84-08a725bc917f</Id>
+    <Price>7 250</Price>
+    <СartridgeLength>повышенная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/120157_1.jpg</ImageUrl>
+    <Title>Картридж Xerox 106R01374</Title>
+    <ModelType>106R01374  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Xerox</Brand>
+    <Referense>Арт. 120157</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>c3c08e65-5a14-4ac2-87de-a102b2ddfc53</Id>
+    <Price>8 710</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/254736_1.jpg</ImageUrl>
+    <Title>Картридж HP 36A (двойная упаковка)</Title>
+    <ModelType>CB436AF  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 254736</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>a31c071d-4651-4a38-b1ee-7e64ee1d1065</Id>
+    <Price>1 946</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/290263_1.jpg</ImageUrl>
+    <Title>Картридж Xerox 006R01573</Title>
+    <ModelType>006R01573  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Xerox</Brand>
+    <Referense>Арт. 290263</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>a3fe6b69-5eb0-403d-b223-55d08de4d633</Id>
+    <Price>2 228</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/325257_1.jpg</ImageUrl>
+    <Title>Картридж Samsung MLT-D101X</Title>
+    <ModelType>MLT-D101X  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Samsung</Brand>
+    <Referense>Арт. 325257</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>503c3336-68bf-45a5-aecc-24ed7202f915</Id>
+    <Price>6 980</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/191315_1.jpg</ImageUrl>
+    <Title>Картридж Canon Cartridge 719H  3480B002</Title>
+    <ModelType>Cartridge 719H  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Canon</Brand>
+    <Referense>Арт. 191315</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>d8a37e51-2334-41bc-9f5d-42e6b14737f3</Id>
+    <Price>11 927</Price>
+    <СartridgeLength>повышенная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/81634_1.jpg</ImageUrl>
+    <Title>Картридж HP 53X</Title>
+    <ModelType>Q7553X  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 81634</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>7ed3fb05-2c6e-4ff6-b19b-6c245a96e7fd</Id>
+    <Price>4 041</Price>
+    <СartridgeLength>повышенная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/159253_1.jpg</ImageUrl>
+    <Title>Картридж Samsung MLT-D105L</Title>
+    <ModelType>MLT-D105L  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Samsung</Brand>
+    <Referense>Арт. 159253</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>a83940f0-7f18-480f-874b-bd6499ed078f</Id>
+    <Price>12 140</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/128874_1.jpg</ImageUrl>
+    <Title>Картридж HP 16A</Title>
+    <ModelType>Q7516A  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 128874</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>7b33236e-5c19-4782-a045-afb7b3c6a375</Id>
+    <Price>14 804</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/235312_1.jpg</ImageUrl>
+    <Title>Картридж HP 90A</Title>
+    <ModelType>CE390A  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 235312</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>9f214e32-35c4-496a-b658-0d4e1004a377</Id>
+    <Price>11 400</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/120166_1.jpg</ImageUrl>
+    <Title>Картридж HP 64A</Title>
+    <ModelType>CC364A  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 120166</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>51d9ed50-ccb2-4540-b090-6f65dd16e8cf</Id>
+    <Price>3 647</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/234677_1.jpg</ImageUrl>
+    <Title>Картридж Panasonic KX-FAT410A7</Title>
+    <ModelType>KX-FAT410A7  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Panasonic</Brand>
+    <Referense>Арт. 234677</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>cc886366-bdd1-496f-8efb-4c751efc631d</Id>
+    <Price>4 180</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/212893_1.jpg</ImageUrl>
+    <Title>Картридж Xerox 106R01634</Title>
+    <ModelType>106R01634  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Xerox</Brand>
+    <Referense>Арт. 212893</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>df3dc1d1-6ef1-478d-8f33-6d3b224e33fa</Id>
+    <Price>1 904</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/215803_1.jpg</ImageUrl>
+    <Title>Картридж Brother TN-2080</Title>
+    <ModelType>TN-2080  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Brother</Brand>
+    <Referense>Арт. 215803</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>4f55367e-a8a0-4ad3-92ba-d62e98f5cdf7</Id>
+    <Price>10 310</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/242386_1.jpg</ImageUrl>
+    <Title>Картридж HP 507A</Title>
+    <ModelType>CE400A  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 242386</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>4bbb8814-a8b6-4fdc-a83a-f6bb1586d940</Id>
+    <Price>3 850</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/191469_1.jpg</ImageUrl>
+    <Title>Картридж Kyocera TK-435</Title>
+    <ModelType>TK-435  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Kyocera</Brand>
+    <Referense>Арт. 191469</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>cb399e8e-7525-45ac-92fb-1b7b69332cbf</Id>
+    <Price>5 500</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/212900_1.jpg</ImageUrl>
+    <Title>Картридж Xerox 106R01604</Title>
+    <ModelType>106R01604  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Xerox</Brand>
+    <Referense>Арт. 212900</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>0199052f-5d5d-4280-86b9-f543d4e3c30b</Id>
+    <Price>5 840</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/309082_1.jpg</ImageUrl>
+    <Title>Картридж Kyocera TK-3100</Title>
+    <ModelType>TK-3100  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Kyocera</Brand>
+    <Referense>Арт. 309082</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>d93c47d0-c9a7-4dd9-b07d-22da7844fd04</Id>
+    <Price>4 120</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/180509_1.jpg</ImageUrl>
+    <Title>Картридж Canon Cartridge 719  3479B002AA</Title>
+    <ModelType>Cartridge 719  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Canon</Brand>
+    <Referense>Арт. 180509</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>0bd49e61-d2e1-4e7c-b9f5-d1f9785018eb</Id>
+    <Price>19 750</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/235313_1.jpg</ImageUrl>
+    <Title>Картридж HP 90X</Title>
+    <ModelType>CE390X  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 235313</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>a0b55904-6ce9-4a05-9b55-402bbc0b5c40</Id>
+    <Price>2 490</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/308199_1.jpg</ImageUrl>
+    <Title>Картридж Samsung MLT-D119S</Title>
+    <ModelType>MLT-D119S  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Samsung</Brand>
+    <Referense>Арт. 308199</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>97f62d32-2d43-4e22-8042-7e5c841520b9</Id>
+    <Price>5 805</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/154626_1.jpg</ImageUrl>
+    <Title>Картридж Xerox 106R01485</Title>
+    <ModelType>106R01485  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Xerox</Brand>
+    <Referense>Арт. 154626</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>a5dd8026-f6c8-4ffa-bb56-274f2b74fc03</Id>
+    <Price>5 830</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/67304_1.jpg</ImageUrl>
+    <Title>Картридж HP 124A</Title>
+    <ModelType>Q6000A  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 67304</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>6c5d5179-fd60-4abf-8ee7-586bbee7c58a</Id>
+    <Price>13 950</Price>
+    <СartridgeLength>повышенная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/242387_1.jpg</ImageUrl>
+    <Title>Картридж HP 507X</Title>
+    <ModelType>CE400X  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 242387</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>dca1869b-1f3c-431a-a8fc-937c21400fd7</Id>
+    <Price>4 344</Price>
+    <СartridgeLength>повышенная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/112839_1.jpg</ImageUrl>
+    <Title>Картридж Brother TN-2175</Title>
+    <ModelType>TN-2175  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Brother</Brand>
+    <Referense>Арт. 112839</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>2907cf91-4a27-4037-9804-3f98f7f0d5ec</Id>
+    <Price>36 085</Price>
+    <СartridgeLength>повышенная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/278923_1.jpg</ImageUrl>
+    <Title>Картридж HP 90X (двойная упаковка)</Title>
+    <ModelType>CE390XD  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 278923</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>beebd8b8-e4e9-4c5e-af96-72066612ed87</Id>
+    <Price>3 050</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/58207_1.jpg</ImageUrl>
+    <Title>Картридж Canon EP-27  8489A002</Title>
+    <ModelType>EP-27  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Canon</Brand>
+    <Referense>Арт. 58207</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>2760af85-ae2b-4242-a88d-c942337ce8de</Id>
+    <Price>2 890</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/72125_1.jpg</ImageUrl>
+    <Title>Картридж Canon Cartridge 703  7616A005</Title>
+    <ModelType>Cartridge 703  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Canon</Brand>
+    <Referense>Арт. 72125</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>f624be3e-b72e-4802-b713-c9656af94b69</Id>
+    <Price>7 900</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/265887_1.jpg</ImageUrl>
+    <Title>Картридж Brother TN-3380</Title>
+    <ModelType>TN-3380  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Brother</Brand>
+    <Referense>Арт. 265887</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>aebc7304-f8b2-4311-857f-7eb903684755</Id>
+    <Price>1 240</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/120165_1.jpg</ImageUrl>
+    <Title>Картридж Panasonic KX-FAT92A</Title>
+    <ModelType>KX-FAT92A  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Panasonic</Brand>
+    <Referense>Арт. 120165</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>ec9ce9d2-7770-4c7a-a1ab-80578c086b80</Id>
+    <Price>7 336</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/171537_1.jpg</ImageUrl>
+    <Title>Картридж HP 35A (двойная упаковка)</Title>
+    <ModelType>CB435AD/AF  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 171537</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>58d3b680-314d-440f-bde2-78990d6cde7f</Id>
+    <Price>2 841</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/309080_1.jpg</ImageUrl>
+    <Title>Картридж Kyocera TK-1110</Title>
+    <ModelType>TK-1110  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Kyocera</Brand>
+    <Referense>Арт. 309080</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>16c897f9-c205-43a7-8461-94e2d13ad8eb</Id>
+    <Price>3 780</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/161222_1.jpg</ImageUrl>
+    <Title>Картридж Samsung MLT-D209S</Title>
+    <ModelType>MLT-D209S  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Samsung</Brand>
+    <Referense>Арт. 161222</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>fb0c6dd0-2815-4229-9cd9-40ae25bfb1e9</Id>
+    <Price>11 570</Price>
+    <СartridgeLength>повышенная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/134239_1.jpg</ImageUrl>
+    <Title>Картридж Xerox 106R01412</Title>
+    <ModelType>106R01412  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Xerox</Brand>
+    <Referense>Арт. 134239</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>ebbc3478-bd01-4316-be95-fc6bb8b9bb02</Id>
+    <Price>12 640</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/63343_1.jpg</ImageUrl>
+    <Title>Картридж HP 42A</Title>
+    <ModelType>Q5942A  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 63343</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>be4b44f0-649a-4830-8fcf-b079fd18a31c</Id>
+    <Price>3 304</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/134269_1.jpg</ImageUrl>
+    <Title>Картридж Canon Cartridge 712  1870B002</Title>
+    <ModelType>Cartridge 712  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Canon</Brand>
+    <Referense>Арт. 134269</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>f1358fc0-5e7e-48f0-9569-2fb29dd84c3e</Id>
+    <Price>6 050</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/57685_1.jpg</ImageUrl>
+    <Title>Картридж HP 49A</Title>
+    <ModelType>Q5949A  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 57685</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>759968f0-0e93-463d-ac54-27572f5e9c5d</Id>
+    <Price>5 970</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/227718_1.jpg</ImageUrl>
+    <Title>Картридж Kyocera TK-170</Title>
+    <ModelType>TK-170  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Kyocera</Brand>
+    <Referense>Арт. 227718</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>608674fd-f5c0-4cc4-afde-4681fd0e12b8</Id>
+    <Price>21 532</Price>
+    <СartridgeLength>повышенная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/120167_1.jpg</ImageUrl>
+    <Title>Картридж HP 64X</Title>
+    <ModelType>CC364X  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 120167</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>213cdc0d-6302-44bf-8984-78ee8782ea08</Id>
+    <Price>6 520</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/314410_1.jpg</ImageUrl>
+    <Title>Картридж Xerox 106R02612</Title>
+    <ModelType>106R02612  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Xerox</Brand>
+    <Referense>Арт. 314410</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>3576c5a6-580e-4b17-88d3-50c0a8568324</Id>
+    <Price>3 670</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/273885_1.jpg</ImageUrl>
+    <Title>Картридж Sharp MX-235GT</Title>
+    <ModelType>MX-235GT  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Sharp</Brand>
+    <Referense>Арт. 273885</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>c0e48f6a-24b0-4ac0-8732-300b18495958</Id>
+    <Price>4 543</Price>
+    <СartridgeLength>повышенная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/160739_1.jpg</ImageUrl>
+    <Title>Картридж Xerox 108R00909</Title>
+    <ModelType>108R00909  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Xerox</Brand>
+    <Referense>Арт. 160739</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>02398687-f715-4eb7-955f-3ecded35c8d3</Id>
+    <Price>13 225</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/79643_1.jpg</ImageUrl>
+    <Title>Картридж HP 501A</Title>
+    <ModelType>Q6470A  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 79643</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>0f5cd356-a3f4-4e1d-91f3-d477e7968371</Id>
+    <Price>20 310</Price>
+    <СartridgeLength>повышенная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/191346_1.jpg</ImageUrl>
+    <Title>Картридж HP 05X (двойная упаковка)</Title>
+    <ModelType>CE505XD  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 191346</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>71c2c6c2-4672-429d-8c65-ef11a8f666e4</Id>
+    <Price>2 488</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/128511_1.jpg</ImageUrl>
+    <Title>Картридж Brother TN-2135</Title>
+    <ModelType>TN-2135  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Brother</Brand>
+    <Referense>Арт. 128511</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>5dc5bf5c-cbb2-4f44-9f73-d2b227efc72c</Id>
+    <Price>14 920</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/134259_1.jpg</ImageUrl>
+    <Title>Картридж HP 70A</Title>
+    <ModelType>Q7570A  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 134259</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>b41bc6cd-1bf2-476b-b9d0-2b9760bf948b</Id>
+    <Price>7 330</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/267652_1.jpg</ImageUrl>
+    <Title>Картридж Kyocera TK-6305</Title>
+    <ModelType>TK-6305  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Kyocera</Brand>
+    <Referense>Арт. 267652</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>a128b41e-cb5b-4c5c-b5b8-d872e76e871f</Id>
+    <Price>4 270</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/128489_1.jpg</ImageUrl>
+    <Title>Картридж Kyocera TK-410</Title>
+    <ModelType>TK-410  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Kyocera</Brand>
+    <Referense>Арт. 128489</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>89333f53-bab3-4993-a389-a72c3d0207c1</Id>
+    <Price>3 691</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/272638_1.jpg</ImageUrl>
+    <Title>Картридж Samsung MLT-D103L</Title>
+    <ModelType>MLT-D103L  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Samsung</Brand>
+    <Referense>Арт. 272638</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>eb3a6cb8-b987-4b78-9050-83a07cd7a76a</Id>
+    <Price>6 083</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/29694_1.jpg</ImageUrl>
+    <Title>Картридж HP 15A</Title>
+    <ModelType>C7115A  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 29694</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>49305afc-6b0c-40cb-b96d-05ee1f2f8c9b</Id>
+    <Price>3 973</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/345179_1.jpg</ImageUrl>
+    <Title>Картридж Canon Cartridge 731H  6273B002</Title>
+    <ModelType>Cartridge 731H  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Canon</Brand>
+    <Referense>Арт. 345179</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>6e083170-5c55-46ef-aea5-ec99f8cbea74</Id>
+    <Price>3 556</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/79783_1.jpg</ImageUrl>
+    <Title>Картридж Samsung SCX-D4200A</Title>
+    <ModelType>SCX-D4200A  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Samsung</Brand>
+    <Referense>Арт. 79783</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>ba2e4f55-e49f-4eb3-98a5-e372c86e5f29</Id>
+    <Price>14 477</Price>
+    <СartridgeLength>повышенная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/57686_1.jpg</ImageUrl>
+    <Title>Картридж HP 49X</Title>
+    <ModelType>Q5949X  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 57686</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>bb01a4b8-74ec-4e0f-b071-55dbf4b0094a</Id>
+    <Price>2 520</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/390803_1.jpg</ImageUrl>
+    <Title>Картридж Brother TN-2335</Title>
+    <ModelType>TN-2335  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Brother</Brand>
+    <Referense>Арт. 390803</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>dd7986ed-28ac-4b21-b281-efbfa85addb6</Id>
+    <Price>14 268</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/376555_1.jpg</ImageUrl>
+    <Title>Картридж HP 93A</Title>
+    <ModelType>CZ192A  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 376555</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>4dbfb66f-1f23-4efe-ad15-ef3db30c06fe</Id>
+    <Price>4 250</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/325249_1.jpg</ImageUrl>
+    <Title>Картридж Brother TN-241BK</Title>
+    <ModelType>TN-241BK  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Brother</Brand>
+    <Referense>Арт. 325249</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>939cbd1e-d61a-47ea-85fb-af02a3f9f350</Id>
+    <Price>11 350</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/191328_1.jpg</ImageUrl>
+    <Title>Картридж HP 647A</Title>
+    <ModelType>CE260A  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 191328</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>1034c742-207a-4abf-9bbf-09fa0f6e6e1b</Id>
+    <Price>14 870</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/286646_1.jpg</ImageUrl>
+    <Title>Картридж HP 14A</Title>
+    <ModelType>CF214A  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 286646</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>54e1fb63-fd04-4a61-ba70-ce36402b3a84</Id>
+    <Price>3 082</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/24874_1.jpg</ImageUrl>
+    <Title>Картридж Canon EP-22  1550A003</Title>
+    <ModelType>EP-22  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Canon</Brand>
+    <Referense>Арт. 24874</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>58f5c4f1-86a0-4e42-ad1d-c1f1d33b60dd</Id>
+    <Price>6 955</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/165277_1.jpg</ImageUrl>
+    <Title>Картридж Brother TN-3280</Title>
+    <ModelType>TN-3280  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Brother</Brand>
+    <Referense>Арт. 165277</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>20e4dae8-d09b-4caa-8b3f-557ea50cbd4f</Id>
+    <Price>13 640</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/157668_1.jpg</ImageUrl>
+    <Title>Картридж HP 304A (двойная упаковка)</Title>
+    <ModelType>304A CC530AD  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 157668</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>ec19e648-f5e7-4efe-b609-9611b58a3b3b</Id>
+    <Price>6 336</Price>
+    <СartridgeLength>повышенная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/32669_1.jpg</ImageUrl>
+    <Title>Картридж HP 15X</Title>
+    <ModelType>C7115X  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 32669</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>c663e9bf-016a-438f-8e52-491d35614e42</Id>
+    <Price>6 800</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/120156_1.jpg</ImageUrl>
+    <Title>Картридж Xerox 106R01373</Title>
+    <ModelType>106R01373  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Xerox</Brand>
+    <Referense>Арт. 120156</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>702cc186-725f-4a62-a442-b617abc3ec19</Id>
+    <Price>2 310</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/180640_1.jpg</ImageUrl>
+    <Title>Картридж Samsung CLT-K407S</Title>
+    <ModelType>CLT-K407S  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Samsung</Brand>
+    <Referense>Арт. 180640</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>606cc59d-9491-41a2-a122-ee96d59645f8</Id>
+    <Price>6 536</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/283060_1.jpg</ImageUrl>
+    <Title>Картридж Ricoh SP3400HE  (406522)</Title>
+    <ModelType>SP3400HE  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Ricoh</Brand>
+    <Referense>Арт. 283060</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>f93db0e3-6813-4e27-9206-b48f7a672ead</Id>
+    <Price>9 810</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/274807_1.jpg</ImageUrl>
+    <Title>Картридж Xerox 106R02306</Title>
+    <ModelType>106R02306  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Xerox</Brand>
+    <Referense>Арт. 274807</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>19eee2dc-9fa6-4d0d-a0df-089c605cd40b</Id>
+    <Price>5 207</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/156370_1.jpg</ImageUrl>
+    <Title>Картридж Kyocera TK-130</Title>
+    <ModelType>TK-130  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Kyocera</Brand>
+    <Referense>Арт. 156370</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>4171c4d3-b290-4bf3-bd76-4263c3856408</Id>
+    <Price>5 737</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/120162_1.jpg</ImageUrl>
+    <Title>Картридж Xerox 106R01378</Title>
+    <ModelType>106R01378  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Xerox</Brand>
+    <Referense>Арт. 120162</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>7154efab-54d7-4b6c-b78b-41172325d18f</Id>
+    <Price>5 280</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/72818_1.jpg</ImageUrl>
+    <Title>Картридж Xerox 106R01159</Title>
+    <ModelType>106R01159  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Xerox</Brand>
+    <Referense>Арт. 72818</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>2b939e46-d036-48d8-ac04-4d1a94fb8fd2</Id>
+    <Price>3 123</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/491557_1.jpg</ImageUrl>
+    <Title>Картридж лазерный Samsung MLT-D111L</Title>
+    <ModelType>MLT-D111L  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Samsung</Brand>
+    <Referense>Арт. 491557</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>f78bab35-36fd-4551-9543-6f3309de67dd</Id>
+    <Price>10 472</Price>
+    <СartridgeLength>повышенная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/161138_1.jpg</ImageUrl>
+    <Title>Картридж Xerox 108R00796</Title>
+    <ModelType>108R00796  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Xerox</Brand>
+    <Referense>Арт. 161138</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>58da36e6-ccfc-4109-a644-74dabdb85ac5</Id>
+    <Price>3 300</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/65328_1.jpg</ImageUrl>
+    <Title>Картридж Xerox 006R01179</Title>
+    <ModelType>006R01179  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Xerox</Brand>
+    <Referense>Арт. 65328</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>9eed9f17-8653-4952-8b2b-d80cd42e7143</Id>
+    <Price>4 330</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/273633_1.jpg</ImageUrl>
+    <Title>Картридж Samsung CLT-K504S</Title>
+    <ModelType>CLT-K504S  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Samsung</Brand>
+    <Referense>Арт. 273633</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>06952f8f-36da-4548-8408-8b5dd85b3ba1</Id>
+    <Price>4 540</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/152325_1.jpg</ImageUrl>
+    <Title>Картридж HP 825A</Title>
+    <ModelType>CB390A  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 152325</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>66e69e5c-6c03-4c15-96b3-6c856b33378d</Id>
+    <Price>3 030</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/207642_1.jpg</ImageUrl>
+    <Title>Картридж Samsung MLT-D205S</Title>
+    <ModelType>MLT-D205S  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Samsung</Brand>
+    <Referense>Арт. 207642</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>b8ec93af-e626-4427-b769-d5351b4b5c53</Id>
+    <Price>3 645</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/172013_1.jpg</ImageUrl>
+    <Title>Картридж Canon Cartridge 716  1980B002</Title>
+    <ModelType>Cartridge 716  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Canon</Brand>
+    <Referense>Арт. 172013</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>975201d5-6da8-4374-8868-cf48317ffc2f</Id>
+    <Price>2 850</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/110795_1.jpg</ImageUrl>
+    <Title>Картридж Samsung MLT-D108S</Title>
+    <ModelType>MLT-D108S  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Samsung</Brand>
+    <Referense>Арт. 110795</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>527a6b48-f3d9-476c-9b80-17d2fe87feb1</Id>
+    <Price>11 623</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/167960_1.jpg</ImageUrl>
+    <Title>Картридж Xerox 106R01403</Title>
+    <ModelType>106R01403  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Xerox</Brand>
+    <Referense>Арт. 167960</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>0c740d32-29c0-43e0-888e-e238d4ef661a</Id>
+    <Price>2 850</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/159254_1.jpg</ImageUrl>
+    <Title>Картридж Samsung MLT-D105S</Title>
+    <ModelType>MLT-D105S  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Samsung</Brand>
+    <Referense>Арт. 159254</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>2aeb5a7c-de24-4997-906e-f82b2799bfc8</Id>
+    <Price>6 019,20</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/246656_1.jpg</ImageUrl>
+    <Title>Картридж Xerox 006R01461</Title>
+    <ModelType>006R01461  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Xerox</Brand>
+    <Referense>Арт. 246656</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>4d2ae29c-753c-4f0e-9f3a-b5eba74435a4</Id>
+    <Price>3 850</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/2295_1.jpg</ImageUrl>
+    <Title>Картридж Canon E-16  1492A003</Title>
+    <ModelType>E16  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Canon</Brand>
+    <Referense>Арт. 2295</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>3e183a15-31b9-43bc-b8aa-a4aff2fdfebd</Id>
+    <Price>5 750</Price>
+    <СartridgeLength>повышенная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/143869_1.jpg</ImageUrl>
+    <Title>Картридж Xerox 106R01476</Title>
+    <ModelType>106R01476  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Xerox</Brand>
+    <Referense>Арт. 143869</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>59c826a2-0871-40e6-b96c-12d1e2b0c290</Id>
+    <Price>17 970</Price>
+    <СartridgeLength>повышенная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/138992_1.jpg</ImageUrl>
+    <Title>Картридж HP 51X</Title>
+    <ModelType>Q7551X  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 138992</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>2f60946c-834e-43e1-b319-84acb6e85ad4</Id>
+    <Price>7 720,20</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/310324_1.jpg</ImageUrl>
+    <Title>Картридж HP 126A (двойная упаковка)</Title>
+    <ModelType>CE310AD  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 310324</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>a227dde8-aca7-46d6-b337-692b74700785</Id>
+    <Price>6 960</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/309083_1.jpg</ImageUrl>
+    <Title>Картридж Kyocera TK-3110</Title>
+    <ModelType>TK-3110  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Kyocera</Brand>
+    <Referense>Арт. 309083</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>63e9a845-65ad-4f6a-a520-7ee1030de794</Id>
+    <Price>21 310</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/47358_1.jpg</ImageUrl>
+    <Title>Картридж HP 645A</Title>
+    <ModelType>C9730A  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 47358</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>b0c991b5-4f34-4d9b-9e1e-ee455452846d</Id>
+    <Price>2 808</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/110796_1.jpg</ImageUrl>
+    <Title>Картридж Samsung MLT-D109S</Title>
+    <ModelType>MLT-D109S  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Samsung</Brand>
+    <Referense>Арт. 110796</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>b43aea0e-3177-4b17-a250-d8dcba828b46</Id>
+    <Price>6 459</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/2052_1.jpg</ImageUrl>
+    <Title>Картридж Canon E-30  1491A003</Title>
+    <ModelType>E30  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Canon</Brand>
+    <Referense>Арт. 2052</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>bfeec5be-a65b-4287-a404-ce0e220ac3a5</Id>
+    <Price>9 188</Price>
+    <СartridgeLength>повышенная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/120163_1.jpg</ImageUrl>
+    <Title>Картридж Xerox 106R01379</Title>
+    <ModelType>106R01379  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Xerox</Brand>
+    <Referense>Арт. 120163</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>44414292-1a7e-4c79-ad79-fe7715676efb</Id>
+    <Price>2 184</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/212905_1.jpg</ImageUrl>
+    <Title>Картридж Brother TN-2235</Title>
+    <ModelType>TN-2235  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Brother</Brand>
+    <Referense>Арт. 212905</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>c78063b9-4b50-45f5-8350-f9858fead298</Id>
+    <Price>6 110</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/185868_1.jpg</ImageUrl>
+    <Title>Картридж Kyocera TK-360</Title>
+    <ModelType>TK-360  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Kyocera</Brand>
+    <Referense>Арт. 185868</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>119a889f-4a7c-4f4c-bcb3-56ecb0c5d6c7</Id>
+    <Price>41 020</Price>
+    <СartridgeLength>повышенная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/193355_1.jpg</ImageUrl>
+    <Title>Картридж HP 64X (двойная упаковка)</Title>
+    <ModelType>CC364XD  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 193355</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>0a0e53fe-7549-447f-86da-b451c8dc4aec</Id>
+    <Price>12 110</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/489836_1.jpg</ImageUrl>
+    <Title>Картридж лазерный HP 81A</Title>
+    <ModelType>CF281A  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 489836</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>0633f31b-65bc-4a78-84bb-1098222ac1e1</Id>
+    <Price>3 002</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/280488_1.jpg</ImageUrl>
+    <Title>Картридж Samsung MLT-D103S</Title>
+    <ModelType>MLT-D103S  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Samsung</Brand>
+    <Referense>Арт. 280488</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>2402c96b-6fcb-4d6b-ad29-70e5d882e91c</Id>
+    <Price>2 590</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/128521_1.jpg</ImageUrl>
+    <Title>Картридж Brother TN-2085</Title>
+    <ModelType>TN-2085  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Brother</Brand>
+    <Referense>Арт. 128521</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>504b793c-d674-433a-b7e3-ce44b58490e9</Id>
+    <Price>20 712</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/67300_1.jpg</ImageUrl>
+    <Title>Картридж HP 45A</Title>
+    <ModelType>45A Q5945A  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 67300</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>753beb92-289b-4fd2-9e85-857215da5fb5</Id>
+    <Price>26 082</Price>
+    <СartridgeLength>повышенная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/175358_1.jpg</ImageUrl>
+    <Title>Картридж HP 49X</Title>
+    <ModelType>Q5949XD  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 175358</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>6cd1770b-c1a9-4e9c-b063-ece38f1bc6fe</Id>
+    <Price>4 640</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/227719_1.jpg</ImageUrl>
+    <Title>Картридж Kyocera TK-865K</Title>
+    <ModelType>TK-865K  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Kyocera</Brand>
+    <Referense>Арт. 227719</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>44187e97-b2cd-40f0-a486-870e83e6d257</Id>
+    <Price>7 379</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/61229_1.jpg</ImageUrl>
+    <Title>Картридж HP 122A</Title>
+    <ModelType>Q3960A  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 61229</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>eb95693b-0775-40c9-94f3-e2841f4d09d0</Id>
+    <Price>4 343</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/72695_1.jpg</ImageUrl>
+    <Title>Картридж Brother TN-2075</Title>
+    <ModelType>TN-2075  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Brother</Brand>
+    <Referense>Арт. 72695</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>415aa0d0-0802-4f6d-b8b7-62a9187331d9</Id>
+    <Price>6 845</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/302238_1.jpg</ImageUrl>
+    <Title>Картридж Xerox 006R01160</Title>
+    <ModelType>006R01160  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Xerox</Brand>
+    <Referense>Арт. 302238</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>7b2b6d6e-6239-478f-8b06-3ee71f064564</Id>
+    <Price>19 914</Price>
+    <СartridgeLength>повышенная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/63344_1.jpg</ImageUrl>
+    <Title>Картридж HP 42X</Title>
+    <ModelType>Q5942X  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 63344</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>217d9f56-45e6-4fdd-b146-440e459118be</Id>
+    <Price>12 740</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/194107_1.jpg</ImageUrl>
+    <Title>Картридж Xerox 113R00712</Title>
+    <ModelType>113R00712  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Xerox</Brand>
+    <Referense>Арт. 194107</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>62c52c47-6545-4f5e-a325-776d36dc0a7b</Id>
+    <Price>2 877</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/269747_1.jpg</ImageUrl>
+    <Title>Картридж Kyocera TK-160</Title>
+    <ModelType>TK-160  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Kyocera</Brand>
+    <Referense>Арт. 269747</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>f27a928f-300f-48f7-9bdc-47c20cfbdfd4</Id>
+    <Price>10 370</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/87713_1.jpg</ImageUrl>
+    <Title>Картридж HP 51A</Title>
+    <ModelType>Q7551A  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 87713</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>83747776-5c58-4d51-ad98-3666dbdef7c1</Id>
+    <Price>6 630</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/11429_1.jpg</ImageUrl>
+    <Title>Картридж HP 92A</Title>
+    <ModelType>C4092A  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 11429</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>7f3a735c-481b-441d-934d-13c6f01b58ff</Id>
+    <Price>14 680</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/133286_1.jpg</ImageUrl>
+    <Title>Картридж HP 643A</Title>
+    <ModelType>Q5950A  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 133286</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>62545744-2ec4-4560-8ed3-bef3c9afbb3d</Id>
+    <Price>9 220</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/67563_1.jpg</ImageUrl>
+    <Title>Картридж Xerox 113R00668</Title>
+    <ModelType>113R00668  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Xerox</Brand>
+    <Referense>Арт. 67563</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>a56865d6-b63e-451a-8eaf-9439487afb67</Id>
+    <Price>5 359</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/164586_1.jpg</ImageUrl>
+    <Title>Картридж Brother TN-3230</Title>
+    <ModelType>TN-3230  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Brother</Brand>
+    <Referense>Арт. 164586</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>ef1dba64-00cf-4093-bf2a-75b7333063cf</Id>
+    <Price>14 170</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/175847_1.jpg</ImageUrl>
+    <Title>Картридж Xerox 113R00737</Title>
+    <ModelType>113R00737  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Xerox</Brand>
+    <Referense>Арт. 175847</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>c99f8276-47cc-4956-9454-ed4977a780c5</Id>
+    <Price>7 250</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/161137_1.jpg</ImageUrl>
+    <Title>Картридж Xerox 108R00794</Title>
+    <ModelType>108R00794  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Xerox</Brand>
+    <Referense>Арт. 161137</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>3e02df2b-c7af-4a0a-b8b9-bcfdeee02cb3</Id>
+    <Price>1 842</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/325258_1.jpg</ImageUrl>
+    <Title>Картридж Samsung MLT-D104X</Title>
+    <ModelType>MLT-D104X  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Samsung</Brand>
+    <Referense>Арт. 325258</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>fa02abb7-3145-4520-97e6-fd6a18856fe0</Id>
+    <Price>4 390</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/443301_1.jpg</ImageUrl>
+    <Title>Картридж HP 78L</Title>
+    <ModelType>CE278L  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 443301</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>bd950ca1-dd0e-4f00-9b9a-f3ceccf5e3a1</Id>
+    <Price>3 181</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/443302_1.jpg</ImageUrl>
+    <Title>Картридж HP 85L</Title>
+    <ModelType>CE285L  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 443302</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>20d8ab33-2c04-48a9-a824-0c437527d70d</Id>
+    <Price>2 339</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/134255_1.jpg</ImageUrl>
+    <Title>Картридж Samsung CLT-K409S</Title>
+    <ModelType>CLT-K409S  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Samsung</Brand>
+    <Referense>Арт. 134255</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>d2a836c8-ea53-4fec-a027-6942415f2b05</Id>
+    <Price>9 475</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/172006_1.jpg</ImageUrl>
+    <Title>Картридж Samsung ML-D3050B</Title>
+    <ModelType>ML-D3050B  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Samsung</Brand>
+    <Referense>Арт. 172006</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>21013d8a-4658-47af-b895-8b12a02ac50a</Id>
+    <Price>7 130</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/160736_1.jpg</ImageUrl>
+    <Title>Картридж Xerox 106R01414</Title>
+    <ModelType>106R01414  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Xerox</Brand>
+    <Referense>Арт. 160736</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>845f5f82-4bb5-4717-9388-f4c4133da3f5</Id>
+    <Price>12 190</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/46528_1.jpg</ImageUrl>
+    <Title>Картридж HP 10A</Title>
+    <ModelType>Q2610A  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 46528</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>9cf39c10-09f9-462f-b768-e6b56efcae86</Id>
+    <Price>8 406</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/167970_1.jpg</ImageUrl>
+    <Title>Картридж Xerox 106R01411</Title>
+    <ModelType>106R01411  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Xerox</Brand>
+    <Referense>Арт. 167970</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>f87d27ae-cab6-498a-9fcc-5641eca374a2</Id>
+    <Price>4 360</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/128506_1.jpg</ImageUrl>
+    <Title>Картридж Sharp AR202LT</Title>
+    <ModelType>AR202LT  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Sharp</Brand>
+    <Referense>Арт. 128506</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>610149f5-5906-4034-8a25-ba6330a1d618</Id>
+    <Price>10 503</Price>
+    <СartridgeLength>повышенная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/46527_1.jpg</ImageUrl>
+    <Title>Картридж HP 13X</Title>
+    <ModelType>Q2613X  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 46527</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>c73d08a8-750f-4ddb-8379-34f1a891802f</Id>
+    <Price>7 576</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/60836_1.jpg</ImageUrl>
+    <Title>Картридж HP 11A</Title>
+    <ModelType>Q6511A  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 60836</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>7e64fe2c-f1af-44f2-97c1-052913bddc47</Id>
+    <Price>5 672,70</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/46526_1.jpg</ImageUrl>
+    <Title>Картридж HP 13A</Title>
+    <ModelType>Q2613A  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 46526</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>e6e0ee02-d3a1-4d31-b9b8-51f87f60dae6</Id>
+    <Price>4 039</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/120161_1.jpg</ImageUrl>
+    <Title>Картридж Xerox 106R01338</Title>
+    <ModelType>106R01338  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Xerox</Brand>
+    <Referense>Арт. 120161</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>7bf3b808-c7fd-43cd-994e-fb2c34c34d60</Id>
+    <Price>9 420</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/91728_1.jpg</ImageUrl>
+    <Title>Картридж Xerox 006R01278</Title>
+    <ModelType>006R01278  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Xerox</Brand>
+    <Referense>Арт. 91728</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>95192d18-1978-4ddb-b9fc-bcbc6db9d36b</Id>
+    <Price>9 928</Price>
+    <СartridgeLength>повышенная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/160737_1.jpg</ImageUrl>
+    <Title>Картридж Xerox 106R01415</Title>
+    <ModelType>106R01415  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Xerox</Brand>
+    <Referense>Арт. 160737</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>2e09afcb-dc11-48fc-9080-45ce0bb9e38f</Id>
+    <Price>3 350</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/279473_1.jpg</ImageUrl>
+    <Title>Картридж Canon Cartridge 729</Title>
+    <ModelType>Cartridge 729  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Canon</Brand>
+    <Referense>Арт. 279473</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>6f3ec7af-cf7a-40bc-bf0a-4909b72e37b9</Id>
+    <Price>7 864</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/65333_1.jpg</ImageUrl>
+    <Title>Картридж Xerox 106R01048</Title>
+    <ModelType>106R01048  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Xerox</Brand>
+    <Referense>Арт. 65333</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>8b147148-bd62-444f-976b-e5005d0b6329</Id>
+    <Price>1 948</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/276618_1.jpg</ImageUrl>
+    <Title>Картридж Ricoh MP301E  (841711)</Title>
+    <ModelType>MP301E  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Ricoh</Brand>
+    <Referense>Арт. 276618</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>7ac8a0a8-c97d-4ab0-be8d-9ef0dd364237</Id>
+    <Price>9 350</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/491558_1.jpg</ImageUrl>
+    <Title>Картридж лазерный Samsung MLT-D203U</Title>
+    <ModelType>MLT-D203U  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Samsung</Brand>
+    <Referense>Арт. 491558</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>f682338e-ddc0-4a3b-b75d-589314bdc79e</Id>
+    <Price>9 740</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/134243_1.jpg</ImageUrl>
+    <Title>Картридж Xerox 106R01294</Title>
+    <ModelType>106R01294  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Xerox</Brand>
+    <Referense>Арт. 134243</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>d3320f03-5b55-4571-9613-62b74f067616</Id>
+    <Price>3 180</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/175849_1.jpg</ImageUrl>
+    <Title>Картридж Sharp AR208T</Title>
+    <ModelType>AR208T  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Sharp</Brand>
+    <Referense>Арт. 175849</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>13b7f7a1-e658-4fd5-b23f-85d6370ebcf5</Id>
+    <Price>2 772</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/297391_1.jpg</ImageUrl>
+    <Title>Картридж Ricoh MPC2551E   (841587)</Title>
+    <ModelType>MPC2551E  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Ricoh</Brand>
+    <Referense>Арт. 297391</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>28417ea1-fdf7-45d8-a567-91f0a2bd30c9</Id>
+    <Price>9 706,50</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/310323_1.jpg</ImageUrl>
+    <Title>Картридж HP 125A (двойная упаковка)</Title>
+    <ModelType>CB540AD  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 310323</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>2624db93-3209-4916-81a1-7681d80bcc7e</Id>
+    <Price>4 280</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/160738_1.jpg</ImageUrl>
+    <Title>Картридж Xerox 108R00908</Title>
+    <ModelType>108R00908  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Xerox</Brand>
+    <Referense>Арт. 160738</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>58bba6ff-9f6f-4fba-b126-f3247a128a65</Id>
+    <Price>7 990</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/274806_1.jpg</ImageUrl>
+    <Title>Картридж Xerox 106R02304</Title>
+    <ModelType>106R02304  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Xerox</Brand>
+    <Referense>Арт. 274806</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>83f4be16-8440-4221-8403-7fed2c1fc86a</Id>
+    <Price>8 270</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/65327_1.jpg</ImageUrl>
+    <Title>Картридж Xerox 013R00606</Title>
+    <ModelType>013R00606  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Xerox</Brand>
+    <Referense>Арт. 65327</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>0b4e6eeb-abf8-4377-96c2-509f876606ba</Id>
+    <Price>8 680</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/163783_1.jpg</ImageUrl>
+    <Title>Картридж Kyocera TK-715</Title>
+    <ModelType>TK-715  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Kyocera</Brand>
+    <Referense>Арт. 163783</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>d109d634-0fdb-40a7-a0e2-63ebacaa48d8</Id>
+    <Price>2 042</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/134268_1.jpg</ImageUrl>
+    <Title>Картридж Xerox 106R01460</Title>
+    <ModelType>106R01460  </ModelType>
+    <Type>Заправ.комплект  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Xerox</Brand>
+    <Referense>Арт. 134268</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>c2db4533-7c86-46ff-94ea-7bda180949e2</Id>
+    <Price>9 343</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/166535_1.jpg</ImageUrl>
+    <Title>Картридж Xerox 106R01370</Title>
+    <ModelType>106R01370  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Xerox</Brand>
+    <Referense>Арт. 166535</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>5a0a2a13-8ef6-4042-8d37-0616970460db</Id>
+    <Price>15 819</Price>
+    <СartridgeLength>повышенная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/157358_1.jpg</ImageUrl>
+    <Title>Картридж HP 504X</Title>
+    <ModelType>CE250X  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 157358</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>bea46194-8654-4ada-958c-d784796b54b8</Id>
+    <Price>5 767</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/171887_1.jpg</ImageUrl>
+    <Title>Картридж Brother TN135BK</Title>
+    <ModelType>TN-135BK  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Brother</Brand>
+    <Referense>Арт. 171887</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>1af6205c-5778-4225-91d0-7cd218b2647f</Id>
+    <Price>17 897</Price>
+    <СartridgeLength>повышенная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/60837_1.jpg</ImageUrl>
+    <Title>Картридж HP 11X</Title>
+    <ModelType>Q6511X  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 60837</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>5b249fec-de6e-488d-9f91-db474779fed4</Id>
+    <Price>7 867</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/134249_1.jpg</ImageUrl>
+    <Title>Картридж Xerox 106R01305</Title>
+    <ModelType>106R01305  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Xerox</Brand>
+    <Referense>Арт. 134249</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>824cbcee-d0a1-479c-a1a5-41825beacc2f</Id>
+    <Price>7 260</Price>
+    <СartridgeLength>повышенная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/134238_1.jpg</ImageUrl>
+    <Title>Картридж Xerox 113R00730</Title>
+    <ModelType>113R00730  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Xerox</Brand>
+    <Referense>Арт. 134238</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>8e38ffd3-bee7-41e0-95e4-218d9502fe71</Id>
+    <Price>5 378</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/346978_1.jpg</ImageUrl>
+    <Title>Картридж Samsung MLT-P108A</Title>
+    <ModelType>MLT-P108A  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Samsung</Brand>
+    <Referense>Арт. 346978</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>af79e22c-bd0a-42ff-98e5-9e9fea6ee915</Id>
+    <Price>5 831</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/77450_1.jpg</ImageUrl>
+    <Title>Картридж Xerox 013R00625</Title>
+    <ModelType>013R00625  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Xerox</Brand>
+    <Referense>Арт. 77450</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>aa664d5f-2a58-42e3-9988-c24610440080</Id>
+    <Price>6 418</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/288483_1.jpg</ImageUrl>
+    <Title>Картридж OKI 44574705/44574702</Title>
+    <ModelType>44574705/44574702  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>OKI</Brand>
+    <Referense>Арт. 288483</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>4193609d-64d7-4850-a33f-56c1aea5d41c</Id>
+    <Price>5 860</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/166538_1.jpg</ImageUrl>
+    <Title>Картридж Xerox 106R01484</Title>
+    <ModelType>106R01484  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Xerox</Brand>
+    <Referense>Арт. 166538</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>e573586d-cbd4-494d-8d43-609933bd3358</Id>
+    <Price>4 924</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/110794_1.jpg</ImageUrl>
+    <Title>Картридж Samsung ML-D1630A</Title>
+    <ModelType>ML-D1630A  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Samsung</Brand>
+    <Referense>Арт. 110794</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>8243ad75-c622-4af4-bcfb-f23e6445c57e</Id>
+    <Price>5 801</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/161718_1.jpg</ImageUrl>
+    <Title>Картридж Samsung ML-D2850B</Title>
+    <ModelType>ML-D2850B  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Samsung</Brand>
+    <Referense>Арт. 161718</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>eca6bd9c-280e-4867-b674-06301b90d6ca</Id>
+    <Price>9 630</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/155859_1.jpg</ImageUrl>
+    <Title>Картридж HP 504A</Title>
+    <ModelType>CE250A  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 155859</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>d601f9a5-f00c-4346-a708-e1319ef8f904</Id>
+    <Price>6 290</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/99701_1.jpg</ImageUrl>
+    <Title>Картридж Xerox 113R00735</Title>
+    <ModelType>113R00735  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Xerox</Brand>
+    <Referense>Арт. 99701</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>22b0ab3e-9071-4edc-a579-678137a30974</Id>
+    <Price>4 023</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/67397_1.jpg</ImageUrl>
+    <Title>Картридж Samsung SCX-4216D3</Title>
+    <ModelType>SCX-4216D3  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Samsung</Brand>
+    <Referense>Арт. 67397</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>3e99d189-a742-4374-828b-b021958168e5</Id>
+    <Price>3 820</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/128503_1.jpg</ImageUrl>
+    <Title>Картридж Sharp AR016LT</Title>
+    <ModelType>AR016LT  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Sharp</Brand>
+    <Referense>Арт. 128503</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>960c959a-3da0-40c1-8dcb-79bb29efd5bb</Id>
+    <Price>2 790</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/369497_1.jpg</ImageUrl>
+    <Title>Картридж Kyocera TK-8315K</Title>
+    <ModelType>TK-8315K  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Kyocera</Brand>
+    <Referense>Арт. 369497</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>2f77b05d-7e28-4c43-a862-5d124d630f25</Id>
+    <Price>5 995</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/12151_1.jpg</ImageUrl>
+    <Title>Картридж HP 96A</Title>
+    <ModelType>C4096A  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 12151</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>59484a9c-e449-490b-9bc0-d60b980622bf</Id>
+    <Price>10 256</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/67605_1.jpg</ImageUrl>
+    <Title>Картридж Xerox 006R01182</Title>
+    <ModelType>006R01182  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Xerox</Brand>
+    <Referense>Арт. 67605</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>c95664f1-8077-4e16-8c46-00b09dfbdca1</Id>
+    <Price>14 499,90</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/45516_1.jpg</ImageUrl>
+    <Title>Картридж HP 38A</Title>
+    <ModelType>Q1338A  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 45516</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>e5da0ce0-b3bd-4092-8af0-5ce9506e2007</Id>
+    <Price>6 310</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/128483_1.jpg</ImageUrl>
+    <Title>Картридж Kyocera TK-110</Title>
+    <ModelType>TK-110  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Kyocera</Brand>
+    <Referense>Арт. 128483</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>a7bc318c-b3f6-430c-b101-f0913c598b0c</Id>
+    <Price>10 950</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/54390_1.jpg</ImageUrl>
+    <Title>Картридж HP 308A</Title>
+    <ModelType>Q2670A  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 54390</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>7f3b1789-3b06-45e0-8b72-5ff7f2a0a161</Id>
+    <Price>5 160</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/265886_1.jpg</ImageUrl>
+    <Title>Картридж Brother TN-3330</Title>
+    <ModelType>TN-3330  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Brother</Brand>
+    <Referense>Арт. 265886</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>f754355c-2832-49f2-8a4c-3f0cbff3a417</Id>
+    <Price>5 036</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/180368_1.jpg</ImageUrl>
+    <Title>Картридж Canon Cartridge 713  1871B002</Title>
+    <ModelType>Cartridge 713  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Canon</Brand>
+    <Referense>Арт. 180368</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>9d8dd03a-6849-4444-bd7f-f90259dba26d</Id>
+    <Price>5 250</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/65326_1.jpg</ImageUrl>
+    <Title>Картридж Xerox 013R00607</Title>
+    <ModelType>013R00607  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Xerox</Brand>
+    <Referense>Арт. 65326</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>92f7cdce-64fa-4c66-8410-0a94613915e1</Id>
+    <Price>15 070</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/263473_1.jpg</ImageUrl>
+    <Title>Картридж Xerox 106R01536</Title>
+    <ModelType>106R01536  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Xerox</Brand>
+    <Referense>Арт. 263473</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>27c6c071-d60d-426f-ba97-2d3c076d2972</Id>
+    <Price>3 295</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/128486_1.jpg</ImageUrl>
+    <Title>Картридж Kyocera TK-18</Title>
+    <ModelType>TK-18  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Kyocera</Brand>
+    <Referense>Арт. 128486</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>7323418f-e933-4ac4-b79c-8d4455e730dc</Id>
+    <Price>4 940</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/290265_1.jpg</ImageUrl>
+    <Title>Картридж Kyocera TK-8305K</Title>
+    <ModelType>TK-8305K  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Kyocera</Brand>
+    <Referense>Арт. 290265</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>1567d80b-556a-498e-94e5-d0c4eccf7932</Id>
+    <Price>9 020</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/265888_1.jpg</ImageUrl>
+    <Title>Картридж Brother TN-3390</Title>
+    <ModelType>TN-3390  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Brother</Brand>
+    <Referense>Арт. 265888</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>5a7e668e-b3a3-455d-9f89-7d096c8ff000</Id>
+    <Price>3 484,80</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/443299_1.jpg</ImageUrl>
+    <Title>Картридж HP 05L</Title>
+    <ModelType>CE505L  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 443299</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>59ff40a0-5d1c-4941-b526-6169b9d71745</Id>
+    <Price>3 544,45</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/443300_1.jpg</ImageUrl>
+    <Title>Картридж HP 12L</Title>
+    <ModelType>Q2612L  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 443300</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>3f224d54-7186-4bcc-89df-289c1df23082</Id>
+    <Price>7 237</Price>
+    <СartridgeLength>повышенная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/136929_1.jpg</ImageUrl>
+    <Title>Картридж Brother TN-3170</Title>
+    <ModelType>TN-3170  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Brother</Brand>
+    <Referense>Арт. 136929</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>d49a77a6-0fae-4d34-a981-2fdbacb00e0a</Id>
+    <Price>5 880</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/171416_1.jpg</ImageUrl>
+    <Title>Картридж Kyocera TK-340</Title>
+    <ModelType>TK-340  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Kyocera</Brand>
+    <Referense>Арт. 171416</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>d830d62e-3bec-4937-b683-9e9da338e560</Id>
+    <Price>5 248</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/105222_1.jpg</ImageUrl>
+    <Title>Картридж Brother TN-3130</Title>
+    <ModelType>TN-3130  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Brother</Brand>
+    <Referense>Арт. 105222</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>84e8197e-7019-4ef0-8a34-50b892e8be74</Id>
+    <Price>17 100</Price>
+    <СartridgeLength>повышенная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/12355_1.jpg</ImageUrl>
+    <Title>Картридж HP 29X</Title>
+    <ModelType>C4129X  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 12355</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>7a6688d3-1370-4b60-a532-facc3e7a5bc6</Id>
+    <Price>11 754</Price>
+    <СartridgeLength>повышенная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/12357_1.jpg</ImageUrl>
+    <Title>Картридж HP C4127X</Title>
+    <ModelType>C4127X  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 12357</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>ee076e33-8b6c-48fc-a3fa-7030e3173646</Id>
+    <Price>4 670</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/128490_1.jpg</ImageUrl>
+    <Title>Картридж Kyocera TK-420</Title>
+    <ModelType>TK-420  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Kyocera</Brand>
+    <Referense>Арт. 128490</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>ef6650c7-482c-411d-be48-cabec987b0d4</Id>
+    <Price>8 030</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/128492_1.jpg</ImageUrl>
+    <Title>Картридж Kyocera TK-55</Title>
+    <ModelType>TK-55  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Kyocera</Brand>
+    <Referense>Арт. 128492</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>e5fa0c56-8912-4bb9-926f-6c9164fd0819</Id>
+    <Price>3 370</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/128504_1.jpg</ImageUrl>
+    <Title>Картридж Sharp AR168LT</Title>
+    <ModelType>AR168LT  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Sharp</Brand>
+    <Referense>Арт. 128504</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>499566f2-723d-43f9-85e5-92f8d925b004</Id>
+    <Price>15 676</Price>
+    <СartridgeLength>повышенная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/134253_1.jpg</ImageUrl>
+    <Title>Картридж Xerox 113R00726</Title>
+    <ModelType>113R00726  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Xerox</Brand>
+    <Referense>Арт. 134253</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>41f7ed13-f3c8-4161-a559-d072bd884e36</Id>
+    <Price>2 694</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/134270_1.jpg</ImageUrl>
+    <Title>Картридж лазерный Canon Cartridge 715</Title>
+    <ModelType>Cartridge 715  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Canon</Brand>
+    <Referense>Арт. 134270</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>6c8c9fe5-a41e-455b-ad5d-7add54fa5fd1</Id>
+    <Price>14 620</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/148436_1.jpg</ImageUrl>
+    <Title>Картридж HP CB400A</Title>
+    <ModelType>CB400A  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 148436</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>06777aef-0950-4755-965f-4138e8b76936</Id>
+    <Price>16 922,70</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/149621_1.jpg</ImageUrl>
+    <Title>Картридж HP 823A</Title>
+    <ModelType>CB380A  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 149621</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>72a2ecd5-29c6-4fff-a0b3-75f3fb19f6d2</Id>
+    <Price>42 809,40</Price>
+    <СartridgeLength>повышенная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/157352_1.jpg</ImageUrl>
+    <Title>Картридж HP 42X  (Двойная упаковка)</Title>
+    <ModelType>Q5942XD  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 157352</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>d1438c55-33e1-4549-a214-3d54d3b5626d</Id>
+    <Price>5 974</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/161434_1.jpg</ImageUrl>
+    <Title>Картридж OKI 43459348</Title>
+    <ModelType>43459348/43459332  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>OKI</Brand>
+    <Referense>Арт. 161434</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>7d5f9ff0-4b64-46c6-8008-017cd5132488</Id>
+    <Price>4 900</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/167935_1.jpg</ImageUrl>
+    <Title>Картридж Canon Cartridge 707 9424A004</Title>
+    <ModelType>Cartridge 707  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Canon</Brand>
+    <Referense>Арт. 167935</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>00450062-c0cb-4157-877b-81e43bf66586</Id>
+    <Price>10 866</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/170831_1.jpg</ImageUrl>
+    <Title>Картридж Canon Cartridge 706  0264B002</Title>
+    <ModelType>Cartridge 706  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Canon</Brand>
+    <Referense>Арт. 170831</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>b7e7f269-39e3-4ab8-961f-25226f7ffee9</Id>
+    <Price>3 290</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/171883_1.jpg</ImageUrl>
+    <Title>Картридж Brother TN130BK</Title>
+    <ModelType>TN-130BK  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Brother</Brand>
+    <Referense>Арт. 171883</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>e8239030-91c5-42ff-acd8-437107a16ddb</Id>
+    <Price>10 848</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/172021_1.jpg</ImageUrl>
+    <Title>Картридж Canon Cartridge 720  2617B002</Title>
+    <ModelType>Cartridge 720  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Canon</Brand>
+    <Referense>Арт. 172021</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>eef35c60-0a87-459b-891b-95332bee908d</Id>
+    <Price>9 893</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/172527_1.jpg</ImageUrl>
+    <Title>Картридж Samsung MLT-D208L</Title>
+    <ModelType>MLT-D208L  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Samsung</Brand>
+    <Referense>Арт. 172527</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>62c9ffce-927b-424a-bb6a-10af2be02240</Id>
+    <Price>4 569</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/172528_1.jpg</ImageUrl>
+    <Title>Картридж Samsung MLT-D208S</Title>
+    <ModelType>MLT-D208S  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Samsung</Brand>
+    <Referense>Арт. 172528</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>9eda3c41-b5dc-4be0-adf9-71bce7a95ffb</Id>
+    <Price>27 279,90</Price>
+    <СartridgeLength>повышенная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/175360_1.jpg</ImageUrl>
+    <Title>Картридж HP 53X (двойная упаковка)</Title>
+    <ModelType>Q7553XD  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 175360</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>9e4d263f-32fa-42a6-89ff-a6490169b624</Id>
+    <Price>7 750</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/179211_1.jpg</ImageUrl>
+    <Title>Картридж Xerox 106R01459</Title>
+    <ModelType>106R01459  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Xerox</Brand>
+    <Referense>Арт. 179211</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>da43b913-1df6-4b02-9fad-c450e2ba646b</Id>
+    <Price>10 547</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/191332_1.jpg</ImageUrl>
+    <Title>Картридж Xerox 006R01399</Title>
+    <ModelType>006R01399  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Xerox</Brand>
+    <Referense>Арт. 191332</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>e7f4f9a9-fd17-4dcf-aea2-3cfeb01ba74a</Id>
+    <Price>4 573,30</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/201914_1.jpg</ImageUrl>
+    <Title>Картридж Canon Cartridge 726  3483B002AA</Title>
+    <ModelType>Cartridge 726  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Canon</Brand>
+    <Referense>Арт. 201914</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>f7e02d35-e013-4281-8960-dcb99c9e2788</Id>
+    <Price>9 785</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/209358_1.jpg</ImageUrl>
+    <Title>Картридж Ricoh SPC310HE  (406479)</Title>
+    <ModelType>SPC310HE  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Ricoh</Brand>
+    <Referense>Арт. 209358</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>fe1da389-6a40-4663-a53c-3e28ff65730c</Id>
+    <Price>3 508</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/211638_1.jpg</ImageUrl>
+    <Title>Картридж Konica Minolta A202051</Title>
+    <ModelType>TN-217  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Konica Minolta</Brand>
+    <Referense>Арт. 211638</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>5fe0131e-5127-4f8c-9f3d-7c34a21465c0</Id>
+    <Price>5 840</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/219081_1.jpg</ImageUrl>
+    <Title>Картридж Kyocera TK-450</Title>
+    <ModelType>TK-450  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Kyocera</Brand>
+    <Referense>Арт. 219081</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>d5958607-ff63-4078-a91d-6ddc8f816e4a</Id>
+    <Price>4 880</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/224246_1.jpg</ImageUrl>
+    <Title>Картридж Kyocera TK-685</Title>
+    <ModelType>TK-685  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Kyocera</Brand>
+    <Referense>Арт. 224246</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>5e888c40-888d-44a3-8d9c-ac3f73cd0b45</Id>
+    <Price>9 799</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/265050_1.jpg</ImageUrl>
+    <Title>Картридж Samsung MLT-D205E</Title>
+    <ModelType>MLT-D205E  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Samsung</Brand>
+    <Referense>Арт. 265050</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>505bc54e-6165-408e-a997-f874dde526d5</Id>
+    <Price>3 583</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/266562_1.jpg</ImageUrl>
+    <Title>Картридж Kyocera TK-1100</Title>
+    <ModelType>TK-1100  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Kyocera</Brand>
+    <Referense>Арт. 266562</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>25a9ae1c-abd8-4d9b-85a7-9aa0763062ed</Id>
+    <Price>8 553,60</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/290262_1.jpg</ImageUrl>
+    <Title>Картридж Samsung MLT-D305L</Title>
+    <ModelType>MLT-D305L  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Samsung</Brand>
+    <Referense>Арт. 290262</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>87900154-9b0f-4535-abae-bf89abbaef60</Id>
+    <Price>9 652</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/307674_1.jpg</ImageUrl>
+    <Title>Картридж Kyocera TK-150K</Title>
+    <ModelType>TK-150K  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Kyocera</Brand>
+    <Referense>Арт. 307674</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>bbde1fdd-b9ad-4dc4-a820-06c0e3e41aa8</Id>
+    <Price>9 621,90</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/310326_1.jpg</ImageUrl>
+    <Title>Картридж HP 128A (двойная упаковка)</Title>
+    <ModelType>CE320AD  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 310326</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>2d780786-13b0-468d-9954-c4da3c1f2dcf</Id>
+    <Price>7 793</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/313368_1.jpg</ImageUrl>
+    <Title>Картридж Kyocera TK-665</Title>
+    <ModelType>TK-665  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Kyocera</Brand>
+    <Referense>Арт. 313368</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>1ca30516-2ed0-4198-9fe1-1746a75d099b</Id>
+    <Price>3 500,75</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/325272_1.jpg</ImageUrl>
+    <Title>Картридж Ricoh SP300  (406956)</Title>
+    <ModelType>SP300  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Ricoh</Brand>
+    <Referense>Арт. 325272</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>0aa9ee4d-22de-4d43-b725-e44767742d60</Id>
+    <Price>3 733</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/325273_1.jpg</ImageUrl>
+    <Title>Картридж Ricoh SP101E  (407059)</Title>
+    <ModelType>SP101E  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Ricoh</Brand>
+    <Referense>Арт. 325273</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>836a4024-1755-4d8a-b9a6-0d396d660da6</Id>
+    <Price>5 844</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/346979_1.jpg</ImageUrl>
+    <Title>Картридж Samsung CLT-P407B</Title>
+    <ModelType>CLT-P407B  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Samsung</Brand>
+    <Referense>Арт. 346979</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>3e012fd4-3039-4ab5-be58-1246a7d7213b</Id>
+    <Price>9 730</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/352310_1.jpg</ImageUrl>
+    <Title>Картридж Kyocera TK-710</Title>
+    <ModelType>ТК-710  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Kyocera</Brand>
+    <Referense>Арт. 352310</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>7933fc4c-aa7b-4be2-9427-e44dd3e170e0</Id>
+    <Price>4 140</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/390794_1.jpg</ImageUrl>
+    <Title>Картридж Brother TN-326BK</Title>
+    <ModelType>TN-326BK  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Brother</Brand>
+    <Referense>Арт. 390794</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>b6c6e1b5-e0e0-4cb6-ac97-180b69654c27</Id>
+    <Price>8 360</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/392914_1.jpg</ImageUrl>
+    <Title>Картридж HP CF300A</Title>
+    <ModelType>CF300A  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 392914</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>4fa2a9bc-0118-482a-9da9-baf09761a41a</Id>
+    <Price>5 400</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/412549_1.jpg</ImageUrl>
+    <Title>Картридж Xerox Color C550/560 006R010529  black</Title>
+    <ModelType>Color С550/560 006R01529  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Xerox</Brand>
+    <Referense>Арт. 412549</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>c8c4202a-a8a0-47aa-bfbe-685891a53184</Id>
+    <Price>6 786,80</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/46525_1.jpg</ImageUrl>
+    <Title>Картридж HP 24A</Title>
+    <ModelType>Q2624A  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 46525</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>338d01c5-ca8b-4c41-a240-83db4b289e8e</Id>
+    <Price>8 137</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/46680_1.jpg</ImageUrl>
+    <Title>Картридж Xerox 106R00586</Title>
+    <ModelType>106R00586  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Xerox</Brand>
+    <Referense>Арт. 46680</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>3459483b-f3d1-4160-86b3-4b00ae03dd0a</Id>
+    <Price>10 300</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/473680_1.jpg</ImageUrl>
+    <Title>Картридж HP Уценка C9720A</Title>
+    <ModelType>C9720A  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 473680</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>863c678e-abc1-4f01-907e-890caee85b7f</Id>
+    <Price>5 700</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/473682_1.jpg</ImageUrl>
+    <Title>Картридж Xerox Уценка 113R00735</Title>
+    <ModelType>113R00735  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Xerox</Brand>
+    <Referense>Арт. 473682</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>c58b2c7f-9e1d-4122-bca2-3b447cab14b4</Id>
+    <Price>12 000</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/487869_1.jpg</ImageUrl>
+    <Title>Картридж Ricoh Уценка SP4400RH</Title>
+    <ModelType>SP4400RH  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Ricoh</Brand>
+    <Referense>Арт. 487869</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>5d341e08-8060-4ea9-9406-c052a0af6fd8</Id>
+    <Price>15 500</Price>
+    <СartridgeLength>повышенная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/487874_1.jpg</ImageUrl>
+    <Title>Картридж HP Уценка C8543X</Title>
+    <ModelType>C8543X  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 487874</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>7a0478e5-2567-4567-a81d-c00eb18618f1</Id>
+    <Price>21 507,78</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/489824_1.jpg</ImageUrl>
+    <Title>Картридж HP 305X</Title>
+    <ModelType>CE410XD  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 489824</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>e0e47bc5-91ee-4685-b2e5-6a88f0c85ca1</Id>
+    <Price>18 069,73</Price>
+    <СartridgeLength>повышенная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/489826_1.jpg</ImageUrl>
+    <Title>Картридж лазерный HP 131X CF210XD</Title>
+    <ModelType>CF210XD  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 489826</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>7e2cd45b-6565-4d44-bd3e-0b8ecf8e7523</Id>
+    <Price>32 799,14</Price>
+    <СartridgeLength>повышенная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/489829_1.jpg</ImageUrl>
+    <Title>Картридж лазерный HP 80X</Title>
+    <ModelType>CF280XF  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 489829</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>02b2ce6e-4efd-426f-9997-a0fbd5269b25</Id>
+    <Price>7 871,08</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/489832_1.jpg</ImageUrl>
+    <Title>Картридж лазерный HP 201A</Title>
+    <ModelType>CF400A  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 489832</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>fb415566-4673-4110-97f3-a1c9ca6f0ff4</Id>
+    <Price>10 571,77</Price>
+    <СartridgeLength>повышенная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/489833_1.jpg</ImageUrl>
+    <Title>Картридж лазерный HP 201X</Title>
+    <ModelType>CF400X  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 489833</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>f281d522-a02f-4d5a-b8b5-cdd099d90956</Id>
+    <Price>17 856,52</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/489838_1.jpg</ImageUrl>
+    <Title>Картридж лазерный HP 508A</Title>
+    <ModelType>CF360A  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 489838</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>f77ab13d-8a66-4442-8b97-0d462c475db7</Id>
+    <Price>9 283,61</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>голубой  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/489839_1.jpg</ImageUrl>
+    <Title>Картридж лазерный HP 201A</Title>
+    <ModelType>CF401A  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 489839</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>508e4278-52fb-4f8f-ab32-81a2efe17a16</Id>
+    <Price>9 283,61</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>желтый  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/489840_1.jpg</ImageUrl>
+    <Title>Картридж лазерный HP 201A</Title>
+    <ModelType>CF402A  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 489840</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>5f614c07-dbdb-4b8d-a03a-0761ca5ae2d1</Id>
+    <Price>9 283,61</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>пурпурный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/489841_1.jpg</ImageUrl>
+    <Title>Картридж лазерный HP 201А</Title>
+    <ModelType>CF403A  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 489841</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>5df749e1-ac92-4d0a-8262-8fdb78d1e4d5</Id>
+    <Price>22 387,27</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>голубой  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/489845_1.jpg</ImageUrl>
+    <Title>Картридж лазерный HP 508A</Title>
+    <ModelType>CF361A  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 489845</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>376d4808-d911-43de-9fb9-eb2c9dc73638</Id>
+    <Price>22 387,27</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>желтый  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/489846_1.jpg</ImageUrl>
+    <Title>Картридж лазерный HP 508A</Title>
+    <ModelType>CF362A  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 489846</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>2a34ad50-ea50-4f99-b18b-20601ae8c94b</Id>
+    <Price>22 387,27</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>пурпурный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/489847_1.jpg</ImageUrl>
+    <Title>Картридж лазерный HP 508A</Title>
+    <ModelType>CF363A  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 489847</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>206db634-f09a-4b84-9001-a71129f2026a</Id>
+    <Price>21 500</Price>
+    <СartridgeLength>повышенная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/495965_1.jpg</ImageUrl>
+    <Title>Картридж HP Уценка 55X</Title>
+    <ModelType>CE255XD  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 495965</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>02122d80-e231-4911-921f-758fa42472ff</Id>
+    <Price>11 500</Price>
+    <СartridgeLength>повышенная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/495966_1.jpg</ImageUrl>
+    <Title>Картридж HP Уценка CE410XD</Title>
+    <ModelType>CE410XD  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 495966</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>8c76c81a-0a1a-415d-be53-8492cba0ccda</Id>
+    <Price>13 904,10</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/49723_1.jpg</ImageUrl>
+    <Title>Картридж HP 641A</Title>
+    <ModelType>C9720A  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 49723</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>78c89a77-969b-49e2-acad-1a7b7902d21d</Id>
+    <Price>16 000</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/498891_1.jpg</ImageUrl>
+    <Title>Картридж HP Уценка 90X</Title>
+    <ModelType>CE390X  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерная  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 498891</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>b4f9584c-736f-46a6-a317-4f798e7846d3</Id>
+    <Price>13 000</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/498905_1.jpg</ImageUrl>
+    <Title>Картридж HP Уценка 14A</Title>
+    <ModelType>LJ Enterprise 700 M712dn  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 498905</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>f05d21b1-73bf-4f81-8ddd-89292112b45f</Id>
+    <Price>13 000</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/498907_1.jpg</ImageUrl>
+    <Title>Картридж HP Уценка 93A</Title>
+    <ModelType>LJ Pro M435nw  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 498907</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>3602bc80-0592-4cd4-a68a-3f632f9a1d39</Id>
+    <Price>17 500</Price>
+    <СartridgeLength>повышенная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/498909_1.jpg</ImageUrl>
+    <Title>Картридж HP Уценка 43X</Title>
+    <ModelType>LJ P2035/P2055  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>HP</Brand>
+    <Referense>Арт. 498909</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>4ed447f5-4b5b-40d2-8275-8bba7bb30d7a</Id>
+    <Price>9 320</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/53394_1.jpg</ImageUrl>
+    <Title>Картридж Epson C13S050167</Title>
+    <ModelType>C13S050167  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Epson</Brand>
+    <Referense>Арт. 53394</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>492f52f0-5bc6-40ef-b5aa-aaafd6e832f4</Id>
+    <Price>7 460</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/56196_1.jpg</ImageUrl>
+    <Title>Картридж Xerox 113R00667</Title>
+    <ModelType>113R00667  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Xerox</Brand>
+    <Referense>Арт. 56196</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>698fc465-9072-4238-ae1a-1ef440700c24</Id>
+    <Price>8 567</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/60839_1.jpg</ImageUrl>
+    <Title>Картридж Samsung ML-2250D5</Title>
+    <ModelType>ML-2250D5  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Samsung</Brand>
+    <Referense>Арт. 60839</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>83b267c3-bb07-44b9-879c-71971a1037ff</Id>
+    <Price>5 061</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/65331_1.jpg</ImageUrl>
+    <Title>Картридж лазерный Xerox 109R00747</Title>
+    <ModelType>109R00747  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Xerox</Brand>
+    <Referense>Арт. 65331</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>0f5063a3-cd61-47d4-8146-67fc549f0f85</Id>
+    <Price>10 654</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/67567_1.jpg</ImageUrl>
+    <Title>Картридж лазерный Xerox 113R00657</Title>
+    <ModelType>113R00657  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Xerox</Brand>
+    <Referense>Арт. 67567</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>70f7fb40-67f5-4220-81e3-5b2fd10d6dcd</Id>
+    <Price>6 480</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/72819_1.jpg</ImageUrl>
+    <Title>Картридж Xerox 013R00621</Title>
+    <ModelType>013R00621  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Xerox</Brand>
+    <Referense>Арт. 72819</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>499454d7-d260-4156-8cc4-7ee759322ea7</Id>
+    <Price>8 156</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/90732_1.jpg</ImageUrl>
+    <Title>Картридж Xerox 113R00692</Title>
+    <ModelType>113R00692  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Xerox</Brand>
+    <Referense>Арт. 90732</Referense>
+  </WebParserModel>
+  <WebParserModel>
+    <Id>5828cdcc-a14b-4cd8-bd35-4e4845fc0098</Id>
+    <Price>3 324</Price>
+    <СartridgeLength>стандартная  </СartridgeLength>
+    <Color>черный  </Color>
+    <ImageUrl>http://www.komus.ru/photo/_main/91722_1.jpg</ImageUrl>
+    <Title>Картридж Samsung CLP-K300A</Title>
+    <ModelType>CLP-K300A  </ModelType>
+    <Type>картридж  </Type>
+    <PrintType>лазерный  </PrintType>
+    <Quantity>0</Quantity>
+    <Brand>Samsung</Brand>
+    <Referense>Арт. 91722</Referense>
+  </WebParserModel>
+</ArrayOfWebParserModel>

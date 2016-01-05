@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+
+    @Styles.Render("~/Content/kcss")
+    @Styles.Render("~/Content/admcss")
+    @Styles.Render("~/Content/admlogincss")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    <title>@ViewBag.Title</title>
+  
+ 
+</head>
+<body>
+    <div class="adm-login-form">
+    <div  class="adm-wrapper clear-fix">
+        @RenderBody()
+    </div>
+        <div class="adm-copyright">
+           
+
+        </div>
+        </div>
+</body>
+</html>

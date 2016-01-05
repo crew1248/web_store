@@ -1,0 +1,89 @@
+﻿<style>
+    #carousel-main {
+        position: relative;
+    visibility: hidden;
+    height: 360px;
+    width: 640px;
+    }
+    .carousel-main__loader {
+        position: absolute;
+    z-index: 1;
+    visibility: visible;
+    top: 50%;
+    left: 50%;
+    }
+    .carousel-wrapper {
+            width: 640px!important;
+    margin: 0 auto;
+    }
+
+</style>
+<script>
+    $.getJSON('/Slider/GetData', function (data) {
+        //return false;
+        //alert(data.dataList[0].Title);
+        for (var i = 0; i < data.dataList.length; i++) {
+           
+            if (i == 0) {
+                $('.carousel-indicators').append(
+                ' <li data-target="#carousel-main" data-slide-to="0" class="active"></li>'
+                );
+                $('.carousel-inner').append(
+                    '<div class="item active">' +
+                    '<img src="/Slider/GetSliderImage?id=' + data.dataList[i].ID + '&width=640&height=360" class="img-responsive" />' +
+                    ' <div class="carousel-caption">'+
+                    '<h3>' + data.dataList[i].Title + '</h3>'+
+                    '<p>'+data.dataList[i].Description+'</p>'
+                    );
+            }
+            else {
+                $('.carousel-indicators').append(
+               ' <li data-target="#carousel-main" data-slide-to="'+i+'"></li>'
+               );
+                $('.carousel-inner').append(
+                    '<div class="item">' +
+                    '<img  src="/Slider/GetSliderImage?id=' + data.dataList[i].ID + '&width=640&height=360" class="img-responsive" />' +
+                    ' <div class="carousel-caption">' +
+                    '<h3>' + data.dataList[i].Title + '</h3>' +
+                    '<p>' + data.dataList[i].Description + '</p>'
+                    );
+            }
+        }
+        setTimeout(function () { $('#carousel-main').css('visibility', 'visible'); $('.carousel-main__loader').hide(); }, 500);
+        
+
+    });
+</script>
+<div id="carousel-main" class="carousel slide" data-ride="carousel">
+    <img src="~/Content/ajax-loaders/5.gif" class="carousel-main__loader" />
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        @*<li data-target="#carousel-main" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-main" data-slide-to="1"></li>
+        <li data-target="#carousel-main" data-slide-to="2"></li>*@
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+        @*<div class="item active">
+            <img alt="img" width="400" height="400" src="/Content/Files/AaL1dG-Qwas.jpg"  class="img-responsive">
+            
+            <div class="carousel-caption">
+                <h3>
+                    Здесь заголовок для слайда
+                </h3>
+                <p>Здесь описание для слайда Здесь описание для слайда Здесь описание для слайда</p>
+
+            </div>
+        </div>*@
+      
+    </div>
+
+    <!-- Controls -->
+    <a class="left carousel-control" href="#carousel-main" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+    </a>
+    <a class="right carousel-control" href="#carousel-main" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+    </a>
+</div>

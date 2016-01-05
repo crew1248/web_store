@@ -1,0 +1,54 @@
+﻿@model  x_nova_template.ViewModel.ProductViewModel
+@{
+    var pType = new List<SelectListItem> {
+        new SelectListItem {Text="Верхняя одежда",Value="Верхняя одежда"},
+        new SelectListItem {Text="Толстовки и олимпийки",Value="Толстовки и олимпийки"},
+        new SelectListItem {Text="Джемперы и кардиганы",Value="Джемперы и кардиганы"},
+        new SelectListItem {Text="Плащ",Value="Плащ"},
+        new SelectListItem {Text="Ветровка",Value="Ветровка"}
+
+    };
+}
+<div class="product-view k-widget">
+    <dl>
+
+        <!--
+        <dt>Название S</dt>
+        <dd>
+
+            @(Html.TextBoxFor(p=>p.ProductName))
+
+            <span data-for="ProductName" class="k-invalid-msg"></span>
+        </dd>
+        -->
+        <dt>Название</dt>
+        <dd>
+            @(Html.TextBoxFor(p => p.ProductName))
+            <!-- UnitPrice validation message placeholder -->
+            <span data-for="Price" class="k-invalid-msg"></span>
+        </dd>
+        <dt>Описание</dt>
+        <dd>
+            @(Html.TextAreaFor(p => p.Description, new { style = "height:50px;" }))
+            <!-- UnitsInStock validation message placeholder -->
+            <span data-for="Description" class="k-invalid-msg"></span>
+        </dd>
+        <dt>Цена</dt>
+        <dd>
+            @(Html.TextBoxFor(p => p.Price, new { style = "width:50px;" }))
+            <!-- UnitsInStock validation message placeholder -->
+            <span data-for="Description" class="k-invalid-msg"></span>
+        </dd>
+        <dt>Категория</dt>
+        <dd>
+            @(Html.DropDownListFor(p => p.CategoryID, (SelectList)ViewBag.Cats, new { style = "width:200px;" }))
+            <!-- UnitsInStock validation message placeholder -->
+            <span data-for="Description" class="k-invalid-msg"></span>
+        </dd>
+
+
+
+
+    </dl>
+
+</div>

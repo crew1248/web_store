@@ -1,0 +1,20 @@
+﻿
+
+
+
+<h2 class="header1">@Resource.Portfolio</h2>
+<div class="folio-wrap" style="float: left;">
+    
+    <div class="first-half">
+   @{Html.RenderAction("GetFirstHalfPortfolio","PhotoGallery");}
+    </div>
+    <div class="second-half">
+   @{Html.RenderAction("GetSecondHalfPortfolio", "PhotoGallery");}
+    </div>
+    <div class="folio-crls">
+        <span class="next"></span>
+        <span class="prev"></span>
+    </div>
+</div>
+
+		

@@ -1,0 +1,15 @@
+﻿@model x_nova_template.ViewModel.CheckoutViewModel
+<h3>Оплата</h3>
+@using (Html.BeginForm("ProceedPayment", "Checkout"))
+{
+    @Html.AntiForgeryToken()
+    <div>
+        выберите способ оплаты -
+
+    </div>
+    @Html.DropDownListFor(x => x.Payment, Model.PaymentList, new { style = "width:auto" })
+
+    <div>
+        <input type="submit" style="width:200px" class="newitem-button" value="Оформить заказ" />
+    </div>
+}

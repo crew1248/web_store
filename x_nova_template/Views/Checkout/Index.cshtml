@@ -1,0 +1,55 @@
+﻿@model x_nova_template.ViewModel.CheckoutViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_SecondLayout.cshtml";
+}
+<script>
+    $('a.inactive').on('click', function () { return false; });
+    
+    $('ol.breadcrumb li')
+</script>
+
+    @{var step3 = ViewBag.Step3 ?
+   Html.ActionLink("Доставка", "Index", "Checkout", new { step = 3 }, new { @class = "addtocart" }) :
+   Html.ActionLink("Доставка", "Index", "Checkout", new { step = 3 }, new { @class = "inactive", disabled = "disabled" });
+
+    var step4 = ViewBag.Step4 ?
+          Html.ActionLink("Оплата", "Index", "Checkout", new { step = 4 }, new { @class = "addtocart" }) :
+          Html.ActionLink("Оплата", "Index", "Checkout", new { step = 4 }, new { @class = "inactive", disabled = "disabled" });
+    var step2 = ViewBag.Step2 ?
+        Html.ActionLink("Детали", "Index", "Checkout", new { step = 2 }, new { @class = "addtocart" }) :
+        Html.ActionLink("Детали", "Index", "Checkout", new { step = 2 }, new { @class = "inactive" });
+    var step1 = Html.ActionLink("Корзина", "Index", "Checkout", new { step = 1 }, new { @class = "addtocart" });
+    }
+
+    <ol class="breadcrumb">
+        @if (ViewBag.step == 1){<li class="active">Корзина</li>}
+        else{<li >@step1</li> }
+         @if (ViewBag.step == 2){<li class="active">Детали</li>}
+        else{<li>@step2</li> }         
+        @if (ViewBag.step == 3){<li class="active">Доставка</li>}
+        else{<li >@step3</li> }
+        @if (ViewBag.step == 4){<li class="active">Оплата</li>}
+        else{<li>@step4</li> }
+</ol>
+<p id="ch-content">
+    @if (ViewBag.Step == 1)
+    {
+       
+                
+        Html.RenderAction("Index", "Cart");
+    }
+    else if (ViewBag.Step == 2)
+    {
+        @Html.Partial("_ShippingDetails")
+    }
+    else if (ViewBag.Step == 3)
+    {
+        @Html.Partial("_Delivery")
+    }
+    else
+    {
+        @Html.Partial("_Payment")
+    }
+</p>
+

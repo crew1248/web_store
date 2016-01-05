@@ -1,0 +1,139 @@
+﻿@model x_nova_template.Models.Menu
+@using x_nova_template.Areas.Admin.Controllers
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@{
+    bool selected = ViewBag.type == 1 ? true : false;
+    var sectionList = new List<SelectListItem> {
+        new SelectListItem  {Text="первый раздел",Value="0"},
+        new SelectListItem  {Text="второй раздел",Value="1",Selected=selected}
+
+    };
+}
+
+<p class="breadcrumbs" style="font-weight:bold;">
+    @Html.ActionLink("список меню", "MenuList", new { type = ViewBag.type, page = ViewBag.page })  &rArr;
+@if (Model.ParentId != 0)
+{
+    <text>@Html.ActionLink(MenuController.GetMenuName(Model.ParentId), "Details", new { id = Model.ParentId })  &rArr;</text>}
+<span style="font-weight:normal;">@Model.Text</span>
+</p>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend> Редактирование</legend>
+        <div class="menu-options">
+            @Html.HiddenFor(model => model.Id)
+            @Html.Hidden("page", (int)ViewBag.page)
+
+            <div class="editor-label">
+                Id-родитель
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.ParentId)
+                @Html.ValidationMessageFor(model => model.ParentId)
+            </div>
+
+            <div class="editor-label">
+                Название
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.Text)
+                @Html.ValidationMessageFor(model => model.Text)
+            </div>
+            <div class="editor-label">
+                Название в URL
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.Url)
+                @Html.ValidationMessageFor(model => model.Url)
+            </div>
+
+            <div class="editor-label">
+                Сортировка
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.SortOrder)
+                @Html.ValidationMessageFor(model => model.SortOrder)
+            </div>
+            @if (Model.ParentId == 0)
+            {
+                <div class="editor-label">
+                    Раздел меню
+                </div>
+                <div class="editor-field">
+                    @Html.DropDownListFor(model => model.MenuSection, sectionList)
+                    @Html.ValidationMessageFor(model => model.MenuSection)
+                </div>
+            }
+            else
+            {<div>@Html.Hidden("MenuSection", (int)ViewBag.type)</div>}
+        </div>
+        <div class="menu-seo">
+            <p>Для SEO</p>
+            <div class="editor-label">
+                Ключевые слова
+            </div>
+            <div class="editor-field">
+                @Html.TextAreaFor(model => model.SeoKeywords, htmlAttributes: new { style = "height:100px;width:300px" })
+                @Html.ValidationMessageFor(model => model.SeoKeywords)
+            </div>
+            <div class="editor-label">
+                Описание
+            </div>
+            <div class="editor-field">
+                @Html.TextAreaFor(model => model.SeoDescription, htmlAttributes: new { style = "height:100px;width:300px" })
+                @Html.ValidationMessageFor(model => model.SeoDescription)
+            </div>
+        </div>
+        <div class="editor-label" style="clear:both;">
+            Контент
+        </div>
+        <div class="editor-field">
+            @Html.TextAreaFor(m => m.Body)
+        </div>
+        <!--  <div class="editor-label" style="clear:both;">
+             Контент для Eng
+         </div>
+         <div class="editor-field">
+
+         </div>-->
+        <p>
+            <button class="k-button k-primary" type="submit">Сохранить</button>
+        </p>
+    </fieldset>
+}
+<div>
+    @if (Model.ParentId == 0)
+    {
+        <a class="k-button" type="button" href="@Url.Action("MenuList", "Menu", new { type = ViewBag.type, page = ViewBag.page })">Отмена</a>
+    }
+    else
+    {
+        <a class="k-button" type="button" href="@Url.Action("Details", "Menu", new { id = Model.ParentId,page=ViewBag.page })">Отмена</a>
+    }
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+<script>
+    window.onload = function () {
+        CKEDITOR.replace('Body');
+
+    };
+
+</script>
+<script src="//cdn.ckeditor.com/4.4.3/full/ckeditor.js"></script>
+<script type="text/javascript">
+    $(function () { $('input[name="SortOrder"]').attr('type', 'number'); });
+</script>
+<style>
+    input[type="text"] {
+        width: 100%;
+    }
+</style>

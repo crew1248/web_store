@@ -1,0 +1,39 @@
+﻿@model x_nova_template.ViewModel.PostViewModel
+
+
+@{
+    ViewBag.Title = "Отчет о проектах";
+    Layout = "~/Views/Shared/_PageMenuLayout.cshtml";
+}
+
+
+<h2>Новости</h2>
+
+@foreach (var item in Model.Posts) {
+    <div class="postContainer" style="padding-left: 0px;padding-right: 10px;display:block;">
+    <table style="border-collapse: collapse; border-spacing: 0px;padding: 21px 0px 10px 10px;min-width:450px;display:table;">
+    <tbody>
+
+    
+    <tr>
+    <td style="padding: 0 10px 10px 0;">@item.CreatedAt.ToString("dd/MM/yyyy").ToLower() - <a href="@Href("~/Post/Details/"+item.ID)">@item.Title</a></td></tr>
+             
+             @if (string.IsNullOrWhiteSpace(item.Preview))
+             { <text></text> }
+             else
+             {/*<tr><td style="padding-bottom: 30px;padding-right: 10px;"> @Html.Raw(item.Preview)
+                  </td>
+              
+              </tr> */}
+ 
+      
+            
+
+
+            </tbody>
+       </table>
+       </div>
+}
+ <div class="pager">
+   @Html.PageLinks(Model.PagingInfo,x=> Url.Action("Index", new {page=x }))
+</div>

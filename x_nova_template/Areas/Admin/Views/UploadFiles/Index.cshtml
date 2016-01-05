@@ -1,0 +1,75 @@
+﻿@model x_nova_template.ViewModel.FilesViewModel
+@using x_nova_template.Extension
+@{
+    ViewBag.Title = "Index";
+
+
+
+}
+
+<div>
+
+
+
+    <div class="pager">
+        <table class="admTable stripedMe">
+            <tr class="tdTitle">
+                <th style="width:50px;">Превью</th>
+                <th style="width:300px;">Файлы</th>
+                <th style="width:300px;">Ссылка на файл</th>
+                <th style="width:150px;">Размер</th>
+                <th style="width:50px;">Удалить</th>
+            </tr>
+            @foreach (var file in Model.Files)
+            {
+                var row = Path.GetFileNameWithoutExtension(Path.GetFileName("~/Content/Files/" + file));
+                long size = file.Length;
+                <tr id="@(row+file.Length)">
+                    <td>
+                        @if (file.Extension.ToLower().Contains("jp") || file.Extension.ToLower().Contains("png"))
+                        {
+                            <img class="preview files-img" title="@file.Name" width="15" height="15" src="/Content/Files/@file.Name" />
+                        }
+
+                    </td>
+                    <td><span title="@file">@(file.Name.Length > 20 ? file.Name.Substring(0, 20) + "..." : file.Name)</span> </td>
+                    <td><span title="@file">/Content/Files/@file.Name  </span></td>
+                    <td>@size.ToFileSize()</td>
+                    <td><i class="fa fa-trash file-d" data-row="@(row+file.Length)" data-file="@file"></i></td>
+                </tr>
+            }
+            <tr>
+                <td colspan="5" style="width:800px;">
+                    @Ajax.AjaxPageLinks(Model.PagingInfo)
+                </td>
+            </tr>
+        </table>
+
+
+    </div>
+</div>
+@helper getDefaultImgSize(string path)
+{
+    var webImg = new WebImage(path);
+    <text>data-w="@webImg.Width" data-h="@webImg.Height"</text>
+
+}
+
+
+<script>
+   
+    $(function () {
+       
+        
+        $(document).on("click", ".page-link", function (e) {
+           
+            $.get("/Admin/UploadFiles/Index", { page: $(this).data('page') }, function (data) {
+              
+                $("#FilesList").html(data);
+                $(".stripedMe tbody tr:even").addClass("alt");
+                imagePreview();
+            });
+
+        });
+    });
+</script>

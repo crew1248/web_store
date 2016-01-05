@@ -1,0 +1,14 @@
+﻿@model IEnumerable<x_nova_template.Models.Category>
+<script>
+    $(function () {
+        $('#catsList li').filter(function () {
+            return $(this).data('catId') == '@HttpContext.Current.Request.QueryString["catId"]';
+        }).addClass('selected-cat');
+    });
+</script>
+
+<ul id="catsList">
+    @foreach(var item in Model){
+        <li data-cat-id="@item.ID"><i class="icon-check"></i><span><a href="@Url.Action("ProdList", "Product", new {catId=item.ID })" >@item.CategoryName</a></span></li>
+    }
+</ul>

@@ -1,0 +1,21 @@
+﻿@model IEnumerable<x_nova_template.Models.Product>
+
+
+@Scripts.Render("~/bundles/mslider")
+
+
+<div class="slider-wrap clear-fix">
+    @{int circleCounter = 0; int slideCounter = 0;}
+    @foreach (var item in Model)
+    {
+
+        <a href="/Product/Details/@item.ID" class="sl-slide"  title="@item.ProductName" onmousemove=""><div class="sl-circle" style="background-image:url(@Url.Action("GetProdImage", "ImageData" , new {pid=item.ID,width =300,height =300 },Request.Url.Scheme))"><div class="anim-border_@slideCounter"></div> </div></a>
+        circleCounter++;
+        if (slideCounter == 4) { slideCounter = 1; }
+        else { slideCounter++; }
+    }
+
+
+
+</div>
+

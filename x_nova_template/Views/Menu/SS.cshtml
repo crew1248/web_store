@@ -1,0 +1,9 @@
+﻿@model IEnumerable<x_nova_template.Models.Menu>
+
+
+           @if(ViewBag.IsFoot!=null){
+               @Html.SiteMenuAsUnorderedList(Model.ToList(),true)
+           }
+           else { 
+               @Html.SiteMenuAsUnorderedList(Model.ToList());
+           }

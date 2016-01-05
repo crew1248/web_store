@@ -1,0 +1,67 @@
+﻿@model x_nova_template.Models.ResetPasswordViewModel
+
+@Scripts.Render("~/bundles/ajaxset")
+
+<div class="modalh">
+    <h3 class="headline">Задать новый пароль</h3>
+    <div class="md-close iconicfill-x"><button class="xn-close-btn-bl"></button></div>
+</div>
+<div class="modalp" style="overflow:hidden">
+    <p id="md-fail"></p>
+    @using (Ajax.BeginForm("Mset", "Account", new AjaxOptions
+    {
+        HttpMethod = "post",
+        OnSuccess = "onSuccess",
+        OnBegin = "onBegin",
+        OnComplete = "onComplete",
+        OnFailure = "onFailure"
+
+    }, new { id = "set__form", @data_content_type = "setForm" }))
+    { @Html.AntiForgeryToken()
+        @Html.Hidden("UserId",(string)ViewBag.UserId)
+        @Html.Hidden("Code", (string)ViewBag.Code)
+        @Html.Hidden("Email", "email@email.ru")
+        <div id="m-target" class="modal-wrap">
+
+            <div class="feededitor">
+                @Html.PasswordFor(model => model.Password, new { placeholder = "Новый Пароль" })
+                <div class="feed-valid"> @Html.ValidationMessageFor(x => x.Password)</div>
+            </div>
+            <div class="feededitor">
+                @Html.PasswordFor(model => model.ConfirmPassword, new { placeholder = "Подтверждение пароля" })
+                <div class="feed-valid"> @Html.ValidationMessageFor(x => x.ConfirmPassword)</div>
+            </div>
+
+            @if (Convert.ToBoolean(System.Configuration.ConfigurationManager.AppSettings["AllowCaptcha"]))
+            {
+                <div id="wall-anti-spam">
+                    <div class="reg-label" style="float:left;padding:0">Введите слово&nbsp;&nbsp;&nbsp;&nbsp;  </div>
+                    <div id="captcha" class="reply-protect" style="height:30px;width:130px;float:left">
+                        @{Html.RenderAction("Captcha", "DataCaptcha", new { set = 2 });}
+                    </div>
+                    <script>
+
+                        $(document).on("click", "#loadCaptcha_2", function () {
+                            $("#wallCaptcha_2").attr("src", "/DataCaptcha/Show?" + (new Date()).getTime());
+
+                        });
+
+                    </script>
+
+                    <div class="captchainput" style="width: 100px;padding-left: 20px;float: left;">
+
+                        @Html.TextBox("Captcha", null, new { id = "Captcha-Input-r", style = "width:100px" })
+
+
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="feededitor">
+            <input type="submit" class="xn-dark-button" id="set_but" value="Отправить">
+        </div>
+    }
+   
+
+    
+</div>

@@ -1,0 +1,130 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<h2>Главная панель </h2>
+@(Html.Kendo().Notification()
+    .Name("siteinfo_1")
+        .AppendTo(".adm-notify-box3")
+    .AutoHideAfter(0)
+    .Templates(x =>
+    {
+        x.Add().Type("info").ClientTemplateID("siteinfo1");
+    })
+)
+@(Html.Kendo().Notification()
+    .Name("siteinfo_3")
+        .AppendTo(".adm-notify-box4")
+    .AutoHideAfter(0)
+    .Templates(x =>
+    {
+        x.Add().Type("info").ClientTemplateID("siteinfo1");
+    })
+)
+@(Html.Kendo().Notification()
+    .Name("siteinfo_2")
+    .AppendTo(".adm-notify-box5")
+    .AutoHideAfter(0)
+    .Templates(x =>
+    {
+        x.Add().Type("warning").ClientTemplateID("siteinfo2");
+
+        //x.Add().Type("info").ClientTemplateID("siteinfo2");
+        //x.Add().Type("info").ClientTemplateID("siteinfo3");
+    })
+)
+<script type="text/x-kendo-template" id="siteinfo1">
+    <div class="main-info">
+        <h3> #= title #</h3>
+        <p>#= message #</p>
+    </div>
+</script>
+@*<script type="text/x-kendo-template" id="siteinfo2">
+        <i class="icon-user"></i>&nbsp;
+        <h3>#= title #</h3>
+        <p>#= message #</p>
+
+    </script>*@
+<script type="text/x-kendo-template" id="siteinfo2">
+    <div class="main-info">
+        <h3><span><i class="icon-bar-chart"></i></span> #= title #</h3>
+        <ul>
+            @using (x_nova_template.Models.ApplicationDbContext db = new x_nova_template.Models.ApplicationDbContext())
+            {
+                <li>
+                    <h4> Новости - @db.Posts.Count()</h4>
+                    <div>
+
+                    </div>
+                </li>
+                <li>
+                    <h4>Продукция - @db.Products.Count()</h4>
+                    <div>
+
+                    </div>
+                </li>
+                <li>
+                    <h4> Категории - @db.Categories.Count()</h4>
+                    <div>
+
+                    </div>
+                </li>
+                <li>
+                    <h4>Меню - @db.Menues.Count()</h4>
+                    <div>
+
+                    </div>
+                </li>
+            }
+        </ul>
+
+        <div class="box1-content">
+            <p>пользователей онлайн - @HttpContext.Current.Application["OnlineUsers"]</p>
+            <p>всего посетило сайт - @HttpContext.Current.Application["AllVisiters"]</p>
+        </div>
+    </div>
+</script>
+<script>
+
+    $(function () {
+
+        var notification = $("#siteinfo_1").data("kendoNotification");
+
+        notification.show({
+
+            title:"<span><i class='icon-user'></i></span> Вы вошли как:",
+            message:"@ViewBag.regex"
+        }, "info");
+        var notification3 = $("#siteinfo_3").data("kendoNotification");
+        notification3.show({
+            title: "<span><i class='icon-unlock'></i></span> Дата начала работы сайта:",
+            message:"@System.Configuration.ConfigurationManager.AppSettings["SiteStart"]"
+        }, "info");
+        var notification2 = $("#siteinfo_2").data("kendoNotification");
+        notification2.show({title:'Статистика:'},'warning');
+
+    });
+</script>
+<div class="adm-notify-box3 adm-notify"></div>
+<div class="adm-notify-box4 adm-notify"></div>
+<div class="adm-notify-box5 adm-notify1"></div>
+@(Html.Kendo().Notification()
+    .Name("notification")
+    .Position(x => x.Left(0))
+    .AutoHideAfter(10000)
+)
+@if (TempData["message"] != null)
+{
+    <script>
+
+        $(function () {
+
+            var notification = $("#notification").data("kendoNotification");
+            var type ="";
+            switch(@TempData["type"]){case 1:type="success";break;case 2:type="info";break;case 3:type="warning";break;default:type="error";};
+            notification.show(
+               '@TempData["message"]'
+            ,type);
+        });
+    </script>
+}

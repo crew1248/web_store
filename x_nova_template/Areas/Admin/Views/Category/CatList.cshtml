@@ -1,0 +1,41 @@
+﻿@model IEnumerable<x_nova_template.Models.Category>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Categories</h2>
+
+<div>
+@foreach (var item in Model)
+{ 
+<div>
+    <div>Категория - @item.CategoryName</div><br />
+    <a href="javascript:void()" style="text-decoration:dotted;" class="prod-view" data-prod-wrap="#prod-wrap-@item.ID" >продукты:</a>
+
+    <div id="prod-wrap-@item.ID" style="display:none;">
+    @foreach (var it in item.Products)
+    { 
+    <div>
+        @it.ProductName,  цена - @it.Price
+    </div>
+    }
+        </div>
+</div>
+}
+   
+    </div>
+
+<script>
+    $(function () {
+    $(document).on('click', '.prod-view', function () {
+       
+        var wrap = $(this).data('prodWrap');
+        if ($(wrap).is(":visible")) {
+            $(wrap).hide();
+        } else { $(wrap).show();}
+            
+        });
+    });
+
+</script>

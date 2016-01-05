@@ -1,0 +1,279 @@
+﻿/*       Anim menu    */
+.m-item
+{
+    z-index:99;
+    position:relative;
+    margin-left: 15px;
+}
+.sub-menu div
+{
+    text-align:left;
+    padding:0 0 5px 10px;
+}
+.triangle
+{
+ width: 100px;
+height: 30px;
+position: absolute;
+overflow: hidden;
+top: -20px;
+left: 25px!important;
+}
+.triangle:after
+{
+  content: "";
+position: absolute;
+width: 20px;
+height: 20px;
+background: #192127;
+transform: rotate(45deg);
+-webkit-transform: rotate(45deg);
+top: 15px;
+
+box-shadow: -1px -1px 10px -2px rgba(0, 0, 0, 0.5);
+}
+.sub-item{
+
+}
+.sub-links-wrap
+{
+z-index:110;
+    position:relative;
+overflow:hidden;   
+    padding:0!important;
+   display:none;
+}
+.sub-menu
+{
+ background: #192127;
+position: absolute;
+width: auto;
+min-width: 150px;
+height: auto;
+padding: 10px;
+box-shadow: 0 0 5px #808080;
+margin-top:30px;
+top:50px;
+opacity:0;
+z-index: 100;
+
+}
+#toleft
+{
+    left:150px;
+}   
+.sub-outer
+{
+min-width: 100px;
+padding-top: 60px!important;
+height: 100%;
+
+top: -48px;
+
+position: absolute;
+z-index: 100;
+}
+.sub-menu a
+{
+    color:#dadada;
+}
+.sub-menu a:hover
+{
+    color:#49AAE4;
+    text-decoration:none;
+    border-bottom: 1px solid #49AAE4;
+}
+
+ul.nav
+{
+    position:relative;
+}
+ul{
+    font-size:15px;
+  list-style:none;
+  display:inline-block;
+}
+
+li{
+  font-weight:bold;
+  margin:0;
+  padding:0;
+  float:left;
+  padding:0px;
+  
+  color: white;
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  -webkit-perspective: 600px;
+     -moz-perspective: 600px;
+      -ms-perspective: 600px;
+       -o-perspective: 600px;
+          perspective: 600px;
+
+  -webkit-perspective-origin: 50% 50%;
+     -moz-perspective-origin: 50% 50%;
+      -ms-perspective-origin: 50% 50%;
+       -o-perspective-origin: 50% 50%;
+          perspective-origin: 50% 50%;          
+}
+
+
+/*
+  li span variations 
+*/
+li span{
+  display: block;
+  position: relative;
+  padding:10px;
+    color:#373737;
+  -webkit-transition: all .4s ease;
+     -moz-transition: all .4s ease;
+      -ms-transition: all .4s ease;
+       -o-transition: all .4s ease;
+          transition: all .4s ease;
+
+  -webkit-transform-origin: 50% 0%;
+     -moz-transform-origin: 50% 0%;
+      -ms-transform-origin: 50% 0%;
+       -o-transform-origin: 50% 0%;
+          transform-origin: 50% 0%;
+
+  -webkit-transform-style: preserve-3d;
+     -moz-transform-style: preserve-3d;
+      -ms-transform-style: preserve-3d;
+       -o-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+
+}
+.rotate.middle li span, .reverse li span{
+  -webkit-transform-origin: 0% 50%;
+     -moz-transform-origin: 0% 50%;
+      -ms-transform-origin: 0% 50%;
+       -o-transform-origin: 0% 50%;
+          transform-origin: 0% 50%;
+}
+
+.rotate.bottom li span{
+  -webkit-transform-origin: 0% 100%;
+     -moz-transform-origin: 0% 100%;
+      -ms-transform-origin: 0% 100%;
+       -o-transform-origin: 0% 100%;
+          transform-origin: 0% 100%;
+}
+
+li.hovered span {
+ -webkit-transform-origin: 0% 50%;
+     -moz-transform-origin: 0% 50%;
+      -ms-transform-origin: 0% 50%;
+       -o-transform-origin: 0% 50%;
+          transform-origin: 0% 50%;
+}
+
+/*
+  li:hover span variations 
+*/ 
+li:hover span, .rotate.middle li:hover span {
+  background: #ddd;
+  -webkit-transform: translate3d( 0px, 0px, -30px ) rotateX( 90deg );
+     -moz-transform: translate3d( 0px, 0px, -30px ) rotateX( 90deg );
+      -ms-transform: translate3d( 0px, 0px, -30px ) rotateX( 90deg );
+       -o-transform: translate3d( 0px, 0px, -30px ) rotateX( 90deg );
+          transform: translate3d( 0px, 0px, -30px ) rotateX( 90deg );
+}
+.reverse li:hover span {
+  -webkit-transform: translate3d( 0px, 0px, -30px ) rotateX( -90deg );
+     -moz-transform: translate3d( 0px, 0px, -30px ) rotateX( -90deg );
+      -ms-transform: translate3d( 0px, 0px, -30px ) rotateX( -90deg );
+       -o-transform: translate3d( 0px, 0px, -30px ) rotateX( -90deg );
+          transform: translate3d( 0px, 0px, -30px ) rotateX( -90deg );
+}
+li.hovered span {
+    -webkit-transform: translate3d( 0px, 0px, -30px ) rotateX( -90deg );
+     -moz-transform: translate3d( 0px, 0px, -30px ) rotateX( -90deg );
+      -ms-transform: translate3d( 0px, 0px, -30px ) rotateX( -90deg );
+       -o-transform: translate3d( 0px, 0px, -30px ) rotateX( -90deg );
+          transform: translate3d( 0px, 0px, -30px ) rotateX( -90deg );
+}
+
+/*
+  li span:after variations 
+*/
+li span:after {
+  content: attr(data-title);
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 10px;
+  color: white;
+  background: #fc601f;
+  -webkit-transform-origin: 50% 0%;
+     -moz-transform-origin: 50% 0%;
+      -ms-transform-origin: 50% 0%;
+       -o-transform-origin: 50% 0%;
+          transform-origin: 50% 0%;
+
+  -webkit-transform: translate3d( 0px, 61px, 0px ) rotateX( -90deg );
+     -moz-transform: translate3d( 0px, 61px, 0px ) rotateX( -90deg );
+      -ms-transform: translate3d( 0px, 61px, 0px ) rotateX( -90deg );
+       -o-transform: translate3d( 0px, 61px, 0px ) rotateX( -90deg );
+          transform: translate3d( 0px, 61px, 0px ) rotateX( -90deg );
+}
+.half.height li span:after {
+  padding:5px 10px;
+}
+.full.height li span:after {
+  padding: 10px 10px;
+}
+.rotate.bottom li span:after {
+  -webkit-transform-origin: 0% 100%;
+     -moz-transform-origin: 0% 100%;
+      -ms-transform-origin: 0% 100%;
+       -o-transform-origin: 0% 100%;
+          transform-origin: 0% 100%;
+}
+.rotate.bottom.disappear li span:after{
+  -webkit-transform-origin: 0% 0%;
+     -moz-transform-origin: 0% 0%;
+      -ms-transform-origin: 0% 0%;
+       -o-transform-origin: 0% 0%;
+          transform-origin: 0% 0%;
+}
+.rotate.middle.full.height li span:after{
+  -webkit-transform-origin: 100% 50%;
+     -moz-transform-origin: 100% 50%;
+      -ms-transform-origin: 100% 50%;
+       -o-transform-origin: 100% 50%;
+          transform-origin: 100% 50%;
+}
+.reverse li span:after {
+  -webkit-transform-origin: 100% 50%;
+     -moz-transform-origin: 100% 50%;
+      -ms-transform-origin: 100% 50%;
+       -o-transform-origin: 100% 50%;
+          transform-origin: 100% 50%;
+  -webkit-transform: translate3d( 0px, 61px, 0px ) rotateX( 90deg );
+     -moz-transform: translate3d( 0px, 61px, 0px ) rotateX( 90deg );
+      -ms-transform: translate3d( 0px, 61px, 0px ) rotateX( 90deg );
+       -o-transform: translate3d( 0px, 61px, 0px ) rotateX( 90deg );
+          transform: translate3d( 0px, 61px, 0px ) rotateX( 90deg );
+}
+
+li.hovered span:after {
+    -webkit-transform-origin: 100% 50%;
+     -moz-transform-origin: 100% 50%;
+      -ms-transform-origin: 100% 50%;
+       -o-transform-origin: 100% 50%;
+          transform-origin: 100% 50%;
+  -webkit-transform: translate3d( 0px, 61px, 0px ) rotateX( 90deg );
+     -moz-transform: translate3d( 0px, 61px, 0px ) rotateX( 90deg );
+      -ms-transform: translate3d( 0px, 61px, 0px ) rotateX( 90deg );
+       -o-transform: translate3d( 0px, 61px, 0px ) rotateX( 90deg );
+          transform: translate3d( 0px, 61px, 0px ) rotateX( 90deg );
+}
+
+.no-background li, .no-background a{
+  background:none;
+  color:#ff0066;
+}

@@ -1,0 +1,26 @@
+﻿@model x_nova_template.Models.Post
+
+@{
+    ViewBag.Title = Model.Title;
+    Layout = "~/Views/Shared/_PageMenuLayout.cshtml";
+}
+
+
+<div id="post-list">  
+      
+           <h3>@Model.Title</h3><br />
+            <div id="post-img">
+                
+
+            </div>
+           <div id="post-content" class="clear-fix" style="clear:both;">
+               <img class="post-img" src="@Url.Action("GetPostImage", "Post", new { id = Model.ID,isList=false })" />
+           @Html.Raw(Model.Body)
+               </div>
+           </div>
+              
+
+<p>
+    
+    @Html.ActionLink("Архив новостей", "Index")
+</p>

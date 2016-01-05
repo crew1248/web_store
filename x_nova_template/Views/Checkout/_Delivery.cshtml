@@ -1,0 +1,28 @@
+﻿@model x_nova_template.ViewModel.CheckoutViewModel
+<h3>Доставка </h3>
+<div>
+    @using (Html.BeginForm("ProceedDelivery", "Checkout"))
+    {
+        <div class="form-group">
+            @Html.LabelFor(m => m.Delivery, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(m => m.Delivery, Model.DeliveryList, new { @class = "form-control" })
+            </div>
+        </div>
+        @*@Html.RadioButtonFor(x => x.Delivery, "В радиусе МКАД", new { style = "width:auto" })
+        <span>
+            доставка товара в радиусе МКАД - 200р.
+
+        </span>
+        <br />
+        @Html.RadioButtonFor(x => x.Delivery, "За МКАД", new { style = "width:auto" })
+        <span>
+            доставка за МКАД - 500р.
+
+        </span>*@
+
+        <div>
+            <input type="submit" style="width:100px" value="к оплате" />
+        </div>
+    }
+</div>

@@ -1,0 +1,62 @@
+﻿@model x_nova_template.ViewModel.FilesViewModel
+
+@{
+    ViewBag.Title = "GetFiles";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+   
+}
+<script type="text/javascript">
+                    $(document).ready(function () {
+                        $(".stripedMe tr").mouseover(function () { $(this).addClass("over"); }).mouseout(function () { $(this).removeClass("over"); });
+                        $(".stripedMe tr:even").addClass("alt");
+
+                        $(document).on("click", ".file-d", function () {
+
+                            var row = $(this).data('row');
+                            $.post("/UploadFiles/Delete", { filename: $(this).data('file') }, function () {
+                                $("#" + row).remove();
+                            });
+                        })
+                    });
+ </script>
+<h2>Менеджер файлов</h2>
+      
+<div id="FilesList">
+
+     @{Html.RenderAction("Index", "UploadFiles");}
+  </div> 
+        <div id="filesleft">
+<div id="photos"></div><br />
+
+
+
+
+        <h4>Все файлы(@Model.PagingInfo.TotalItems):</h4>
+
+        <div style="width:70%">
+    @(Html.Kendo().Upload()
+        .ShowFileList(true)
+        .Name("files")
+        .Async(a => a
+            .Save("Save", "UploadFiles")
+            .Remove("Remove", "UploadFiles")
+            .AutoUpload(true)
+            
+            
+        )
+       
+        .Events(x=>x.Success("uploadSuccess"))
+        
+        
+        
+    )
+            
+</div><br />
+        </div> 
+        
+<script>function uploadSuccess(e) {
+    var resp = $.parseJSON(e.XMLHttpRequest.responseText);
+    if (resp.type == "length") alert("Длина файла не должна превышать 10 MB.");
+}</script>
+ 
+

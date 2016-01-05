@@ -1,0 +1,78 @@
+﻿@model IEnumerable<x_nova_template.Models.Category>
+
+
+
+ <div class="btns" id="btns">
+     <div class="">
+    <a class="h-btn hidden-xs" data-src="1" data-toggle="tooltip" data-placement="left" title="sdf" href="/tehnologiya-proizvodstva-igrushek"><span><span class="h-icon h-bt"><span class="h-sep"></span></span>Технология производства высококачественных игрушек</span></a>
+
+    <a class="h-btn forg-btn" data-toggle="tooltip" data-placement="left" title="sdf" data-src="2"><span><span class="h-icon h-bb"><span class="h-sep"></span></span>Продажа качественных игрушек <i class="fa fa-arrow-down"></i></span></a>
+</div>
+   
+    <nav class="foreign-cont" style="visibility:hidden;opacity:0;">
+             
+     
+    <div class="forg-tnl"></div>
+        <ul class="forg-menu">
+        @foreach(var item in Model){
+        <li><a href="@Url.Action("ProdListToy", "Product", new {catId=item.ID })" >@item.CategoryName</a></li>
+        }
+        </ul>
+    </nav>
+    
+  </div>
+
+ 
+     
+<script>
+    $(function () {
+        if (!XN.IsMobile) {
+            $('.h-btn').on('inserted.bs.tooltip', function () {
+
+                if ($(this).data('src') == 1)
+                    $('.tooltip-inner').html('<img src="/Content/qm/toys/1.jpg" />');
+                else
+                    $('.tooltip-inner').html('<img src="/Content/qm/toys/2.jpg" />');
+            });
+            $('.h-btn').tooltip();
+        }
+    });
+</script>
+<style>
+
+
+</style>
+
+
+
+
+  
+
+@*<style>
+   .k-widget.k-tooltip {
+ background-color: rgba(255,255,255,0.8);
+ background-color: rgba(255,255,255,0.8);
+color: #FFF;
+left:-20px;
+}
+ .k-tooltip-content
+    {
+        vertical-align: middle;
+         background-color: rgba(255,255,255,0.8);
+        -moz-box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
+        -webkit-box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
+        box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
+    }
+    .k-tooltip-content img, .k-tooltip-content p
+    {
+        float: left;
+    }
+    .k-tooltip-content p
+    {
+        font-size: 1.4em;
+        padding: 20px;
+        width: 160px;
+        text-align: left;
+    }
+</style>*@
+

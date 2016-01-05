@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "X-NOVA — " + x_nova_template.Resourses.Resource.OrderTitle;
+}
+<script>
+    MainPopupOpen();
+    $('.ajax-service-item').closest('li').removeClass("selected");
+    $('.main-link').removeClass("selected");
+
+    </script>
+
+ <div class="ajax-page-item clear-fix" >
+@{Html.RenderAction("MakeOrder", "DynamicLinks");}
+     </div>

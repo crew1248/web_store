@@ -1,45 +1,175 @@
-﻿<!DOCTYPE html>
+﻿@{/*بسم الله الرحمن الرحيم*/}
+
+
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title – приложение ASP.NET</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    <title>@ViewBag.Title</title>
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+    <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    @if (IsSectionDefined("SEO"))
+    {
+        @RenderSection("SEO", false)
+    }
+    else
+    {
+        <meta name="keywords" content="@ConfigController.SiteOptions().Keywords" />
+        <meta name="description" content="@ConfigController.SiteOptions().Description" />
+    }
+    @*@Styles.Render("~/Content/kcss")*@
+   
+    @Styles.Render("~/Content/bootstrap")
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/authcss")
+    @if(Request.Browser.IsMobileDevice){
+        @Styles.Render("~/Content/mobilecss")
+    }
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+   
+    @Scripts.Render("~/bundles/sitejs")
+       
+    @Scripts.Render("~/bundles/bootstrap")
+
+    <script>
+    function collapseCycle() {
+        $.post('/Config/Abandon');
+    }
+   
+        @if (Request.Browser.Browser.ToLower() == "internet explorer") {
+           
+        <text>
+                $('html').addClass('ie');
+        </text>
+    }
+ 
+</script>
+    <script>
+    $(function () {
+        var menuLeft = $('#cbp-spmenu-s1'),
+        showLeft = $('#showLeft'),
+        body = $('body');
+        body.on('click', function () {
+            if (menuLeft.hasClass('cbp-spmenu-open')) { menuLeft.toggleClass('cbp-spmenu-open'); showLeft.toggleClass('active'); }
+        });
+        showLeft.on('click', function () {
+
+            $(this).toggleClass('active');
+            setTimeout(function () { menuLeft.toggleClass('cbp-spmenu-open'); }, '100');
+            //disableOther('showLeft');
+        });
+
+        function disableOther(button) {
+            if (button !== 'showLeft') {
+                classie.toggle(showLeft, 'disabled');
+            }
+
+        }
+
+    }); console.log('browser - @Request.Browser.IsMobileDevice');
+        console.log('width: @Request.Browser.ScreenPixelsWidth')
+    </script>
+  
+	<link href="@Url.Content("~/Content/kendo/2015.2.624/kendo.common-material.min.css")" rel="stylesheet" type="text/css" />
+	<link href="@Url.Content("~/Content/kendo/2015.2.624/kendo.mobile.all.min.css")" rel="stylesheet" type="text/css" />
+	<link href="@Url.Content("~/Content/kendo/2015.2.624/kendo.dataviz.min.css")" rel="stylesheet" type="text/css" />
+	<link href="@Url.Content("~/Content/kendo/2015.2.624/kendo.material.min.css")" rel="stylesheet" type="text/css" />
+	<link href="@Url.Content("~/Content/kendo/2015.2.624/kendo.dataviz.material.min.css")" rel="stylesheet" type="text/css" />
+	<script src="@Url.Content("~/Scripts/kendo/2015.2.624/jquery.min.js")"></script>
+	<script src="@Url.Content("~/Scripts/kendo/2015.2.624/jszip.min.js")"></script>
+	<script src="@Url.Content("~/Scripts/kendo/2015.2.624/kendo.all.min.js")"></script>
+	<script src="@Url.Content("~/Scripts/kendo/2015.2.624/kendo.aspnetmvc.min.js")"></script>
+	<script src="@Url.Content("~/Scripts/kendo.modernizr.custom.js")"></script>
 </head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Имя приложения", "Index", "Home", null, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Домашняя страница", "Index", "Home")</li>
-                    <li>@Html.ActionLink("О программе", "About", "Home")</li>
-                    <li>@Html.ActionLink("Контакт", "Contact", "Home")</li>
-                </ul>
-                @Html.Partial("_LoginPartial")
-            </div>
+<body class="cbp-spmenu-push" lang="@System.Threading.Thread.CurrentThread.CurrentCulture.Name" onbeforeunload="collapseCycle()" data-pagecounter="@ViewBag.PageCounter">
+    @Html.Partial("_LiveChat")
+    @Html.Partial("_ModalWindows", new x_nova_template.ViewModel.TemplatesViewModel { type = 0 })
+
+    <div>
+        <div id="main-wrapper">
+            <header class="top-header navbar-default navbar" role="navigation">
+
+                <div class="container">
+                    <div class="row">
+                        <div class="navbar-header">
+
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#top-navbar-collapse">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+
+
+                          
+                        </div>
+                        <div class="collapse navbar-collapse" id="top-navbar-collapse">
+
+                            <div class="top-h col-md-6 col-sm-5">
+
+                                @{Html.RenderAction("SS", "Menu", new { menuSection = 0 });}
+
+
+                            </div>
+                            <div class="top-left-h col-md-3 col-sm-3">
+                                @Html.Partial("_TopCart")
+                            </div>
+                            <div class="col-sm-1 col-md-1 top-right-h">
+                                @Html.Partial("_CartButton")
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <section id="content" class="clear-fix">
+                <div id="content-wrapper" class="container">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 hidden-xs">
+                            <div class="container carousel-wrapper">
+                                @Html.Partial("_MainSlider")
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <aside id="catalog" class="col-md-3 col-sm-12 col-xs-12">
+                            <h2>Каталог</h2>
+                            <div class="cat-list">
+                                @{Html.RenderAction("CatsMenu", "Category");}
+                            </div>
+                        </aside>
+
+                        <article id="article" class="col-md-8 col-sm-12 col-xs-12">
+
+                            @RenderBody()
+                        </article>
+                    </div>
+
+                </div>
+            </section>
+
+            <footer>
+                <div class="f-wrap clear-fix container">
+                    <span class="f-copyright glyphicon glyphicon-copyright-mark"></span><span>  <a href="#" class="navbar-brand">BRAND</a></span>
+                </div>
+            </footer>
         </div>
     </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year – приложение ASP.NET</p>
-        </footer>
-    </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+    @if (!Request.IsLocal)
+    {
+
+        <!-- /Yandex.Metrika counter -->
+    }
+    else
+    {
+        @:
+}
+
+
 </body>
 </html>

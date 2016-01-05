@@ -1,0 +1,40 @@
+top menu bg - 233d55
+top menu font - 3f6e9a
+
+header left-bg - 2c455d
+header right-bg - 243e55
+
+header main menu bg - 243e55
+header main menu hover bg - f7f7f7
+
+header font white - d4d6d9
+header font dark - 233d55
+
+slider line bg - 4789ac
+Headers font color - 29435b 
+font color - 798592
+link color - 4e89bf
+link hover color - f4934e
+
+footer bg - 152433
+servises circle size - 165/165
+
+
+
+popup header bg - eeeeee
+
+top header height - 122px
+bot header height 236px
+services height - 540px
+sidebar width - 242px
+footer height - 190px
+
+
+logo font-family - RobotoSlab Bold/Thin
+top/main menu font-family - Roboto Light
+top menu font-size - 13px
+logo text-size - 21,5px
+logo text-desc-size - 12px
+main menu font-size - 12px
+
+H1 - 36px

@@ -1,0 +1,242 @@
+﻿@model IEnumerable<x_nova_template.ViewModel.ProductViewModel>
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<script>
+    $(window).load(function(){
+        $('#excelImport').next().text("Выбрать файл Excel/Xml")
+    });
+    // $('#grid').delegate('.preview', 'click', function () { alert('s'); });
+
+</script>
+<p>
+    @Session["enc"]
+    @using(Html.BeginForm("Index","ExcelData",FormMethod.Post,new { enctype = "multipart/form-data"})){
+
+    <div class="file_field">
+        @Html.Kendo().Upload().Name("file").HtmlAttributes(new {id="excelImport" })
+
+    </div>
+  <br />
+    <div class="file_field" style=" margin-left: 10px;">
+        <button class="k-button k-primary" type="submit">Загрузить данные</button>&nbsp;
+    </div>
+    }
+    
+    </p>
+
+
+@(Html.Kendo().Grid<x_nova_template.ViewModel.ProductViewModel>()
+    .Name("grid")
+
+    .Columns(columns =>
+    {
+
+        columns.Template(e => { }).ClientTemplate("<div><img class='preview grid-img' src='" + Url.Action("GetProdImage", "ImageData") + "?pid=${ID}&width=75&height=75'  id='${ID}'  alt='${ProductName}' height='50' width='50'  /> </div>").Width(100).Title("Картинка");
+        columns.Bound(e => e.Price).Width(100).Title("Цена");
+        columns.Bound(e => e.Description).Width(200).HtmlAttributes(new { style = "height:60px;overflow:hidden;display:block;" }).Title("Описание");
+        // columns.Bound(e => e.Price).Width(100)/*.ClientTemplate("#:kendo.toString(Price, 'c0')#")*/.Title("Цена");
+        columns.ForeignKey(p => p.CategoryID, (System.Collections.IEnumerable)ViewData["Catss"], "ID", "CategoryName")
+        .Title("Категория").Width(200);
+        columns.Command(command =>
+        {
+            /*command.Custom("asd").HtmlAttributes(new { @class = "k-button k-button-icontext prod-image" }).Text("<i style='margin-left: -2px;position:relative' class='icon-picture'><input type='file' data-id = '${ID}' name='file' class='prodimg' /></i>");*/
+            command.Custom("asd").HtmlAttributes(new { @class = "k-button k-button-icontext prod-image" }).Click("UploadWindow").Text("<i style='margin-left: -2px;position:relative' class='fa fa-picture-o'></i>");
+            command.Edit().Text(" ");
+            command.Destroy().Text(" ");
+        }).Width(150);
+    })
+    .Filterable()
+    .ToolBar(toolbar => toolbar.Create().Text("Создать"))
+            .Editable(editable => { editable.Mode(GridEditMode.PopUp).Window(w => w.Width(700).Height(300)); editable.DisplayDeleteConfirmation(false); })
+        .Pageable(pageable => pageable
+                .Refresh(true)
+                .PageSizes(true)
+                .ButtonCount(5))
+          .HtmlAttributes(new { style = "height:600px;" })
+    .Sortable()
+
+    .Scrollable()
+    .DataSource(dataSource => dataSource
+
+        .Ajax()
+        .PageSize(20)
+        .Model(model => { model.Id(p => p.ID); model.Field(p => p.ID).DefaultValue(16000000).Editable(false); })
+
+        .Sort(x => x.Add("ID").Descending())
+        .Create(update => update.Action("Editing_Create", "Product"))
+        .Read(read => read.Action("Editing_Read", "Product"))
+        .Update(update => update.Action("Editing_Update", "Product"))
+        .Destroy(destroy => destroy.Action("Editing_Destroy", "Product"))
+
+
+    )
+
+)
+
+@(Html.Kendo().Window()
+    .Title("Загрузка фото")
+    .Name("prod-popup")
+    .Modal(false)
+    .Visible(false)
+
+    .LoadContentFrom(Url.Action("UploadProdImages"))
+    .Width(400)
+    .Height(400)
+    .Events(e => e.Close("pClose").Open("pOpen"))
+)
+<div id="u-popup"></div>
+<script>
+    var wnd, uploadTemplate;
+    $(function () {
+        wnd = $('#prod-popup').data("kendoWindow");
+
+        uploadTemplate = kendo.template($('#windowTemp').html());
+    });
+    function UploadWindow(e) {
+        e.preventDefault();
+
+        var dataItem = this.dataItem($(e.currentTarget).closest("tr"));
+        wnd.content(uploadTemplate(dataItem));
+        wnd.center().open();
+        var prodId = $('#photos').data('prodid');
+        $('.prod-images').load('/Admin/Product/GetProdImages?pid=' + prodId);
+    }
+    function pClose() { }
+
+    function uploadComplete(e) {
+        // var check = $("<input type='radio' class='isMain' name='isMain' /><span>в превью</span>");
+        // check.insertAfter($('.k-filename'));
+        var prodId = $('#photos').data('prodid');
+        $('.prod-images').load('/Admin/Product/GetProdImages?pid=' + prodId).effect("highlight", {}, 2000);
+    }
+    function uploadSuccess(data) {
+
+    }
+
+    $(function () {
+        $(document).on('mouseover', '.preview', function (e) {
+
+            $("body").append("<p id='preview'><span style='display:block;width:600px'>" + $(this).attr('alt') + "</span><img class='prew-img'  style='display:none' src='/Admin/ImageData/GetProdImage?pid=" + $(this).attr('id') + "&width=600&height=400' alt='Image preview' /></p>");
+            $("#preview")
+            .css("top", (e.pageY - 50) + "px")
+            .css("left", (e.pageX + 200) + "px")
+            .fadeIn("fast");
+            $('.prew-loader').remove(); $('#preview img').fadeIn('slow');
+        });
+        $(document).on('mouseout', '.preview', function (e) {
+            $('#preview').remove();
+        });
+        $(document).on('click', '.preview-del', function () {
+            $row = $(this).closest("tr");
+            $id = $(this).data('pimgid');
+            $.post('/Admin/Product/DelPhoto?pimgid=' + $id, function () {
+                $row.remove();
+            });
+        });
+        $(document).on('change', 'input[name="previewImg"]', function () {
+            $row = $(this).closest("tr");
+            $id = $(this).data('pimgid');
+            $table = $(this).closest('table');
+            $.post('/Admin/Product/SetPreview?pimgid=' + $id, function (data) {
+                $table.find("span").removeClass('preview-text').empty();
+                $row.find("span").addClass('preview-text').text("превью");
+
+                $('#' + data.pid).attr('src', '/Admin/ImageData/GetProdImage?pid=' + data.pid + '&width=75&height=75&' + (new Date()).getTime());
+                $('#' + data.pid).effect("bounce", {}, 2000);
+            });
+        })
+    });
+</script>
+<style>
+    .ui-effects-wrapper {
+        width: 100% !important;
+    }
+</style>
+<script type="text/x-kendo-tmpl" id="windowTemp">
+    <div style="width:100%">
+        <input name="photos" id="photos" type="file" data-prodid="${ID}" />
+
+        <div class="prod-images">
+
+        </div>
+    </div>
+    <br />
+</script>
+<script>
+
+    function pOpen() {
+        var prodId = $('#photos').data('prodid');
+        $("#photos").kendoUpload({
+            complete: uploadComplete,
+            success: uploadSuccess,
+            localization: { "cancel": "Отмена", "dropFilesHere": "перетащите сюда файлы для загрузки", "remove": "Удалить", "retry": "Повторить", "select": "Выбрать...", "statusFailed": "неудачно", "statusUploaded": "загружено", "statusUploading": "загружается", "uploadSelectedFiles": "Загрузить файлы" },
+            async: {
+                saveUrl: "/Admin/Product/UploadProdImages?pid=" + prodId,
+                autoUpload: true,
+                removeUrl: "/Admin/Product/RemovePhoto"
+            }
+        });
+    }
+
+</script>
+<style scoped>
+    .k-edit-form-container {
+        width: auto;
+    }
+
+    #grid {
+        margin-top: 50px;
+    }
+
+    .k-button {
+        min-width: 30px !important;
+    }
+
+    .product-view {
+        float: left;
+        position: relative;
+        overflow: hidden;
+    }
+
+        .product-view input[type="text"], textarea {
+            width: 500px;
+        }
+
+        .product-view textarea {
+            height: 130px !important;
+        }
+
+        .product-view dl {
+            margin: 10px 0;
+            padding: 0;
+            min-width: 0;
+        }
+
+        .product-view dt, dd {
+            float: left;
+            margin: 0;
+            padding: 3px;
+            line-height: 26px;
+        }
+
+        .product-view dt {
+            clear: left;
+            padding: 3px 5px 3px 0;
+            text-align: right;
+            opacity: 0.6;
+            width: 100px;
+        }
+</style>
+
+<style>
+    .k-file {
+    }
+
+    .k-upload-files {
+        overflow: hidden;
+    }
+</style>

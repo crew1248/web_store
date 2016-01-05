@@ -1,0 +1,80 @@
+﻿@model x_nova_template.ViewModel.MakeOrderViewModel
+
+
+
+
+<h2 class="header1">@Resource.MakeOrder:</h2>
+<div class="order-wrap clear-fix" >
+			
+			
+			@using (Html.BeginForm("", "", FormMethod.Post, htmlAttributes: new { id = "order-form" }))
+   {
+				@Html.AntiForgeryToken()
+				@Html.TextBoxFor(x => x.Name, htmlAttributes: new { placeholder=Resource.Name})
+                <span class="valid-mess">
+                    @Html.ValidationMessageFor(x=>x.Name)
+
+                </span>
+				
+				
+				<br />
+				@Html.TextBoxFor(x => x.Phone, htmlAttributes: new {style="width:180px", placeholder=Resource.Phone})
+				<span class="valid-mess">
+                    @Html.ValidationMessageFor(x=>x.Phone)
+
+                </span>
+				@Html.TextBoxFor(x => x.Email, htmlAttributes: new {style="width:180px", placeholder=Resource.Email})
+				<span class="valid-mess">
+                    @Html.ValidationMessageFor(x=>x.Email)
+
+                </span>														
+				<br />
+                @Html.TextAreaFor(x => x.Description, htmlAttributes: new { style="height:100px",type="text",placeholder=Resource.OrderDetails})
+                    
+				    <br />
+                <span class="link-details">@Resource.MoreDetails</span>
+                <br />
+                <div class="wrap-details hide-wrap">
+                   
+				    @Html.TextBoxFor(x => x.Company, htmlAttributes: new { placeholder=Resource.Company})
+                     <br />
+                    @Html.TextBoxFor(x => x.Budget, htmlAttributes: new { placeholder=Resource.Budget})				
+                    <br />
+                    
+				    <div class="dropdown-wrap">
+				    <div class="dropdown">
+					    <div class="dropdown-text">
+						    @Resource.SiteType
+					    </div>
+					    <div class="dropdown-i">
+					    <i class="icon-chevron-down" ></i>
+					    </div>
+				    </div>
+				    <input type="hidden" name="SiteType" />
+				    <div class="dropdown-list" >
+					    <div class="dropdown-item">
+						    @Resource.Site_Simple
+					    </div>
+					    <div class="dropdown-item">
+						    @Resource.Site_Corporate
+					    </div>
+					    <div class="dropdown-item">
+						    @Resource.Site_Shop
+					    </div>
+                        <div class="dropdown-item">
+						    @Resource.Site_Portal
+					    </div>
+				    </div>
+				    </div>
+               </div>
+                
+                <button type="submit" class="sub-button">@Resource.SendButton</button>
+		        <div style="padding-top: 10px;color: #DAD7D7;">@Resource.RequiredFields</div>
+       
+   }
+    <div class="request-ok" style="display:none;"><i class="icon-ok-sign request-ok-icon"></i>&nbsp;&nbsp; <span class="request-ok-text">@Resource.OrderOk</span></div>
+			</div>
+
+
+
+

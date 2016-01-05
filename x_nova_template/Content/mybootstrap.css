@@ -1,0 +1,16 @@
+﻿.cbp-spmenu-body .nav-pills > li > a {
+    border-radius: 0;
+    background-color: #eee;
+    color: #4e89bf;
+}
+    .cbp-spmenu-body .nav-pills > li > a:hover {
+        background-color: whitesmoke;
+    }
+.cbp-spmenu-body .nav-pills > li {
+    float:inherit;
+}
+
+    .cbp-spmenu-body .nav-pills > li + li {
+        margin:0;
+    }
+

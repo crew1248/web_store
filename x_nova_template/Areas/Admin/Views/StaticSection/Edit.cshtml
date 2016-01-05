@@ -1,0 +1,55 @@
+﻿@model x_nova_template.Models.StaticSection
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<p class="breadcrumbs" style="font-weight:bold;">@Html.ActionLink("список блоков","Index")  &rArr;     
+   <span style="font-weight:normal;">блок № @Model.ID</span></p>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(x=>x.SectionType)
+    <fieldset>
+        <legend>Правка блока № @Model.ID</legend>
+
+       
+         <div class="editor-label">
+            Название
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(m=>m.Title)
+        </div>
+        <div class="editor-label">
+            Текс
+        </div>
+        <div class="editor-field">
+            @Html.TextAreaFor(m=>m.Content, new { cols = 100, rows = 3 })
+        </div>
+
+       
+        <p>
+            <button class="k-button k-primary" type="submit">Сохранить</button>
+        </p>
+    </fieldset>
+}
+
+<div>
+    
+    <a class="k-button" href="@Url.Action("Index", "StaticSection", new {cpage=ViewBag.page})">Назад к списку</a>
+     
+</div>
+<script>
+  window.onload = function () {
+        CKEDITOR.replace('Content');
+     
+  };
+
+</script>
+
+

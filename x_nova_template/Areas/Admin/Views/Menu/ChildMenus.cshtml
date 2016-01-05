@@ -1,0 +1,27 @@
+﻿@model IEnumerable<x_nova_template.Models.Menu>
+<table class="admTable stripedMe">
+    <tr class="tdTitle">
+        <th>Id</th>
+        <th>Название</th>
+        <th>Url</th>
+        <th>Сортировка</th>
+        <th>Секция меню</th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Text</td>
+            <td>@item.Url</td>
+            <td>@item.SortOrder</td>
+            <td> @(item.MenuSection != 0 ? "второй раздел" : "первый раздел")</td>
+            <td>
+                <a href="/Admin/Menu/Edit/@item.Id" title="Редактировать" class="k-button"><span class="k-icon k-i-pencil"></span></a>
+                <a href="/Admin/Menu/Delete/@item.Id" title="Удалить" class="k-button"><span class="k-icon k-i-close"></span></a>
+            </td>
+        </tr>
+
+
+    }
+</table>

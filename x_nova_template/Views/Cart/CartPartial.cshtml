@@ -1,0 +1,26 @@
+﻿
+@model x_nova_template.ViewModel.CartViewModel
+
+<div id="cart__partial">
+
+
+    <nav class="foreign-cont" style="visibility:hidden;opacity:0;">
+
+        <div class="forg-tnl"></div>
+        <div class="forg-top-content">
+            <div class="top-cart-checkout"><a class="link-button xn-but-primary loader-state" onclick="document.location.replace('@Url.Action("Index", "Checkout", new { step=1})');">оформить заказ</a></div>
+            <div class="top-cart-total"><span class="partial-cart__summary">@(Model.Cart.Lines.Count() > 0 ? Model.Cart.Lines.Count().ToString() : "корзина пуста")</span><span class="partial-cart__total" style="text-align:right;">@(Model.Cart.Lines.Count() > 0 ? Model.Cart.TotalValue().ToString() : "")</span>&nbsp;<i class="fa fa-rouble" style="@(Model.Cart.Lines.Count() == 0 ? "display:none;":"")"></i></div>
+        </div>
+        <table class="forg-menu">
+
+            @foreach (var item in Model.Cart.Lines)
+            {
+                <tr class="item-row" data-pid="@item.Product.ID">
+                    <td><img src="@Url.Action("GetProdImage", "ImageData", new {pid=item.Product.ID,width=50,height=50 })" /></td>
+                    <td><span>@(item.Product.ProductName.Length > 25 ? item.Product.ProductName.Substring(0, 25) + "..." : item.Product.ProductName)</span><span class="top-cart-remove" data-event-type="cartRemove">удалить</span></td>
+                    <td>@item.Product.Price.ToString("N0") <i class="fa fa-rouble"></i></td>
+                </tr>
+            }
+        </table>
+    </nav>
+</div>

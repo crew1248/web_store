@@ -1,0 +1,27 @@
+﻿
+@model IEnumerable<x_nova_template.Models.Portfolio>
+
+<div class="img-holder" >
+    <div class="arr-left arrow"><img src="/Content/catalog/left-arrow.png" /></div>
+     <div class="arr-right arrow"><img src="/Content/catalog/right-arrow.png" /></div>
+     <div class="links">
+         <ul>
+             @for(int i=0;i< Model.Count();i++){
+                if(i==0){<li class="selected-link"><img src="/Content/catalog/slider-active-link.png" /></li>}
+                else{ <li><img  src="/Content/catalog/slider-link.png" /></li>}                                                                                                      
+             }
+            
+         </ul>
+        
+     </div>
+     <div id="img-cont">
+            @foreach (var item in Model)
+            {
+                if (SliderController.GetFirstSlide() == item.ID)
+                {<img id="@item.ID"  class="slide-selected slide-img" src="@Url.Action("GetSliderImage", "Slider", new {item.ID })" data-title="@item.Description" data-price="@item.Price.ToString("N0")" data-desc="@item.Title" width="200" height="200" /> }
+                else{<img id="@item.ID"  class=" slide-img" src="@Url.Action("GetSliderImage","Slider", new {item.ID })" data-title="@item.Description" data-price="@item.Price.ToString("N0")" data-desc="@item.Title" width="200" height="200" />}
+            }
+    
+     </div>
+
+</div>

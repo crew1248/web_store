@@ -1,0 +1,64 @@
+﻿@model x_nova_template.Models.ForgotPasswordViewModel
+
+@Scripts.Render("~/bundles/ajaxrec")
+
+<div class="modalh">
+    <h3 class="headline">Восстановление пароля</h3>
+    <div class="md-close iconicfill-x"><button class="xn-close-btn-bl"></button></div>
+</div>
+<div class="modalp" style="overflow:hidden">
+    <p id="md-fail"></p>
+    @using (Ajax.BeginForm("Mrec", "Account", new AjaxOptions
+    {
+        HttpMethod = "post",
+        OnSuccess = "onSuccess",
+        OnBegin = "onBegin",
+        OnComplete = "onComplete",
+        OnFailure = "onFailure"
+
+    }, new { id = "rec__form", @data_content_type = "recoveryForm" }))
+    { @Html.AntiForgeryToken()
+        <div id="m-target" class="modal-wrap">
+
+            <div class="feededitor">
+                @Html.TextBoxFor(model => model.Email, new { placeholder = "Электронная почта" })
+                <div class="feed-valid"> @Html.ValidationMessageFor(x => x.Email)</div>
+            </div>
+
+
+            @if (Convert.ToBoolean(System.Configuration.ConfigurationManager.AppSettings["AllowCaptcha"]))
+            {
+                <div id="wall-anti-spam">
+                    <div class="reg-label" style="float:left;padding:0">Введите слово&nbsp;&nbsp;&nbsp;&nbsp;  </div>
+                    <div id="captcha" class="reply-protect" style="height:30px;width:130px;float:left">
+                        @{Html.RenderAction("Captcha", "DataCaptcha", new { set = 2 });}
+                    </div>
+                    <script>
+
+                        $(document).on("click", "#loadCaptcha_2", function () {
+                            $("#wallCaptcha_2").attr("src", "/DataCaptcha/Show?" + (new Date()).getTime());
+
+                        });
+
+                    </script>
+
+                    <div class="captchainput" style="width: 100px;padding-left: 20px;float: left;">
+
+                        @Html.TextBox("Captcha", null, new { id = "Captcha-Input-r", style = "width:100px" })
+
+
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="feededitor">
+            <input type="submit" class="xn-dark-button" id="rec_but" value="Отправить">
+        </div>
+    }
+    <div class="modal-foot">
+        <a class="xn-button" data-content-type="loginForm">Войти</a><br />
+        <a class="xn-button" data-content-type="registerForm">Регистрация</a>
+    </div>
+
+    <div class="feed-loader"><img src="@Url.Content("~/Content/ajax-loaders/feed-load.gif")" /></div>
+</div>

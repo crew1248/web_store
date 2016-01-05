@@ -1,31 +1,78 @@
-﻿@{
-    ViewBag.Title = "Home Page";
+﻿@model x_nova_template.Models.Menu
+@using x_nova_template.Areas.Admin.Controllers
+@{
+    ViewBag.Title = ViewBag.Titlee != null ? ViewBag.Titlee : "title";
+    var culture = System.Threading.Thread.CurrentThread.CurrentCulture.Name;
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+@if ((bool)ViewBag.ConfirmEmail)
+{
+    <script>
+       
+        $(function () { XN.BuildModal('#modal-7', '/Account/Mconf?username=@ViewBag.UserName'); });
+    </script>
+}
+@if ((bool)ViewBag.SetPassword)
+{
+    <script>
+    $(function () {  XN.BuildModal('#modal-7', '/Account/Mset?userid=' + @ViewBag.UserId + '&code=' + @ViewBag.Code);});
+       
+    </script>
+}
+<script>
+    //startModal();
+    // $(function () { startModal(true); });
+
+</script>
+<div class="content-wrap clear-fix">
+    <h2>@Model.Text </h2>
+    @if (culture == "ru")
+    {
+        @Html.Raw(Model.Body)
+    }
+    else
+    {
+        @Html.Raw(Model.BodyEng)
+    }
 </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
+
+@if(Request.IsLocal){
+    <text>
+@*----- @Request.Browser.IsMobileDevice -----  IsMobileDevice<br />
+----- @Request.Browser.ScreenCharactersWidth -----  ScreenCharactersWidth<br />
+----- @Request.Browser.RequiresPhoneNumbersAsPlainText -----  RequiresPhoneNumbersAsPlainText<br />
+----- @Request.Browser.RequiresOutputOptimization  ----- RequiresOutputOptimization<br />
+----- @Request.Browser.PreferredResponseEncoding  ----- PreferredResponseEncoding<br />
+----- @Request.Browser.PreferredRequestEncoding  ----- PreferredRequestEncoding<br />
+----- @Request.Browser.PreferredRenderingType -----  PreferredRenderingType<br />
+----- @Request.Browser.PreferredRenderingMime -----  PreferredRenderingMime<br />
+----- @Request.Browser.PreferredImageMime -----  PreferredImageMime<br />
+----- @Request.Browser.Platform -----  Platform<br />
+----- @Request.Browser.NumberOfSoftkeys -----  NumberOfSoftkeys<br />
+----- @Request.Browser.MobileDeviceModel  ----- MobileDeviceModel<br />
+----- @Request.Browser.MobileDeviceManufacturer -----  MobileDeviceManufacturer<br />
+----- @Request.Browser.MinorVersion -----  MinorVersion<br />
+----- @Request.Browser.MaximumRenderedPageSize -----  MaximumRenderedPageSize<br />
+----- @Request.Browser.MaximumHrefLength -----  MaximumHrefLength<br />
+----- @Request.Browser.MajorVersion -----  MajorVersion<br />
+----- @Request.Browser.JScriptVersion -----  JScriptVersion<br />
+----- @Request.Browser.JavaApplets -----  JavaApplets<br />
+----- @Request.Browser.IsColor -----  IsColor<br />
+----- @Request.Browser.InputType -----  InputType<br />
+----- @Request.Browser.Id -----  Id<br />
+----- @Request.Browser.HasBackButton -----  HasBackButton<br />
+----- @Request.Browser.GatewayVersion -----  GatewayVersion<br />
+----- @Request.Browser.Frames -----  Frames<br />
+----- @Request.Browser.Cookies -----  Cookies<br />
+----- @Request.Browser.ClrVersion -----  ClrVersion<br />
+----- @Request.Browser.CanSendMail -----  CanSendMail<br />
+----- @Request.Browser.CanRenderPostBackCards -----  CanRenderPostBackCards<br />
+----- @Request.Browser.CanInitiateVoiceCall -----  CanInitiateVoiceCall<br />
+----- @Request.Browser.Adapters.Keys.ToString() -----  Adapters.Keys<br />
+----- @Request.Browser.Browser ----- Browser<br />
+ ----- @Request.Browser.ScreenPixelsWidth
+ ----- @Request.Browser.ScreenBitDepth*@
+ </text>
+ }

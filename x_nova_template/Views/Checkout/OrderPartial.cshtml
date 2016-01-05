@@ -1,0 +1,96 @@
+﻿@model x_nova_template.ViewModel.CheckoutViewModel
+@{
+    ViewBag.Title = "OrderPartial";
+
+}
+<div id="orderform">
+    <h3>Заказ:</h3>
+    <script>
+
+
+      function onCompletee() {
+          setTimeout(function () { document.getElementById('orderbutton').disabled = false; }, 2000)
+
+
+      }
+      function onBeginn() {
+          $("#orderform").css({ "opacity": "0.5" });
+
+          document.getElementById('orderbutton').disabled = true;
+      }
+      function onFail() {
+
+          $("#orderform").css({ "opacity": "1" });
+          $('#failer').empty().append('<span style="color: #DD4B39;display: block;float: left;margin-top: 14px;font-size: 14px;">Ошибка ! Повторите снова</span>');
+      }
+
+
+    </script>
+    <script>
+      $(document).ready(function () {
+          $("#PhoneNumber").val("");
+
+      });
+    </script>
+    <style>
+        .sss {
+            color: #F9FBC9;
+        }
+    </style>
+    <script>
+      function onSuccess() {
+          $("#orderform").css({ "opacity": "1" })
+          $("#orderok").addClass("Success");
+
+          $("#orderform").css({ "background-color": "#F9FBC9" }).animate({ backgroundColor: "#ffffff" }, 4000);
+          $("form").each(function () {
+              this.reset();
+          });
+
+          $("#PhoneNumber").val("");
+
+      }
+    </script>
+    @using (Ajax.BeginForm("OrderPartial", "Checkout", new AjaxOptions
+            {
+                HttpMethod = "post",
+                InsertionMode = InsertionMode.Replace,
+                UpdateTargetId = "orderok",
+                LoadingElementId = "loader",
+                OnBegin = "onBeginn",
+                OnSuccess = "onSuccess",
+                OnFailure = "onFail",
+
+                OnComplete = "onCompletee"
+            }))
+    {@Html.AntiForgeryToken()
+        <span>
+            @Html.TextBoxFor(x => x.Name, new { @class = "orderinput", placeholder = "ФИО" })
+            @Html.ValidationMessageFor(model => model.Name)
+            @Html.TextBoxFor(model => model.Email, new { @class = "orderinput", placeholder = "Почта" })
+            @Html.ValidationMessageFor(model => model.Email)
+        </span>
+        <span>
+            @Html.TextBoxFor(model => model.Phone, new { @class = "orderinput", placeholder = "Номер телефона" })
+            @Html.ValidationMessageFor(model => model.Phone)
+        </span>
+
+        <span>
+            @Html.DropDownListFor(model => model.Day, (IEnumerable<SelectListItem>)ViewBag.Day, "День", new { style = "width:70px", @class = "orderinput" })
+
+            @Html.DropDownListFor(model => model.Month, (IEnumerable<SelectListItem>)ViewBag.Month, "Месяц", new { style = "width:70px", @class = "orderinput" })
+
+            @Html.DropDownListFor(model => model.Year, (IEnumerable<SelectListItem>)ViewBag.Years, "Год", new { style = "width:70px", @class = "orderinput" })
+
+
+        </span>
+        <span>@Html.TextAreaFor(model => model.Comment, new { @class = "orderinput", style = "height:100px;width:250px", placeholder = "Добавить комментарий" })</span>
+        <div class="clear"></div>
+
+        <span id="failer"></span><input type="submit" id="orderbutton" class="orderbutton" value="Отправить" /><span style="display:none;position: absolute;top: 240px;right: 280px;z-index:1;" id="loader"><img src="@Url.Content("~/Content/ajax-loaders/ajax-loader.gif")" /></span>
+
+
+    }
+    <span id="orderok"></span>
+</div>
+

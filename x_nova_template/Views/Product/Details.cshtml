@@ -1,0 +1,59 @@
+﻿@model x_nova_template.Models.Product
+@{
+    ViewBag.Title = Model.ProductName;
+    Layout = "~/Views/Shared/_SecondLayout.cshtml";
+}
+
+<div class="breadcrumb">@Html.RouteLink("Главная", "home") / @Html.ActionLink(ProductController.GetCatName(Model.CategoryID), "ProdList", new { catId = Model.CategoryID }) / @Model.ProductName</div>
+<h3>@Model.ProductName</h3>
+<div class="prod-view dbg clear-fix" id="pid_@Model.ID">
+    <div class="view-img">
+        <div class="prod-image">
+            <img src="@Url.Action("GetProdImage", "ImageData", new {pid=Model.ID,width=500,height=400 },Request.Url.Scheme)" />
+        </div>
+        <div class="imglist-wrap imglist-view" id="prod_sl_1">
+            <i class="fa fa-chevron-left prev"></i>
+            <div class="prod-imglist view-imglist">
+
+                <ul>
+                    @foreach (var img in Model.ProdImages)
+                    {
+
+                        <li>
+                            <img class="detail-item" data-id="@img.ID" data-pid="@img.ProductID" src="@Url.Action("GetProdImage", "ImageData", new {pimgid=img.ID,width=150,height=150,type="small" },Request.Url.Scheme)" height="80" width="80" />
+                        </li>
+                    }
+                </ul>
+            </div>
+            <i class="fa fa-chevron-right next"></i>
+        </div>
+    </div>
+    <div class="listview-wrap">
+        <div class="xn-i-details">
+            <table>
+                <tr class="d-type">
+                    <th>Тип</th>
+                    <td> @Model.ProductName</td>
+                </tr>
+                <tr class="d-cat">
+                    <th>Область</th>
+                    <td>@ProductController.GetCatName(Model.CategoryID)</td>
+                </tr>
+                <tr class="d-desc">
+                    <th>Описание</th>
+                    <td>@Model.Description</td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+
+
+</div>
+<script>
+    $(function () {
+        $('.prod-imglist li:eq(0) img').css({ border: '2px solid rgb(189, 41, 41)' });
+       
+    });
+
+</script>

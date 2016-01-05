@@ -1,0 +1,47 @@
+﻿
+@model x_nova_template.ViewModel.CheckoutViewModel
+<p>
+    Заполните анкету для продолжения оформелния заказа !
+
+</p>
+<div class="ship-details">
+    @using (Html.BeginForm("ProceedCheckout", "Checkout"))
+    {
+        <p>@Html.ValidationSummary(true)</p>
+        <div class="">
+            <div>Имя</div>
+            @Html.TextBoxFor(x => x.FirstName)
+            @Html.ValidationMessageFor(x => x.FirstName)
+        </div>
+        <div class="">
+            <div>Фамилия</div>
+            @Html.TextBoxFor(x => x.LastName)
+            @Html.ValidationMessageFor(x => x.LastName)
+        </div>
+        <div class="">
+            <div>Адрес</div>
+            @Html.TextAreaFor(x => x.Address, new { cols = "5" })
+            @Html.ValidationMessageFor(x => x.Address)
+        </div>
+        <div class="">
+            <div>Почта</div>
+            @Html.TextBoxFor(x => x.Email)
+            @Html.ValidationMessageFor(x => x.Email)
+        </div>
+        <div class="">
+            <div>Номер телефона</div>
+            @Html.TextBoxFor(x => x.Phone)
+            @Html.ValidationMessageFor(x => x.Phone)
+        </div>
+
+        <div class="">
+            <input type="submit" class="newitem-button " style="width:100px" value="дальше" />
+        </div>
+
+
+
+    }
+    <script>
+
+    </script>
+</div>

@@ -1,0 +1,34 @@
+﻿<add name="DefaultConnection" connectionString="Data Source=ms-sql-8.in-solve.ru;Initial Catalog=1gb_qualitymouldnew; Integrated Security=false;User ID=1gb_qualitymould; Password=085d6528m12;" providerName="System.Data.SqlClient" />
+<customErrors mode="Off" />
+
+<sessionState mode="StateServer" stateConnectionString="tcpip=127.0.0.1:42424" timeout="200000" regenerateExpiredSessionId="true"  />
+
+//////////////////////////////////
+////////////////// iss publish site 
+//////////////////////////////////////
+
+// add to C:\Windows\System32\inetsrv\config applicationHost
+
+<applicationPools>
+		<add name="ASP.NET v4.0" autoStart="true" managedRuntimeVersion="v4.0" managedPipelineMode="Integrated">
+		<processModel identityType="ApplicationPoolIdentity" loadUserProfile="true" setProfileEnvironment="true" />
+		</add>	
+
+		</applicationPools>
+
+// create user db owner
+
+IF NOT EXISTS (SELECT name FROM sys.server_principals WHERE name = 'IIS APPPOOL\DefaultAppPool')
+BEGIN
+    CREATE LOGIN [IIS APPPOOL\DefaultAppPool] 
+      FROM WINDOWS WITH DEFAULT_DATABASE=[master], 
+      DEFAULT_LANGUAGE=[us_English]
+END
+GO
+CREATE USER QualUser 
+  FOR LOGIN [IIS APPPOOL\DefaultAppPool]
+GO
+EXEC sp_addrolemember 'db_owner', 'QualUser'
+GO
+
+// add rights to IIS APPPOOL\DefaultAppPool - read/write

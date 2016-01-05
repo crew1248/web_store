@@ -1,0 +1,39 @@
+﻿@model x_nova_template.Models.Menu
+@{
+    ViewBag.Title = System.Web.Configuration.WebConfigurationManager.AppSettings["SiteName"]+" — "+Model.Text;
+    Layout = "~/Views/Shared/_PageMenuLayout.cshtml";
+    var culture = System.Threading.Thread.CurrentThread.CurrentCulture.Name;
+}
+<script>
+
+
+</script>
+@section SEO{
+   
+        <meta name="keywords" content="@Model.SeoKeywords" /> 
+        <meta name="description" content="@Model.SeoDescription" />
+  
+    }
+
+<script>
+    //$(function () {
+   
+    //$('html, body').animate({
+    //    scrollTop: $("#article").offset().top
+    //}, 500);
+//});
+</script>
+
+        
+    
+      <div class="content-wrap clear-fix" data-page-id="@Model.Id">
+         
+          <h2>@Model.Text</h2>
+
+          @if(culture=="ru"){
+                @Html.Raw(Model.Body)
+          }
+          else{
+              @Html.Raw(Model.BodyEng)
+          }
+           </div>

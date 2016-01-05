@@ -1,0 +1,77 @@
+﻿@using x_nova_template.Models
+@model RegisterViewModel
+
+@Scripts.Render("~/bundles/ajaxreg")
+
+<div class="modalh">
+    <h3 class="headline">Регистрация</h3>
+    <div class="md-close iconicfill-x"><button class="xn-close-btn-bl"></button></div>
+</div>
+<div class="modalp" style="overflow:hidden">
+    <p id="md-fail"></p>
+    @using (Ajax.BeginForm("Mreg", "Account", new AjaxOptions
+    {
+        HttpMethod = "post",
+        OnSuccess = "onSuccess",
+        OnBegin = "onBegin",
+        OnComplete = "onComplete",
+        OnFailure = "onFailure"
+
+    }, new { id = "reg__form", @data_content_type = "registerForm" }))
+    { @Html.AntiForgeryToken()
+        <div id="m-target" class="modal-wrap">
+
+            <div class="feededitor">
+                @Html.TextBoxFor(model => model.Email, new { placeholder = "Электронный адрес" })
+                <div class="feed-valid"> @Html.ValidationMessageFor(x => x.Email)</div>
+            </div>
+
+            <div class="feededitor">
+                @Html.PasswordFor(model => model.Password, new { placeholder = "Пароль" })
+                <div class="feed-valid"> @Html.ValidationMessageFor(x => x.Password)</div>
+            </div>
+
+
+            <div class="feededitor">
+                @Html.PasswordFor(model => model.ConfirmPassword, new { placeholder = "Подтверждение пароля" })
+                <div class="feed-valid"> @Html.ValidationMessageFor(x => x.ConfirmPassword)</div>
+            </div>
+            @if (Convert.ToBoolean(System.Configuration.ConfigurationManager.AppSettings["AllowCaptcha"]))
+            {
+                <div id="wall-anti-spam">
+                    <div class="reg-label" style="float:left;padding:0">Введите слово&nbsp;&nbsp;&nbsp;&nbsp;  </div>
+                    <div id="captcha" class="reply-protect" style="height:30px;width:130px;float:left">
+                        @{Html.RenderAction("Captcha", "DataCaptcha", new { set = 2 });}
+                    </div>
+                    <script>
+
+       $(document).on("click", "#loadCaptcha_2", function () {
+           $("#wallCaptcha_2").attr("src", "/DataCaptcha/Show?" + (new Date()).getTime());
+
+       });
+
+                    </script>
+
+                    <div class="captchainput" style="width: 100px;padding-left: 20px;float: left;">
+
+                        @Html.TextBox("Captcha", null, new { id = "Captcha-Input-r", style = "width:100px" })
+
+
+                    </div>
+                </div>
+            }
+          
+        </div>
+    <div class="feededitor">
+        <input type="submit" class="xn-dark-button" id="reg_but" value="Отправить">
+    </div>
+    }
+    <div class="modal-foot">
+        <a class="xn-button" data-content-type="loginForm">Войти</a><br />
+        <a class="xn-button" data-content-type="recoveryForm">Восстановление пароля</a>
+    </div>
+   
+    <div class="feed-loader"><img src="@Url.Content("~/Content/ajax-loaders/feed-load.gif")" /></div>
+</div>
+
+

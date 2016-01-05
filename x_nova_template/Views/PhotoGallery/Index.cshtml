@@ -1,0 +1,63 @@
+﻿@model x_nova_template.ViewModel.PhotoGalleryViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_PageMenuLayout.cshtml";
+    
+}
+   <script>   $(function () { });</script>
+<h2>Галлерея</h2>
+
+<div class="row">
+    @foreach (var item in Model.Galleries)
+    {
+
+
+        <div class="col-xs-4 col-sm-4 col-md-3" >
+            <div class="thumbnail">
+                <div class="listview-item listview-gal" data-id="@item.ID">
+                    <div class="prod-img">
+                        @if (item.GalleryData != null)
+                        {
+                            <img class="img-responsive" id="mpic_@item.ID" src="@Url.Action("GetPhotoGalleryImage", "ImageData", new { id = item.ID, width = 300, height = 300, isGallery = true }, Request.Url.Scheme)" />
+                        }
+                        else
+                        {  <span>изображение отсутсвует</span>}
+                    </div>
+                    <div class="caption">
+                        <h3 class="prod-h"><a class="prod-preview" href="@Url.Action("Details", "PhotoGallery", new { id=item.ID})">@(item.GalleryTitle.Length > 50 ? item.GalleryTitle.Substring(0, 50) + "..." : item.GalleryTitle)</a></h3>
+
+                        <div class="prod-btns"><a class="more-btn" href="javascript:void(0);">быстрый просмотр</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        @*<div class="listview-item" id="pid_@item.ID">
+                <div class="listview-wrap">
+                    <div class="prod-title">
+                        <a class="prod-preview" href="@Url.Action("Details", "Product", new { id=item.ID})">@item.ProductName</a>
+                    </div>
+                    <div class="prod-img-wrapper">
+                        <div class="prod-image">
+                            <img id="mpic_@item.ID" data-id="@item.ProdImages.SingleOrDefault(x=>x.IsPreview==1).ID" src="@Url.Action("GetProdImage", "ImageData", new {pid=item.ID,width=150,height=150 },Request.Url.Scheme)" />
+                            <div class="prod-details"> <i class="icon-search"></i>&nbsp; Подробнее</div>
+                        </div>
+
+                    </div>
+                    <div class="prod-desc">
+                        @item.Price.ToString("N0") <i class="fa fa-rouble"></i>
+                    </div>
+                    <div class="prod-more-btn">
+                        <a class="more-btn" href="javascript:void(0);">быстрый просмотр</a>
+                    </div>
+                </div>
+
+            </div>*@
+
+
+
+    }
+</div>
+

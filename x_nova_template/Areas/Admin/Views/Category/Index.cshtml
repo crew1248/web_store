@@ -1,0 +1,100 @@
+﻿@model IEnumerable<x_nova_template.ViewModel.CategoryViewModel>
+
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<script>
+    
+       
+       // $('#grid').delegate('.preview', 'click', function () { alert('s'); });
+  
+</script>
+ 
+
+@(Html.Kendo().Grid<x_nova_template.ViewModel.CategoryViewModel>()
+    .Name("grid")
+    
+    .Columns(columns =>
+    {        
+        columns.Bound(e => e.CategoryName).Width(150).Title("Название");
+        
+        columns.Bound(e => e.CatDescription).Width(200).HtmlAttributes(new {style="" }).Title("Описание");
+        columns.Bound(e => e.CatType).Width(150).Title("тип");
+        columns.Bound(e => e.Sequance).Width(100).Title("Сортировка");       
+        columns.Command(command => {  command.Edit().Text(" "); command.Destroy().Text(" "); }).Width(150);
+    })
+    .Filterable()
+        .ToolBar(toolbar => toolbar.Create().Text("Создать"))
+    .Editable(editable => { editable.Mode(GridEditMode.PopUp); editable.DisplayDeleteConfirmation(false); })
+    .Pageable()
+    .Sortable()
+    
+    .Scrollable()
+    .HtmlAttributes(new { style = "height:700px;" })
+    
+    .DataSource(dataSource => dataSource
+        .Ajax()
+        .PageSize(20)
+        .Model(model => { model.Id(p => p.ID); model.Field(p => p.ID).Editable(false); })        
+        .Sort(x=>x.Add("ID").Descending())
+        .Create(update => update.Action("Editing_Create", "Category"))
+        .Read(read => read.Action("Editing_Read", "Category"))
+        .Update(update => update.Action("Editing_Update", "Category"))
+        .Destroy(destroy => destroy.Action("Editing_Destroy", "Category"))        
+    )
+   
+)
+
+
+<style scoped>
+    .k-edit-form-container
+    {
+        width:550px;
+    }
+    #grid
+    {
+        margin-top: 50px;
+    }
+    .k-button
+    {
+        min-width: 30px!important;
+    }
+     .product-view
+    {
+        float: left;
+        position: relative;
+        width: 550px;
+        margin: -1px -1px 0 0;
+    }
+        .product-view input[type="text"]
+        {
+            width:200px;
+        }
+    .product-view dl
+    {
+        margin: 10px 0;
+        padding: 0;
+        min-width: 0;
+    }
+    .product-view dt, dd
+    {
+        float: left;
+        margin: 0;
+        padding: 3px;
+       
+        width: 360px;
+        line-height: 26px;
+        overflow: hidden;
+    }
+    .product-view dt
+    {
+        clear: left;
+        padding: 3px 5px 3px 0;
+        text-align: right;
+        opacity: 0.6;
+        width: 100px;
+    }
+    </style>
