@@ -21,10 +21,10 @@
         protected override void Seed(x_nova_template.Models.ApplicationDbContext context)
         {
 
-            //for (int t = 0; t <= 5; t++)
-            //{
-            //    context.Categories.AddOrUpdate(x => x.ProductName, new Product { CategoryID = context.Categories.Where(x => x.ID == 1).SingleOrDefault().ID, ProductName = "Продукт под номером" + t, Price = 1537, Description = "Описание для товара" });
-            //}
+            for (int t = 0; t <= 15; t++)
+            {
+                context.Products.AddOrUpdate(x => x.ProductName, new Product {ProductName = "Категория номер" + t,Price=1756,CategoryID=1, Description="Описчание товара для наглядности отображения" });
+            }
 
             //context.SaveChanges();
             //context.Database.ExecuteSqlCommand("DELETE FROM dbo.AspNetUsers WHERE Email!={0}","admin@admin.ru");

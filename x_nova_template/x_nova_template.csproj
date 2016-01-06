@@ -402,7 +402,6 @@
   <ItemGroup>
     <Content Include="Areas\Admin\Controllers\Content\kendo.compatibility.css" />
     <Content Include="Areas\Admin\Controllers\Scripts\kendo.modernizr.custom.js" />
-    <Content Include="Class1.txt" />
     <Content Include="Content\Admin.css" />
     <Content Include="Content\admlogin.css" />
     <Content Include="Content\ajax-loaders\301.GIF" />
@@ -1485,7 +1484,9 @@
     <Content Include="Scripts\xn-livechat.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Views\dbconn.txt" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -1722,7 +1723,7 @@
     <Content Include="Views\Slider\GetSlider.cshtml" />
     <Content Include="Views\tobuy\Index.cshtml" />
     <Content Include="Views\Widget\Inscreaser.cshtml" />
-    <Content Include="Views\Shared\_Layout.Mobile.cshtml" />
+    <Content Include="Views\Product\dfg.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
