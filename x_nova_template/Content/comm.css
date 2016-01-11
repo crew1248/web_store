@@ -294,7 +294,7 @@ font-size: 18px;
 {
     min-height: 600px;
     padding: 20px;
-    /*margin: 0 242px 0 242px;*/   
+  
     font-size:13px;
     color: #404040;
     line-height: 17px; 
@@ -326,11 +326,11 @@ font-size: 18px;
         {
             list-style:circle;
         }
-            #article ul li
-            {
-                display: list-item;
-                line-height:20px;
-            }
+        #article ul li
+        {
+            display: list-item;
+            line-height:20px;
+        }
 #rightbar
 {
    

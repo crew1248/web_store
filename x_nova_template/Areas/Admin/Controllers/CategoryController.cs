@@ -43,7 +43,7 @@ namespace x_nova_template.Areas.Admin.Controllers
                 .Take(PageSize));
         }
         public PartialViewResult CatsMenu() {
-            return PartialView(_repository.Categories.Where(x => x.CatType == "пресс-форма").OrderBy(x=>x.Sequance).ToList());
+            return PartialView(_repository.Categories.OrderBy(x=>x.Sequance).ToList());
         }
         public PartialViewResult CatsMenu2()
         {

@@ -51,6 +51,8 @@ namespace x_nova_template.Controllers
 
             IConfigRepository _conf = new ConfigRepository();
             IMenuRepository _mrepo = new MenuRepository();
+            IProductRepository _mprod = new ProductRepository();
+            ViewBag.FirstCat = _mprod.Products.Any() ? _mprod.Products.First().ID : 0;
             if (_conf.Options().SelectedIsOnlineID)
             {
                 throw new HttpException(410, "Offline");

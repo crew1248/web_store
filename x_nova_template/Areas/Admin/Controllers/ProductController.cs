@@ -21,6 +21,7 @@ using System.Xml;
 using System.Diagnostics;
 using System.Data;
 using System.Threading;
+using Newtonsoft.Json.Linq;
 
 namespace x_nova_template.Areas.Admin.Controllers
 {
@@ -32,6 +33,7 @@ namespace x_nova_template.Areas.Admin.Controllers
         public int PageSize = 8;
 
         IProductRepository _pRepository;
+        ICategoryRepository _catRep;
         ICategoryRepository _cRep;
         IConfigRepository _conf;
 
@@ -41,11 +43,12 @@ namespace x_nova_template.Areas.Admin.Controllers
             ViewBag.Str = "SSS";
             base.OnActionExecuting(filerContext);
         }
-        public ProductController(IProductRepository pRepository, IConfigRepository conf, ICategoryRepository cRep)
+        public ProductController(IProductRepository pRepository, IConfigRepository conf, ICategoryRepository cRep,ICategoryRepository catRep)
         {
             _cRep = cRep;
             _pRepository = pRepository;
             _conf = conf;
+            _catRep = catRep;
         }
 
         public ActionResult Details(int id)
@@ -58,7 +61,7 @@ namespace x_nova_template.Areas.Admin.Controllers
             var item = _pRepository.Products.SingleOrDefault(x => x.ID == id);
             return View(item);
         }
-        public ViewResult ProdList(int catId, int page = 1, string credentialToken = null, string resetToken = null)
+        public ViewResult ProdList(int catId=0, int page = 1, string credentialToken = null, string resetToken = null)
         {
             if (_conf.Options().SelectedIsOnlineID)
             {
@@ -66,6 +69,7 @@ namespace x_nova_template.Areas.Admin.Controllers
             }
             ViewBag.Token = credentialToken;
             ViewBag.ResetToken = resetToken;
+            ViewBag.CatID = catId == 0 && _pRepository.Products.Count()>0 ? _catRep.Get().Where(x => x.Products.Count() > 0).First().ID : catId;
             ProductListViewModel vm = new ProductListViewModel
             {
                 Products = _pRepository.Products
@@ -88,6 +92,33 @@ namespace x_nova_template.Areas.Admin.Controllers
 
 
             return View(vm);
+        }
+
+        public ActionResult ProdListPartial(string jsonData)
+        {
+            JObject obj2 = JObject.Parse(jsonData);
+            int id = obj2.SelectToken("catId").Value<int>();
+            int num = obj2.SelectToken("page").Value<int>();
+            ProductListViewModel model2 = new ProductListViewModel
+            {
+                Products = (from x in _pRepository.Products
+                            where x.CategoryID == id
+                            orderby x.ID descending 
+                            select x).Skip<Product>(((num - 1) * this.PageSize)).Take<Product>(this.PageSize)
+            };
+            PagingInfo info = new PagingInfo
+            {
+                Service = "Product",
+                CurrentPage = num,
+                ItemsPerPage = this.PageSize,
+                TotalItems = (from x in this._pRepository.Products
+                              where x.CategoryID == id
+                              select x).Count<Product>(),
+                CatId = id
+            };
+            model2.PagingInfo = info;
+            ProductListViewModel model = model2;
+            return PartialView(model);
         }
         public ViewResult ProdListToy(int catId, int page = 1, string credentialToken = null, string resetToken = null)
         {

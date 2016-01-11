@@ -12,7 +12,7 @@ namespace x_nova_template.Service.Interface
         IQueryable<Category> Categories { get;  }
         IQueryable<Category> GetForSlider();
         void Create(CategoryViewModel post);
-
+         IQueryable<Category> Get();
         Category Get(int id);
         void Delete(Category post);
         void Edit(CategoryViewModel post);

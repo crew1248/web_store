@@ -183,8 +183,35 @@ span.dot {
 .d-price {
     font-size: 13px;
 }
+.navbar-header .fa-bars {
+        font-size: 21px;
+}
+#article
+{
+    min-height: 600px;
+    padding: 20px;
+  
+    font-size:13px;
+    color: #404040;
+    line-height: 17px; 
+}
 
-
+    #article h2
+    {
+        font-size: 21px; margin: .75em 0;
+        line-height: 30px; 
+    }
+    #article h3
+    {
+        font-size: 15px;
+        padding: .83em 0;
+        margin: 0;
+        background-image: url(/content/qm/header-line.png);
+        background-repeat: no-repeat;
+        background-position: bottom left;
+        line-height: 24px; 
+    }
+      
 /* =========================== basket area ======================== */
 #cart__summary {
     display: inline-block;
@@ -400,7 +427,7 @@ background: #FFF;
 transform: rotate(45deg);
 -webkit-transform: rotate(45deg);
 top: 45px;
-right: 50px;
+left: 70px;
 box-shadow: -1px -1px 10px -2px rgba(0, 0, 0, 0.5);
 }
 .right-h-section
@@ -414,7 +441,7 @@ width:auto;float:right;
 .foreign-cont
 {
     background: #FFF;
-   width:300px;
+   width:250px;
     line-height: 17px;
     font-size: 13px;
     z-index:13;
@@ -429,7 +456,7 @@ width:auto;float:right;
     transition: all 0.5s ease;  
    opacity:0;
     margin-top:50px;
-    left: -10px;
+    left: -40px;
 }
 .forg-menu a
 {

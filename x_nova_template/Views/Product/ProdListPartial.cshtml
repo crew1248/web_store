@@ -1,62 +1,52 @@
 ﻿@model x_nova_template.ViewModel.ProductListViewModel
 @{
     ViewBag.Title = ProductController.GetCatName(Model.PagingInfo.CatId);
-    
+
     int carouselCounter = 1;
     int catId = 0;
 }
 
 
 
-<div class="row">
-    @foreach (var item in Model.Products)
-    {
+<div class="xn-listview-cont aligned-content">
+    <div class="xn-listview-table">
+        <div class="xn-listview-tr">
+            <div class="xn-listview-td">
+                <div class="xn-listview-wrapper">
+                    <ul class="xn-listview-feed" id="anim-listview">
+                        <!-- start of list-->
+                        @foreach (var item in Model.Products)
+                        {
 
-        <div class="listview-item col-md-6 col-sm-12 col-xs-12" id="pid_@item.ID" data-id="@item.ID">
-            <div class="row">
+                            <li class="xn-listview-item" data-id="@item.ID">
 
-                <div class="listview-wrap col-md-6 col-sm-6 col-xs-12 ">
-                    <div class="prod-title">
-                        <a class="prod-preview" href="@Url.Action("Details", "Product", new { id=item.ID})">@item.ProductName</a>
-                    </div>
-                    <div class="prod-desc">
-                        @(item.Description.Length > 160 ? item.Description.Substring(0, 160) + "..." : item.Description)
+                                <a class="normal" >
+                                    <div class="item-img">
+                                        @if (item.ProdImages.Any(x => x.IsPreview == 1)) { 
+                                        <img id="mpic_@item.ID" data-id="@item.ProdImages.SingleOrDefault(x=>x.IsPreview==1).ID" src="@Url.Action("GetProdImage", "ImageData", new {pid=item.ID,width=130,height=150 },Request.Url.Scheme)" />
+                                        }
+                                    </div>
+                                    <div class="item-title">
+                                        @(item.ProductName.Length > 50 ? item.ProductName.Substring(0, 50) + "..." : item.ProductName)
 
-                    </div>
-                    <div class="prod-more-btn">
-                        <a class="more-btn" href="javascript:void(0);">быстрый просмотр</a>
-                    </div>
-                </div>
-                <div class="prod-img-wrapper col-md-6 col-sm-6 col-xs-12 ">
-                    <div class="prod-image">
-                        <img id="mpic_@item.ID" data-id="@item.ProdImages.SingleOrDefault(x=>x.IsPreview==1).ID" src="@Url.Action("GetProdImage", "ImageData", new {pid=item.ID,width=130,height=150 },Request.Url.Scheme)" />
-                        <div class="prod-details"> <i class="icon-search"></i>&nbsp; Подробнее</div>
-                    </div>
-                    <div class="imglist-wrap" id="prod_sl_@carouselCounter">
-                        <i class="fa fa-chevron-left prev"></i>
-                        <div class="prod-imglist">
+                                    </div>
+                                </a>
 
-                            <ul>
-                                @foreach (var img in item.ProdImages)
-                                {
-                                    <li>
-                                        <img class="imglist-item" data-id="@img.ID" data-pid="@img.ProductID" src="@Url.Action("GetProdImage", "ImageData", new {pimgid=img.ID,type="small" },Request.Url.Scheme)" height="50" width="50" />
-                                    </li>
-                                }
-                            </ul>
-                        </div>
-                        <i class="fa fa-chevron-right next"></i>
-                    </div>
+                                <div class="item-desc">
+                                    Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов
+                                </div>
+                            </li>
 
+
+                        }
+                        <!-- End listview -->
+                    </ul>
                 </div>
             </div>
         </div>
-                                carouselCounter++;
-
-
-    }
+    </div>
 </div>
-
 <div class="pager">@Ajax.AjaxPageLinks(Model.PagingInfo)</div>
 
-@Scripts.Render("~/bundles/listslider")
+
+

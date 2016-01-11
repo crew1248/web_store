@@ -71,7 +71,7 @@ namespace x_nova_template
               //"~/Content/kendo/2013.3.1324/kendo.default.min.css",
               "~/Content/component.css",
                 "~/Content/btns.css",
-
+                "~/Content/listview.css",
               "~/Content/Livechat.css"
               //"~/Content/jquery.mCustomScrollbar.css"
 
@@ -125,14 +125,14 @@ namespace x_nova_template
             /*    KENDO BUNDLES   */
 
             bundles.Add(new ScriptBundle("~/bundles/kjs").Include(
-                "~/Scripts/kendo/2015.1.429/kendo.web.min.js",
-                "~/Scripts/kendo/2015.1.429/kendo.aspnetmvc.min.js",
+                "~/Scripts/kendo/2015.2.624/kendo.web.min.js",
+                "~/Scripts/kendo/2015.2.624/kendo.aspnetmvc.min.js",
                  "~/Scripts/cultures/kendo.culture.ru.js",
                 "~/Scripts/cultures/kendo.culture.ru-RU.js"
                 ));
             bundles.Add(new StyleBundle("~/Content/kcss").Include(
-                            "~/Content/kendo/2015.1.429/kendo.common-material.min.css",
-                        "~/Content/kendo/2015.1.429/kendo.material.min.css",
+                            "~/Content/kendo/2015.2.624/kendo.common-material.min.css",
+                        "~/Content/kendo/2015.2.624/kendo.material.min.css",
                         "~/font-awesome/css/font-awesome.min.css"
                         ));
 

@@ -18,7 +18,9 @@ $(function(){
     XN.Auth.startModal(0, null, null);
     // lazy loading - main-slider, prodlist
     var data = { type: istablet };
-    var data1 = { catId: $('#listview').data('catid'),page:1 };
+    var catid= $('.content-wrap').data('catid')!=undefined?0: $('#listview').data('catid');
+    var data1 = { catId: catid, page: 1 };
+
     if ($('.s-slider').length) XN.AjaxRequest.MakeRequest('/Product/ProdsToSlider', { jsonData: JSON.stringify(data) }, '.s-slider');    
     if ($('#listview-target').length) XN.AjaxRequest.MakeRequest('/Product/ProdListPartial', { jsonData: JSON.stringify(data1) }, '#listview-target'); 
     // content image resize
@@ -49,9 +51,9 @@ $(function(){
         XN.Inscreaser.BuildModal('/Widget/Inscreaser', { type: 2, id:$(this).data('id') });
     });
    // prodlist preview
-    $('.prod-more-btn').on('click', function () {
+    $('.xn-listview-item').on('click', function () {
        
-        XN.Inscreaser.BuildModal('/Widget/Inscreaser', { type: 1, id: $(this).closest('.listview-item').data('id') });
+        XN.Inscreaser.BuildModal('/Widget/Inscreaser', { type: 1, id: $(this).data('id') });
     });
 });
 /*==========================================================================================*/
@@ -229,15 +231,15 @@ XN.Inscreaser = { // Widget - Catalog/Gallery
             ins_modal.find('.xn-i-sphoto').removeAttr('style');
             ins_modal.find('.xn-i-sphoto').addClass('style');
             var rouble = $('<i class="fa fa-rouble"></i>');
-            el.added ? $('.xn-cart-option').addClass('cart__view').removeClass('cart __add').html('товар добавлен') : $('.xn-cart-option').addClass('cart__add').removeClass('cart__view').html('в корзину').data('pid', el.id);
-            $('.d-title td').html(el.name);
+            el.added ? $('.xn-cart-option').attr('data-event-type','cart__view').html('В корзину') : '';
+            $('.xn-d-w a').attr('href', '/Product/Details/' + el.id).html(el.name);
             //$('.d-type td').html(data.name);
             $('.d-cat td').html(el.cat);
             $('.d-desc td').html(el.desc);
             $('.d-price td').html(el.price + ' <i class="fa fa-rouble"></i>');
-            $('*[data-event-type="addtocart"]').attr('data-pid', el.id);
+            $('*[data-event-type="cart__add"]').attr('data-pid', el.id);
             //if(XN.IsMobile)$('.prod-link-details').attr('href', '/Product/Details/'+el.id);
-            $('.prod-link-details').attr('href', '/Product/Details/' + el.id);
+            //$('.prod-link-details').attr('href', '/Product/Details/' + el.id);
             for (i = 0; i < el.si.length; i++) {
                 var guiImg = this.Utilities.GetDataImg(el.si[i], false, 100, 100, el.id);
                 //alert(sm.attr('src'));
@@ -551,8 +553,9 @@ XN.AjaxRequest = {
                 success: function (response) {
                     setTimeout(function () {
                         $(target).html(response);
-                        $('.prod-more-btn').on('click', function () {
-                            XN.Inscreaser.BuildModal('/Widget/Inscreaser', { type: 1, id: $(this).closest('.listview-item').data('id') });
+                        $('.xn-listview-item').on('click', function () {
+
+                            XN.Inscreaser.BuildModal('/Widget/Inscreaser', { type: 1, id: $(this).data('id') });
                         });
                        
 

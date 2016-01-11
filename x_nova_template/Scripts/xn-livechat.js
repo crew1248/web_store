@@ -67,7 +67,7 @@ function LivechatInit() {
     
     var chat = $.connection.xnovaHub; // hub
     var timeoutId; // таймер 
-    $conn = chat.connection.id;
+   //$conn = chat.connection.id;
     
     $.connection.hub.qs = { 'X-NOVA-consultant': '2.0' };
     $.connection.hub.disconnected(function () { setTimeout(function () { $.connection.hub.start(); }, 5000) });

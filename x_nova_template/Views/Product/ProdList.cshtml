@@ -1,7 +1,7 @@
 ﻿@model x_nova_template.ViewModel.ProductListViewModel
 @{
     ViewBag.Title = ProductController.GetCatName(ViewBag.CatID);
-    Layout = "~/Views/Shared/_SecondLayout.cshtml";
+    Layout = "~/Views/Shared/_ProdlistLayout.cshtml";
    
 }
 
@@ -13,7 +13,7 @@
     <div id="listview-target">
 
     </div>
-  
+
 </div>
 
 @*<div class="breadcrumb">@Html.RouteLink("Главная", "home") / @ProductController.GetCatName(Model.PagingInfo.CatId)</div>

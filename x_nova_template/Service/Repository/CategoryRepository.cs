@@ -35,6 +35,10 @@ namespace x_nova_template.Service.Repository
             var item = db.Categories.Find(id);
             return item;
         }
+        public IQueryable<Category> Get()
+        {
+            return from obj in db.Categories.Include("Products") select obj;
+        }
         public void Edit(CategoryViewModel post)
         {
             var cat = Get(post.ID);

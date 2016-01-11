@@ -21,20 +21,26 @@
         protected override void Seed(x_nova_template.Models.ApplicationDbContext context)
         {
 
-            for (int t = 0; t <= 15; t++)
-            {
-                context.Products.AddOrUpdate(x => x.ProductName, new Product {ProductName = "Категория номер" + t,Price=1756,CategoryID=1, Description="Описчание товара для наглядности отображения" });
-            }
+            //for (int t = 0; t <= 5; t++)
+            //{
+            //    context.Categories.AddOrUpdate(x => x.CategoryName, new Category { CategoryName = "Категория номер" + t });
+            //}
+
+            //for (int t = 0; t <= 15; t++)
+            //{
+            //    context.Products.AddOrUpdate(x => x.ProductName, new Product { ProductName = "Категория номер" + t, Price = 1756, CategoryID = 1, Description = "Описчание товара для наглядности отображения" });
+            //}
 
             //context.SaveChanges();
             //context.Database.ExecuteSqlCommand("DELETE FROM dbo.AspNetUsers WHERE Email!={0}","admin@admin.ru");
 
 
-
-            context.Configs.AddOrUpdate(x => x.ConfigID,
-              new Config { ConfigID = 1, SelectedIsOnlineID = false }
-            );
-            context.SaveChanges();
+            if (!context.Configs.Any())
+            {
+                context.Configs.AddOrUpdate(x => x.ConfigID, new Config { SelectedIsOnlineID = false });
+                context.SaveChanges();
+            }
+           //dfdf sadf
             context.Menues.AddOrUpdate(x => x.Url,
               new Menu { Url = "Home", Text = "title", ParentId = 0, MenuSection = 0, SortOrder = 0, LastModifiedDate = DateTime.Now }
               );

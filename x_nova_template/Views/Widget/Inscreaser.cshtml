@@ -16,12 +16,9 @@
             <div class="xn-i-details">
                 <div class="xn-i-details__spoiler hidden-lg hidden-md hidden-sm visible-xs">Характеристики:<i class="fa fa-arrow-down "></i> </div>
                 <div class="xn-d-w">
+                    <a href="@Url.Action("Product","ProductList")"></a>
                     <table>
-                        <tr class="d-title">
-                            <th>Название</th>
-                            <td></td>
-
-                        </tr>
+                        
                         <tr class="d-price">
                             <th>Цена</th>
                             <td></td>
@@ -61,8 +58,8 @@
 
             </div>
             <div class="xn-i-button">
-               <!--<button class="xn-dark-button btn xn-cart-option btn-default" data-event-type="addtocart" data-pid="" href="javascript:void(0);">В корзину</button>-->
-                <button class="xn-dark-button btn btn-default cart__view " onclick="XN.Inscreaser.Close();" data-pid="" href="javascript:void(0);">Подробнее</button>
+                <button class="xn-dark-button btn xn-cart-option btn-default" data-event-type="cart__add" data-pid="" >Купить</button>
+                <button class="xn-dark-button btn btn-default" onclick="XN.Inscreaser.Close();" data-pid="">Продолжить</button>
             </div>
         </div>
     </div>

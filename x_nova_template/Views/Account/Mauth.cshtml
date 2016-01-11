@@ -66,14 +66,14 @@
             
             </div>
     <div class="feededitor">
-    <input type="submit" class="xn-dark-button" id="auth_but" value="Отправить">
+        <input type="submit" class="xn-dark-button btn btn-default" id="auth_but" value="Отправить">
 </div>
         
     }
     
     <div class="modal-foot">
-        <a class="xn-button" data-content-type="registerForm" >Регистрация</a><br />
-        <a class="xn-button" data-content-type="recoveryForm">Восстановление пароля</a>
+        <a class="xn-button btn" data-content-type="registerForm" >Регистрация</a><br />
+        <a class="xn-button btn" data-content-type="recoveryForm">Восстановление пароля</a>
     </div>
     <div class="modal-foot">
        @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
