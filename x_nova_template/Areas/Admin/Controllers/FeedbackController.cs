@@ -60,7 +60,7 @@ namespace x_nova_template.Areas.Admin.Controllers
            
             if (ModelState.IsValid)
             {
-                _emailSender.SendMail(feed.Name, feed.Text, feed.Email);
+                _emailSender.SendMail(feed.Name, feed.Text, "Письмо с сайта!", feed.Email);
 
                 if (Request.IsAjaxRequest())
                 {

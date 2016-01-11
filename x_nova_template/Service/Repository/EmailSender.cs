@@ -12,31 +12,32 @@ namespace x_nova_template.Service.Repository
 {
     public class EmailSender:IEmailSender
     {
-        public void SendMail(string name, string message, string to) {
-            StringBuilder body = new StringBuilder()
-                    .AppendLine("Новое сообщение было отправлено!")
-                    .AppendLine("---")
-                    .AppendLine("Имя : " + name)
-
-                    .AppendLine("Сообщение : " + message)
-
-                    .AppendLine("Email : " + to)
-                    .AppendLine("---");
-
-            var mess = new MailMessage(
-                ConfigurationManager.AppSettings["mailAccount"].ToString(),
-                to,
-                "Сообщение с сайта " + ConfigurationManager.AppSettings["SiteName"].ToString(),
-                body.ToString());
-            using (var smtp = new SmtpClient())
+        public void SendMail(string name, string message, string title, string to)
+        {
+            var username = ConfigurationManager.AppSettings["mailUserName"].ToString();
+            var pass = ConfigurationManager.AppSettings["mailPassword"].ToString();
+            StringBuilder builder = new StringBuilder()
+                .AppendLine("Новое сообщение было отправлено!")
+                .AppendLine("---")
+                .AppendLine("<b>Имя : </b>" + name)
+                .AppendLine("<b>Сообщение : </b>" + message)
+                .AppendLine("<b>Email : </b>" + to)
+                .AppendLine("---");
+            MailMessage message2 = new MailMessage(
+                ConfigurationManager.AppSettings["mailAddress"].ToString(),
+                ConfigurationManager.AppSettings["mailAddress"].ToString(),
+                title,
+                builder.ToString())
+                {
+                    IsBodyHtml = true
+                };
+            using (SmtpClient client = new SmtpClient())
             {
-                smtp.EnableSsl = true;
-                smtp.DeliveryMethod = System.Net.Mail.SmtpDeliveryMethod.Network;
-                smtp.Host = ConfigurationManager.AppSettings["mailHost"].ToString();
-                smtp.Port = 25;
-                smtp.Credentials = new NetworkCredential(ConfigurationManager.AppSettings["mailAccount"].ToString(), ConfigurationManager.AppSettings["mailPassword"].ToString());
-
-                smtp.Send(mess);
+                client.DeliveryMethod = SmtpDeliveryMethod.Network;
+                client.Host = ConfigurationManager.AppSettings["mailHost"].ToString();
+                client.Credentials = new NetworkCredential(username, pass);
+                client.Port = 0x19;
+                client.Send(message2);
             }
         }
     }

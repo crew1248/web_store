@@ -40,7 +40,7 @@ var cartIndex = $('.cart-cont').length;
 var partialTimeout = null;
 var initCartEvents = function () {
     var fcont = $('.foreign-cont');
-    var hasItems = fcont.hasClass("has-items");
+    var hasItems = $('.forg-menu .item-row').length;
     $('.forg-btn').click(function (e) {
         if (!hasItems) return false;
             $('.foreign-cont').css({ marginTop: '20px', opacity: 1, visibility: '' });
@@ -66,11 +66,12 @@ var addToCart = function () {
     addLoader();
     XN.Inscreaser.Close();
     var id = $this.hasClass('xn-cart-option') ? $this.data('pid') : $this.closest('.xn-listview-item').data('id');
+    
     $.post('/Cart/AddToCart', { prodId: id }, function (data) {
         updateSummary(data.count);
         ExpandPartialCart(id, data.title, data.price, data.count, data.total);
-
-        updateCartEvent(id,true);
+        initCartEvents();
+        //updateCartEvent(id,true);
         setTimeout(function () { closeLoader(); }, '500');
         //partialOff();
     });
@@ -89,7 +90,7 @@ var removeFromCart = function () {
         $('.forg-menu tr[data-pid="' + pid + '"]').remove();
         updateSummary(data.count);
         updateTotal(data.total, data.count);
-        updateCartEvent(pid, false);
+        //updateCartEvent(pid, false);
         //$('.cart__view[data-pid="' + pid + '"]').addClass('cart__add').removeClass('cart__view').html('Купить');
         setTimeout(function () { closeLoader(data.total, data.count); row.remove(); }, '200');
     });

@@ -191,7 +191,7 @@ namespace x_nova_template.Areas.Admin
             Thread.Sleep(2000);
             if (ModelState.IsValid)
             {
-                _emailSender.SendMail(user.UserName, user.FeedMessage, user.Email);
+                _emailSender.SendMail(user.UserName, user.FeedMessage,"Консультант:Сообщение с сайта!",user.Email);
                 return Json("Ok");
             }
             throw new HttpException();

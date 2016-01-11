@@ -26,6 +26,7 @@ namespace x_nova_template.Controllers
             ViewBag.firsttime = ConfigurationManager.AppSettings["IsFirstTime"];
            
             string cultureName = null;
+           
             /*
             string routeCultureName = RouteData.Values["culture"] as string;
  
