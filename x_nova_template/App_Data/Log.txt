@@ -1,0 +1,18 @@
+2016-01-06T20:41:27.0350469Z - 3808 - Fatal - Exception processing device data from binary file 'c:\users\тимур\documents\visual studio 2013\Projects\x_nova_template\x_nova_template\App_Data\51Degrees.dat'. Enable debug level logging and try again to help identify cause.
+2016-01-06T20:41:27.0350469Z - 3808 - Fatal - 
+2016-01-06T20:41:27.0350469Z - 3808 - Fatal - Version mismatch. Data is version '3.2.0.0' for '3.1.0.0' reader
+2016-01-06T20:41:27.0350469Z - 3808 - Fatal -    в FiftyOne.Foundation.Mobile.Detection.Entities.DataSet..ctor(BinaryReader reader)
+   в FiftyOne.Foundation.Mobile.Detection.Factories.StreamFactory.Read(Reader reader, Source source)
+   в FiftyOne.Foundation.Mobile.Detection.Factories.StreamFactory.Create(String filePath)
+   в FiftyOne.Foundation.Mobile.Detection.WebProvider.GetDataFileDate(FileInfo fileInfo)
+   в FiftyOne.Foundation.Mobile.Detection.WebProvider.GetTempFileDataSet()
+   в FiftyOne.Foundation.Mobile.Detection.WebProvider.Create()
+2016-01-06T20:42:42.4537440Z - 3808 - Warn - Exception cleaning temporary files
+2016-01-06T20:42:42.4548055Z - 3808 - Warn - 
+2016-01-06T20:42:42.4548055Z - 3808 - Warn - Не удалось найти часть пути "c:\users\тимур\documents\visual studio 2013\Projects\x_nova_template\x_nova_template\App_Data\51Degrees".
+2016-01-06T20:42:42.4558115Z - 3808 - Warn -    в System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   в System.IO.FileSystemEnumerableIterator`1.CommonInit()
+   в System.IO.FileSystemEnumerableIterator`1..ctor(String path, String originalUserPath, String searchPattern, SearchOption searchOption, SearchResultHandler`1 resultHandler, Boolean checkHost)
+   в System.IO.DirectoryInfo.InternalGetFiles(String searchPattern, SearchOption searchOption)
+   в System.IO.DirectoryInfo.GetFiles()
+   в FiftyOne.Foundation.Mobile.Detection.WebProvider.CleanTemporaryFiles()
