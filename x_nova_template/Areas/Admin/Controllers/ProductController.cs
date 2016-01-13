@@ -25,6 +25,7 @@ using Newtonsoft.Json.Linq;
 
 namespace x_nova_template.Areas.Admin.Controllers
 {
+    
     public class ProductController : BaseController
     {
         //
@@ -63,7 +64,7 @@ namespace x_nova_template.Areas.Admin.Controllers
         }
         public ViewResult ProdList(int catId=0, int page = 1, string credentialToken = null, string resetToken = null)
         {
-            ViewBag.Test = (string)Session["test"];
+            ViewBag.Test = Session["test"];
             if (_conf.Options().SelectedIsOnlineID)
             {
                 throw new HttpException(410, "Offline");
