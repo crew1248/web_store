@@ -1115,6 +1115,7 @@
     <Content Include="Content\mobile\jquery.mobile.theme-1.1.0.css" />
     <Content Include="Content\mobile\jquery.mobile.theme-1.1.0.min.css" />
     <Content Include="Content\mybootstrap.css" />
+    <Content Include="Content\plugin\anim-listview.css" />
     <Content Include="Content\plugin\tiksluszoom.css" />
     <Content Include="Content\qm\arr-left.png" />
     <Content Include="Content\qm\arr-right.png" />

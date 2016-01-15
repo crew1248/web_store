@@ -20,20 +20,26 @@
 
                             <li class="xn-listview-item" data-id="@item.ID">
 
-                                <a class="normal" >
+                                <div class="xn-lockup">
                                     <div class="item-img">
-                                        @if (item.ProdImages.Any(x => x.IsPreview == 1)) { 
-                                        <img id="mpic_@item.ID" data-id="@item.ProdImages.SingleOrDefault(x=>x.IsPreview==1).ID" src="@Url.Action("GetProdImage", "ImageData", new {pid=item.ID,width=130,height=150 },Request.Url.Scheme)" />
+                                        @if (item.ProdImages.Any(x => x.IsPreview == 1))
+                                        {
+                                            <img id="mpic_@item.ID" data-id="@item.ProdImages.SingleOrDefault(x=>x.IsPreview==1).ID" src="@Url.Action("GetProdImage", "ImageData", new {pid=item.ID,width=130,height=150 },Request.Url.Scheme)" />
                                         }
                                     </div>
                                     <div class="item-title">
                                         @(item.ProductName.Length > 50 ? item.ProductName.Substring(0, 50) + "..." : item.ProductName)
 
                                     </div>
-                                </a>
 
-                                <div class="item-desc">
-                                    Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов
+
+                                    <div class="item-desc">
+                                        <div class="item-price">@item.Price.ToString("C0") <i class="fa fa-rouble"></i></div>
+                                        <div>
+                                        <button class="btn btn-default xn-dark-button" data-event-type="cart__add" data-pid="@item.ID">купить</button>
+                                        <button class="btn btn-default xn-details">просмотр</button>
+                                        </div>
+                                    </div>
                                 </div>
                             </li>
 

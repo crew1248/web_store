@@ -40,6 +40,13 @@ namespace x_nova_template
 
            );
             routes.MapRoute(
+             name: "photog",
+             url: "Photogallery",
+             defaults: new { controller = "PhotoGallery", action = "Index" },
+             namespaces: new[] { "x_nova_template.Controllers" }
+
+         );
+            routes.MapRoute(
                name: "login",
                url: "Account/Login",
                defaults: new { controller = "Account", action = "Login" },

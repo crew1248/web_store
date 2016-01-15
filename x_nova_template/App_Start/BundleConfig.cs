@@ -42,11 +42,11 @@ namespace x_nova_template
              bundles.Add(new ScriptBundle("~/bundles/sitejs").Include(
                   
              "~/Scripts/jquery.jcarousel.min.js",
-              "~/Scripts/menu.js",
+            
             "~/Scripts/site.js",
             "~/Scripts/modalEffects.js", 
-            "~/Scripts/comm.js",
-            "~/Scripts/listview-slider.js",
+           
+          
             "~/Scripts/jquery.signalR-2.2.0.min.js"  
             ));
             bundles.Add(new ScriptBundle("~/bundles/tt").Include(
@@ -69,6 +69,7 @@ namespace x_nova_template
 
               //"~/Content/kendo/2013.3.1324/kendo.common.min.css",
               //"~/Content/kendo/2013.3.1324/kendo.default.min.css",
+              
               "~/Content/component.css",
                 "~/Content/btns.css",
                 "~/Content/listview.css",

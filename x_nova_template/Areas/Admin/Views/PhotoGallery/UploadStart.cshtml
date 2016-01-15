@@ -1,26 +1,46 @@
 ﻿
 <style>
-    .k-file
-    {
-       
+    .k-file {
     }
-    .k-upload-files
-    {
-        overflow:hidden;
+
+    .k-upload-files {
+        overflow: hidden;
+    }
+
+    .galimg-sort {
+        position: relative;
     }
 </style>
 <script>
-    function uploadSuccess(e) {
-        
-        if (!$(e.target).find('.isMain').length) {
-            var check = $("<input type='radio' class='isMain' name='isMain' /><span>в превью</span>");
-            check.insertAfter($('.k-filename'));
-        }
+    var result = "";
+    var filesCount = 0;
+    function uSuccess(data) {
+        filesCount += 1;
+        result = data.response;
     }
-    $('#go').on('click', function () {
-        var check = $("<input type='checkbox' name='isMain' />");
-        check.insertAfter($('#ss'));
-    })
+    function uploadSuccess(e) {
+        var data = JSON.parse(result);
+        var list = data.slice(-filesCount);
+
+        for (var i = 0; i < list.length; i++) {
+            if (!$('#afterUpload img[data-id="' + list[i] + '"]').length) {
+                var view = $('<div>' +
+                    '<img width="35" height="35" data-id="' + list[i] + '"  src="/ImageData/GetPhotoGalleryImage?id=' + list[i] + '&width=50&height=50&isGallery=false" />' +
+                    '<input type="text" data-id="' + list[i] + '" name="ImageTitle" />'
+                    + '</div>');
+                $('#afterUpload').append(view);
+            }
+        }
+        $('input[name="ImageTitle"]').off();
+        $('input[name="ImageTitle"]').on('change', function () {
+            var idx = $(this).data('id')
+            $.ajax({
+                url: '/PhotoGallery/UpdateImage', type: 'post', data: { id: idx, title: $(this).val() },
+                success: function () { $('<span style="color:green">Обновлено</span>').insertAfter($('input[data-id="' + idx + '"]')); }
+            });
+        });
+    }
+
 </script>
 <div style="width:100%">
     @(Html.Kendo().Upload()
@@ -31,11 +51,14 @@
             .Remove("Remove", "UploadFiles")
             .AutoUpload(true)
         )
-        .HtmlAttributes(new { @class="clear-fix"})
-        .Events(x => x.Complete("uploadSuccess"))
+        .HtmlAttributes(new { @class = "clear-fix" })
+        .Events(x => x.Complete("uploadSuccess").Success("uSuccess"))
 
 
     )
-            
+
+    <div id="afterUpload">
+
+    </div>
 </div><br />
 

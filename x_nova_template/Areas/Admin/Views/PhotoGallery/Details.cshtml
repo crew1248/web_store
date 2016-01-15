@@ -5,82 +5,149 @@
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
+@(Html.Kendo().Sortable()
+    .For("#img-cont")
 
+    .HintHandler("hint")
+    .PlaceholderHandler("placeholder")
+
+    .Events(events => events.Change("onChange").Cancel("onCancel"))
+)
 <script>
     $(document).on('click', '.gal-item-del', function () {
         $.post('/PhotoGallery/DeleteImg/' + $(this).data('id'), function (data) {
             $('#'+data.imgId).closest("div").remove();
         });
     });
-   
-    $(function () {
-        
-    })
+
+    function hint(element) {
+        return element.clone().addClass("hint");
+    }
+
+    function placeholder(element) {
+        return element.clone().addClass("placeholder").text("Поместить сюда");
+    }
+
+    //function onStart(e) {
+    //    var target = $('#droptarget');
+    //    var id = e.item.data("sort");
+
+    //    target.html(id + " start: " + e.item.find('img').attr('title')+', action - '+e.sender.event);
+    //}
+
+    //function onMove(e) {
+    //    var target = $('#droptarget');
+    //    var id = e.item.data("sort"),
+    //        placeholder = e.list.placeholder;
+
+    //    target.html(id + " move to index: " + this.indexOf(placeholder)+',action - '+e.action);
+    //}
+
+    //function onEnd(e) {
+    //    var target = $('#droptarget');
+    //    var id = e.sender.element.attr("data-id"),
+    //        text = e.item.text(),
+    //        oldIndex = e.oldIndex,
+    //        newIndex = e.newIndex;
+
+    //    target.html(id + " end: " + text + " oldIndex: " + oldIndex + " newIndex: " + newIndex + " action: " + e.action);
+    //}
+
+    function onChange(e) {
+        var target = $('#droptarget');
+        var idx = e.item.data("id"),
+            gid= e.item.data("galid")
+        text = e.item.text(),
+        newIndex = e.newIndex+1,
+        oldIndex = e.oldIndex+1;
+
+        opos = $('.gal-item:eq('+e.newIndex+')').data('sort');
+        npos = $('.gal-item:eq('+e.oldIndex+')').data('sort');
+        console.log( opos+', '+npos);
+        $.post('/PhotoGallery/EditSort', { id: idx, galId: gid, newPos: npos, oldPos: opos }, function () {
+
+        });
+
+
+    }
+    function DeleteAll(id) {
+        $.post('/PhotoGallery/DeleteAll', { galid: id },function(){$('.gal-item').remove();});
+    }
+    function onCancel(e) {
+        var target = $('#droptarget');
+        target.html("cancel");
+    }
 </script>
 
 
 <p>
-    
+
     <a class="k-button" href="@Url.Action("Index", "PhotoGallery", new {page=ViewBag.Page})"><i class="fa fa-arrow-left"></i></a>
     <br /><br /><br />
 </p>
-    <p class="breadcrumbs">@Html.ActionLink("галлерея","Index")  / @Model.GalleryTitle </p>
+<p class="breadcrumbs">@Html.ActionLink("галлерея", "Index")  / @Model.GalleryTitle </p>
 
-    
-    <!--<div class="display-field">
-      Название -  @Html.DisplayFor(model => model.GalleryTitle)
-    </div><br />-->
 
-     <div>
-            
-                <div style="float:left;">
-                    <img width="150" height="150" src="@Url.Action("GetPhotoGalleryImage", "ImageData", new {id= Model.ID,width=150,height=150,isGallery=true })" />
-                </div>
-            
-          
-        </div><br />
-    <div style="width: 100%;float: left;clear: both;">
+<!--<div class="display-field">
+  Название -  @Html.DisplayFor(model => model.GalleryTitle)
+</div><br />-->
+
+<div>
+
+    <div style="float:left;">
+        <img width="150" height="150" src="@Url.Action("GetPhotoGalleryImage", "ImageData", new {id= Model.ID,width=150,height=150,isGallery=true })" />
+    </div>
+
+
+</div><br />
+<div style="width: 100%;float: left;clear: both;">
     <h3>Все фото (@Model.Images.Count()):</h3>
     <a href="#" onclick="$('#gal-popup').data('kendoWindow').open()"><button class="k-button"><i class="fa fa-upload"></i>  Загрузить</button></a><br /><br /><br />
-       
-    
-        @foreach (var item in Model.Images) { 
-            
-           
-            
+    <a class="k-button" onclick="DeleteAll(@Model.ID);">Удалить все</a>
+    <p id="droptarget"></p>
+    <div id="img-cont">
+        @foreach (var item in Model.Images.OrderBy(x => x.Sortindex))
+        {
+
+
+
             if (item.ImageData == null)
-            { 
-                 @:None
+            {
+                @:None
                  }
             else
-            { 
-             
-              
-                <div style="float:left;margin:3px;width: 82px;">
-                    <a href="#" >
-                        <img width="35" height="35" class="preview gal-img-item" id="@item.ID" title="@item.ImageTitle" src="@Url.Action("GetPhotoGalleryImage", "ImageData", new { id = item.ID,width=50,height=50,isGallery=false })" /></a>
-                        <button id="gal-item_@item.ID" data-id="@item.ID" data-galid="@item.GalleryID" title="удалить" class="gal-item-del" style="width: 33px;padding: 0;float: right;" class="action">
-                            <span class="fa fa-trash"></span></button>
+            {
+
+
+                <div class="gal-item" data-sort="@item.Sortindex" data-id="@item.ID" data-galid="@item.GalleryID">
+                    <div>@item.Sortindex - @item.ImageTitle</div>
+                    <a href="#">
+
+                        <img width="65" height="65" class="preview gal-img-item" id="@item.ID" title="@item.ImageTitle" src="@Url.Action("GetPhotoGalleryImage", "ImageData", new { id = item.ID,width=100,height=100,isGallery=false })" />
+                    </a>
+                    <button id="gal-item_@item.ID" data-id="@item.ID" data-galid="@item.GalleryID" title="удалить" class="gal-item-del" style="width: 33px;padding: 0;float: right;" class="action">
+                        <span class="fa fa-trash"></span>
+                    </button>
                 </div>
             }
-           
-     
+
+
         }
-        
     </div>
+</div>
 
 @(Html.Kendo().Window()
     .Title("Загрузка фото")
     .Name("gal-popup")
     .Modal(true)
     .Visible(false)
-    
-    .LoadContentFrom(Url.Action("UploadStart", new  {galId = Model.ID }))
+
+    .LoadContentFrom(Url.Action("UploadStart", new { galId = Model.ID }))
     .Width(500)
     .Height(400)
-    .Events(e=>e.Close("gpClose"))
-      )
-   
+    .Events(e => e.Close("gpClose"))
+)
+
 <script>
 
     function gpClose() { window.location.reload();}

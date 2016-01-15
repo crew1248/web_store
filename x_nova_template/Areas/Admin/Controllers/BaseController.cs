@@ -21,9 +21,8 @@ namespace x_nova_template.Controllers
         }
         protected override IAsyncResult BeginExecuteCore(AsyncCallback callback, object state)
         {
-            
-            ViewBag.islocalhost = (_conf.Options().SiteName == "localhost" ? true : false);
-            ViewBag.firsttime = ConfigurationManager.AppSettings["IsFirstTime"];
+
+            HttpContext.Response.AppendHeader("X-XNOVA-Version", "3.2");
            
             string cultureName = null;
            

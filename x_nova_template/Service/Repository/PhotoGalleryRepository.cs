@@ -26,28 +26,30 @@ namespace x_nova_template.Service.Repository
         public void Create(Gallery gallery = null,HttpPostedFileBase file = null,int galId=0)
         {
             byte[] newdata = null;
-            int newW = 0;
-            int newH = 0;
+           
             if (gallery != null)
             {
                 var gall = new Gallery();
                 gall.GalleryMimeType = file.ContentType;
-                newdata = new WebImage(file.InputStream).Resize(800, 600).GetBytes();
-               
+                newdata = new WebImage(file.InputStream).GetBytes(null);
                 gall.GalleryTitle = gallery.GalleryTitle;
                 gall.GalleryData = newdata;
-                //new BinaryReader(file.InputStream).ReadBytes(file.ContentLength);
-                db.Galleries.Add(gall);
+                this.db.Galleries.Add(gall);
             }
             else {
-                var img = new Image();
-                var newString = System.Text.RegularExpressions.Regex.Replace(file.FileName, @"\.\w+", string.Empty);
-                img.ImageTitle = newString;
-                img.GalleryID = galId;
-                img.ImageMimeType = file.ContentType;
-                newdata = new WebImage(file.InputStream).Resize(800, 600).GetBytes();
-                img.ImageData = newdata;
-                db.Images.Add(img);
+                Image image = (from i in this.db.Images
+                               where i.Sortindex == (from x in this.db.Images select x.Sortindex).Max<int>()
+                               select i).SingleOrDefault<Image>();
+                int num = (image == null) ? 1 : (image.Sortindex + 1);
+                Image image2 = new Image();
+                string str = Regex.Replace(file.FileName, @"\.\w+", string.Empty);
+                image2.ImageTitle = str;
+                image2.Sortindex = num;
+                image2.GalleryID = galId;
+                image2.ImageMimeType = file.ContentType;
+                newdata = new WebImage(file.InputStream).GetBytes(null);
+                image2.ImageData = newdata;
+                this.db.Images.Add(image2);
             }
            db.SaveChanges();
         }
@@ -59,7 +61,7 @@ namespace x_nova_template.Service.Repository
                 if (file != null)
                 {
                     gallery.GalleryMimeType = file.ContentType;
-                    newdata = new WebImage(file.InputStream).Resize(800, 600).GetBytes();
+                    newdata = new WebImage(file.InputStream).GetBytes();
                     gallery.GalleryData = newdata;
                     db.Entry(gallery).State = System.Data.Entity.EntityState.Modified;
                 }
@@ -74,14 +76,14 @@ namespace x_nova_template.Service.Repository
                 if (file != null)
                 {
                     image.ImageMimeType = file.ContentType;
-                    newdata = new WebImage(file.InputStream).Resize(800, 600).GetBytes();
+                    newdata = new WebImage(file.InputStream).GetBytes();
                     image.ImageData =newdata;
                 }
                 db.Entry(image).State = System.Data.Entity.EntityState.Modified;
             }
             db.SaveChanges();
         }
-
+       
         public Image GetImage(int id) {
             var image = db.Images.Find(id);
             return image;
@@ -92,11 +94,28 @@ namespace x_nova_template.Service.Repository
             var gallery = db.Galleries.Find(id);
             return gallery;
         }
-
+        public void UpdateImage(int id, string title)
+        {
+            this.GetImage(id).ImageTitle = title;
+            this.db.SaveChanges();
+        }
+        public void UpdateSort(int id, int oldSort, int newSort)
+        {
+            Image image = this.GetGallery(id).Images.SingleOrDefault<Image>(x => x.Sortindex == oldSort);
+            Image image2 = this.GetGallery(id).Images.SingleOrDefault<Image>(x => x.Sortindex == newSort);
+            image.Sortindex = newSort;
+            image2.Sortindex = oldSort;
+            this.db.SaveChanges();
+        }
         public void Save() {
             db.SaveChanges();
         }
 
+        public void DeleteAll(int id)
+        {
+            this.db.Database.ExecuteSqlCommand("Delete from Images where GalleryID =" + id, new object[0]);
+            this.db.SaveChanges();
+        }
         public void Delete(Gallery gallery = null, Image image = null)
         {
             if (image != null)

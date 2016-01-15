@@ -2,36 +2,57 @@
 
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_PageMenuLayout.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
     
 }
    <script>   $(function () { });</script>
 <h2>Галлерея</h2>
 
-<div class="row">
-    @foreach (var item in Model.Galleries)
-    {
-
-
-        <div class="col-xs-4 col-sm-4 col-md-3" >
-            <div class="thumbnail">
-                <div class="listview-item listview-gal" data-id="@item.ID">
-                    <div class="prod-img">
-                        @if (item.GalleryData != null)
+<div class="xn-listview-cont aligned-content" id="photogallery-target">
+    <div class="xn-listview-table">
+        <div class="xn-listview-tr">
+            <div class="xn-listview-td">
+                <div class="xn-listview-wrapper">
+                    <ul class="xn-listview-feed" id="anim-listview"> 
+                          <!-- start of list-->
+                        @foreach (var item in Model.Galleries)
                         {
-                            <img class="img-responsive" id="mpic_@item.ID" src="@Url.Action("GetPhotoGalleryImage", "ImageData", new { id = item.ID, width = 300, height = 300, isGallery = true }, Request.Url.Scheme)" />
-                        }
-                        else
-                        {  <span>изображение отсутсвует</span>}
-                    </div>
-                    <div class="caption">
-                        <h3 class="prod-h"><a class="prod-preview" href="@Url.Action("Details", "PhotoGallery", new { id=item.ID})">@(item.GalleryTitle.Length > 50 ? item.GalleryTitle.Substring(0, 50) + "..." : item.GalleryTitle)</a></h3>
 
-                        <div class="prod-btns"><a class="more-btn" href="javascript:void(0);">быстрый просмотр</a></div>
-                    </div>
+
+                                                 
+                            <li class="xn-listview-item" data-id="@item.ID">
+                              
+                                <a class="normal" href="#">
+                                    <div class="item-img-target">
+                                        <i class="fa fa-eye"></i>
+                                        <div>Просмотр</div>
+                                    </div>
+                                <div class="item-img">
+                                    @if (item.GalleryData != null)
+                                    {
+                                        <img title="@item.GalleryTitle" class="img-responsive" id="mpic_@item.ID" src="@Url.Action("GetPhotoGalleryImage", "ImageData", new { id = item.ID, width = 300, height = 300, isGallery = true }, Request.Url.Scheme)" />
+                                    }
+                                </div>
+                                @*<div class="item-title">
+                                    @(item.GalleryTitle.Length > 50 ? item.GalleryTitle.Substring(0, 50) + "..." : item.GalleryTitle)
+
+                                </div>*@
+                                    </a>
+                              
+                                @*<div class="item-desc">
+                                        Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов
+                                    </div>*@
+                            </li>
+   
+
+                        }
+                        <!-- End listview -->
+                    </ul>
                 </div>
             </div>
         </div>
+    </div>
+</div>
 
 
         @*<div class="listview-item" id="pid_@item.ID">
@@ -57,7 +78,4 @@
             </div>*@
 
 
-
-    }
-</div>
 

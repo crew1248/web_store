@@ -47,14 +47,7 @@ namespace x_nova_template.Areas.Admin.Controllers
            
         }
 
-        public ActionResult GetFirstHalfPortfolio() {
-            var items = _gRepo.GalAll().OrderBy(x=>x.ID).Take(_gRepo.GalAll().Count() / 2);
-            return PartialView(items);
-        }
-        public ActionResult GetSecondHalfPortfolio() {
-            var items = _gRepo.GalAll().OrderBy(x => x.ID).Skip(_gRepo.GalAll().Count() / 2);
-            return PartialView(items);
-        }
+      
         public FileContentResult GetPhoto(int id) {
             var item = _gRepo.GetImage(id);
             if (item != null)
@@ -125,17 +118,31 @@ namespace x_nova_template.Areas.Admin.Controllers
             }
             else { return null; }
         }
-        public ActionResult UploadImages(IEnumerable<HttpPostedFileBase> files,int galId) {
-
-            if (files != null) {
-                foreach (var file in files) {                     
-                    _gRepo.Create(null, file, galId);
-                }
+        [HttpPost]
+        public JsonResult UpdateImage(int id, string title)
+        {
+            if (id != 0)
+            {
+                this._gRepo.UpdateImage(id, title);
             }
-
-            return Content("");
+            return base.Json(true);
         }
 
+        public ActionResult UploadImages(IEnumerable<HttpPostedFileBase> files, int galId)
+        {
+            string data = "";
+            if (files != null)
+            {
+                foreach (HttpPostedFileBase base2 in files)
+                {
+                    this._gRepo.Create(null, base2, galId);
+                }
+            }
+            data = JsonConvert.SerializeObject((from x in this._gRepo.GetGallery(galId).Images
+                                                orderby x.ID
+                                                select x.ID).ToList<int>());
+            return base.Json(data);
+        }
         public ActionResult UploadStart(int galId)
         { 
             ViewBag.GalId = galId;
@@ -150,6 +157,12 @@ namespace x_nova_template.Areas.Admin.Controllers
                 return Json(new { imgId = id });
             }
             return Content("");
+        }
+        [HttpPost]
+        public JsonResult DeleteAll(int galid)
+        {
+            this._gRepo.DeleteAll(galid);
+            return base.Json("");
         }
 
         public ActionResult Delete(int id)
@@ -169,7 +182,12 @@ namespace x_nova_template.Areas.Admin.Controllers
 
 
         }
-
+        [HttpPost]
+        public JsonResult EditSort(int id, int galId, int newPos, int oldPos)
+        {
+            this._gRepo.UpdateSort(galId, oldPos, newPos);
+            return base.Json("");
+        }
         public ActionResult Edit(int id,int page) {
             ViewBag.Page = page;
             var item = _gRepo.GetGallery(id);

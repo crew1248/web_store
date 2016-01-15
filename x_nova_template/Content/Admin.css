@@ -79,6 +79,48 @@ p.breadcrumbs a {
 /* Styles for basic forms
 -----------------------------------------------------------*/
 
+.gal-item {
+    cursor:move;
+    margin: 3px;
+    display: inline-block;
+    vertical-align: top;
+    width: 150px;
+    word-break: break-all;
+    border: 1px solid gray;
+    padding: 2px;
+    min-height: 110px;
+       background: white;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    background-color: #fff;
+    border: 1px solid #d8d8d8;
+    border-bottom-width: 2px;
+}
+.placeholder {
+    background:whitesmoke;
+    color:#444;
+
+}
+.cont-box {
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    background-color: #fff;
+    border: 1px solid #d8d8d8;
+    border-bottom-width: 2px;
+}
+#afterUpload>div {
+        vertical-align: top;
+    display: flex;
+    padding-bottom: 5px;
+}
+    #afterUpload> div img {
+        padding-right:10px;
+    }
+    
 fieldset 
 {
     border:1px solid #ddd;

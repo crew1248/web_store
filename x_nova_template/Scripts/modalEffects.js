@@ -46,12 +46,12 @@ $(function(){
         XN.Inscreaser.BuildModal('/Widget/Inscreaser', { type: 3, folder: $(this).data('folder') });
     });
     // photogallery
-    $('.listview-gal').on('click', function () {
+    $('#photogallery-target .xn-listview-item').on('click', function () {
         
         XN.Inscreaser.BuildModal('/Widget/Inscreaser', { type: 2, id:$(this).data('id') });
     });
    // prodlist preview
-    $('.xn-listview-item').on('click', function () {
+    $('#listview-target .xn-listview-item  .xn-details').on('click', function () {
        
         XN.Inscreaser.BuildModal('/Widget/Inscreaser', { type: 1, id: $(this).data('id') });
     });
@@ -553,7 +553,7 @@ XN.AjaxRequest = {
                 success: function (response) {
                     setTimeout(function () {
                         $(target).html(response);
-                        $('.xn-listview-item').on('click', function () {
+                        $('#listview-target .xn-listview-item  .xn-details').on('click', function () {
 
                             XN.Inscreaser.BuildModal('/Widget/Inscreaser', { type: 1, id: $(this).data('id') });
                         });
