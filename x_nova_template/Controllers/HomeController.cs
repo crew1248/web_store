@@ -57,8 +57,7 @@ namespace x_nova_template.Controllers
             {
                 throw new HttpException(410, "Offline");
             }
-            var user = await UserManager.FindByIdAsync(userid);
-            ;
+            var user = await UserManager.FindByIdAsync(userid);            
             ViewBag.ConfirmEmail = userid != null && !User.Identity.IsAuthenticated && codeAuth == null ? true : false;
             ViewBag.SetPassword = userid != null && codeAuth != null ? true : false;
             ViewBag.UserName = userid != null && !User.Identity.IsAuthenticated ? user.UserName : "";

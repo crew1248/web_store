@@ -22,7 +22,7 @@ namespace x_nova_template.Controllers
         protected override IAsyncResult BeginExecuteCore(AsyncCallback callback, object state)
         {
 
-            HttpContext.Response.AppendHeader("X-XNOVA-Version", "3.2");
+            
            
             string cultureName = null;
            

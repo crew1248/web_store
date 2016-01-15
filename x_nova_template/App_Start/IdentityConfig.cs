@@ -11,6 +11,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using x_nova_template.Models;
+using System.Configuration;
 
 namespace x_nova_template
 {
@@ -73,20 +74,22 @@ namespace x_nova_template
             return manager;
         }
     }
+    
     public class EmailService : IIdentityMessageService
     {
+        
         public Task SendAsync(IdentityMessage message)
         {
             // Plug in your email service here to send an email.
 
             // Credentials:
-            var credentialUserName = "crew1251@yandex.ru";
-            var sentFrom = "crew1251@yandex.ru";
-            var pwd = "Shamutra1";
-
+            var credentialUserName = System.Configuration.ConfigurationManager.AppSettings["mailUserName"];
+            var sentFrom = System.Configuration.ConfigurationManager.AppSettings["mailAddress"]; ;
+            var pwd = System.Configuration.ConfigurationManager.AppSettings["mailPassword"]; ;
+            var host = System.Configuration.ConfigurationManager.AppSettings["mailHost"];
             // Configure the client:
             System.Net.Mail.SmtpClient client =
-                new System.Net.Mail.SmtpClient("smtp.yandex.ru");
+                new System.Net.Mail.SmtpClient(host);
 
             client.Port = 25;
             client.DeliveryMethod = System.Net.Mail.SmtpDeliveryMethod.Network;
