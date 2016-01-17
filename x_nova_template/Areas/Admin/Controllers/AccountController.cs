@@ -92,7 +92,7 @@ namespace x_nova_template.Areas.Admin.Controllers
             }
             var adminId = user.Id;
             var pass = UserManager.CheckPassword(user, model.Password);
-            UserManager.SetTwoFactorEnabled(adminId, false);
+            //UserManager.SetTwoFactorEnabled(adminId, false);
             //if (!await UserManager.IsEmailConfirmedAsync(user.Id))
             //{
 
@@ -112,9 +112,10 @@ namespace x_nova_template.Areas.Admin.Controllers
             if (!confirmed)
             {
                 //UserManager.SetTwoFactorEnabled(adminId, true);
-                string code = await UserManager.GenerateEmailConfirmationTokenAsync(adminId);
-                var confirmResult = UserManager.ConfirmEmail(adminId, code);
-                if (!confirmResult.Succeeded) ModelState.AddModelError("", "Аккаунт не удалось подтвердить.");
+               
+                string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+                var confirmResult = UserManager.ConfirmEmail(user.Id, code);
+                if (!confirmResult.Succeeded) { ModelState.AddModelError("", "Аккаунт не удалось подтвердить."); return View(); }
             }
             var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
             switch (result)

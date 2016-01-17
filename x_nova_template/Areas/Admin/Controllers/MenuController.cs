@@ -24,7 +24,7 @@ namespace x_nova_template.Areas.Admin.Controllers
 
         public ViewResult MenuList(int type = 0, int page = 1)
         {
-            int pageSize = 15;
+            int pageSize = 25;
             MenuViewModel vm = new MenuViewModel
             {
                 Menues = _repository.Menues
@@ -127,7 +127,12 @@ namespace x_nova_template.Areas.Admin.Controllers
             TempData["type"] = 4;
             return View(menu);
         }
-
+        [HttpPost]
+        public JsonResult EditSort(int id,  int newPos, int oldPos)
+        {
+            _repository.UpdateSort(id, oldPos, newPos);
+            return base.Json("");
+        }
         public ActionResult Details(int id, int page = 1)
         {
             var item = _repository.Get(id);
@@ -148,7 +153,7 @@ namespace x_nova_template.Areas.Admin.Controllers
         {
             if (id != 0)
             {
-                var objs = _repository.Menues.Where(x => x.ParentId == id).ToList();
+                var objs = _repository.Menues.Where(x => x.ParentId == id).OrderBy(x=>x.SortOrder).ToList();
                 return PartialView(objs);
             }
             return Content("");

@@ -45,18 +45,18 @@
 
            
                 <div class="adm-logo-line">
-    @*<span >Пароль</span>*@
-    @Html.PasswordFor(x => x.Password, new
-{
-    @class = "",
-    placeholder="Пароль",
-    id = "Password",
-    type = "text",
-    autocomplete = "off"})
-    <!--<span style="color:red;"> @Html.ValidationMessageFor(m => m.Password)</span>-->
-</div>
+                    @*<span >Пароль</span>*@
+                    @Html.PasswordFor(x => x.Password, new
+                {
+                    @class = "",
+                    placeholder="Пароль",
+                    id = "Password",
+                    type = "text",
+                    autocomplete = "off"})
+                    <!--<span style="color:red;"> @Html.ValidationMessageFor(m => m.Password)</span>-->
+                </div>
 
-      <div>
+            <div>
                @(Html.Kendo().CheckBox().Name("RememberMe").Checked(false).Label("Запомнить").HtmlAttributes(new { id = "RememberMe" }))
                 
             </div>

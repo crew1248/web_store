@@ -56,7 +56,7 @@
                 @item.Logins.Count()
             </td>
             <td>
-                @if (item.EmailConfirmed)
+                @if (userManager.IsEmailConfirmed(item.Id))
                 {
                     <i class="fa fa-check-circle-o" style="color:green;"></i>
                 }

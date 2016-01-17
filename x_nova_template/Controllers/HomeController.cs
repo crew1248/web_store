@@ -70,7 +70,7 @@ namespace x_nova_template.Controllers
             return View(result);
         }
         public ActionResult AttachSession() {
-            Session["test"] = "тестовая сессия";
+            Session["test"] = "тестовая сессия - "+Request.RequestContext.HttpContext.Session.SessionID;
             return Redirect("/");
         }
         public ActionResult SetCulture(string culture)

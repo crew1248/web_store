@@ -20,7 +20,7 @@ namespace x_nova_template.Models
 
         [Display(Name = "Телефон")]
         public string Phone { get; set; }
-        public string PhoneNumber { get; set; }
+        
         [Display(Name = "Имя")]
         public string Name { get; set; }
         [Display(Name = "Фамилия")]
@@ -34,7 +34,7 @@ namespace x_nova_template.Models
         public string Delivery { get; set; }
         [Display(Name = "Способ оплаты")]
         public string Payment { get; set; }
-        public string Email { get; set; }
+       
         
     }
 

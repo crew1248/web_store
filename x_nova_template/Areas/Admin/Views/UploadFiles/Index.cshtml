@@ -56,20 +56,3 @@
 }
 
 
-<script>
-   
-    $(function () {
-       
-        
-        $(document).on("click", ".page-link", function (e) {
-           
-            $.get("/Admin/UploadFiles/Index", { page: $(this).data('page') }, function (data) {
-              
-                $("#FilesList").html(data);
-                $(".stripedMe tbody tr:even").addClass("alt");
-                imagePreview();
-            });
-
-        });
-    });
-</script>

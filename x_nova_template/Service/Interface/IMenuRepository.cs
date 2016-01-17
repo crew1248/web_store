@@ -16,6 +16,6 @@ namespace x_nova_template.Service.Interface
         Menu Get(int id);
         void Delete(Menu menu);
         void Edit(Menu menu);
-        
+        void UpdateSort(int id, int oldSort, int newSort);
     }
 }

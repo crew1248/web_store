@@ -54,13 +54,13 @@
                 @Html.ValidationMessageFor(model => model.Url)
             </div>
 
-            <div class="editor-label">
+            @*<div class="editor-label">
                 Сортировка
             </div>
             <div class="editor-field">
                 @Html.TextBoxFor(model => model.SortOrder)
                 @Html.ValidationMessageFor(model => model.SortOrder)
-            </div>
+            </div>*@
             @if (Model.ParentId == 0)
             {
                 <div class="editor-label">

@@ -98,10 +98,17 @@ p.breadcrumbs a {
     border: 1px solid #d8d8d8;
     border-bottom-width: 2px;
 }
+.sort-item {
+    cursor:move;
+}
 .placeholder {
     background:whitesmoke;
     color:#444;
 
+}
+#menulist .placeholder td {
+        padding: 10px;
+    background: #FBFBD3;
 }
 .cont-box {
     -webkit-border-radius: 3px;

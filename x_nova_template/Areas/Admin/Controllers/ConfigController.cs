@@ -40,8 +40,8 @@ namespace x_nova_template.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult Abandon()
         {
-            Session.Abandon();
-            Session.Clear();
+           // Session.Abandon();
+            //Session.Clear();
             return Json("");
         }
         [HttpPost]

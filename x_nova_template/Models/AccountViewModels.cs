@@ -47,8 +47,9 @@ namespace x_nova_template.Models
     }
     public class AdmLoginViewModel
     {
+       
+        [Display(Name = "Адрес электронной почты")]
         [Required]
-        [Display(Name = "Адрес электронной почты")]        
         public string Email { get; set; }
 
         [Required]

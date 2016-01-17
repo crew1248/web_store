@@ -60,6 +60,7 @@ namespace x_nova_template
         }
         protected void Session_Start(object sender, EventArgs e)
         {
+           
             //        protected void Page_Load(object sender, EventArgs e)
             //{
             //    this.countMe();

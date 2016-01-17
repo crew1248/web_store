@@ -17,6 +17,15 @@ namespace x_nova_template.Service.Repository
 
         public void Create(Menu menu) {
             menu.LastModifiedDate = DateTime.Now;
+            //Menu image = (from i in this.db.Images
+            //               where i.Sortindex == (from x in this.db.Images select x.Sortindex).Max<int>()
+            //               select i).SingleOrDefault<Image>();
+            //int num = (image == null) ? 1 : (image.Sortindex + 1);
+            var maxIndex = Menues.Where(x => x.MenuSection == menu.MenuSection &&
+                    x.ParentId == menu.ParentId).Max(y => y.SortOrder);
+
+            var sort = (maxIndex == 0) ? 1 : (maxIndex + 1);
+            menu.SortOrder = sort;
             db.Menues.Add(menu);            
             db.SaveChanges();
         }
@@ -42,6 +51,15 @@ namespace x_nova_template.Service.Repository
             db.SaveChanges();
         }
 
+        public void UpdateSort(int id, int oldSort, int newSort)
+        {
+            var curr = this.Get(id);
+            Menu image = this.Get().Where(x=>x.MenuSection==curr.MenuSection&&x.ParentId==curr.ParentId).SingleOrDefault<Menu>(x => x.SortOrder == oldSort);
+            Menu image2 = this.Get().Where(x => x.MenuSection == curr.MenuSection && x.ParentId == curr.ParentId).SingleOrDefault<Menu>(x => x.SortOrder == newSort);
+            image.SortOrder = newSort;
+            image2.SortOrder = oldSort;
+            this.db.SaveChanges();
+        }
        
     }
 }

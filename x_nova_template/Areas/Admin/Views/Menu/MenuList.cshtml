@@ -3,14 +3,49 @@
     ViewBag.Title = "MenuList";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
+@(Html.Kendo().Sortable()
+    .For("#img-cont")
+
+    .HintHandler("hint")
+    .PlaceholderHandler("placeholder")
+
+    .Events(events => events.Change("onChange"))
+)
+<script>
+  
+    function hint(element) {
+        return element.clone().addClass("hint");
+    }
+
+    function placeholder(element) {
+        return $('<tr />').addClass("placeholder").append('<td colspan="6">Поместить сюда</td></tr>');
+    }
+
+    function onChange(e) {
+        var target = $('#droptarget');
+        var idx = e.item.data("id"),
+            gid= e.item.data("galid")
+        text = e.item.text(),
+        newIndex = e.newIndex+1,
+        oldIndex = e.oldIndex+1;
+
+        opos = $('.sort-item:eq('+newIndex+')').data('sort');
+        npos = $('.sort-item:eq('+oldIndex+')').data('sort');
+        console.log( opos+', '+npos+' eq: '+e.newIndex+' '+e.oldIndex);
+        $.post('/Menu/EditSort', { id: idx, newPos: npos, oldPos: opos }, function () {
+
+        });
 
 
+    }
+   
+</script>
 <h2>Главное меню @(Model.ctype == 0 ? "1го уровня" : "2го уровня")</h2>
 <p style="display: inline-block;">
     <a href="@Url.Action("Create", "Menu", new {type=Model.ctype })" class="k-button k-button-icontext"><span class="k-icon k-i-plus" style="color:white">&nbsp;</span>Создать</a>
 </p>
-<table class="admTable stripedMe">
-    <tr class="tdTitle">
+<table class="admTable stripedMe" id="menulist">
+    <tr class="tdTitle" >
 
         <th style="width:50px;">Id</th>
         <th style="width: 350px;">
@@ -28,9 +63,11 @@
         </th>
         <th></th>
     </tr>
+    <tbody id="img-cont">
     @foreach (var item in Model.Menues)
     {
-        <tr>
+
+        <tr class="sort-item" data-sort="@item.SortOrder" data-id="@item.Id">
             <td>
                 @Html.DisplayFor(modelItem => item.Id)
             </td>
@@ -55,6 +92,7 @@
             </td>
         </tr>
     }
+</tbody>
 </table>
 <div class="pager">@Html.PageLinks(Model.PagingInfo, x => Url.Action("MenuList", new { page = x, type = Model.ctype }))</div>
 
