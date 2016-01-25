@@ -1,17 +1,17 @@
 ﻿
 
 
-    var observe;
-    if (window.attachEvent) {
-        observe = function (element, event, handler) {
-            element.attachEvent('on' + event, handler);
-        };
-    }
-    else {
-        observe = function (element, event, handler) {
-            element.addEventListener(event, handler, false);
-        };
-    }
+var observe;
+if (window.attachEvent) {
+    observe = function (element, event, handler) {
+        element.attachEvent('on' + event, handler);
+    };
+}
+else {
+    observe = function (element, event, handler) {
+        element.addEventListener(event, handler, false);
+    };
+}
 
 function resize1() {
     var text = document.getElementById('ch-edit');
@@ -55,30 +55,40 @@ function init() {
     text1.focus();
     text1.select();
     // resize();
-   
+
 }
 var textResize = init();
 
 function LivechatInit() {
-    
+
     $livechat = $('#livechat');
     $chatwrap = $('#livechat-wrap');
-    $isAdmin = $livechat.hasClass('adm-lch-isauth'); 
-    
+    $isAdmin = $livechat.hasClass('adm-lch-isauth');
+
     var chat = $.connection.xnovaHub; // hub
+
     var timeoutId; // таймер 
-   //$conn = chat.connection.id;
-    
+    //$conn = chat.connection.id;
+
     $.connection.hub.qs = { 'X-NOVA-consultant': '2.0' };
     $.connection.hub.disconnected(function () { setTimeout(function () { $.connection.hub.start(); }, 5000) });
-    
+
+    // Шлюз готов
+
+    $.connection.hub.error(function (error) {
+        console.log('SignalR error: ' + error)
+    });
+    chat.client.showInfo = function (mess) {
+        alert(mess);
+
+    }
     // Инитиализация виджета
- 
+
     $(document).on('click', '#popup-livechat', popupLivechat);
 
     // Подключение к пользовательской группе
 
-    $(document).on('click', '.ch-user', function () {       
+    $(document).on('click', '.ch-user', function () {
 
         // Загрузка пользовательского окна
         $this = $(this);
@@ -113,8 +123,8 @@ function LivechatInit() {
 
     // Дисконект консультанта
 
-    $(document).on('click', '.ch-close .fa-off', function () {
-        
+    $(document).on('click', '.ch-close .fa-power-off', function () {
+
         $.connection.hub.stop();
         //chat.server.collapseChatroom();
     });
@@ -133,6 +143,7 @@ function LivechatInit() {
         e.preventDefault();
         if ($isAdmin) {
             $.post('/Consultant/AllowUser', { connId: chat.connection.id, adm_auth: true, __RequestVerificationToken: $(this).closest('form').find('input[name="__RequestVerificationToken"]').val(), }, function (data) {
+
                 $('#chat-input').show();
                 $('.live-form').hide();
                 $('.ch-loader').remove();
@@ -157,9 +168,11 @@ function LivechatInit() {
             type: 'post',
             error: function () { alert('error'); },
             complete: function () { $('.live-form').show(); $('.ch-loader').remove(); },
-            success: function () {
+            success: function (data) {
+
                 chat.server.joinGroup(chat.connection.id, 0);
                 chat.server.notifyAboutConnect();
+
                 $('#chat-input').show();
                 $('.live-form').hide();
                 $('.ch-loader').remove();
@@ -218,13 +231,13 @@ function LivechatInit() {
     chat.client.getUserRoom = function (n, m, conn) {
         $('.ch-text').html('');
     };
-   
+
     // Публикация сообщения
 
     chat.client.addNewMessageToPage = function (date, name, message, isadm) {
-       
-        console.log("дата +"+date+" | имя "+name+" | сообщение "+message+" | права "+isadm);
-      
+
+        console.log("дата +" + date + " | имя " + name + " | сообщение " + message + " | права " + isadm);
+
         if (message != "") {
             if (isadm) {
                 $('.ch-text').append(
@@ -307,7 +320,10 @@ function LivechatInit() {
 
         notifyInfo(mess);
     }
+    chat.client.showInfo = function (mess) {
+        notifyInfo(mess);
 
+    }
     // Консультант отключился
 
     chat.client.adminOut = function (mess) {
@@ -324,7 +340,7 @@ function LivechatInit() {
     chat.client.userOut = function (conn, mess, total, isInGroup) {
         $("audio").remove();
         total == 0 || total == -1 ? $('.ch-all-inbox').text("") : $('.ch-all-inbox').text("+" + total);
-        isInGroup ? notifyInfo(mess,0) : "";
+        isInGroup ? notifyInfo(mess, 0) : "";
         $('.ch-user[data-connid="' + conn + '"]').remove();
     }
 
@@ -335,7 +351,6 @@ function LivechatInit() {
     }
     $('#message').focus();
 
-    // Hub готов
 
     $.connection.hub.start().done(function () {
 
@@ -344,42 +359,39 @@ function LivechatInit() {
 
         $('#livechat').attr("data-uid", $.connection.hub.id);
         $('#ch-edit').on("keyup", function (e) {
-            
+
             if (e.keyCode == 13) {
-                
                 // Отправка сообщения
+
                 chat.server.send($(this).val(), $.connection.hub.id)
-                    .fail(function (e) {                                                
+                    .fail(function (e) {
+
                         // обработка ошибок
                         if (e.source === 'HubException') {
-                            console.log(e.message + ' : ' + e.data.user);                            
+                            console.log(e.message + ' : ' + e.data.user);
                             notifyError(e.message);
                         }
-                        else {                            
-                            notifyError('Не удалось отправить сообщение!');
+                        else {
+                            notifyError('Не удалось отправить сообщение!' + e.message);
                         }
-                        
-                        
                     });
 
                 // Обнуление textarea
-
                 emptyInput1();
                 $('#ch-edit').focus();
-                //$(".ch-body-3_1").mCustomScrollbar("scrollTo", ".ch-active");
 
+                //$(".ch-body-3_1").mCustomScrollbar("scrollTo", ".ch-active");
             }
             else { return false; }
         });
-    }).fail(function (error) {  $('.ch-error').html("Ошибка подключения!"); });;
-
+    }).fail(function (error) { $('.ch-error').html("Ошибка подключения!"); });;
     // Напоминание - info
 
-    function notifyInfo(m,hide) {
+    function notifyInfo(m, hide) {
 
         clearTimeout(timeoutId);
         hide == 0 ? timeoutId = setTimeout(function () { $('.ch-active').fadeOut('fast', function () { $('.ch-active').html('').show(); }); }, 5000) : '';
-        var icon = $('<i class="icon-warning-sign"></i><span> </span>');
+        var icon = $('<i class="fa fa-warning-sign"></i><span> </span>');
         $('.ch-error').html('');
         $('.ch-active').html(m).prepend(icon);
     }

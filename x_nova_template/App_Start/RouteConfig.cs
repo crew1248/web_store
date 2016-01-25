@@ -19,18 +19,19 @@ namespace x_nova_template
             routes.MapMvcAttributeRoutes();
 
             routes.MapRoute(
-                name: "sitemap.xml",
-                url: "sitemap.xml",
-                defaults: new { controller = "Config", action = "SitemapXml" },
-                namespaces: new[] { "x_nova_template.Controllers" }
-            );
+              name: "sitemap.xml",
+              url: "sitemap.xml",
+              defaults: new { controller = "Config", action = "SitemapXml" },
+              namespaces: new[] { "x_nova.Areas.Admin.Controllers" }
+          );
 
             routes.MapRoute(
                 name: "robots.txt",
                 url: "robots.txt",
                 defaults: new { controller = "Config", action = "RobotsText" },
-                namespaces: new[] { "x_nova_template.Controllers" }
+                namespaces: new[] { "x_nova.Controllers" }
             );
+
 
             routes.MapRoute(
                name: "news",

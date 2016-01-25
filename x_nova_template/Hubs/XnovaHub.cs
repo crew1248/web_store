@@ -16,99 +16,105 @@ namespace x_nova_template.Hubs
     [HubName("xnovaHub")]
     public class XnovaHub : Hub
     {
-            
-            public  void Send(string message, string connId)
+
+        public void Send(string message, string connId)
+        {
+
+
+            if (message.Contains("<script>"))
             {
+                throw new HubException("Некорректное сообщение", new { user = Context.User.Identity.Name, message = message });
+            }
+            if (string.IsNullOrWhiteSpace(message))
+            {
+                //Clients.Caller.ShowErrorMessage("Пустое сообщение!");
+                throw new HubException("Пустое сообщение!", new { user = Context.User.Identity.Name, message = message });
+            }
+            else
+            {
+                var mess = HttpUtility.HtmlEncode(message);
+                var connid = HttpUtility.HtmlEncode(connId);
 
-                if (message.Contains("<script>"))
+                using (ApplicationDbContext db = new ApplicationDbContext())
                 {
-                    throw new HubException("Некорректное сообщение", new { user = Context.User.Identity.Name, message = message });
-                }
-                if (string.IsNullOrWhiteSpace(message))
-                {
-                     //Clients.Caller.ShowErrorMessage("Пустое сообщение!");
-                    throw new HubException("Пустое сообщение!", new { user = Context.User.Identity.Name, message = message });
-                }
-                else
-                {
-                    var mess = HttpUtility.HtmlEncode(message);
-                    var connid = HttpUtility.HtmlEncode(connId);
-                    using (ApplicationDbContext db = new ApplicationDbContext())
+                    LiveUser user = null;
+                    LiveUser user1 = null;
+                    LiveUser dialogUser = null;
+                    user1 = db.LiveUsers.SingleOrDefault(x => x.IsAdmin);
+                    user = db.LiveUsers.SingleOrDefault(x => x.ConnId == connid);
+                    dialogUser = db.LiveUsers.SingleOrDefault(x => x.ConnId == user1.GroupId);
+                    // Тест работы виджета
+                    //
+
+                    Clients.Client(user1.ConnId).Test(user1.GroupId, user1.ConnId, connid);
+                    if (!Context.User.IsInRole("admin"))
                     {
-                        LiveUser user = null;
-                        LiveUser user1 = null;
-                        LiveUser dialogUser = null;
-                        user1 = db.LiveUsers.SingleOrDefault(x => x.IsAdmin);
-                        user = db.LiveUsers.SingleOrDefault(x => x.ConnId == connid);
-                        dialogUser = db.LiveUsers.SingleOrDefault(x => x.ConnId == user1.GroupId);
-                         Clients.Client(ConsultantController.ConsultConnId()).Test(user1.GroupId, user1.ConnId, connid);
-                        if (!Context.User.IsInRole("admin"))
+                        //Сообщение пользователя
+                        //
+
+                        if (user.ConnId == user1.GroupId)
                         {
-                            //Сообщение пользователя
+                            //Прямой диалог
                             //
-                            
-                            if (user.ConnId == user1.GroupId)
+                            var newM = new Message()
                             {
-                                //Прямой диалог
-                                //
-                                var newM = new Message()
-                                {
-                                    TextMess = mess,
-                                    DateAdded = DateTime.Now,
-                                    Visited = true,
-                                    UserID = user.UserID
-                                };
-                                user.LiveMessages.Add(newM);
-
-                            }
-                            else
-                            {
-                                //Сообщение в очередь
-                                //
-                                var newM = new Message()
-                                {
-                                    TextMess = mess,
-                                    DateAdded = DateTime.Now,
-                                    Visited = false,
-                                    UserID = user.UserID
-                                };
-                                user.LiveMessages.Add(newM);
-                                db.SaveChanges();
-                                var newQuestions = db.LiveUsers.Where(x => x.LiveMessages.Any(y => !y.Visited)).Count();
-                                 Clients.Client(user1.ConnId)
-                                    .NotifyNewQuestion(user.UserName, user.LiveMessages.Where(x => !x.Visited).Count(),
-                                    user.ConnId, newQuestions);
-                            }
-
-                            db.SaveChanges();
-                            //Публикуем сообщение в группу пользователя
-                            //
-                             Clients.Group(user.ConnId).AddNewMessageToPage(DateTime.Now.ToString("dd MMM, hh:mm"),
-                                user.UserName, mess, false);
-                           
-                           
+                                TextMess = mess,
+                                DateAdded = DateTime.Now,
+                                Visited = true,
+                                UserID = user.UserID
+                            };
+                            user.LiveMessages.Add(newM);
 
                         }
                         else
                         {
+                            //Сообщение в очередь
+                            //
+                            var newM = new Message()
+                            {
+                                TextMess = mess,
+                                DateAdded = DateTime.Now,
+                                Visited = false,
+                                UserID = user.UserID
+                            };
+                            user.LiveMessages.Add(newM);
+                            db.SaveChanges();
+                            var newQuestions = db.LiveUsers.Where(x => x.LiveMessages.Any(y => !y.Visited)).Count();
+                            Clients.Client(user1.ConnId)
+                               .NotifyNewQuestion(user.UserName, user.LiveMessages.Where(x => !x.Visited).Count(),
+                               user.ConnId, newQuestions);
+                        }
 
-                            if (!db.LiveUsers.Any(x => x.ConnId == user1.GroupId))
-                            {
-                                 Clients.Caller.ShowErrorMessage("Вас никто не видит!");
-                            }
-                            else
-                            {
-                                //Публикуем сообщение консультанта
-                                //
-                                
-                                 Clients.Group(user1.GroupId).AddNewMessageToPage(DateTime.Now.ToString("dd MMM, hh:mm"),
-                                    "Консультант", mess, true);
-                                 Clients.Client(dialogUser.ConnId).NotifyAdmAnswear();
-                            }
+                        db.SaveChanges();
+                        //Публикуем сообщение в группу пользователя
+                        //
+                        Clients.Group(user.ConnId).AddNewMessageToPage(DateTime.Now.ToString("dd MMM, hh:mm"),
+                           user.UserName, mess, false);
+
+
+
+                    }
+                    else
+                    {
+
+                        if (!db.LiveUsers.Any(x => x.ConnId == user1.GroupId))
+                        {
+
+                            throw new HubException("Вас никто не видит", new { user = Context.User.Identity.Name, message = message });
+                        }
+                        else
+                        {
+                            //Публикуем сообщение консультанта
+                            //
+
+                            Clients.Group(user1.GroupId).AddNewMessageToPage(DateTime.Now.ToString("dd MMM, hh:mm"),
+                               "Консультант", mess, true);
+                            Clients.Client(dialogUser.ConnId).NotifyAdmAnswear();
                         }
                     }
                 }
             }
+        }
 
             public async void SendUserRoom(string conn)
             {

@@ -33,7 +33,7 @@ namespace x_nova_template.Areas.Admin
                     user2.ConnId = connId;
                     user2.IsOnline = true;
                     db.SaveChanges();
-                    return Json(new { usersOnline = db.LiveUsers.Count() - 1, user2.ConnId });
+                    return Json(new { usersOnline = db.LiveUsers.Count() - 1, id = connId });
                 }
             }
             if (ModelState.IsValid)

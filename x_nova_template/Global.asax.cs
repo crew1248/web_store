@@ -56,11 +56,13 @@ namespace x_nova_template
 
         protected void Application_PreSendRequestHeaders(object sender, EventArgs e)
         {
-            HttpContext.Current.Response.Headers.Add("X-XNOVA-Version", "3.2");
+            
         }
         protected void Session_Start(object sender, EventArgs e)
         {
-           
+
+            HttpContext.Current.Response.Headers.Remove("X-XNOVA-Version");
+            HttpContext.Current.Response.Headers.Add("X-XNOVA-Version", "3.2");
             //        protected void Page_Load(object sender, EventArgs e)
             //{
             //    this.countMe();
