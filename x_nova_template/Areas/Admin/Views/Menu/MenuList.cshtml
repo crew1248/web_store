@@ -24,14 +24,24 @@
     function onChange(e) {
         var target = $('#droptarget');
         var idx = e.item.data("id"),
-            gid= e.item.data("galid")
+            gid= e.item.data("galid"),           
         text = e.item.text(),
         newIndex = e.newIndex+1,
-        oldIndex = e.oldIndex+1;
+        oldIndex = e.oldIndex+1,
+        opos,npos
+             
+        if(e.newIndex<e.oldIndex){
+            npos=e.item.data('sort')
+            opos = $('.sort-item:eq('+e.newIndex+')').next().data('sort');
+        }else{
+            npos=e.item.data('sort')
+            opos = $('.sort-item:eq('+e.newIndex+')').prev().data('sort');
+        }
 
-        opos = $('.sort-item:eq('+newIndex+')').data('sort');
-        npos = $('.sort-item:eq('+oldIndex+')').data('sort');
+
+
         console.log( opos+', '+npos+' eq: '+e.newIndex+' '+e.oldIndex);
+        
         $.post('/Menu/EditSort', { id: idx, newPos: npos, oldPos: opos }, function () {
 
         });

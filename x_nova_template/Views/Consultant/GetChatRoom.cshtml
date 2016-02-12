@@ -1,7 +1,7 @@
 ﻿@model x_nova_template.Models.LiveUser
 
 @Scripts.Render("~/bundles/signalr")
- @Scripts.Render("~/bundles/livechat")
+@Scripts.Render("~/bundles/livechat")
 @Styles.Render("~/Content/livechat")
 <script src="~/livechat/hubs"></script>
 
@@ -9,40 +9,40 @@
 <script>
     $(function () {
 
-            $('.ch-body-3_1').mCustomScrollbar({
-                advanced: {
-                    updateOnContentResize: true
-                },
+        $('.ch-body-3_1').mCustomScrollbar({
+            advanced: {
+                updateOnContentResize: true
+            },
 
-                theme: "dark",
-                autoHideScrollbar: true,
-                scrollButtons: {
-                    enable: false
-                },
-                callbacks: {
-                    whileScrolling: function () {
+            theme: "dark",
+            autoHideScrollbar: true,
+            scrollButtons: {
+                enable: false
+            },
+            callbacks: {
+                whileScrolling: function () {
 
-                        $('.ch-head').css({
-                            position: "relative",
-                            zIndex: 5,
-                            boxShadow: "0 4px 5px -3px #444"
-                        });
-                    },
-                    onScroll: function () {
-                        $('.ch-head').css({
-                            position: "relative",
-                            zIndex: 5,
-                            boxShadow: ""
-                        });
-                    }
+                    $('.ch-head').css({
+                        position: "relative",
+                        zIndex: 5,
+                        boxShadow: "0 4px 5px -3px #444"
+                    });
+                },
+                onScroll: function () {
+                    $('.ch-head').css({
+                        position: "relative",
+                        zIndex: 5,
+                        boxShadow: ""
+                    });
                 }
+            }
 
 
 
 
-            });
+        });
 
-      
+
         $('.ch-close').hover(function () {
 
             $(this).find("i.icon-remove").css({ color: "#fff" });
@@ -50,7 +50,7 @@
 
         LivechatInit();
     });
-  
+
 </script>
 
 
@@ -70,21 +70,25 @@
 
     </div>*@
 
-<div id="livechat" data-uid="" @if (User.IsInRole("admin")) { <text> class="adm-lch-isauth" </text> }>
+<div id="livechat" data-uid="" @if (User.IsInRole("admin")) { <text> class="adm-lch-isauth" </text>  }>
     @if (User.IsInRole("admin"))
     {
         <div class="ch-wrap-1_1">
             <div class="ch-inbox-h">Новые вопросы:</div>
-            <div class="ch-inbox">
+            <div class="ch-inbox-body">
+                <div class="ch-inbox">
 
 
-                @*  <div class="ch-user">
-                    <div class="ch-username">
-                        владимир
-                    </div>
-                        <div class="ch-inbox-cnt">5</div>
+                    @*  <div class="ch-user">
+                        <div class="ch-username">
+                            владимир
+                        </div>
+                            <div class="ch-inbox-cnt">5</div>
 
-                        </div>*@
+                            </div>*@
+                </div>
+                <div class="ch-notifybox">Последнее подключение</div>
+                <div class="ch-notifybox-user">никого пока нет</div>
             </div>
         </div>
     }
@@ -99,7 +103,7 @@
                         {
                             <i class="fa fa-power-off" style="font-size:21px;"></i>
                             <i class="ch-all-inbox"></i>
-    <i class="fa fa-inbox" style="font-size:21px;"></i>
+                            <i class="fa fa-inbox" style="font-size:21px;"></i>
                         }
                         <i class="fa fa-angle-double-down" style="font-size:21px;"></i>
                     </div>
@@ -134,7 +138,7 @@
                                                 }
                                                 else
                                                 {
-                                                    if (x_nova_template.Areas.Admin.ConsultantController.ConsultIsOnline())
+                                                    if (x_nova.Areas.Admin.ConsultantController.ConsultIsOnline())
                                                     {
                                                         using (Html.BeginForm("", "", FormMethod.Post, htmlAttributes: new { id = "livechat-form" }))
                                                         {
@@ -164,7 +168,7 @@
                                             @if (!User.IsInRole("admin"))
                                             {
 
-                                                if (x_nova_template.Areas.Admin.ConsultantController.ConsultIsOnline())
+                                                if (x_nova.Areas.Admin.ConsultantController.ConsultIsOnline())
                                                 {
                                                     @:Консультант в данный момент онлайн.
                                         }

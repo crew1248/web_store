@@ -1934,6 +1934,7 @@
     <Content Include="Views\tobuy\Index.cshtml" />
     <Content Include="Views\Widget\Inscreaser.cshtml" />
     <Content Include="Views\Shared\_ProdlistLayout.cshtml" />
+    <Content Include="Views\Widget\InscreaserView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Admin\Models\" />

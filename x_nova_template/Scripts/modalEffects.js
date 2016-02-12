@@ -25,21 +25,26 @@ $(function(){
     if ($('#listview-target').length) XN.AjaxRequest.MakeRequest('/Product/ProdListPartial', { jsonData: JSON.stringify(data1) }, '#listview-target'); 
     // content image resize
     $('.content-wrap img').on('click', function () {
-        var arr = [];        
+        var arr = [];
         var index;
         var curr = $(this);
         var data = {};
         $('.content-wrap img').each(function (el) {
-            if ($.inArray($(this).attr('src'), arr) === -1) arr.push($(this).attr('src'));
+            if ($.grep(arr, function (n) { n.src != $(this).attr('src') })) arr.push({ link: $(this).attr('src'), title: $(this).attr('alt') });
         });
-        index = $.inArray(curr.attr('src'), arr);
-        data = {
-            el: index,
-            pack:arr
-        };
+
+        index = $.map(arr, function (obj, index) {
+            if (obj.link == curr.attr('src')) return index;
+        })
+        data =
+            {
+                type: 4,
+                el: index[0],
+                pack: arr
+            };
         //alert('index - ' + index + ', length - ' + arr.length + ' curr src - ' + curr.attr('src'));
 
-        XN.Inscreaser.BuildModal('/Widget/Inscreaser', {jsonData:JSON.stringify(data)});
+        XN.Inscreaser.BuildModal('/Widget/Inscreaser', data);
     });
     // folder image gallery
     $('*[data-ins-type="3"]').on('click', function () {
@@ -258,10 +263,12 @@ XN.Inscreaser = { // Widget - Catalog/Gallery
             settings.current = index;
 
             for (var i = 0; i < el.length; i++) {
-                var guiImg = $('<img alt="название фото" src="' + (this.Config().smallPhotoUrl + this.Utilities.FormatedUrl(el[i], this.Config().isCat)) + '" />');
+
+                var guiImg = $('<img alt="' + el[i].title + '" src="' + this.Config().smallPhotoUrl + "?path=~" + el[i].link + '" />');
                 settings.wrapper = settings.wrapper.add(guiImg);
             }
         }
+
 
 
         setTimeout(function () { $('.xn-i-sphoto').css({ visibility: 'visible' }); }, '700');
@@ -290,7 +297,7 @@ XN.Inscreaser = { // Widget - Catalog/Gallery
 
         if (isGal) this.Utilities.LoadImg($('img[data-i-index="0"]').data('id'), 'gal');
         else if (prodMode) this.Utilities.LoadImg($('img[data-i-index="0"]').data('id'), 'prod');
-        else this.Utilities.LoadImg(settings.current, 'content');
+        else this.Utilities.LoadImg(settings.current);
 
         $(this.Config().imgEl).css('cursor', 'pointer');
 
@@ -358,14 +365,31 @@ XN.Inscreaser = { // Widget - Catalog/Gallery
     BuildModal: function (dataUrl, opts) {
 
         this.Open(1);
-        $.get(dataUrl, opts, function (data) {
-            setTimeout(function () {
-                $(XN.Inscreaser.Config().content).html(data);
-                XN.Inscreaser.reEvent();
-            }, '300');
 
-            // <- reevent
-        });
+        //console.log(opts.pack.length, opts.el);
+        if (opts.type == 4) {
+            $('.xn-modal .md-content').load('/Widget/InscreaserView');
+
+            setTimeout(function () { XN.Inscreaser.Init(0, opts.pack, opts.el); XN.Inscreaser.reEvent(); }, '500');
+        }
+        else {
+            $.ajax({
+
+                type: 'GET',
+                url: dataUrl,
+
+
+                data: opts,
+                success: function (data) {
+                    setTimeout(function () {
+                        $(XN.Inscreaser.Config().content).html(data);
+                        XN.Inscreaser.reEvent();
+                    }, '300');
+
+                    // <- reevent
+                }
+            });
+        }
     },
     reEvent: function () {
         $('.md-close').on('click', function () {
@@ -555,7 +579,7 @@ XN.AjaxRequest = {
                         $(target).html(response);
                         $('#listview-target .xn-listview-item  .xn-details').on('click', function () {
 
-                            XN.Inscreaser.BuildModal('/Widget/Inscreaser', { type: 1, id: $(this).data('id') });
+                            XN.Inscreaser.BuildModal('/Widget/Inscreaser', { type: 1, id: $(this).closest('.xn-listview-item').data('id') });
                         });
                        
 

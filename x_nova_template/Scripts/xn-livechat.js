@@ -171,7 +171,7 @@ function LivechatInit() {
             success: function (data) {
 
                 chat.server.joinGroup(chat.connection.id, 0);
-                chat.server.notifyAboutConnect();
+                chat.server.notifyAboutConnect($('#l-name').val());
 
                 $('#chat-input').show();
                 $('.live-form').hide();
@@ -295,8 +295,11 @@ function LivechatInit() {
 
     // Счет подключившихся
 
-    chat.client.notifyAboutConnection = function (count) {
+    chat.client.notifyAboutConnection = function (count, name, time) {
         $('.in-chat').html(count);
+        if (name != null) {
+            $('.ch-notifybox-user').html(name + ' зашел в ' + time);
+        }
     }
 
     // Новое сообщение от консультанта
@@ -340,7 +343,7 @@ function LivechatInit() {
     chat.client.userOut = function (conn, mess, total, isInGroup) {
         $("audio").remove();
         total == 0 || total == -1 ? $('.ch-all-inbox').text("") : $('.ch-all-inbox').text("+" + total);
-        isInGroup ? notifyInfo(mess, 0) : "";
+        isInGroup ? notifyInfo(mess) : "";
         $('.ch-user[data-connid="' + conn + '"]').remove();
     }
 

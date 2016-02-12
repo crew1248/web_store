@@ -167,6 +167,7 @@ namespace x_nova_template.Areas.Admin.Controllers
                 var item = _repository.Get(id);
                 ViewBag.type = item.MenuSection;
                 ViewBag.page = page;
+                ViewBag.sort = item.SortOrder;
                 return View(item);
             }
             return View();

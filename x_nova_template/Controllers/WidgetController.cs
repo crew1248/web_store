@@ -28,45 +28,50 @@ namespace Posbank.Controllers
             _grep = gRepo;
             _prep = pRepository;
         }
-        
-        public ActionResult Inscreaser(int type = 0, string folder = null, int id = 0, string selector = null,string jsonData=null)
-        {
-            ViewBag.result = 0;
-            ViewBag.el = 0;
-            if (type == 3&&folder!=null) {
-                var path = Server.MapPath("~" + folder);
 
-                var dir = new DirectoryInfo(path);
-                var result = dir.GetFiles().Select(x => string.Concat(folder, x.Name)).ToList();
-                var json = JsonConvert.SerializeObject(result);
-                
-                //var formated =json;
-                //var path1 = Server.MapPath("~/data.json");
-                //using (StreamWriter file = new StreamWriter(path1))
-                //{
-                //    JsonSerializer serializer = new JsonSerializer();
-                //    serializer.Serialize(file, formated);
-                //}
-                
-                ViewBag.result = json;
-                var traceSource = new TraceSource("Tracing");
-                traceSource.TraceEvent(TraceEventType.Warning, 0, HttpUtility.HtmlEncode(json));
-            }
-            else if (type == 2 && id != 0) {
+         public ActionResult InscreaserView()
+         {
+             return PartialView();
 
-                var result = _grep.GetGallery(id).Images.Select(x => x.ID).ToList();
-                var json = JsonConvert.SerializeObject(result);
-                ViewBag.result = json;
-                var traceSource = new TraceSource("Tracing");
-                traceSource.TraceEvent(TraceEventType.Warning, 0, HttpUtility.HtmlEncode(json));
-            }
-            else if (type == 1 && id != 0)
-            {
-                var item = _prep.Get(id);
-                var cart = Session["Cart"] as Cart;
-                var isAdded = cart != null ? cart.Lines.Select(x => x.Product.ID).Contains(id) : false;
+         }
+         public ActionResult Inscreaser(int type = 0, string folder = null, int id = 0, string selector = null, string jsonData = null)
+         {
+             ViewBag.result = 0;
+             ViewBag.el = 0;
+             if (type == 3 && folder != null)
+             {
+                 var path = Server.MapPath("~" + folder);
 
-                JObject result = new JObject
+                 var dir = new DirectoryInfo(path);
+                 var result = dir.GetFiles().Select(x => string.Concat(folder, x.Name)).ToList();
+                 var json = JsonConvert.SerializeObject(result);
+
+                 //var formated =json;
+                 //var path1 = Server.MapPath("~/data.json");
+                 //using (StreamWriter file = new StreamWriter(path1))
+                 //{
+                 //    JsonSerializer serializer = new JsonSerializer();
+                 //    serializer.Serialize(file, formated);
+                 //}
+
+                 ViewBag.result = json;
+
+             }
+             else if (type == 2 && id != 0)
+             {
+
+                 var result = _grep.GetGallery(id).Images.Select(x => x.ID).ToList();
+                 var json = JsonConvert.SerializeObject(result);
+                 ViewBag.result = json;
+
+             }
+             else if (type == 1 && id != 0)
+             {
+                 var item = _prep.Get(id);
+                 var cart = Session["Cart"] as Cart;
+                 var isAdded = cart != null ? cart.Lines.Select(x => x.Product.ID).Contains(id) : false;
+
+                 JObject result = new JObject
                 {
                     {"id",id},
                     {"cat",ProductController.GetCatName(item.CategoryID)},
@@ -79,25 +84,26 @@ namespace Posbank.Controllers
                     {"price",item.Price}
                 };
 
-                var json = result.ToString();
-                ViewBag.result = json;
-                var traceSource = new TraceSource("Tracing");
-                traceSource.TraceEvent(TraceEventType.Warning, 0, json);
-            }
-            else {
-                if (jsonData != null)
-                {
-                    var obj = JObject.Parse(jsonData);
-                    ViewBag.el = obj["el"];
-                    ViewBag.result = obj["pack"];
-                }
-            }
-            ViewBag.type = type;
-            ViewBag.folder = folder;
-            ViewBag.selector = selector;
-            
-            return PartialView();
-        }
+                 var json = result.ToString();
+                 ViewBag.result = json;
+
+             }
+             else
+             {
+                 if (jsonData != null)
+                 {
+                     var obj = JObject.Parse(jsonData);
+                     ViewBag.el = obj["el"];
+                     ViewBag.result = obj["pack"];
+                     return Json("", JsonRequestBehavior.AllowGet);
+                 }
+             }
+             ViewBag.type = type;
+             ViewBag.folder = folder;
+             ViewBag.selector = selector;
+
+             return PartialView();
+         }
         public void LoadMainPic(string path)
         {
             if (path != null && new WebImage(path).GetBytes() != null)

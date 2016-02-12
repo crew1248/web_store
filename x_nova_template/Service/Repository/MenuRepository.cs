@@ -21,10 +21,9 @@ namespace x_nova_template.Service.Repository
             //               where i.Sortindex == (from x in this.db.Images select x.Sortindex).Max<int>()
             //               select i).SingleOrDefault<Image>();
             //int num = (image == null) ? 1 : (image.Sortindex + 1);
-            var maxIndex = Menues.Where(x => x.MenuSection == menu.MenuSection &&
-                    x.ParentId == menu.ParentId).Max(y => y.SortOrder);
 
-            var sort = (maxIndex == 0) ? 1 : (maxIndex + 1);
+
+            var sort = menu.Id + 1;
             menu.SortOrder = sort;
             db.Menues.Add(menu);            
             db.SaveChanges();

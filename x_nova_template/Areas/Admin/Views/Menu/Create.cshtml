@@ -154,6 +154,7 @@
     window.onload = function () {
         CKEDITOR.replace('Body');
         CKEDITOR.replace('BodyEng');
+        CKEDITOR.config.allowedContent = true;
         CKEDITOR.on("instanceReady", function () {
             // insert code to run after editor is ready
             var h = $('#admincontent').innerHeight();

@@ -30,7 +30,7 @@
         <div class="menu-options">
             @Html.HiddenFor(model => model.Id)
             @Html.Hidden("page", (int)ViewBag.page)
-
+            @Html.Hidden("sort", (int)ViewBag.sort)
             <div class="editor-label">
                 Id-родитель
             </div>
@@ -124,7 +124,7 @@
 <script>
     window.onload = function () {
         CKEDITOR.replace('Body');
-
+        CKEDITOR.config.allowedContent = true;
     };
 
 </script>

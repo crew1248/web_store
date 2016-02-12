@@ -37,14 +37,12 @@ namespace x_nova_template.Service.Repository
                 this.db.Galleries.Add(gall);
             }
             else {
-                Image image = (from i in this.db.Images
-                               where i.Sortindex == (from x in this.db.Images select x.Sortindex).Max<int>()
-                               select i).SingleOrDefault<Image>();
-                int num = (image == null) ? 1 : (image.Sortindex + 1);
+               
+             
                 Image image2 = new Image();
                 string str = Regex.Replace(file.FileName, @"\.\w+", string.Empty);
                 image2.ImageTitle = str;
-                image2.Sortindex = num;
+                image2.Sortindex = image2.ID+1;
                 image2.GalleryID = galId;
                 image2.ImageMimeType = file.ContentType;
                 newdata = new WebImage(file.InputStream).GetBytes(null);
