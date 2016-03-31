@@ -166,6 +166,12 @@
 }
 .md-modal .xn-i-wrap2 {
     overflow: hidden;
+      
+    padding: 30px 30px 0 0;
+  
+}
+.md-cat .xn-i-wrap2 {
+    overflow: hidden;
         width: 60%;
     padding: 30px 30px 0 0;
   

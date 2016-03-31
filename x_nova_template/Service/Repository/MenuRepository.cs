@@ -41,6 +41,7 @@ namespace x_nova_template.Service.Repository
         public void Edit(Menu menu)
         {
             menu.LastModifiedDate = DateTime.Now;
+            menu.SortOrder = (menu.SortOrder == 0 ? menu.Id + 1 : menu.SortOrder);
             db.Entry(menu).State = System.Data.Entity.EntityState.Modified;
             db.SaveChanges();
         }

@@ -50,7 +50,7 @@
                     </div>
                     <div class="cart-summary">
                        
-                        <span><span class="cart-quantity-td"><span><i class="fa fa-minus-circle item-dec"></i></span><span class="cart-quantity-val">@item.Quantity</span><span><i class="fa fa-plus-circle item-inc"></i></span></span></span>
+                        <span><span class="cart-quantity-td"><span data-event-type="cart__decrease"><i class="fa fa-minus-circle item-dec"></i></span><span class="cart-quantity-val">@item.Quantity</span><span data-event-type="cart__increase"><i class="fa fa-plus-circle item-inc"></i></span></span></span>
                         <span></span>
                     </div>
                     <div class="cart-item-info">
@@ -59,7 +59,7 @@
                             <div class="cart-title-td">
                                 <div class="cart-title-text">@(item.Product.ProductName.Length > 60 ? item.Product.ProductName.Substring(0, 60) + ".." : item.Product.ProductName)</div>
                                 <div class="cart-update__actions">
-                                    <span class="top-cart-remove" data-event-type="cartRemove">удалить</span>
+                                    <span class="top-cart-remove" data-event-type="cart__remove">удалить</span>
                                         @*<span class="cart-price-td">@item.Product.Price.ToString("0 000") <i class="fa fa-rouble"></i></span>
                                         <span class="cart-quantity-td"><button class="item-dec cart-value-btn"><span><i class="fa fa-minus-circle"></i></span></button><span class="cart-quantity-val">@item.Quantity</span><button class="item-inc cart-value-btn"><span><i class="fa fa-plus-circle"></i></span></button></span>
                                         *@ </div>
@@ -77,7 +77,7 @@
                 <div class="cart-options" style="text-align:right;position:relative;">
                     <button class="btn newitem-button" onclick="$.post('/Cart/Clear');$('.cartwrap').html('Корзина пуста');">Очистить корзину</button>
                     <button class="btn newitem-button" onclick="window.location='/';">Продолжить покупки</button>
-                    <button class="btn newitem-button" @if(User.Identity.IsAuthenticated){<text>onclick="document.location.replace('/checkout?step=2');"</text>}else{<text>onclick="XN.BuildModal('#modal-6', '/Account/Mauth');"</text>}>Оформить заказ</button>
+                    <button class="btn newitem-button" data-event-type="cart__checkout">Оформить заказ</button>
 
                 </div>
             </div>

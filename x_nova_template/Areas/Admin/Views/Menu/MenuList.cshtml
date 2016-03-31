@@ -14,7 +14,11 @@
 <script>
   
     function hint(element) {
-        return element.clone().addClass("hint");
+        var row = element.clone();
+        var table = $('<table class="admTable stripedMe" ></table>');
+        table.append(row);
+        //$('#tar').html(table);
+        return table;
     }
 
     function placeholder(element) {

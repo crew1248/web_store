@@ -1,8 +1,8 @@
 ﻿@{/*بسم الله الرحمن الرحيم*/}
-@using System.Text.RegularExpressions
-@using Kendo.Mvc.UI.Fluent
+
+
 <!DOCTYPE html>
-<html lang="ru">
+<html>
 <head>
     <title>@ViewBag.Title</title>
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
@@ -20,6 +20,7 @@
         <meta name="description" content="@ConfigController.SiteOptions().Description" />
     }
     @*@Styles.Render("~/Content/kcss")*@
+
     @Styles.Render("~/Content/bootstrap")
     @Styles.Render("~/Content/css")
     @Styles.Render("~/Content/authcss")
@@ -29,9 +30,8 @@
     }
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/jqueryval")
-    
-        @Scripts.Render("~/bundles/sitejs")
-    
+
+    @Scripts.Render("~/bundles/sitejs")
 
     @Scripts.Render("~/bundles/bootstrap")
 
@@ -40,99 +40,52 @@
         $.post('/Config/Abandon');
     }
 
-    @if (Request.Browser.Browser.ToLower() == "internet explorer") {
+        @if (Request.Browser.Browser.ToLower() == "internet explorer") {
 
         <text>
-    $('html').addClass('ie');
-    </text>
+                $('html').addClass('ie');
+        </text>
     }
 
     </script>
-
     <script>
-        $(function () {
-            var menuLeft = $('#cbp-spmenu-s1'),
-            //menuRight = document.getElementById('cbp-spmenu-s2'),
-            //menuTop = document.getElementById('cbp-spmenu-s3'),
-            //menuBottom = document.getElementById('cbp-spmenu-s4'),
-            showLeft = $('#showLeft'),
-            //showRight = document.getElementById('showRight'),
-            //showTop = document.getElementById('showTop'),
-            //showBottom = document.getElementById('showBottom'),
-            //showLeftPush = document.getElementById('showLeftPush'),
-            //showRightPush = document.getElementById('showRightPush'),
-            body = $('body');
-            body.on('click', function () {
-                if (menuLeft.hasClass('cbp-spmenu-open')) { menuLeft.toggleClass('cbp-spmenu-open'); showLeft.toggleClass('active'); }
-            });
-            showLeft.on('click', function () {
+    $(function () {
+        var menuLeft = $('#cbp-spmenu-s1'),
+        showLeft = $('#showLeft'),
+        body = $('body');
+        body.on('click', function () {
+            if (menuLeft.hasClass('cbp-spmenu-open')) { menuLeft.toggleClass('cbp-spmenu-open'); showLeft.toggleClass('active'); }
+        });
+        showLeft.on('click', function () {
 
-                $(this).toggleClass('active');
-                setTimeout(function () { menuLeft.toggleClass('cbp-spmenu-open'); }, '100');
-                //disableOther('showLeft');
-            });
-            //showRight.onclick = function () {
-            //    classie.toggle(this, 'active');
-            //    classie.toggle(menuRight, 'cbp-spmenu-open');
-            //    disableOther('showRight');
-            //};
-            //showTop.onclick = function () {
-            //    classie.toggle(this, 'active');
-            //    classie.toggle(menuTop, 'cbp-spmenu-open');
-            //    disableOther('showTop');
-            //};
-            //showBottom.onclick = function () {
-            //    classie.toggle(this, 'active');
-            //    classie.toggle(menuBottom, 'cbp-spmenu-open');
-            //    disableOther('showBottom');
-            //};
-            //showLeftPush.onclick = function () {
-            //    classie.toggle(this, 'active');
-            //    classie.toggle(body, 'cbp-spmenu-push-toright');
-            //    classie.toggle(menuLeft, 'cbp-spmenu-open');
-            //    disableOther('showLeftPush');
-            //};
-            //showRightPush.onclick = function () {
-            //    classie.toggle(this, 'active');
-            //    classie.toggle(body, 'cbp-spmenu-push-toleft');
-            //    classie.toggle(menuRight, 'cbp-spmenu-open');
-            //    disableOther('showRightPush');
-            //};
-
-            function disableOther(button) {
-                if (button !== 'showLeft') {
-                    classie.toggle(showLeft, 'disabled');
-                }
-                //if (button !== 'showRight') {
-                //    classie.toggle(showRight, 'disabled');
-                //}
-                //if (button !== 'showTop') {
-                //    classie.toggle(showTop, 'disabled');
-                //}
-                //if (button !== 'showBottom') {
-                //    classie.toggle(showBottom, 'disabled');
-                //}
-                //if (button !== 'showLeftPush') {
-                //    classie.toggle(showLeftPush, 'disabled');
-                //}
-                //if (button !== 'showRightPush') {
-                //    classie.toggle(showRightPush, 'disabled');
-                //}
-            }
+            $(this).toggleClass('active');
+            setTimeout(function () { menuLeft.toggleClass('cbp-spmenu-open'); }, '100');
+            //disableOther('showLeft');
         });
 
+        function disableOther(button) {
+            if (button !== 'showLeft') {
+                classie.toggle(showLeft, 'disabled');
+            }
+
+        }
+
+    }); console.log('browser - @Request.Browser.IsMobileDevice');
+        console.log('width: @Request.Browser.ScreenPixelsWidth')
     </script>
+
 
 </head>
 <body class="cbp-spmenu-push" lang="@System.Threading.Thread.CurrentThread.CurrentCulture.Name" onbeforeunload="collapseCycle()" data-pagecounter="@ViewBag.PageCounter">
-
+    @Html.Partial("_LiveChat")
     @Html.Partial("_ModalWindows", new x_nova_template.ViewModel.TemplatesViewModel { type = 0 })
 
-    <div id="main-wrapper">
-        <header class="m-header navbar-static-top  navbar" role="navigation">
-            <div class="header-wrap">
-                <div class="top-h">
-                    <div class="container">
+    <div>
+        <div id="main-wrapper">
+            <header class="top-header navbar-default navbar" role="navigation">
+
+                <div class="container">
+                    <div class="row">
                         <div class="navbar-header">
 
                             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#top-navbar-collapse">
@@ -140,151 +93,66 @@
                             </button>
 
                             <div class="hidden-lg hidden-md  navbar-brand">
-                                <a href="/"><img width="50" height="40" src="/Content/qm/logo2.png" class="img-responsive"></a>
+                                <a href="/">LOGO</a>
                             </div>
+
+
+
 
                         </div>
                         <div class="collapse navbar-collapse" id="top-navbar-collapse">
-                            <nav>@{Html.RenderAction("SS", "Menu", new { menuSection = 0 });}</nav>
+
+                            <div class="top-h col-md-6 col-sm-5">
+
+                                @{Html.RenderAction("SS", "Menu", new { menuSection = 0 });}
 
 
-                        </div>
-                    </div>
-                </div>
-                <div class="bottom-h">
-                    <div class="container">
-                        <div class="bottom-h-wrap clear-fix">
-                            <div class="bottom-m-wrap clear-fix">
-                                <div class="row">
-
-
-                                    <div class="col-md-2 hidden-sm hidden-xs">
-                                        @Html.Partial("_Logo")
-                                    </div>
-
-                                    <nav class="n-bmenu visible-sm visible-xs cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
-                                        <h3>Каталог услуг</h3>
-                                        <div class="cbp-spmenu-body">
-                                            @{Html.RenderAction("SS", "Menu", new { menuSection = 1 });}
-                                            <br />
-                                            <div class="visible-xs cbp-btn-group">
-                                                <ul class="nav nav-pills">
-                                                    <li><a data-content-type="feedForm">Обратная связь</a></li>
-                                                    <li class="divider"></li>
-                                                    <li><a href="/tehnologiya-proizvodstva-igrushek">Технология производства высококачественных игрушек</a></li>
-
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </nav>
-
-                                    <div class="col-md-7 col-xs-8 hidden-xs hidden-sm">
-
-
-
-                                        <nav class="n-bmenu">
-
-                                            @Html.Action("SS", "Menu", new { menuSection = 1 })
-                                        </nav>
-
-                                    </div>
-                                    <div class="pull-left col-sm-3 col-xs-5 visible-xs visible-sm">
-                                        <button class="btn" id="showLeft" type="button">
-                                            <span>Разделы <i class="fa fa-bars"></i></span>
-                                        </button>
-                                    </div>
-
-
-                                    <div class="top-services col-sm-6 col-xs-12 col-md-3">
-                                        <div id="phone">
-
-                                            <div id="phone-number"><div id="section_1"></div></div>
-                                            <div class="">
-                                                <div id="h-feed" class="hidden-xs">
-                                                    <a data-content-type="feedForm" id="feed-button"><span class="iconicfill-mail"></span> Обратная связь</a>
-
-                                                </div>
-
-                                                @Html.Action("CatsMenu2", "Category")
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
+                            </div>
+                            <div class="top-left-h col-md-3 col-sm-3">
+                                @Html.Partial("_TopCart")
+                            </div>
+                            <div class="col-sm-1 col-md-1 top-right-h">
+                                @Html.Partial("_CartButton")
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </header>
-        <section id="services" class="services-pages hidden-xs">
+            </header>
 
-
-
-            <div id="section_4">
-
-
-
-            </div>
-        </section>
-
-        <section id="content" class="clear-fix">
-
-            <div id="content-wrapper">
-                <div class="container">
+            <section id="content" class="clear-fix">
+                <div id="content-wrapper" class="container">
                     <div class="row">
-                        <div class="col-md-3 col-sm-4">
-                            <aside class="catalog">
-                                <h2>Примеры реализованных проектов по областям промышленности</h2>
-                                <div class="cat-list">
-                                    @{Html.RenderAction("CatsMenu", "Category");}
-
-                                </div>
-                            </aside>
-                          
-
-                        </div>
-                        <div class="col-md-6 col-sm-8">
-                            <article id="article">
-
-                                @RenderBody()
-
-                            </article>
-                        </div>
-                        <div class="col-md-3 col-sm-12">
-                            <aside id="rightbar">
-                                <div class="aside1">
-                                    <h3>Отчёт о сданных проектах</h3>
-                                    <div class="aside-content">
-                                        @{Html.RenderAction("LastNews", "Post");}
-                                    </div>
-                                </div>
-                                <div class="aside1">
-                                    <h3>Новости компании</h3>
-                                    <div class="aside-content">
-                                        <div id="section_3"></div>
-                                    </div>
-                                </div>
-                            </aside>
+                        <div class="col-md-12 col-sm-12 hidden-xs">
+                            <div class="container carousel-wrapper">
+                              
+                            </div>
                         </div>
 
                     </div>
+                    <div class="row">
+                        <aside id="catalog" class="col-md-3 col-sm-12 col-xs-12">
+                            <h2>Каталог</h2>
+                            <div class="cat-list">
+                                @{Html.RenderAction("CatsMenu", "Category");}
+                            </div>
+                        </aside>
+
+                        <article id="article" class="col-md-8 col-sm-12 col-xs-12">
+
+                            @RenderBody()
+                        </article>
+                    </div>
+
                 </div>
-            </div>
-        </section>
-        <section id="bot-quote">
-            <div class="container-fluid">
+            </section>
 
-                <div id="section_5">
-
-
+            <footer>
+                <div class="f-wrap clear-fix container">
+                    <span class="f-copyright glyphicon glyphicon-copyright-mark"></span><span>  <a href="#" class="navbar-brand">BRAND</a></span>
                 </div>
-
-            </div>
-        </section>
-        @Html.Partial("_Footer")
+            </footer>
+        </div>
     </div>
-
 
     @if (!Request.IsLocal)
     {
@@ -295,5 +163,7 @@
     {
         @:
 }
+
+
 </body>
 </html>

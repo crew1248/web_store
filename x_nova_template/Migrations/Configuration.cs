@@ -21,6 +21,11 @@
         protected override void Seed(x_nova_template.Models.ApplicationDbContext context)
         {
 
+            //var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "sql1.sql");
+            //context.Database.ExecuteSqlCommand(File.ReadAllText(path));
+
+            // context.Database.ExecuteSqlCommand("alter table dbo.Menus drop column Author,IsPublic");
+            //context.Menues.AddOrUpdate(x => x.Author, new Menu {Url="strstr", Body="strstr", Author="strstr", IsPublic=true, LastModifiedDate=DateTime.Now, ParentId=0, MenuSection=1, SortOrder=6, Text="strstr"});
             //for (int t = 0; t <= 5; t++)
             //{
             //    context.Categories.AddOrUpdate(x => x.CategoryName, new Category { CategoryName = "Категория номер" + t });

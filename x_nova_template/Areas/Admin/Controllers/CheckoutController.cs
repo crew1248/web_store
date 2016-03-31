@@ -144,8 +144,12 @@ namespace x_nova_template.Areas.Admin.Controllers
             }
             else { return RedirectToAction("Index", new { step = 1 }); }
         }
-
-
+        [HttpPost]
+        public JsonResult Processing() {
+            System.Threading.Thread.Sleep(1000);
+            var t = (User.Identity.IsAuthenticated?1:0);
+            return Json(new { type = t });
+        }
         [HttpPost]
         public ActionResult ProceedCheckout(CheckoutViewModel vm)
         {

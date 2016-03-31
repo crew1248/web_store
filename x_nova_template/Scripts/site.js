@@ -31,13 +31,30 @@
 //        if(fcont.css('marginTop')=='20px')fcont.css({ marginTop: '50px', opacity: 0, visibility: 'hidden' });
 //    });
 //}
-
+var cartIsHidden = false;
 var loader = $('<img class="submit-loader" src="/Content/ajax-loaders/horizont/89.GIF" >');
 var loader1 = $('<img class="submit-loader" src="/Content/ajax-loaders/horizont/main-loader1.GIF" >');
 var pcartsubmit = $('.loader-state');
 var cartSummary = $('#cart__summary');
 var cartIndex = $('.cart-cont').length;
 var partialTimeout = null;
+
+var cartCheckout = function (step,isAuth) {
+    $.ajax({
+        beforeSend:function(){addLoader();},
+        url: '/Checkout/Processing',
+        type: 'post',
+        success: function (data) {
+            if (data.type == 0){
+                XN.Auth.BuildModal('#modal-7', '/Account/Mauth');
+                closeLoader();
+            }
+           else       
+                location.replace('/Checkout/Index?step=2');
+           
+        }
+    })
+}
 var initCartEvents = function () {
     var fcont = $('.foreign-cont');
     var hasItems = $('.forg-menu .item-row').length;
@@ -52,9 +69,10 @@ var initCartEvents = function () {
         $('.foreign-cont').css({ marginTop: '20px', opacity: 1, visibility: '' });
     });
     $(document).on('mouseout', '.foreign-cont,.forg-tnl', function () {
+        if (!cartIsHidden) return false;
         fcont.css({ marginTop: '50px', opacity: 0, visibility: 'hidden' });
     });
-
+   // $(document).on('click', '*[data-event-type="cart__remove"]', removeFromCart);
 }
 var authAttach = function () {
   XN.BuildModal('#modal-7', '/Account/Mauth');
@@ -133,7 +151,7 @@ function ExpandPartialCart(id, title, p, c, t) {
     $('.forg-menu').append(
         '<tr class="item-row" data-pid="' + id + '">' +
         '<td><img src="/ImageData/GetProdImage?pid=' + id + '&width=50&height=50" /></td>' +
-        '<td><span>' + subTitle + '</span><span class="top-cart-remove" data-event-type="cartRemove">удалить</span></td>' +
+        '<td><span>' + subTitle + '</span><span class="top-cart-remove" data-event-type="cart__remove">удалить</span></td>' +
         '<td>' + p + ' </td>' +
         '</tr>'
         );
@@ -285,6 +303,7 @@ var popupLivechat = function () {
 }
 
 
+
 var initSections = function () {
     $.getJSON("/StaticSection/GetSections", {}, function (data) {
         for (var i = 0; i < data.sections.length; i++) {
@@ -416,6 +435,7 @@ $(function () {
     $(document).on('click', '*[data-event-type="cart__remove"]', removeFromCart);
     $(document).on('click', '*[data-event-type="cart__add"]', addToCart);
     $(document).on('click', '*[data-event-type="cart__view"]', toTheCart);
+    $(document).on('click', '*[data-event-type="cart__checkout"]', cartCheckout);
     //$(document).on('click', '.checkout-auth', authAttach);
     $(document).on('click', '#popup-livechat', popupLivechat);
     //$(document).on('click', '.dropdown-wrap', dropdownList);
@@ -424,6 +444,7 @@ $(function () {
     $(document).on('click', '.prod-img-wrapper .imglist-item', prodimgList);
     $(document).on('click', '.detail-item', prodimgList1);
     $(document).on('click', '.disabled-state', disabled);
+    
     // $(document).on('click', '.dropdown-item', dropdownListItem);
     
     $(document).on("click", ".md-close", function (e) {

@@ -5,39 +5,48 @@
 
 </p>
 <div class="ship-details">
-    @using (Html.BeginForm("ProceedCheckout", "Checkout"))
+    @using (Html.BeginForm("ProceedCheckout", "Checkout", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
     {
         <p>@Html.ValidationSummary(true)</p>
-        <div class="">
-            <div>Имя</div>
-            @Html.TextBoxFor(x => x.FirstName)
-            @Html.ValidationMessageFor(x => x.FirstName)
+         <div class="form-group">
+        @Html.LabelFor(m => m.FirstName, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
         </div>
-        <div class="">
-            <div>Фамилия</div>
-            @Html.TextBoxFor(x => x.LastName)
-            @Html.ValidationMessageFor(x => x.LastName)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.LastName, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
         </div>
-        <div class="">
-            <div>Адрес</div>
-            @Html.TextAreaFor(x => x.Address, new { cols = "5" })
-            @Html.ValidationMessageFor(x => x.Address)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Address, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Address, new { @class = "form-control" })
         </div>
-        <div class="">
-            <div>Почта</div>
-            @Html.TextBoxFor(x => x.Email)
-            @Html.ValidationMessageFor(x => x.Email)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
         </div>
-        <div class="">
-            <div>Номер телефона</div>
-            @Html.TextBoxFor(x => x.Phone)
-            @Html.ValidationMessageFor(x => x.Phone)
+    </div>
+   <div class="form-group">
+        @Html.LabelFor(m => m.Phone, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Phone, new { @class = "form-control" })
         </div>
-
-        <div class="">
-            <input type="submit" class="newitem-button " style="width:100px" value="дальше" />
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Сохранить" class="btn btn-default" />
         </div>
-
+    </div>
+        
+        
+        
+     
 
 
     }

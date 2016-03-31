@@ -262,7 +262,8 @@ span.dot {
     overflow: hidden;
     text-overflow: ellipsis;
     text-align: left;
-    height: 40px;
+        height: 45px;
+    padding: 10px;
 }
 
 .top-cart-checkout {
@@ -323,11 +324,18 @@ span.dot {
     height: 100%;
 }
 
-.cart-update__actions {
+.cart-update__actions,.top-cart-remove {
     display: none;
     width: 100%;
 }
-
+.forg-menu td {
+     overflow: hidden;
+    padding-left: 10px;
+    vertical-align: middle;
+    display: table-cell;
+   
+        height: 50px;
+}
 .cart-title-td {
     overflow: hidden;
     padding-left: 20px;
@@ -349,7 +357,7 @@ span.dot {
     height: auto;
 }
 
-.cart-row:hover .cart-update__actions,.top-cart-remove {
+.cart-row:hover .cart-update__actions,.item-row:hover .top-cart-remove {
     display: inherit;
 }
 

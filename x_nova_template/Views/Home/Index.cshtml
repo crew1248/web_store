@@ -10,13 +10,13 @@
 {
     <script>
        
-        $(function () { XN.BuildModal('#modal-7', '/Account/Mconf?username=@ViewBag.UserName'); });
+        $(function () { XN.Auth.BuildModal('#modal-7', '/Account/Mconf?username=@ViewBag.UserName'); });
     </script>
 }
 @if ((bool)ViewBag.SetPassword)
 {
     <script>
-    $(function () {  XN.BuildModal('#modal-7', '/Account/Mset?userid=' + @ViewBag.UserId + '&code=' + @ViewBag.Code);});
+        $(function () {  XN.Auth.BuildModal('#modal-7', '/Account/Mset?userid=' + @ViewBag.UserId + '&code=' + @ViewBag.Code);});
        
     </script>
 }
