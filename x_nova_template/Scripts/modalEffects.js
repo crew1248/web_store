@@ -271,7 +271,7 @@ XN.Inscreaser = { // Widget - Catalog/Gallery
 
 
 
-        setTimeout(function () { $('.xn-i-sphoto').css({ visibility: 'visible' }); }, '700');
+        setTimeout(function () { $('.xn-i-sphoto').css({ visibility: 'visible' }); }, '100');
 
 
         ins_scont.html(settings.wrapper);
@@ -454,9 +454,9 @@ XN.Inscreaser = { // Widget - Catalog/Gallery
                 loaded.style.display = "";
                 loaded.setAttribute('src', this.src);
 
-                var wh = Math.max(modal.clientHeight - (loaded.height + 160)) / 2;
-
-                var he = Math.max(modal.clientWidth - loaded.width) / 2;
+                var mdContent = findParentBySelector(imgWrap, '.md-content');
+                mdContent.setAttribute('style', '');
+                if (img.width < 300) mdContent.setAttribute('style', 'max-width:300px');
 
                 // ширина дефолтная для окна -- desktop,tablet
                 if (!isMobile) {
@@ -469,7 +469,7 @@ XN.Inscreaser = { // Widget - Catalog/Gallery
 
                 // процент отступа для картинки
                 var procent = paddingBottomProcents(img.width, img.height);
-
+                if (img.width > 300 && procent > 120) mdContent.setAttribute('style', 'max-width:500px');
                 loaded.parentElement.setAttribute('style', 'padding-bottom:' + procent + '%');
 
                 var whMob = Math.max(modal.clientHeight - (loaded.height + 168));

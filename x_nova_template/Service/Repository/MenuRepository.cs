@@ -23,9 +23,10 @@ namespace x_nova_template.Service.Repository
             //int num = (image == null) ? 1 : (image.Sortindex + 1);
 
 
-            var sort = menu.Id + 1;
-            menu.SortOrder = sort;
-            db.Menues.Add(menu);            
+            db.Menues.Add(menu);
+            db.SaveChanges();
+            var res = db.Menues.Single(x => x.Url == menu.Url);
+            res.SortOrder = res.Id + 1;
             db.SaveChanges();
         }
         
@@ -41,7 +42,7 @@ namespace x_nova_template.Service.Repository
         public void Edit(Menu menu)
         {
             menu.LastModifiedDate = DateTime.Now;
-            menu.SortOrder = (menu.SortOrder == 0 ? menu.Id + 1 : menu.SortOrder);
+            menu.SortOrder = (menu.SortOrder == 0 || menu.SortOrder == 1 ? menu.Id + 1 : menu.SortOrder);
             db.Entry(menu).State = System.Data.Entity.EntityState.Modified;
             db.SaveChanges();
         }
