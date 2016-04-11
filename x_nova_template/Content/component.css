@@ -136,7 +136,9 @@
 	opacity: 1;
 	visibility: visible;
 }
-
+.md-finished {
+    visibility:visible!important;
+}
 /* Content styles */
 .md-modal .md-content {
     margin: auto;
@@ -144,6 +146,7 @@
     pointer-events: auto;
     width: 100%;
     background-color: #fff;
+    visibility:hidden;
 }
 .md-modal .modalh
 {
@@ -299,7 +302,7 @@ div.md-close
 }
 .md-modal .xn-i-sphoto {
     display:block;
-    visibility:hidden;
+    /*visibility:hidden;*/
 }
 .md-modal .xn-i-wrap1 {
     background-color: #edeeee;

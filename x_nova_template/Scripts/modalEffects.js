@@ -185,7 +185,7 @@ XN.Auth = { // Widget - Modal Account Auth/Reg
 XN.Inscreaser = { // Widget - Catalog/Gallery
     Init: function (type, el, index) {
         var input;
-
+        
         var ins_modal = $('#modal-6');
         var ins_content = $('#modal-6 .md-content');
         var ins_scont = $('.xn-i-sphoto');
@@ -200,7 +200,7 @@ XN.Inscreaser = { // Widget - Catalog/Gallery
         type == 1 ? prodMode = true : "";
 
         /* конечная настройка виджета */
-        $('.ov-spin').remove();
+       // $('.ov-spin').remove();
         /* ---------------------- */
 
         settings = {
@@ -271,7 +271,7 @@ XN.Inscreaser = { // Widget - Catalog/Gallery
 
 
 
-        setTimeout(function () { $('.xn-i-sphoto').css({ visibility: 'visible' }); }, '100');
+        //setTimeout(function () { $('.xn-i-sphoto').css({ visibility: 'visible' }); }, '100');
 
 
         ins_scont.html(settings.wrapper);
@@ -381,10 +381,10 @@ XN.Inscreaser = { // Widget - Catalog/Gallery
 
                 data: opts,
                 success: function (data) {
-                    setTimeout(function () {
+                    
                         $(XN.Inscreaser.Config().content).html(data);
                         XN.Inscreaser.reEvent();
-                    }, '300');
+                   
 
                     // <- reevent
                 }
@@ -403,7 +403,7 @@ XN.Inscreaser = { // Widget - Catalog/Gallery
     Open: function (type) {
         this.Close();
         $(this.Config().container).css('visibility', 'visible');
-        $('body').attr('style', 'overflow:hidden');
+        //$('body').attr('style', 'overflow:hidden');
         var preload = type == 0 ? ins_loader_black : ins_loader;
         $('.md-wrapper').append(preload);
         $(this.Config().modal).addClass('md-show');
@@ -411,7 +411,7 @@ XN.Inscreaser = { // Widget - Catalog/Gallery
     Close: function () {
         $('body').removeAttr('style');
         // $(this.Config().modal).find("*").off();
-        $(this.Config().content).html('');
+        $(this.Config().content).removeClass('md-finished').html('');
         $(this.Config().modal).removeClass('md-show');
         $(this.Config().container).css('visibility', 'hidden');
         $('.xn-modal .md-content').removeAttr('style');
@@ -421,11 +421,23 @@ XN.Inscreaser = { // Widget - Catalog/Gallery
     Utilities: {
         LoadImg: function (index, type) {
             var timer;
+            var timer1;
+            function clearTimer1() {
+                if (timer1) {
+                    clearTimeout(timer1);
+                    timer1 = null;
+                    
+                    
+                }
+            }
+
+
             function clearTimer() {
                 if (timer) {
                     clearTimeout(timer);
                     timer = null;
                     $('.md-gif').remove();
+                    
                 }
             }
             function paddingBottomProcents(width, height) {
@@ -446,10 +458,12 @@ XN.Inscreaser = { // Widget - Catalog/Gallery
             $(XN.Inscreaser.Config().imgEl).removeClass('img-responsive');
 
             img.onload = function () {
+               
                 var loaded = document.getElementById(XN.Inscreaser.Config().imgEl.substring(1));
                 var imgWrap = loaded.parentElement.parentElement;
                 var modal = findParentBySelector(imgWrap, '.md-modal');
-
+                var mdCont = document.getElementsByClassName('md-content')[1];
+                var spin = document.getElementsByClassName('ov-spin');
                 // отображение картинки
                 loaded.style.display = "";
                 loaded.setAttribute('src', this.src);
@@ -476,6 +490,7 @@ XN.Inscreaser = { // Widget - Catalog/Gallery
 
                 clearTimer();
 
+                timer1 = setTimeout(function () {clearTimer1(); spin.remove(); mdCont.className += ' md-finished' }, 300);
             };
 
             if (type == 'post')
@@ -500,7 +515,7 @@ XN.Inscreaser = { // Widget - Catalog/Gallery
                 };
             }(img), 500);
 
-
+           
         },
         GetDataImg: function (id, ispreview, width, height, pid) {
             return ispreview ?
@@ -612,6 +627,16 @@ function findParentBySelector(elm, selector) {
     return cur; //will return null if not found
 }
 
+Element.prototype.remove = function () {
+    this.parentElement.removeChild(this);
+}
+NodeList.prototype.remove = HTMLCollection.prototype.remove = function () {
+    for (var i = this.length - 1; i >= 0; i--) {
+        if (this[i] && this[i].parentElement) {
+            this[i].parentElement.removeChild(this[i]);
+        }
+    }
+}
 
 
 
