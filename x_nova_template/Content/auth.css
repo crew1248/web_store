@@ -82,7 +82,8 @@ background-color:rgba(252, 252, 252, 0.65);
 .md-auth .submit-loader {
     position: absolute;
     top: 5px;
-    left: 40%;
+    left: 76%;
+        z-index: 1;
 }
 .field-validation-error {
     color:red;

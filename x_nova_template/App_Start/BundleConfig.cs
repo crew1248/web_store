@@ -69,7 +69,8 @@ namespace x_nova_template
 
               //"~/Content/kendo/2013.3.1324/kendo.common.min.css",
               //"~/Content/kendo/2013.3.1324/kendo.default.min.css",
-              
+                "~/Content/menupush/default.css",
+                "~/Content/menupush/component.css",
               "~/Content/component.css",
                 "~/Content/btns.css",
                 "~/Content/listview.css",

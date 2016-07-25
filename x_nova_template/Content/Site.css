@@ -516,7 +516,9 @@ background: #2F4061;
 
 /*===================== Form Styles ============================== */
 
-
+.feededitor {
+    position:relative;
+}
 
 .order-wrap {
     margin: auto 100px;

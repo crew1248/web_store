@@ -60,7 +60,7 @@ namespace x_nova_template.Controllers
         public ActionResult Mauth(string returnUrl)
         {
             System.Threading.Thread.Sleep(500);
-
+            //fgh
             ViewBag.ReturnUrl = returnUrl;
             return PartialView();
         }
