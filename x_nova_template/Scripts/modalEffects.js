@@ -458,20 +458,33 @@ XN.Inscreaser = { // Widget - Catalog/Gallery
             $(XN.Inscreaser.Config().imgEl).removeClass('img-responsive');
 
             img.onload = function () {
-               
+                console.log('w - ' + img.width + ', h - ' + img.height);
                 var loaded = document.getElementById(XN.Inscreaser.Config().imgEl.substring(1));
                 var imgWrap = loaded.parentElement.parentElement;
                 var modal = findParentBySelector(imgWrap, '.md-modal');
                 var mdCont = document.getElementsByClassName('md-content')[1];
                 var spin = document.getElementsByClassName('ov-spin');
+
                 // отображение картинки
                 loaded.style.display = "";
                 loaded.setAttribute('src', this.src);
 
                 var mdContent = findParentBySelector(imgWrap, '.md-content');
+                var insc = mdContent.children[0];
                 mdContent.setAttribute('style', '');
+                insc.setAttribute('style', '');
+
                 if (img.width < 300) mdContent.setAttribute('style', 'max-width:300px');
 
+                if (type != 'prod') {
+                    if (img.width > 300 && procent > 120) mdContent.setAttribute('style', 'max-width:500px');
+                    if (img.height > 450) mdContent.setAttribute('style', 'max-width:500px');
+                }
+                else {
+                    var catalWindow = img.width + 350;
+                    //if(img.width<585)mdContent.setAttribute('style','max-width:'+catalWindow+'px');	
+                }
+                if (img.height < 251) insc.setAttribute('style', 'min-height:inherit');
                 // ширина дефолтная для окна -- desktop,tablet
                 if (!isMobile) {
                     //findParentBySelector(imgWrap, '.md-content').style.maxWidth = loaded.clientWidth + 326 + 'px';
@@ -483,24 +496,23 @@ XN.Inscreaser = { // Widget - Catalog/Gallery
 
                 // процент отступа для картинки
                 var procent = paddingBottomProcents(img.width, img.height);
-                if (img.width > 300 && procent > 120) mdContent.setAttribute('style', 'max-width:500px');
                 loaded.parentElement.setAttribute('style', 'padding-bottom:' + procent + '%');
 
                 var whMob = Math.max(modal.clientHeight - (loaded.height + 168));
 
                 clearTimer();
 
-                timer1 = setTimeout(function () {clearTimer1(); spin.remove(); mdCont.className += ' md-finished' }, 300);
+                timer1 = setTimeout(function () { clearTimer1(); spin.remove(); mdCont.className = 'md-content'; mdCont.className += ' md-finished' }, 300);
             };
 
             if (type == 'post')
-            { img.src = this.GetCurrentImg(index).attr('src').replace(/\&type=small/, "") + '&type=large'; }
+            { img.src = this.GetCurrentImg(index).attr('src').replace(/\&type=small/, "") + '&type=large&noredirect=true'; }
             else if (type == 'gal') {
-                img.src = '/ImageData/GetPhotoGalleryImage?id=' + index + '&width=750&height=500&isGallery=false';
+                img.src = '/ImageData/GetPhotoGalleryImage?id=' + index + '&width=750&height=500&isGallery=false&noredirect=true';
             }
             else if (type == 'prod') {
-                if (!isMobile) img.src = '/ImageData/GetProdImage?width=700&height=500&pimgid=' + index;
-                else img.src = '/ImageData/GetProdImage?width=300&height=350&pimgid=' + index;
+                if (!isMobile) img.src = '/ImageData/GetProdImage?width=700&height=500&pimgid=' + index+'&noredirect=true';
+                else img.src = '/ImageData/GetProdImage?width=300&height=350&pimgid=' + index + '&noredirect=true';
 
             }
             else {
@@ -519,13 +531,13 @@ XN.Inscreaser = { // Widget - Catalog/Gallery
         },
         GetDataImg: function (id, ispreview, width, height, pid) {
             return ispreview ?
-                $('<img data-id="' + id + '" data-pid="' + pid + '" src="/ImageData/GetProdImage?pid=' + id + '&width=' + width + '&height=' + height + '" />') :
-                $('<img data-id="' + id + '" data-pid="' + pid + '" src="/ImageData/GetProdImage?pimgid=' + id + '&width=' + width + '&height=' + height + '" />');
+                $('<img data-id="' + id + '" data-pid="' + pid + '" src="/ImageData/GetProdImage?pid=' + id + '&width=' + width + '&height=' + height + '&noredirect=true" />') :
+                $('<img data-id="' + id + '" data-pid="' + pid + '" src="/ImageData/GetProdImage?pimgid=' + id + '&width=' + width + '&height=' + height + '&noredirect=true" />');
         },
         GetDataGalImg: function (id, isGal, width, height) {
             return ispreview ?
-                $('<img data-id="' + id + '" data-pid="' + pid + '" src="/ImageData/GetProdImage?pid=' + id + '&width=' + width + '&height=' + height + '" />') :
-                $('<img data-id="' + id + '" data-pid="' + pid + '" src="/ImageData/GetProdImage?pimgid=' + id + '&width=' + width + '&height=' + height + '" />');
+                $('<img data-id="' + id + '" data-pid="' + pid + '" src="/ImageData/GetProdImage?pid=' + id + '&width=' + width + '&height=' + height + '&noredirect=true" />') :
+                $('<img data-id="' + id + '" data-pid="' + pid + '" src="/ImageData/GetProdImage?pimgid=' + id + '&width=' + width + '&height=' + height + '&noredirect=true" />');
         },
         FormatedUrl: function (url, isCat) {
             //alert(url);

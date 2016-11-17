@@ -190,6 +190,7 @@ namespace x_nova_template.Hubs
                         db.SaveChanges();
                         Groups.Remove(user.ConnId, user1.GroupId);
                         Clients.All.AdminOut("Консультант отключился.");
+                        AdminOff();
                     }
                     else
                     {

@@ -706,7 +706,7 @@ namespace x_nova_template.Controllers
             {
                 return Redirect(returnUrl);
             }
-            return RedirectToAction("Index", "Home");
+            return Redirect("/");
         }
 
         internal class ChallengeResult : HttpUnauthorizedResult

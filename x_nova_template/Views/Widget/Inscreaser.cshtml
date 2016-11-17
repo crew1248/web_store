@@ -107,7 +107,7 @@ else
         XN.Inscreaser.Init(@ViewBag.type,@Html.Raw(ViewBag.result),@ViewBag.el);
         @if(ViewBag.result=="[]"){ <text>alert('Пустой объект');</text>}
         if($('#screenWidth').val()<500){
-            $('.xn-i-button').cleanWhitespace();
+            //$('.xn-i-button').cleanWhitespace();
             $('.xn-cart-option').after('<br /><br />');}
     });
 </script>

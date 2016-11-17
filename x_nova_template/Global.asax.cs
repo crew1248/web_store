@@ -54,6 +54,14 @@ namespace x_nova_template
             });
         }
 
+        protected void Application_BeginRequest()
+        {
+            
+          
+
+        //    if (!Context.Request.IsSecureConnection)
+        //        Response.Redirect(Context.Request.Url.ToString().Replace("http:", "https:"));
+        }
         protected void Application_PreSendRequestHeaders(object sender, EventArgs e)
         {
             

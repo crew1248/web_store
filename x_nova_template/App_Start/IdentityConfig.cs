@@ -99,7 +99,7 @@ namespace x_nova_template
             System.Net.NetworkCredential credentials =
                 new System.Net.NetworkCredential(credentialUserName, pwd);
 
-            client.EnableSsl = true;
+            client.EnableSsl = false;
             client.Credentials = credentials;
 
             // Create the message:

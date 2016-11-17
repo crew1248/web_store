@@ -24,7 +24,7 @@
                                     <div class="item-img">
                                         @if (item.ProdImages.Any(x => x.IsPreview == 1))
                                         {
-                                            <img id="mpic_@item.ID" data-id="@item.ProdImages.SingleOrDefault(x=>x.IsPreview==1).ID" src="@Url.Action("GetProdImage", "ImageData", new {pid=item.ID,width=130,height=150 },Request.Url.Scheme)" />
+                                            <img id="mpic_@item.ID" data-id="@item.ProdImages.SingleOrDefault(x=>x.IsPreview==1).ID" src="@Url.Action("GetProdImage", "ImageData", new {pid=item.ID,width=130,height=150,noredirect=true },Request.Url.Scheme)" />
                                         }
                                     </div>
                                     <div class="item-title">

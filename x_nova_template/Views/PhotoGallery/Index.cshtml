@@ -30,7 +30,7 @@
                                 <div class="item-img">
                                     @if (item.GalleryData != null)
                                     {
-                                        <img title="@item.GalleryTitle" class="img-responsive" id="mpic_@item.ID" src="@Url.Action("GetPhotoGalleryImage", "ImageData", new { id = item.ID, width = 300, height = 300, isGallery = true }, Request.Url.Scheme)" />
+                                        <img title="@item.GalleryTitle" class="img-responsive" id="mpic_@item.ID" src="@Url.Action("GetPhotoGalleryImage", "ImageData", new { id = item.ID, width = 300, height = 300, isGallery = true,noredirect=true }, Request.Url.Scheme)" />
                                     }
                                 </div>
                                 @*<div class="item-title">
