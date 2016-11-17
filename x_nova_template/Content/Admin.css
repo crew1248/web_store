@@ -67,6 +67,7 @@ b {
 
 #main {
     background-color: #F5F5F5;
+width:1263px;
 }
 h2,h3,h4 {
       color: #262626;
@@ -78,9 +79,13 @@ p.breadcrumbs a {
 
 /* Styles for basic forms
 -----------------------------------------------------------*/
+.gal-item-title {
+    height: 60px;
+}
 
 .gal-item {
-    cursor:move;
+    font-size:11px;
+    cursor: move;
     margin: 3px;
     display: inline-block;
     vertical-align: top;
@@ -88,8 +93,8 @@ p.breadcrumbs a {
     word-break: break-all;
     border: 1px solid gray;
     padding: 2px;
-    min-height: 110px;
-       background: white;
+    min-height: 130px;
+    background: white;
     -webkit-border-radius: 3px;
     border-radius: 3px;
     -webkit-box-sizing: border-box;
