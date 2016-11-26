@@ -1,0 +1,10 @@
+﻿ <add name="DefaultConnection" connectionString="Data Source=ms-sql-8.in-solve.ru;Initial Catalog=1gb_qual; Integrated Security=false;User ID=1gb_qualitymould; Password=085d6528m12;" providerName="System.Data.SqlClient" />
+
+  <customErrors mode="Off"></customErrors>
+    <sessionState mode="StateServer" stateConnectionString="tcpip=127.0.0.1:42424" timeout="200000" />
+
+
+
+
+
+	   <add name="DefaultConnection" connectionString="Data Source=ms-sql-8.in-solve.ru;Initial Catalog=1gb_measolve2; Integrated Security=false;User ID=1gb_crew1250; Password=14ea3000bops;" providerName="System.Data.SqlClient" />

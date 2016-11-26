@@ -273,7 +273,7 @@ var mainConfiguration = function(){
         //mod1.addClass('disabled-state');
        
     }
-    $('img').filter(function () { return !$(this).hasClass("img-responsive")&&!$(this).closest('#listview').length; }).addClass('img-responsive');
+    //$('img').filter(function () { return !$(this).hasClass("img-responsive")&&!$(this).closest('#listview').length; }).addClass('img-responsive');
 }
 
 

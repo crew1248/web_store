@@ -1,0 +1,1 @@
+﻿Get-Package -ProjectName x_nova_template

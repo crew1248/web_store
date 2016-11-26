@@ -1696,6 +1696,10 @@
     <Content Include="Scripts\svg-map.js" />
     <Content Include="Scripts\xn-livechat.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="Views\css-regexp-target.txt" />
+    <Content Include="Views\css-regexp.txt" />
+    <Content Include="Views\dbcontext.txt" />
+    <Content Include="Views\info.txt" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
