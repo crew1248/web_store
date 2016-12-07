@@ -238,6 +238,10 @@
     </Reference>
     <Reference Include="System.Net.Http.WebRequest">
     </Reference>
+    <Reference Include="UnidecodeSharpFork, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\UnidecodeSharpFork.1.0.0\lib\UnidecodeSharpFork.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
       <Private>True</Private>
@@ -296,6 +300,7 @@
     <Compile Include="Controllers\tobuyController.cs" />
     <Compile Include="Controllers\ViewSwitcherController.cs" />
     <Compile Include="Controllers\WidgetController.cs" />
+    <Compile Include="CustomServices\SeoFriendlyRoute.cs" />
     <Compile Include="Extension\ConfirmUser.cs" />
     <Compile Include="Extension\CultureHelper.cs" />
     <Compile Include="Extension\FileFormat.cs" />
@@ -1939,6 +1944,8 @@
     <Content Include="Views\Widget\Inscreaser.cshtml" />
     <Content Include="Views\Shared\_ProdlistLayout.cshtml" />
     <Content Include="Views\Widget\InscreaserView.cshtml" />
+    <Content Include="Views\Shared\_Logo.cshtml" />
+    <Content Include="Views\Shared\_HeaderMobile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Admin\Models\" />

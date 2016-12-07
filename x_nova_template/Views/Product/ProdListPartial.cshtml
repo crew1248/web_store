@@ -28,7 +28,8 @@
                                         }
                                     </div>
                                     <div class="item-title">
-                                        @(item.ProductName.Length > 50 ? item.ProductName.Substring(0, 50) + "..." : item.ProductName)
+                                        @{var name = item.ProductName.Length > 50 ? item.ProductName.Substring(0, 50) + "..." : item.ProductName;}
+                                        @Html.ActionLink(name, "Details", "Product", new { id = item.GenerateSlug() }, new { @class = "prod-preview" })
 
                                     </div>
 

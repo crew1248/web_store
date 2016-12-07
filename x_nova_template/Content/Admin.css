@@ -67,7 +67,6 @@ b {
 
 #main {
     background-color: #F5F5F5;
-width:1263px;
 }
 h2,h3,h4 {
       color: #262626;
@@ -296,6 +295,22 @@ DIV.categories a #ChildBar
     */
     
 /*=====================================   Main ==========================*/
+
+
+.post-img-list .file-d{
+    display: inline-block;
+    position:relative;
+}
+.file-d span {
+        position: absolute;
+    bottom: 10px;
+    left: 25px;
+    color: white;
+    background: black;
+    padding: 3px;
+    border-radius: 3px;
+    cursor:pointer;
+}
 
 #page 
 {

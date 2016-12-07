@@ -37,6 +37,8 @@
     margin: 0;
     padding: 0;
     position: relative;
+     font:400 12px Roboto,Arial;
+     color:#262626;
 }
 
 .md-modal {
@@ -61,9 +63,9 @@
     margin: 0;
     padding: 0;
     position: relative;
-
-     font-size:12px;
-   background-color: rgba(0,0,0,.75);
+   
+    
+    background-color: rgba(0,0,0,.75);
     bottom: 0;
     -webkit-box-pack: justify;
     -webkit-justify-content: space-between;
@@ -83,6 +85,7 @@
 
 .md-show {
 	visibility: visible!important;
+        overflow: auto;
 }
 .md-modal .md-wrapper {
         height: 100%;
@@ -146,12 +149,12 @@
     pointer-events: auto;
     width: 100%;
     background-color: #fff;
-    visibility:hidden;
+  visibility:hidden;
 }
 .md-modal .modalh
 {
-    background: #F1F1F1;
-   
+        background: #dedede;
+        border-top: 1px solid #bdbdbd;
 }
 .md-modal .mob-opts {
 
@@ -169,7 +172,7 @@
 }
 .md-modal .xn-i-wrap2 {
     overflow: hidden;
-      
+     
     padding: 30px 30px 0 0;
   
 }
@@ -188,11 +191,13 @@
     top: 50%;
     font-size:50px;
     color:white;
-    height: 40px;
+       height: 80px;
     width: 40px;
+    cursor:pointer;
 }
     .md-modal .md-mainarrs i {
         color: #d3d3d3;
+
     }
     .md-modal .md-mainarrs i:hover {
         color: white;
@@ -258,7 +263,8 @@ div.md-close
     text-transform: uppercase;
     text-align: center;
     line-height: 18px;  
-    font-family:roboto bold;  
+    font-family:Roboto;  
+    font-weight:bold;
 }
 
 .modal-wrap {
@@ -302,10 +308,10 @@ div.md-close
 }
 .md-modal .xn-i-sphoto {
     display:block;
-    /*visibility:hidden;*/
+   
 }
 .md-modal .xn-i-wrap1 {
-    background-color: #edeeee;
+    background-color: #dedede;
 }
 .md-modal .xn-i-mphoto {
       
@@ -426,7 +432,9 @@ display: block;
 
 .md-cat .xn-i-details
 {
-     padding: 0 10px;
+
+    /*overflow-y: scroll;*/
+     padding: 0 20px;
        min-height: 30px;
     bottom: 0;
     box-sizing: border-box;
@@ -443,17 +451,19 @@ display: block;
 }
     .md-cat .xn-i-details table th
     {
-            font-family: roboto bold;
-        padding-right: 10px;
-        letter-spacing: 0.5px;
-        font-size: 12px;
+        font-family: Roboto;
+    padding-right: 10px;
+   width:100px;
+    font-size: 12px;
+    font-weight:300;
+    
     }
     .md-cat .xn-i-details table td
     {
        
-       padding:5px;
+     
         word-wrap: break-word;
-        line-height: 12px;
+        l
     }
 
 
@@ -461,10 +471,10 @@ display: block;
 {
 
     position: absolute;
-    height: 47px;
+    height: 48px;
     top: 0;
-    width: 47px;
-    border: 3px solid #3F68BE;
+    width: 48px;
+    border: 2px solid #001b3d;
 }
 .md-cat .xn-i-swrap
 {
@@ -496,8 +506,8 @@ display: block;
     position: absolute;
     height: 47px;
     top: 0;
-    width: 47px;
-    border: 3px solid #3F68BE;
+    width: 48px;
+    border: 2px solid #001b3d;
 }
 .md-cat  .xn-i-swrap
 {
@@ -524,6 +534,7 @@ display: block;
     line-height: 36px;
     padding: 0;
     margin: 0;
+    font-family:Tahoma;
     }
 .xn-close-btn-bl {
     background:inherit;
@@ -538,6 +549,7 @@ display: block;
     line-height: 36px;
     padding: 0;
     margin: 0;
+    font-family:Tahoma;
 }
 
 .xn-modal > div > div.modalh .xn-i-arrs
@@ -552,7 +564,8 @@ display: block;
     color:black;
 }
 .xn-modal .md-content {
-        max-width: 700px;
+        max-width: 750px;
+	
 }
 .xn-i-mleft
 {
@@ -608,8 +621,8 @@ display: block;
     position: absolute;
     height: 47px;
     top: 0;
-    width: 47px;
-    border: 3px solid #3F68BE;
+    width: 48px;
+    border: 2px solid #001b3d;
 }
 
 
@@ -642,7 +655,7 @@ display: block;
     top:50px;
 }
 .md-cat .xn-i-details {
-    top:50px;
+    /*top:50px;*/
     position:absolute;
      width:350px;
 }

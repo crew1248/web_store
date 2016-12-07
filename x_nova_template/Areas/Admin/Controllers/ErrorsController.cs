@@ -11,13 +11,15 @@ namespace x_nova_template.Areas.Admin.Controllers
     {
         //
         // GET: /Admin/Errors/
-        public ActionResult Index(int type) {
+        public ActionResult Index(int type)
+        {
             if (type == 500)
             {
                 ViewBag.ErrMess = "Ошибка 500! Внутренняя ошибка сервера";
             }
             else if (type == 404) ViewBag.ErrMess = "Ошибка 404! Ресурс не найден!";
-            else return Content("Доступ к ресурсу ограничен!");
+            else if (type == 403) ViewBag.ErrMess = "Ошибка 403! Доступ к ресурсу ограничен!";
+            else ViewBag.ErrMess = "Что-то пошло не так!";
 
             //switch (type)
             //{

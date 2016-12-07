@@ -78,14 +78,23 @@ namespace Posbank.Controllers
                     {"name",item.ProductName},
                     {"added", isAdded},
                     {"desc",item.Description},
+                    //{"hard",item.Hardness},
+                    //{"matform",item.MatForm},
+                    //{"matprod",item.MatProd},
+                    //{"matironform",item.MatIronForm},
+                    //{"block",item.Block},
+                    //{"coup",item.Coupling},
+                    //{"prodtime",item.ProdTime},
+                    //{"chan",item.Channel},
                     {"si",new JArray{
-                        item.ProdImages.Select(x => x.ID).ToArray()
+                        item.ProdImages.OrderByDescending(x=>x.Sortindex).Select(x => x.ID).ToArray()
                     }},
                     {"price",item.Price}
                 };
 
                  var json = result.ToString();
                  ViewBag.result = json;
+                 ViewBag.Prod = item;
 
              }
              else

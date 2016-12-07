@@ -26,9 +26,9 @@
                 long size = file.Length;
                 <tr id="@(row+file.Length)">
                     <td>
-                        @if (file.Extension.ToLower().Contains("jp") || file.Extension.ToLower().Contains("png"))
+                        @if (file.Extension.ToLower().Contains("jpg") || file.Extension.ToLower().Contains("png"))
                         {
-                            <img class="preview files-img" title="@file.Name" width="15" height="15" src="/Content/Files/@file.Name" />
+                            <img class="preview files-img" title="/Content/Files/@file.Name" width="15" height="15" src="/Content/Files/@file.Name" />
                         }
 
                     </td>

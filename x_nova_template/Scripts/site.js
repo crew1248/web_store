@@ -31,6 +31,31 @@
 //        if(fcont.css('marginTop')=='20px')fcont.css({ marginTop: '50px', opacity: 0, visibility: 'hidden' });
 //    });
 //}
+
+var footNav = function () {
+    $mainNav = $('.tmenu');
+    $serviceNav = $('.bmenu');
+    $footWrap = $('.f-menu');
+    $mobnavWrap = $('.mob-nav-target');
+    $cat = $('#catsList');
+
+
+    $serviceNav.clone().appendTo($mobnavWrap);
+    $mainNav.clone().appendTo($footWrap);
+    $serviceNav.clone().appendTo($footWrap);
+    $cat.clone().appendTo($footWrap);
+    $('.f-menu ul').attr('class', 'foot-nav');
+    $('.f-menu ul').removeAttr('id');
+    $('.f-menu ul i').remove();
+    $('.foot-nav li span').html(function (i, h) {
+        return h.replace(/&nbsp;/g, '');
+    });
+    $('<li>Разделы</li>').insertBefore($('.f-menu ul:eq(0) li:eq(0)'));
+    $('<li>Услуги</li>').insertBefore($('.f-menu ul:eq(1) li:eq(0)'));
+    $('<li>Каталог</li>').insertBefore($('.f-menu ul:eq(2) li:eq(0)'));
+}
+
+
 var cartIsHidden = false;
 var loader = $('<img class="submit-loader" src="/Content/ajax-loaders/horizont/89.GIF" >');
 var loader1 = $('<img class="submit-loader" src="/Content/ajax-loaders/horizont/main-loader1.GIF" >');
@@ -348,7 +373,16 @@ var prodimgList1 = function () {
     //$('#pid_'+pid+' .prod-image img').attr('width', '');
 }
 
-  
+var postimgList = function () {
+    var id = $(this).data('id');
+
+    $('.post-imglist ul li').css({ border: '1px solid #E4E4E4' });
+    $(this).closest('li').css({ border: '1px solid rgb(189, 41, 41)' });
+    $('#post_main_img').attr({ src: $(this).data('src') + '&' + (new Date()).getTime() });
+    //$('#pid_' + pid + ' .prod-image img').attr('height', '');
+    //$('#pid_'+pid+' .prod-image img').attr('width', '');
+}
+
 
 /*=============================  POPUP  ============================================== */
 
@@ -422,6 +456,9 @@ var dropdownListItem = function (e) {
 
 $(function () {
 
+
+
+    footNav();
     mainConfiguration();
     zoomedImg();  
     initSections();

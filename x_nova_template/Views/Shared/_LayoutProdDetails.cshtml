@@ -122,139 +122,86 @@
 
 </head>
 <body class="cbp-spmenu-push" lang="@System.Threading.Thread.CurrentThread.CurrentCulture.Name" onbeforeunload="collapseCycle()" data-pagecounter="@ViewBag.PageCounter">
-    
+    @Html.Partial("_LiveChat")
     @Html.Partial("_ModalWindows", new x_nova_template.ViewModel.TemplatesViewModel { type = 0 })
 
-    <div id="main-wrapper">
-        <header class="m-header navbar-static-top  navbar" role="navigation">
-            <div class="header-wrap">
-                <div class="top-h">
-                    <div class="container">
-                        <div class="navbar-header">
+    <div>
+        <div id="main-wrapper">
+            <header class="top-header navbar-default navbar" role="navigation">
 
-                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#top-navbar-collapse">
-                                <i class="fa fa-bars"></i>
-                            </button>
-
-                            <div class="hidden-lg hidden-md  navbar-brand">
-                                <a href="/"><img width="50" height="40" src="/Content/qm/logo2.png" class="img-responsive"></a>
-                            </div>
-
-                        </div>
-                        <div class="collapse navbar-collapse" id="top-navbar-collapse">
-                            <nav>@{Html.RenderAction("SS", "Menu", new { menuSection = 0 });}</nav>
-
-
-                        </div>
-                    </div>
-                </div>
-                <div class="bottom-h">
-                    <div class="container">
-                        <div class="bottom-h-wrap clear-fix">
-                            <div class="bottom-m-wrap clear-fix">
-                                <div class="row">
-
-
-                                    <div class="col-md-2 hidden-sm hidden-xs">
-                                        @Html.Partial("_Logo")
-                                    </div>
-                                    <div class="col-sm-8 col-md-7">
-                                        <nav class="n-bmenu cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left visible-xs" id="cbp-spmenu-s1">
-                                            <h3>Каталог услуг</h3>
-                                            @{Html.RenderAction("SS", "Menu", new { menuSection = 1 });}
-                                        </nav>
-                                        <nav class="n-bmenu hidden-xs">
-
-                                            @{Html.RenderAction("SS", "Menu", new { menuSection = 1 });}
-                                        </nav>
-                                    </div>
-                                    <div class="pull-left col-xs-6 visible-xs">
-                                        <button class="btn" id="showLeft" type="button">
-                                            <span>Каталог услуг <i class="fa fa-bars"></i></span>
-                                        </button>
-                                    </div>
-
-
-                                    <div class="col-sm-4 col-xs-6 col-md-3">
-                                        <div id="phone">
-
-                                            <div id="phone-number"><div id="section_1"></div></div>
-                                            <div id="h-feed">
-                                                <a data-content-type="feedForm" id="feed-button" href="javascript:void();"><span class="iconicfill-mail"></span> Обратная связь</a>
-
-                                            </div>
-
-                                            @Html.Action("CatsMenu2", "Category")
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
-        <section id="services" class="hidden-xs">
-
-            <div class="white-wrapper">
-                
-                <div id="section_4">
-
-
-                </div>
-            </div>
-        </section>
-
-        <section id="content" class="clear-fix">
-
-            <div id="content-wrapper">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-4 col-sm-4">
-                            <aside id="catalog">
-                                <h2>Примеры реализованных проектов по областям промышленности</h2>
-                                <div class="cat-list">
-                                    @{Html.RenderAction("CatsMenu", "Category");}
 
-                                </div>
-                            </aside>
+                        <!------------------   Mobile header   ------------------- -->
+                        @Html.Partial("_HeaderMobile")
+
+                        <!-----------------   Mobile header  end  ------------------- -->
+                        <!-----------------   Header    ------------------- -->
+
+                        <div class="collapse navbar-collapse" id="top-navbar-collapse">
+
+                            <div class=" hidden-sm hidden-xs col-md-2 col-sm-3">
+
+                                @Html.Partial("_Logo")
+
+
+                            </div>
+                            <div class="top-h col-md-6 col-sm-5">
+
+                                @{Html.RenderAction("SS", "Menu", new { menuSection = 0 });}
+
+
+                            </div>
+                            <div class="top-left-h col-md-3 col-sm-3">
+                                @Html.Partial("_TopCart")
+                            </div>
+                            <div class="col-sm-1 col-md-1 top-right-h">
+                                @Html.Partial("_CartButton")
+                            </div>
                         </div>
-                        <div class="col-md-8 col-sm-8">
-                            <article id="article">
 
-                                @RenderBody()
-
-                            </article>
-                        </div>
-                       
+                        <!-----------------   Header  end  ------------------- -->
 
                     </div>
                 </div>
-            </div>
-        </section>
-        <section id="bot-quote">
-            <div class="container-fluid">
+            </header>
 
-                <div id="section_5">
+            <!-----------------   Content area    ------------------- -->
 
+            <section id="content" class="clear-fix">
+                <div id="content-wrapper" class="container">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 hidden-xs">
+                            <div class="container carousel-wrapper">
+                                @Html.Partial("_MainSlider")
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <aside id="catalog" class="col-md-3 col-sm-12 col-xs-12">
+                            <h2>Каталог</h2>
+                            <div class="cat-list">
+                                @{Html.RenderAction("CatsMenu", "Category");}
+                            </div>
+                        </aside>
+
+                        <article id="article" class="col-md-8 col-sm-12 col-xs-12">
+
+                            @RenderBody()
+                        </article>
+                    </div>
 
                 </div>
+            </section>
 
-            </div>
-        </section>
-        @Html.Partial("_Footer")
+            <!-----------------   Content area  end  ------------------- -->
+            <!-----------------   Footer area    ------------------- -->
+            @Html.Partial("_Footer")
+            <!-----------------   Footer area  end  ------------------- -->
+        </div>
     </div>
 
 
-    @if (!Request.IsLocal)
-    {
-
-        <!-- /Yandex.Metrika counter -->
-    }
-    else
-    {
-        @:
-}
 </body>
 </html>

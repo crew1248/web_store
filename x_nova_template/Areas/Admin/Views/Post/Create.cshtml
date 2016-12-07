@@ -7,36 +7,46 @@
 
 
 <script src="//cdn.ckeditor.com/4.4.3/full/ckeditor.js"></script>
-<p class="breadcrumbs" style="font-weight:bold;">@Html.ActionLink("архив новостей","Index")  &rArr;     
-    <span style="font-weight:normal;">новая публикация</span></p>
+<p class="breadcrumbs" style="font-weight:bold;">
+    @Html.ActionLink("архив новостей", "Index")  &rArr;
+<span style="font-weight:normal;">новая публикация</span>
+</p>
 
-@using (Html.BeginForm("Create","Post", FormMethod.Post, new { enctype = "multipart/form-data" })) {
+@using (Html.BeginForm("Create", "Post", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
     <fieldset>
         <legend>Создать</legend>
 
-       
+
 
         <div class="editor-label">
             Название
         </div>
         <div class="editor-field">
-            @Html.TextBoxFor(model => model.Title, new {style="width:400px;"})
+            @Html.TextBoxFor(model => model.Title, new { style = "width:400px;" })
             @Html.ValidationMessageFor(model => model.Title)
         </div>
-           <div class="editor-field">
-          Загрузить фото
-          <p></p>
-<div class="file_field">
-   @Html.Kendo().Upload().Name("file") 
-</div>
+        <div class="editor-field">
+            Загрузить фото
+            <p></p>
+            <div class="file_field">
+                @Html.Kendo().Upload().Name("file")
+            </div>
 
 
- </div>
- 
+        </div>
+
         <br />
+        <div class="editor-label">
+            дата
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.CreatedAt, new { type = "date" })
+            @Html.ValidationMessageFor(model => model.CreatedAt)
+        </div>
         <div class="editor-label">
             Превью
         </div>
@@ -45,12 +55,12 @@
             @Html.ValidationMessageFor(model => model.Preview)
         </div>
 
-      
+
         <div class="editor-label">
-            Текс 
+            Текс
         </div>
         <div class="editor-field">
-           @Html.TextAreaFor(m=>m.Body)
+            @Html.TextAreaFor(m => m.Body)
         </div>
         <p>
             <button class="k-button k-primary" type="submit">Создать</button>
@@ -59,17 +69,52 @@
 }
 
 <div>
-    
-        <button class="k-button"  onclick="window.location.replace('/Admin/Post/Index')">Назад к списку</button>
-     
+
+    <button class="k-button" onclick="window.location.replace('/Admin/Post/Index')">Назад к списку</button>
+
 </div>
 <script>
-  window.onload = function () {
+    window.onload = function () {
         CKEDITOR.replace('Body');
         //CKEDITOR.replace('Preview');
-  };
+    };
 
 </script>
 <script>
- 
+    function today() {
+        var today = new Date();
+        var dd = today.getDate();
+        var mm = today.getMonth() + 1; //January is 0!
+        var yyyy = today.getFullYear();
+
+        if (dd < 10) {
+            dd = '0' + dd
+        }
+
+        if (mm < 10) {
+            mm = '0' + mm
+        }
+
+        today = mm + '/' + dd + '/' + yyyy;
+        return today;
+    }
+
+    function getFormattedDate(date) {
+        return date.getFullYear()
+            + "-"
+            + ("0" + (date.getMonth() + 1)).slice(-2)
+            + "-"
+            + ("0" + date.getDate()).slice(-2);
+    }
+
+    $('#CreatedAt').val(getFormattedDate(new Date()));
+
+    $(document).ready(function () {
+
+        //console.log(str.closest('div').find('em').selector);
+        var str = $('#file').closest('.k-upload-button');
+        str.find('span').html('Выбрать файл');
+
+    });
+
 </script>

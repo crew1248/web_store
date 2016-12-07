@@ -16,6 +16,8 @@
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
+            AutomaticMigrationDataLossAllowed = true;
+            
         }
 
         protected override void Seed(x_nova_template.Models.ApplicationDbContext context)
@@ -43,22 +45,29 @@
             if (!context.Configs.Any())
             {
                 context.Configs.AddOrUpdate(x => x.ConfigID, new Config { SelectedIsOnlineID = false });
-                context.SaveChanges();
-            }
-           //dfdf sadf
-            context.Menues.AddOrUpdate(x => x.Url,
-              new Menu { Url = "Home", Text = "title", ParentId = 0, MenuSection = 0, SortOrder = 0, LastModifiedDate = DateTime.Now }
-              );
-            context.SaveChanges();
 
-            context.StaticSections.AddOrUpdate(x => x.Title,
-                new StaticSection { Content = "ss", SectionType = 1, Title = "static1" },
-                new StaticSection { Content = "ss", SectionType = 2, Title = "static2" },
-                new StaticSection { Content = "ss", SectionType = 3, Title = "static3" },
-                new StaticSection { Content = "ss", SectionType = 4, Title = "static4" },
-                new StaticSection { Content = "ss", SectionType = 5, Title = "static5" },
-                new StaticSection { Content = "ss", SectionType = 6, Title = "static6" }
-            );
+            }
+            //dfdf sadf
+            if (!context.Menues.Any())
+            {
+                context.Menues.AddOrUpdate(x => x.Url,
+                  new Menu { Url = "Home", Text = "title", ParentId = 0, MenuSection = 0, SortOrder = 0, LastModifiedDate = DateTime.Now }
+                  );
+
+            }
+            if (!context.StaticSections.Any())
+            {
+                context.StaticSections.AddOrUpdate(x => x.Title,
+                    new StaticSection { Content = "ss", SectionType = 1, Title = "static1" },
+                    new StaticSection { Content = "ss", SectionType = 2, Title = "static2" },
+                    new StaticSection { Content = "ss", SectionType = 3, Title = "static3" },
+                    new StaticSection { Content = "ss", SectionType = 4, Title = "static4" },
+                    new StaticSection { Content = "ss", SectionType = 5, Title = "static5" },
+                    new StaticSection { Content = "ss", SectionType = 6, Title = "static6" }
+                );
+
+            }
+
             context.SaveChanges();
 
 

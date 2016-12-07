@@ -83,22 +83,22 @@
 
                 <div class="container">
                     <div class="row">
-                        <div class="navbar-header">
 
-                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#top-navbar-collapse">
-                                <i class="fa fa-bars"></i>
-                            </button>
+                        <!------------------   Mobile header   ------------------- -->
 
-                            <div class="hidden-lg hidden-md  navbar-brand">
-                                <a href="/">LOGO</a>
-                            </div>
+                        @Html.Partial("_HeaderMobile")
 
+                        <!-----------------   Mobile header  end  ------------------- -->
+                        <!-----------------   Header    ------------------- -->
 
-
-
-                        </div>
                         <div class="collapse navbar-collapse" id="top-navbar-collapse">
 
+                            <div class=" hidden-sm hidden-xs col-md-2 col-sm-3">
+
+                                @Html.Partial("_Logo")
+
+
+                            </div>
                             <div class="top-h col-md-6 col-sm-5">
 
                                 @{Html.RenderAction("SS", "Menu", new { menuSection = 0 });}
@@ -112,16 +112,21 @@
                                 @Html.Partial("_CartButton")
                             </div>
                         </div>
+
+                        <!-----------------   Header  end  ------------------- -->
+
                     </div>
                 </div>
             </header>
+
+            <!-----------------   Content area    ------------------- -->
 
             <section id="content" class="clear-fix">
                 <div id="content-wrapper" class="container">
                     <div class="row">
                         <div class="col-md-12 col-sm-12 hidden-xs">
                             <div class="container carousel-wrapper">
-                              
+                                @Html.Partial("_MainSlider")
                             </div>
                         </div>
 
@@ -143,23 +148,12 @@
                 </div>
             </section>
 
-            <footer>
-                <div class="f-wrap clear-fix container">
-                    <span class="f-copyright glyphicon glyphicon-copyright-mark"></span><span>  <a href="#" class="navbar-brand">BRAND</a></span>
-                </div>
-            </footer>
+            <!-----------------   Content area  end  ------------------- -->
+            <!-----------------   Footer area    ------------------- -->
+            @Html.Partial("_Footer")
+            <!-----------------   Footer area  end  ------------------- -->
         </div>
     </div>
-
-    @if (!Request.IsLocal)
-    {
-
-        <!-- /Yandex.Metrika counter -->
-    }
-    else
-    {
-        @:
-}
 
 
 </body>

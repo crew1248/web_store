@@ -18,14 +18,14 @@ namespace x_nova_template.Models
 
         public SitemapNode(Menu page)
         {
-            Url = GetPageUrl(page);     
+            Url = GetPageUrl(page);
             Priority = null;
             Frequency = null;
             LastModified = null;
         }
         public SitemapNode(string url)
         {
-            Url = ConfigurationManager.AppSettings["LocalPath"]+url;
+            Url = ConfigurationManager.AppSettings["LocalPath"] + url;
             Priority = null;
             Frequency = null;
             LastModified = null;
@@ -39,32 +39,34 @@ namespace x_nova_template.Models
             LastModified = null;
         }
 
-        private string GetPageUrl(Menu page) {
+        private string GetPageUrl(Menu page)
+        {
             if (page.ParentId == 0)
             {
                 return ConfigurationManager.AppSettings["LocalPath"] + "/" + page.Url;
             }
-            else {
-                return ConfigurationManager.AppSettings["LocalPath"]+"/"
-                    + MenuController.GetMenuUrl(page.ParentId)+"/"+page.Url;
+            else
+            {
+                return ConfigurationManager.AppSettings["LocalPath"] + "/"
+                    + MenuController.GetMenuUrl(page.ParentId) + "/" + page.Url;
             }
         }
 
         private string GetUrl(RequestContext request, RouteValueDictionary values)
         {
 
-            
+
             var routes = RouteTable.Routes;
-            
+
             var data = routes.GetVirtualPath(request, values);
-            
+
             if (data == null)
             {
                 return null;
             }
 
             var baseUrl = request.HttpContext.Request.Url;
-            
+
             var relativeUrl = data.VirtualPath;
 
             return request.HttpContext != null &&

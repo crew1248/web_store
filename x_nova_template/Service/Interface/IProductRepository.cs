@@ -19,6 +19,7 @@ namespace x_nova_template.Service.Interface
          bool GetPreviewImg(int pid);
          bool CheckPreview(int pimgid);
          void PhotoDel(ProdImage pimg);
+         void UpdateSort(int id, int oldSort, int newSort);
          Product Get(int id);
          IEnumerable<Product> Get();
          void Delete(Product menu);

@@ -20,10 +20,10 @@ namespace x_nova_template
     {
         protected void Application_Start()
         {
-           
+
 
             var migrator = new DbMigrator(new Configuration());
-            migrator.Configuration.AutomaticMigrationDataLossAllowed = false;
+            migrator.Configuration.AutomaticMigrationDataLossAllowed = true;
             migrator.Update();
 
             //Database.SetInitializer<ApplicationDbContext>(new AppDbInitializer());
@@ -69,8 +69,8 @@ namespace x_nova_template
         protected void Session_Start(object sender, EventArgs e)
         {
 
-            HttpContext.Current.Response.Headers.Remove("X-XNOVA-Version");
-            HttpContext.Current.Response.Headers.Add("X-XNOVA-Version", "3.2");
+            //HttpContext.Current.Response.Headers.Remove("X-XNOVA-Version");
+            //HttpContext.Current.Response.Headers.Add("X-XNOVA-Version", "3.2");
             //        protected void Page_Load(object sender, EventArgs e)
             //{
             //    this.countMe();
@@ -153,42 +153,42 @@ namespace x_nova_template
             }
         }
 
-        protected void Application_Error()
-        {
-            if (Convert.ToBoolean(System.Configuration.ConfigurationManager.AppSettings["SiteLiveStatus"]))
-            {
-                var exception = Server.GetLastError();
-                var httpException = exception as HttpException;
-                Response.Clear();
-                Server.ClearError();
-                var routeData = new RouteData();
-                routeData.Values["controller"] = "Errors";
-                routeData.Values["action"] = "General";
-                routeData.Values["exception"] = exception;
-                Response.StatusCode = 500;
+        //protected void Application_Error()
+        //{
 
-                if (httpException != null)
-                {
-                    Response.StatusCode = httpException.GetHttpCode();
-                    switch (Response.StatusCode)
-                    {
-                        case 403:
-                            routeData.Values["action"] = "Http403";
-                            break;
-                        case 404:
-                            routeData.Values["action"] = "Http404";
-                            break;
-                        case 410:
-                            routeData.Values["action"] = "Offline";
-                            break;
+        //    var exception = Server.GetLastError();
+        //    var httpException = exception as HttpException;
+        //    Response.Clear();
+        //    Server.ClearError();
+        //    Response.TrySkipIisCustomErrors = true;
+        //    var routeData = new RouteData();
+        //    routeData.Values["controller"] = "Errors";
+        //    routeData.Values["action"] = "General";
+        //    routeData.Values["exception"] = exception;
+        //    Response.StatusCode = 500;
 
-                    }
-                }
+        //    if (httpException != null)
+        //    {
+        //        Response.StatusCode = httpException.GetHttpCode();
+        //        switch (Response.StatusCode)
+        //        {
+        //            case 403:
+        //                routeData.Values["action"] = "Http403";
+        //                break;
+        //            case 404:
+        //                routeData.Values["action"] = "Http404";
+        //                break;
+        //            case 410:
+        //                routeData.Values["action"] = "Offline";
+        //                break;
 
-                IController errorsController = new ErrorsController();
-                var rc = new RequestContext(new HttpContextWrapper(Context), routeData);
-                errorsController.Execute(rc);
-            }
-        }
+        //        }
+        //    }
+
+        //    IController errorsController = new ErrorsController();
+        //    var rc = new RequestContext(new HttpContextWrapper(Context), routeData);
+        //    errorsController.Execute(rc);
+        //    }
+        
     }
 }

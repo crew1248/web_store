@@ -7,6 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using x_nova_template.CustomServices;
 
 namespace x_nova_template
 {
@@ -32,6 +33,9 @@ namespace x_nova_template
                 namespaces: new[] { "x_nova.Controllers" }
             );
 
+            routes.Add("ProductDetails", new SeoFriendlyRoute("products/{id}",
+         new RouteValueDictionary(new { controller = "Product", action = "Details" }),
+         new MvcRouteHandler()));
 
             routes.MapRoute(
                name: "news",

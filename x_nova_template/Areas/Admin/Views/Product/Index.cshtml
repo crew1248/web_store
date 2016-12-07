@@ -6,27 +6,28 @@
 }
 
 <script>
-    $(window).load(function(){
+    $(window).load(function () {
         $('#excelImport').next().text("Выбрать файл Excel/Xml")
     });
     // $('#grid').delegate('.preview', 'click', function () { alert('s'); });
 
 </script>
 <p>
-    @Session["enc"]
-    @using(Html.BeginForm("Index","ExcelData",FormMethod.Post,new { enctype = "multipart/form-data"})){
 
-    <div class="file_field">
-        @Html.Kendo().Upload().Name("file").HtmlAttributes(new {id="excelImport" })
+    @using (Html.BeginForm("Index", "ExcelData", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
 
-    </div>
-  <br />
-    <div class="file_field" style=" margin-left: 10px;">
-        <button class="k-button k-primary" type="submit">Загрузить данные</button>&nbsp;
-    </div>
+        <div class="file_field">
+            @Html.Kendo().Upload().Name("file").HtmlAttributes(new { id = "excelImport" })
+
+        </div>
+        <br />
+        <div class="file_field" style=" margin-left: 10px;">
+            <button class="k-button k-primary" type="submit">Загрузить данные</button>&nbsp;
+        </div>
     }
-    
-    </p>
+
+</p>
 
 
 @(Html.Kendo().Grid<x_nova_template.ViewModel.ProductViewModel>()
@@ -34,11 +35,12 @@
 
     .Columns(columns =>
     {
-
+        columns.Bound(e => e.ID).Width(100);
         columns.Template(e => { }).ClientTemplate("<div><img class='preview grid-img' src='" + Url.Action("GetProdImage", "ImageData") + "?pid=${ID}&width=75&height=75'  id='${ID}'  alt='${ProductName}' height='50' width='50'  /> </div>").Width(100).Title("Картинка");
-        columns.Bound(e => e.Price).Width(100).Title("Цена");
-        columns.Bound(e => e.Description).Width(200).HtmlAttributes(new { style = "height:60px;overflow:hidden;display:block;" }).Title("Описание");
+
+        columns.Bound(e => e.Description).Encoded(false).Width(200).HtmlAttributes(new { style = "height:60px;overflow:hidden;display:block;" }).Title("Описание");
         // columns.Bound(e => e.Price).Width(100)/*.ClientTemplate("#:kendo.toString(Price, 'c0')#")*/.Title("Цена");
+
         columns.ForeignKey(p => p.CategoryID, (System.Collections.IEnumerable)ViewData["Catss"], "ID", "CategoryName")
         .Title("Категория").Width(200);
         columns.Command(command =>
@@ -51,7 +53,8 @@
     })
     .Filterable()
     .ToolBar(toolbar => toolbar.Create().Text("Создать"))
-            .Editable(editable => { editable.Mode(GridEditMode.PopUp).Window(w => w.Width(700).Height(300)); editable.DisplayDeleteConfirmation(false); })
+            .Editable(editable => { editable.Mode(GridEditMode.PopUp).Window(w => w.Width(700).Height(450)); editable.DisplayDeleteConfirmation(false); })
+
         .Pageable(pageable => pageable
                 .Refresh(true)
                 .PageSizes(true)
@@ -64,7 +67,7 @@
 
         .Ajax()
         .PageSize(20)
-        .Model(model => { model.Id(p => p.ID); model.Field(p => p.ID).DefaultValue(16000000).Editable(false); })
+            .Model(model => { model.Id(p => p.ID); model.Field(p => p.ID).DefaultValue(16000000).Editable(false); })
 
         .Sort(x => x.Add("ID").Descending())
         .Create(update => update.Action("Editing_Create", "Product"))
@@ -84,8 +87,8 @@
     .Visible(false)
 
     .LoadContentFrom(Url.Action("UploadProdImages"))
-    .Width(400)
-    .Height(400)
+    .Width(500)
+    .Height(500)
     .Events(e => e.Close("pClose").Open("pOpen"))
 )
 <div id="u-popup"></div>
@@ -166,6 +169,7 @@
     </div>
     <br />
 </script>
+
 <script>
 
     function pOpen() {
@@ -183,6 +187,11 @@
     }
 
 </script>
+
+
+
+
+
 <style scoped>
     .k-edit-form-container {
         width: auto;

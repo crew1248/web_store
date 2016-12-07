@@ -17,7 +17,7 @@ var imagePreview = function (newConfig) {
     //}
     /* END CONFIG */
     $("img.preview").hover(function (e) {
-        
+
         var preloadImg = config.isLoader ? "display:none" : "";
         var lrm = "<img src='/Content/images/loader.gif' class='prew-loader' />";
         $("body").append("<p id='preview'></p>");
@@ -28,6 +28,7 @@ var imagePreview = function (newConfig) {
         $('#preview span').empty();
         var c = this.title;
         var src = this.src;
+        console.log(src);
         $id = this.id;
         $this = this;
 
@@ -35,14 +36,15 @@ var imagePreview = function (newConfig) {
             alert('g');
             $("body").append("<p id='preview'><span style='display:block;'>" + c + "</span><img class='prew-img'  height='400' width='600' style='" + preloadImg + "' src='/Admin/ImageData/GetProdImage?id=" + this.id + "&width=600&height=400' alt='Image preview' /></p>");
         }
-        else if ($('img.preview').hasClass('files-img')) { $("#preview").append("<span style='display:block;'>" + c + "</span><img style='" + preloadImg + "' src='/Admin/ImageData/GetImgAsFile?src=" + this.title + "&width=600&height=400' alt='Image preview' /></p>"); }
+        else if ($('img.preview').hasClass('post-img')) { $("#preview").append("<span style='display:block;'>" + c + "</span><img style='" + preloadImg + "' src='/Admin/ImageData/GetPostImage?id=" + this.id + "&width=600&height=400' alt='Image preview' /></p>"); }
+        else if ($('img.preview').hasClass('files-img')) { $("#preview").append("<span style='display:block;'>" + c + "</span><img style='" + preloadImg + "' src='/Admin/ImageData/GetImgAsFile?src=~" + this.title + "&width=600&height=400' alt='Image preview' /></p>"); }
         else if ($('img.preview').hasClass('slider-img')) { $("#preview").append("<span style='display:block;width:" + config.width + "px'>" + c + "</span><img style='" + preloadImg + "' src='/Admin/Slider/GetSliderImage?id=" + this.id + "&width=800&height=600' alt='Image preview' /></p>"); }
         else if ($('img.preview').hasClass('gal-img')) { $("#preview").append("<span class='prew-img' style='display:block;width:" + config.width + "px'>" + c + "</span><img style='" + preloadImg + "' src='/Admin/ImageData/GetPhotoGalleryImage?id=" + $id + "&width=800&height=600&isGallery=true' alt='Превью' />"); }
         else if ($('img.preview').hasClass('gal-img-item')) { $("#preview").append("<span class='prew-img' style='display:block;width:" + config.width + "px'>" + c + "</span><img style='" + preloadImg + "' src='/Admin/ImageData/GetPhotoGalleryImage?id=" + this.id + "&width=600&height=600&isGallery=false' alt='Превью' />"); }
         else { $("body").append("<p id='preview' ><span style='display:block;width:" + config.width + "px'>" + c + "</span><img class='prew-img'  height='300' width='300' src='" + this.src + "' alt='Image preview' /></p>"); }
-        
+
         //setTimeout(function () { $('.prew-loader').remove(); $('#preview img').fadeIn('slow'); }, config.preloadTime);
-        
+
         //if ($('.prew-loader').length < 1) {
         //config.isLoader ? $("#preview").append(lrm) : "";
         // }
@@ -53,9 +55,9 @@ var imagePreview = function (newConfig) {
 
 
     }, function () {
-       
+
         //this.title = this.t;
-        if(!imageCloseOff)
+        if (!imageCloseOff)
             $('#preview').remove();
     });
     $("img.preview").mousemove(function (e) {

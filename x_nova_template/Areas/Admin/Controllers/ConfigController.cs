@@ -18,7 +18,8 @@ namespace x_nova_template.Areas.Admin.Controllers
     public class ConfigController : Controller
     {
         private const string SitemapsNamespace = "http://www.sitemaps.org/schemas/sitemap/0.9";
-        private string sitePath = System.Configuration.ConfigurationManager.AppSettings["SiteName"];
+        private string sitePath = System.Configuration.ConfigurationManager.AppSettings["SitePath"];
+        private string siteName = System.Configuration.ConfigurationManager.AppSettings["SiteName"];
         //
         // GET: /Admin/Config/
         private IConfigRepository _rep;
@@ -73,6 +74,7 @@ namespace x_nova_template.Areas.Admin.Controllers
 
             foreach (var node in nodes)
             {
+
                 root.Add(
                 new XElement(xmlns + "url",
                     new XElement(xmlns + "loc", Uri.EscapeUriString(sitePath + node.Url)),
@@ -103,7 +105,7 @@ namespace x_nova_template.Areas.Admin.Controllers
             List<SitemapNode> nodes = new List<SitemapNode>();
 
 
-            nodes.Add(new SitemapNode("/Home")
+            nodes.Add(new SitemapNode("/")
             {
                 Frequency = SitemapFrequency.Always,
                 Priority = 1
@@ -140,18 +142,26 @@ namespace x_nova_template.Areas.Admin.Controllers
         [OutputCache(Duration = 60 * 60 * 24, Location = System.Web.UI.OutputCacheLocation.Any)]
         public FileContentResult RobotsText()
         {
-            var str = new StringBuilder("User-agent:*" + Environment.NewLine);
+            var isLive = Convert.ToBoolean(ConfigurationManager.AppSettings["SiteLiveStatus"]);
+            StringBuilder str = null;
+            if (isLive)
+            {
+                str = new StringBuilder("User-agent:*" + Environment.NewLine);
 
 
-            str.Append("Disallow: /Account" + Environment.NewLine);
-            str.Append("Disallow: /Signalr" + Environment.NewLine);
-            str.Append("Disallow: /LiveChat" + Environment.NewLine);
-            str.Append("Disallow: /Consultant" + Environment.NewLine);
-            str.Append("Disallow: /Error" + Environment.NewLine);
-            str.Append("Disallow: /Config" + Environment.NewLine);
-            str.Append("Disallow: /Widget" + Environment.NewLine);
-            str.Append("Sitemap: " + ConfigurationManager.AppSettings["LocalPath"] + "/sitemap.xml" + Environment.NewLine);
-
+                str.Append("Disallow: /Account" + Environment.NewLine);
+                str.Append("Disallow: /Signalr" + Environment.NewLine);
+                str.Append("Disallow: /LiveChat" + Environment.NewLine);
+                str.Append("Disallow: /Consultant" + Environment.NewLine);
+                str.Append("Disallow: /Error" + Environment.NewLine);
+                str.Append("Disallow: /Order" + Environment.NewLine);
+                str.Append("Disallow: /Admin" + Environment.NewLine);
+                str.Append("Disallow: /Config" + Environment.NewLine);
+                str.Append("Disallow: /Widget" + Environment.NewLine);
+                str.Append("Host: " + siteName + Environment.NewLine);
+                str.Append("Sitemap: " + sitePath + "/sitemap.xml" + Environment.NewLine);
+            }
+            else { str = new StringBuilder("User-agent:*" + Environment.NewLine); str.Append("Disallow: /" + Environment.NewLine); }
             return File(Encoding.UTF8.GetBytes(str.ToString()), "text/plain");
         }
 

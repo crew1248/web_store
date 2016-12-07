@@ -26,7 +26,7 @@
 @foreach (var item in Model.Posts) {
     <tr >
         <td>
-            <img class="preview files-img" src="@Url.Action("GetPostImage", "ImageData",new {id=item.ID,width=75,height=75}) " id="@item.ID" alt="@item.Title" height="50" width="50" />
+            <img class="preview post-img" src="@Url.Action("GetPostImage", "ImageData",new {id=item.ID,width=75,height=75}) " id="@item.ID" alt="@item.Title" height="50" width="50" />
         </td>
         <td>
           @item.CreatedAt.ToShortDateString()

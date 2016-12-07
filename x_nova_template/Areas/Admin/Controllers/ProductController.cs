@@ -25,7 +25,7 @@ using Newtonsoft.Json.Linq;
 
 namespace x_nova_template.Areas.Admin.Controllers
 {
-    
+
     public class ProductController : BaseController
     {
         //
@@ -44,7 +44,7 @@ namespace x_nova_template.Areas.Admin.Controllers
             ViewBag.Str = "SSS";
             base.OnActionExecuting(filerContext);
         }
-        public ProductController(IProductRepository pRepository, IConfigRepository conf, ICategoryRepository cRep,ICategoryRepository catRep)
+        public ProductController(IProductRepository pRepository, IConfigRepository conf, ICategoryRepository cRep, ICategoryRepository catRep)
         {
             _cRep = cRep;
             _pRepository = pRepository;
@@ -54,15 +54,14 @@ namespace x_nova_template.Areas.Admin.Controllers
 
         public ActionResult Details(int id)
         {
+
+            //return new RedirectToRouteResult(RouteValues<"str","sdf">());
+
             var item = _pRepository.Products.SingleOrDefault(x => x.ID == id);
             return View(item);
         }
-        public ActionResult ToyDetails(int id)
-        {
-            var item = _pRepository.Products.SingleOrDefault(x => x.ID == id);
-            return View(item);
-        }
-        public ViewResult ProdList(int catId=0, int page = 1, string credentialToken = null, string resetToken = null)
+
+        public ViewResult ProdList(int catId = 0, int page = 1, string credentialToken = null, string resetToken = null)
         {
             ViewBag.Test = Session["test"];
             if (_conf.Options().SelectedIsOnlineID)
@@ -71,7 +70,7 @@ namespace x_nova_template.Areas.Admin.Controllers
             }
             ViewBag.Token = credentialToken;
             ViewBag.ResetToken = resetToken;
-            ViewBag.CatID = catId == 0 && _pRepository.Products.Count()>0 ? _catRep.Get().Where(x => x.Products.Count() > 0).First().ID : catId;
+            ViewBag.CatID = catId == 0 && _pRepository.Products.Count() > 0 ? _catRep.Get().Where(x => x.Products.Count() > 0).First().ID : catId;
             ProductListViewModel vm = new ProductListViewModel
             {
                 Products = _pRepository.Products
@@ -105,7 +104,7 @@ namespace x_nova_template.Areas.Admin.Controllers
             {
                 Products = (from x in _pRepository.Products
                             where x.CategoryID == id
-                            orderby x.ID descending 
+                            orderby x.ID descending
                             select x).Skip<Product>(((num - 1) * this.PageSize)).Take<Product>(this.PageSize)
             };
             PagingInfo info = new PagingInfo
@@ -122,37 +121,7 @@ namespace x_nova_template.Areas.Admin.Controllers
             ProductListViewModel model = model2;
             return PartialView(model);
         }
-        public ViewResult ProdListToy(int catId, int page = 1, string credentialToken = null, string resetToken = null)
-        {
-            if (_conf.Options().SelectedIsOnlineID)
-            {
-                throw new HttpException(410, "Offline");
-            }
-            ViewBag.Token = credentialToken;
-            ViewBag.ResetToken = resetToken;
 
-            ProductListViewModel vm = new ProductListViewModel
-            {
-                Products = _cRep.Categories.Where(x => x.ID == catId && x.CatType == "игрушка").SingleOrDefault().Products
-                    .OrderBy(x => x.ID)
-                    .Skip((page - 1) * PageSize)
-                    .Take(PageSize),
-                PagingInfo = new PagingInfo
-                {
-                    Service = "Product",
-                    CurrentPage = page,
-                    ItemsPerPage = PageSize,
-                    TotalItems = _cRep.Categories.Where(x => x.ID == catId && x.CatType == "игрушка").SingleOrDefault().Products.Count(),
-                    CatId = catId
-
-
-                },
-
-            };
-
-
-            return View(vm);
-        }
         //public PartialViewResult RndProds(int catId,int pid) {
         //    var list = _pRepository.Products.Where(x => x.CategoryID == catId && x.ID != pid).ToArray();
         //    var rnd = new Random();
@@ -163,18 +132,21 @@ namespace x_nova_template.Areas.Admin.Controllers
 
         //    return PartialView(result);
         //}
-        public ActionResult ExcelImport() {
+        public ActionResult ExcelImport()
+        {
 
             return View();
         }
-        public ActionResult ExcelImport(HttpPostedFileBase file) {
-          
+        public ActionResult ExcelImport(HttpPostedFileBase file)
+        {
+
             return View();
         }
 
-        public static bool ProdIsAdded(int id) {
+        public static bool ProdIsAdded(int id)
+        {
             Cart cart = (Cart)System.Web.HttpContext.Current.Session["Cart"];
-            bool isAdded=false;
+            bool isAdded = false;
             if (cart != null)
             {
                 isAdded = cart.Lines.Select(x => x.Product.ID).Contains(id);
@@ -183,7 +155,7 @@ namespace x_nova_template.Areas.Admin.Controllers
         }
         public JsonResult ItemInfo(int id)
         {
-           // Thread.Sleep(500000);
+            // Thread.Sleep(500000);
             var item = _pRepository.Get(id);
             var isAdded = GetCart().Lines.Select(x => x.Product.ID).Contains(id);
             return Json(new
@@ -196,7 +168,7 @@ namespace x_nova_template.Areas.Admin.Controllers
                 price = item.Price
             }, JsonRequestBehavior.AllowGet);
         }
-      
+
         public JsonResult All_Sl_Images()
         {
             var cats = _cRep.GetForSlider().ToList();
@@ -232,9 +204,9 @@ namespace x_nova_template.Areas.Admin.Controllers
         }
 
         public ActionResult Index()
-        { 
-           
-            ViewBag.Cats = new SelectList(_cRep.Categories, "ID", "CategoryName");
+        {
+            var list = _catRep.Categories.Select(x => new { ID = x.ID, CategoryName = x.CategoryName });
+            ViewBag.Cats = new SelectList(list, "ID", "CategoryName");
             ViewData["Catss"] = _cRep.Categories
                         .Select(e => new
                         {
@@ -254,9 +226,17 @@ namespace x_nova_template.Areas.Admin.Controllers
                 Description = o.Description,
                 Price = o.Price,
                 Season = o.Season,
+                Channel = o.Channel,
+                Hardness = o.Hardness,
+                MatProd = o.MatProd,
+                MatIronForm = o.MatIronForm,
+                Coupling = o.Coupling,
+                ProdTime = o.ProdTime,
+                Block = o.Block,
+                MatForm = o.MatForm,
                 Size = o.Size,
                 ProductType = o.ProductType,
-                CategoryName = _cRep.Categories.First(x => x.ID == o.CategoryID).CategoryName,
+                CategoryName = "FFFFFFFF",
                 ID = o.ID,
                 CategoryID = o.CategoryID
 
@@ -266,6 +246,7 @@ namespace x_nova_template.Areas.Admin.Controllers
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
+        [ValidateInput(false)]
         public ActionResult Editing_Create([DataSourceRequest] DataSourceRequest request, ProductViewModel prod)
         {
 
@@ -294,6 +275,14 @@ namespace x_nova_template.Areas.Admin.Controllers
                     target.ID = product.ID;
                     target.Price = product.Price;
                     target.ProductName = product.ProductName;
+                    target.Channel = product.Channel;
+                    target.Hardness = product.Hardness;
+                    target.MatProd = product.MatProd;
+                    target.MatIronForm = product.MatIronForm;
+                    target.ProdTime = product.ProdTime;
+                    target.Coupling = product.Coupling;
+                    target.Block = product.Block;
+                    target.MatForm = product.MatForm;
                     target.Description = product.Description;
                     target.Season = product.Season;
                     target.ProductType = product.ProductType;
@@ -305,8 +294,14 @@ namespace x_nova_template.Areas.Admin.Controllers
 
             return Json(ModelState.ToDataSourceResult());
         }
-
+        [HttpPost]
+        public JsonResult EditSort(int id, int newPos, int oldPos)
+        {
+            _pRepository.UpdateSort(id, oldPos, newPos);
+            return base.Json("");
+        }
         [AcceptVerbs(HttpVerbs.Post)]
+        [ValidateInput(false)]
         public ActionResult Editing_Destroy([DataSourceRequest] DataSourceRequest request, ProductViewModel product)
         {
             if (product != null)
@@ -334,6 +329,7 @@ namespace x_nova_template.Areas.Admin.Controllers
             {
                 foreach (var file in photos)
                 {
+
                     item = _pRepository.SavePhoto(file, pid);
                     //list.Add(item);
                 }

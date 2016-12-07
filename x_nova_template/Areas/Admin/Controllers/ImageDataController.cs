@@ -10,7 +10,6 @@ using x_nova_template.Service.Interface;
 
 namespace x_nova_template.Areas.Admin.Controllers
 {
-    [SessionState(System.Web.SessionState.SessionStateBehavior.Disabled)]
     public class ImageDataController : Controller
     {
         //
@@ -39,7 +38,7 @@ namespace x_nova_template.Areas.Admin.Controllers
                     {
                         new WebImage(_pRep.Get(pid).ProdImages.SingleOrDefault(x => x.IsPreview == 1).ImageDataType)
                             //.Resize(width, height, false, true) // Resizing the image to 100x100 px on the fly...
-                             .Resize(500, 500, true, true)
+
                             .Crop(1, 1) // Cropping it to remove 1px border at top and left sides (bug in WebImage)
                             .Write();
                     }
@@ -66,53 +65,74 @@ namespace x_nova_template.Areas.Admin.Controllers
                 var prodId = prodImg.ProductID;
                 if (prodImg.ImageDataType != null)
                 {
-                    if (width == 0 && type == null)
+                     if (type == "small") {
+
+                        new WebImage(prodImg.ImageDataType)
+                           .Resize(100, 100, false) // Resizing the image to 100x100 px on the fly...
+                           .Crop(1, 1) // Cropping it to remove 1px border at top and left sides (bug in WebImage)
+                           .Write();
+                    }
+                    else if (width == 0 && type == null)
                     {
                         new WebImage(prodImg.ImageDataType)
                             //.Resize(width, height, false, true) // Resizing the image to 100x100 px on the fly...                      
                           .Crop(1, 1) // Cropping it to remove 1px border at top and left sides (bug in WebImage)
                           .Write();
-                    }
+                    }                   
                     else
                     {
-                        if (type == "small")
-                        {
-                            new WebImage(prodImg.ImageDataType)
-                           .Resize(100, 100, true) // 
+
+                        new WebImage(prodImg.ImageDataType)
+                           .Resize(width, height, true, true) // Resizing the image to 100x100 px on the fly...
                            .Crop(1, 1) // Cropping it to remove 1px border at top and left sides (bug in WebImage)
                            .Write();
-                        }
-                        else
-                        {
-                            new WebImage(prodImg.ImageDataType)
-                               .Resize(width, height) // Resizing the image to 100x100 px on the fly...
-                               .Crop(1, 1) // Cropping it to remove 1px border at top and left sides (bug in WebImage)
-                               .Write();
-                        }
+
                     }
                 }
 
             }
 
         }
-        public void GetImgAsFile(string src,int width=0,int height=0) {
+        public void GetImgAsFile(string src, int width = 0, int height = 0, int t = 0)
+        {
 
-            var folder = "~/Content/Files/";
-            var path = Path.Combine(folder,src);
+            //var folder = "~/Content/Files/";
+            //var path = Path.Combine(folder, src);
 
-           
-          
-            if (width != 0 && height != 0)
+            if (t == 1)
             {
-                new WebImage(path)
-                    .Resize(width,height,true,true)
-                    .Crop(1, 1)
-                    .Write();
+                new WebImage(src)
+                      .Resize(width + 20, height + 20, false, true)
+                      .Crop(1, 1)
+                      .Write();
             }
-            else {
-                new WebImage(path)
+            else if (t == 2)
+            {
+                new WebImage(src)
+                         .Resize(width, height, true, true)
+                         .Crop(1, 1)
+                         .Write();
+            }
+            else
+            {
+                new WebImage(src)
                 .Crop(1, 1)
-                .Write();
+                       .Write();
+                //var src1 = new Uri(src).AbsolutePath;
+
+                //if (width != 0 && height != 0)
+                //{
+                //    new WebImage("~/" + src1)
+                //        .Resize(width, height, true, true)
+                //        .Crop(1, 1)
+                //        .Write();
+                //}
+                //else
+                //{
+                //    new WebImage(src)
+                //    .Crop(1, 1)
+                //    .Write();
+                //}
             }
         }
         public JsonResult Giu(string folder)
@@ -130,13 +150,14 @@ namespace x_nova_template.Areas.Admin.Controllers
 
             if (item.PreviewPhoto != null && width > 0)
             {
-                var halfHeigth = new WebImage(item.PreviewPhoto).Height / 2;
-                var halfWidth = new WebImage(item.PreviewPhoto).Width / 2;
+
+                //var halfHeigth = new WebImage(item.PreviewPhoto).Height / 2;
+                //var halfWidth = new WebImage(item.PreviewPhoto).Width / 2;
                 var fileExt = new WebImage(item.PreviewPhoto).ImageFormat;
 
 
                 new WebImage(item.PreviewPhoto)
-                  .Resize(halfWidth, halfHeigth, true)// Resizing the image to 100x100 px on the fly...
+                  .Resize(width, height)// Resizing the image to 100x100 px on the fly...
                   .Crop(1, 1) // Cropping it to remove 1px border at top and left sides (bug in WebImage)
                   .Write();
 
@@ -171,7 +192,7 @@ namespace x_nova_template.Areas.Admin.Controllers
 
 
                     new WebImage(item.ImageData)
-                      .Resize(width, height, true,true)// Resizing the image to 100x100 px on the fly...
+                      .Resize(width, height, true, true)// Resizing the image to 100x100 px on the fly...
                       .Crop(1, 1) // Cropping it to remove 1px border at top and left sides (bug in WebImage)
                       .Write();
 
@@ -215,8 +236,8 @@ namespace x_nova_template.Areas.Admin.Controllers
                         var fileExt = new WebImage(item.GalleryData).ImageFormat;
                         var img = new WebImage(item.GalleryData)
 
-                          .Resize(halfWidth, halfHeight,false,false)
-                          
+                          .Resize(halfWidth, halfHeight, false, false)
+
                             // Resizing the image to 100x100 px on the fly...
                           .Crop(1, 1) // Cropping it to remove 1px border at top and left sides (bug in WebImage)
                           .Write();
