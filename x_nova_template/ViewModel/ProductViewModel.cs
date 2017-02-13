@@ -14,7 +14,7 @@ namespace x_nova_template.ViewModel
         public int ID { get; set; }
 
         public string ProductName { get; set; }
-
+        public string imgLink { get; set; }
         public string Description { get; set; }
         [Required]
         public int CategoryID { get; set; }
@@ -45,7 +45,7 @@ namespace x_nova_template.ViewModel
         public string MatForm { get; set; }
         [StringLength(500)]
         public string Season { get; set; }
-        [StringLength(500)]
+        [StringLength(300)]
         public string ProductType { get; set; }
 
        

@@ -12,7 +12,7 @@ namespace x_nova_template.Service.Interface
          IQueryable<Product> Products { get; }
          IQueryable<ProdImage> ProdImages {get;}
 
-         void Create(Product menu,ProductViewModel prod=null);
+         void Create(Product menu, ProductViewModel prod = null);
          void SetPreview(int pimgid);
          int SavePhoto(HttpPostedFileBase photo, int pid);
          ProdImage GetImg(int pimgid);
@@ -24,6 +24,6 @@ namespace x_nova_template.Service.Interface
          IEnumerable<Product> Get();
          void Delete(Product menu);
          void Edit(Product menu);
-         void Save(); 
+         void Save();
     }
 }

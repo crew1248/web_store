@@ -65,12 +65,13 @@ $(function(){
 /*=====================================  Configuration ===============================*/
 /*==========================================================================================*/
 
-
 XN.IsMobile = $(window).width() < 400;  // -- проверка на мобильное устройство
+XN.WindowWidth = $(window).width();
 XN.WindowHeight = $(window).height();
 XN.AbsoluteUrl = document.URL;
 XN.JavaEnabled = navigator.javaEnabled();
 XN.Lang = navigator.language;
+XN.IsTablet = $(window).width() < 768 ? true : false;
 
 
 
@@ -81,7 +82,7 @@ XN.Lang = navigator.language;
 XN.Auth = { // Widget - Modal Account Auth/Reg
 
     startModal: function (code, processType, username) {
-       
+
         mod = $('#modal-7');
         modc = $('#modal-7').find('.md-content');
         if (processType == 1) {
@@ -114,13 +115,13 @@ XN.Auth = { // Widget - Modal Account Auth/Reg
         //$('.md-modal').hide();
     },
     RemoveModal: function () {
-        
+
         mod.removeClass('md-show');
         $('.md-auth .md-loader').show();
     },
     CloseEvent: function () {
         $('.md-close').on('click', function () {
-           
+
             mod.removeClass('md-show');
         });
     },
@@ -156,13 +157,13 @@ XN.Auth = { // Widget - Modal Account Auth/Reg
         var modal = $(modalId);
         var loader = $('.md-auth .md-loader');
         var modalc = modal.find('.md-content');
-        
+
         modalc.empty();
         XN.Auth.RemoveModal();
         $(".md-overlay").css({ background: 'rgba(255, 255, 255, 0.6)' });
         modal.addClass('md-show');
         modal.show();
-        
+
         $.get(dataToLoad, function (data) {
 
             modal.find('.md-content').html(data);
@@ -173,6 +174,7 @@ XN.Auth = { // Widget - Modal Account Auth/Reg
             XN.Auth.CloseEvent();
             XN.Auth.OpenEvents(1);
             loader.hide();
+
         });
 
 
@@ -185,7 +187,7 @@ XN.Auth = { // Widget - Modal Account Auth/Reg
 XN.Inscreaser = { // Widget - Catalog/Gallery
     Init: function (type, el, index) {
         var input;
-        
+
         var ins_modal = $('#modal-6');
         var ins_content = $('#modal-6 .md-content');
         var ins_scont = $('.xn-i-sphoto');
@@ -200,7 +202,7 @@ XN.Inscreaser = { // Widget - Catalog/Gallery
         type == 1 ? prodMode = true : "";
 
         /* конечная настройка виджета */
-       // $('.ov-spin').remove();
+        // $('.ov-spin').remove();
         /* ---------------------- */
 
         settings = {
@@ -235,8 +237,8 @@ XN.Inscreaser = { // Widget - Catalog/Gallery
             ins_modal.addClass('md-cat');
             ins_modal.find('.xn-i-sphoto').removeAttr('style');
             ins_modal.find('.xn-i-sphoto').addClass('style');
-            var rouble = $('<i class="fa fa-rouble"></i>');
-            el.added ? $('.xn-cart-option').attr('data-event-type', 'cart__view').html('В корзину') : '';
+            //var rouble = $('<i class="fa fa-rouble"></i>');
+            //el.added ? $('.xn-cart-option').attr('data-event-type', 'cart__view').html('В корзину') : '';
             //$('.xn-h-w a').attr('href', '/Product/Details/' + el.id);
             $('.d-title td').html(el.name);
             $('.d-cat td').html(el.cat);
@@ -253,18 +255,21 @@ XN.Inscreaser = { // Widget - Catalog/Gallery
 
 
 
-            $('.d-price td').html(el.price + ' <i class="fa fa-rouble"></i>');
-            $('*[data-event-type="cart__add"]').attr('data-pid', el.id);
+            //$('.d-price td').html(el.price + ' <i class="fa fa-rouble"></i>');
+            //$('*[data-event-type="cart__add"]').attr('data-pid', el.id);
             //if(XN.IsMobile)$('.prod-link-details').attr('href', '/Product/Details/'+el.id);
             //$('.prod-link-details').attr('href', '/Product/Details/' + el.id);
             for (i = 0; i < el.si.length; i++) {
-                var guiImg = this.Utilities.GetDataImg(el.si[i], false, 100, 100, el.id);
-               
+
+                var guiImg = this.Utilities.GetDataImg(el.si[i].id, false, 100, 100, el.id, el.si[i].src);
+                //alert(sm.attr('src'));
                 settings.wrapper = settings.wrapper.add(guiImg);
 
             }
-         
+            //$('body').append(simgs);
+
             $('.xn-h-w,.xn-d-w').fadeIn();
+
         }
         else {
             /* Контент  */
@@ -290,35 +295,8 @@ XN.Inscreaser = { // Widget - Catalog/Gallery
         settings.list = $('.xn-i-sphoto img');
         ins_scont.append('<div class="curr-border" />');
 
-        //else if (type == 1) {
-        //    /* Каталог */
-        //    ins_modal.removeClass('xn-modal');
-        //    ins_modal.addClass('md-cat');
-        //    ins_modal.find('.xn-i-sphoto').removeAttr('style');
-        //    ins_modal.find('.xn-i-sphoto').addClass('style');
-        //    var rouble = $('<i class="fa fa-rouble"></i>');
-        //    el.added ? $('.xn-cart-option').attr('data-event-type','cart__view').html('В корзину') : '';
-        //    $('.xn-d-w a').attr('href', '/Product/Details/' + el.id).html(el.name);
-        //    //$('.d-type td').html(data.name);
-        //    $('.d-cat td').html(el.cat);
-        //    $('.d-desc td').html(el.desc);
-        //    $('.d-price td').html(el.price + ' <i class="fa fa-rouble"></i>');
-        //    $('*[data-event-type="cart__add"]').attr('data-pid', el.id);
-        //    //if(XN.IsMobile)$('.prod-link-details').attr('href', '/Product/Details/'+el.id);
-        //    //$('.prod-link-details').attr('href', '/Product/Details/' + el.id);
-        //    for (i = 0; i < el.si.length; i++) {
-        //        var guiImg = this.Utilities.GetDataImg(el.si[i], false, 100, 100, el.id);
-        //        //alert(sm.attr('src'));
-        //        settings.wrapper = settings.wrapper.add(guiImg);
-
-        //    }
-        //    //$('body').append(simgs);
-
-        //    $('.xn-h-w,.xn-d-w').fadeIn();
-        //}
-    
-
         settings.list.each(function (n) {
+
             $(this).removeClass('xn-i-current');
             $(this).attr('data-i-index', n);
             $(this).attr('data-pos', $(this).offset().left);
@@ -330,13 +308,14 @@ XN.Inscreaser = { // Widget - Catalog/Gallery
                 $('.i-counter').html(n + 1 + ' из ' + settings.list.length);
             }
 
+
         })
         .click(function () {
             ShowPhoto($(this).data('i-index'), true);
         });
 
         if (isGal) this.Utilities.LoadImg($('img[data-i-index="0"]').data('id'), 'gal');
-        else if (prodMode) this.Utilities.LoadImg($('img[data-i-index="0"]').data('id'), 'prod');
+        else if (prodMode) this.Utilities.LoadImg($('img[data-i-index="0"]').data('id'), 'prod', $('img[data-i-index="0"]').attr('src').replace('/200x150', ''));
         else this.Utilities.LoadImg(settings.current);
 
         $(this.Config().imgEl).css('cursor', 'pointer');
@@ -358,9 +337,11 @@ XN.Inscreaser = { // Widget - Catalog/Gallery
             isPrev == null ? isPrev = false : "";
             settings.current = index;
             // load image event
+
             if (isGal) XN.Inscreaser.Utilities.LoadImg($('img[data-i-index="' + settings.current + '"]').data('id'), 'gal');
-            else if (prodMode) XN.Inscreaser.Utilities.LoadImg($('img[data-i-index="' + settings.current + '"]').data('id'), 'prod');
+            else if (prodMode) XN.Inscreaser.Utilities.LoadImg($('img[data-i-index="' + settings.current + '"]').data('id'), 'prod', $('img[data-i-index="' + settings.current + '"]').attr('src').replace('/200x150', ''));
             else XN.Inscreaser.Utilities.LoadImg(settings.current);
+
             // counter
             $('.i-counter').html(index + 1 + ' из ' + settings.list.length);
 
@@ -391,6 +372,7 @@ XN.Inscreaser = { // Widget - Catalog/Gallery
             $(this).siblings().slideToggle();
 
         });
+
         //XN.Inscreaser.Config({ isGal: true });
         //XN.Inscreaser.BuildModal('/Widget/Inscreaser', { type: 1, folder: '/Content/qm/design' });
         //alert(settings.list.length);
@@ -421,10 +403,10 @@ XN.Inscreaser = { // Widget - Catalog/Gallery
 
                 data: opts,
                 success: function (data) {
-                    
-                        $(XN.Inscreaser.Config().content).html(data);
-                        XN.Inscreaser.reEvent();
-                   
+
+                    $(XN.Inscreaser.Config().content).html(data);
+                    XN.Inscreaser.reEvent();
+
 
                     // <- reevent
                 }
@@ -459,15 +441,16 @@ XN.Inscreaser = { // Widget - Catalog/Gallery
     },
 
     Utilities: {
-        LoadImg: function (index, type) {
+        LoadImg: function (index, type, src) {
+
             var timer;
             var timer1;
             function clearTimer1() {
                 if (timer1) {
                     clearTimeout(timer1);
                     timer1 = null;
-                    
-                    
+
+
                 }
             }
 
@@ -477,7 +460,7 @@ XN.Inscreaser = { // Widget - Catalog/Gallery
                     clearTimeout(timer);
                     timer = null;
                     $('.md-gif').remove();
-                    
+
                 }
             }
             function paddingBottomProcents(width, height) {
@@ -563,13 +546,14 @@ XN.Inscreaser = { // Widget - Catalog/Gallery
             };
 
             if (type == 'post')
-            { img.src = this.GetCurrentImg(index).attr('src').replace(/\&type=small/, "") + '&type=large'; }
+            { img.src = this.GetCurrentImg(index).attr('src'); }
             else if (type == 'gal') {
                 img.src = '/ImageData/GetPhotoGalleryImage?id=' + index + '&width=750&height=500&isGallery=false';
             }
             else if (type == 'prod') {
-                if (!isMobile) img.src = '/ImageData/GetProdImage?width=700&height=500&pimgid=' + index;
-                else img.src = '/ImageData/GetProdImage?width=300&height=350&pimgid=' + index;
+
+                if (!isMobile) img.src = src;
+                else img.src = src;
 
             }
             else {
@@ -579,23 +563,24 @@ XN.Inscreaser = { // Widget - Catalog/Gallery
             }
 
             timer = setTimeout(function (theImg) {
+
                 return function () {
                     $('#xn-i-beforesend').show();
                 };
             }(img), 500);
 
 
-           
         },
-        GetDataImg: function (id, ispreview, width, height, pid) {
+        GetDataImg: function (id, ispreview, width, height, pid, src) {
+
             return ispreview ?
-                $('<img data-id="' + id + '" data-pid="' + pid + '" src="/ImageData/GetProdImage?pid=' + id + '&width=' + width + '&height=' + height + '&noredirect=true" />') :
-                $('<img data-id="' + id + '" data-pid="' + pid + '" src="/ImageData/GetProdImage?pimgid=' + id + '&width=' + width + '&height=' + height + '&noredirect=true" />');
+                $('<img data-id="' + id + '" data-pid="' + pid + '" src="/Content/Files/Product/' + pid + '/' + src + '" />') :
+                $('<img data-id="' + id + '" data-pid="' + pid + '" src="/Content/Files/Product/' + pid + '/200x150/' + src + '" />');
         },
         GetDataGalImg: function (id, isGal, width, height) {
             return ispreview ?
-                $('<img data-id="' + id + '" data-pid="' + pid + '" src="/ImageData/GetProdImage?pid=' + id + '&width=' + width + '&height=' + height + '&noredirect=true" />') :
-                $('<img data-id="' + id + '" data-pid="' + pid + '" src="/ImageData/GetProdImage?pimgid=' + id + '&width=' + width + '&height=' + height + '&noredirect=true" />');
+                $('<img data-id="' + id + '" data-pid="' + pid + '" src="/ImageData/GetProdImage?pid=' + id + '&width=' + width + '&height=' + height + '" />') :
+                $('<img data-id="' + id + '" data-pid="' + pid + '" src="/ImageData/GetProdImage?pimgid=' + id + '&width=' + width + '&height=' + height + '" />');
         },
         FormatedUrl: function (url, isCat) {
             //alert(url);
@@ -604,6 +589,7 @@ XN.Inscreaser = { // Widget - Catalog/Gallery
             }
         },
         GetCurrentImg: function (index) {
+
             return $('.xn-i-sphoto').find('img[data-i-index="' + index + '"]');
         },
         updateCartEvent: function (id, a) {
@@ -652,34 +638,34 @@ XN.AjaxRequest = {
         }, '500');
     },
     MakeRequest: function (url, data, target) {
-       
-            $.ajax({
-                beforeSend: function () {
-                    if (target == '#listview-target') $(target).html('<img class="ov-spin" src="/Content/ajax-loaders/horizont/tail-spin.svg" />');
-                },
-                url: url,
-                data: data,
-                success: function (response) {
-                    setTimeout(function () {
-                        $(target).html(response);
-                        $('#listview-target .xn-listview-item  .xn-details').on('click', function () {
 
-                            XN.Inscreaser.BuildModal('/Widget/Inscreaser', { type: 1, id: $(this).closest('.xn-listview-item').data('id') });
-                        });
-                       
+        $.ajax({
+            beforeSend: function () {
+                if (target == '#listview-target') $(target).html('<img class="ov-spin" src="/Content/ajax-loaders/horizont/tail-spin.svg" />');
+            },
+            url: url,
+            data: data,
+            success: function (response) {
+                setTimeout(function () {
+                    $(target).html(response);
+                    $('.prod-more-btn').on('click', function () {
+                        XN.Inscreaser.BuildModal('/Widget/Inscreaser', { type: 1, id: $(this).closest('.listview-item').data('id') });
+                    });
 
-                        $('.page-link').on('click', function () {
-                            var data = { catId: $(this).data('catid'), page: $(this).data('page') };
-                            XN.AjaxRequest.MakeRequest('/Product/ProdListPartial', { jsonData: JSON.stringify(data) }, '#listview-target');
-                        });
 
-                    }, '500');
-                },
-                error: function () {
-                    alert('Ошибка приложения!');
-                }
-            });
-       
+                    $('.page-link').on('click', function () {
+                        var data = { catId: $(this).data('catid'), page: $(this).data('page') };
+                        XN.AjaxRequest.MakeRequest('/Product/ProdListPartial', { jsonData: JSON.stringify(data) }, '#listview-target');
+                    });
+
+                }, '500');
+            },
+            error: function () {
+                //alert('Ошибка приложения!');
+                $(target).empty();
+            }
+        });
+
     }
 
 }
@@ -688,7 +674,7 @@ function collectionHas(a, b) { //helper function (see below)
     for (var i = 0, len = a.length; i < len; i++) {
         if (a[i] == b) return true;
     }
-   
+
     return false;
 }
 function findParentBySelector(elm, selector) {
@@ -730,12 +716,5 @@ NodeList.prototype.remove = HTMLCollection.prototype.remove = function () {
         }
     }
 }
-
-
-
-
-
-
-
 
 

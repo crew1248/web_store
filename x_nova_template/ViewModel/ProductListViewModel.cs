@@ -13,5 +13,12 @@ namespace x_nova_template.ViewModel
         public int TotalProducts { get; set; }
         public PagingInfo PagingInfo { get; set; }
         public Product Product { get; set; }
+        public Category Category { get; set; }
+
+        public string GetImgLink(int id, string name)
+        {
+
+            return "/Content/Files/Product/" + id + "/" + name;
+        }
     }
 }

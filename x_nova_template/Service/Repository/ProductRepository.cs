@@ -14,6 +14,8 @@ namespace x_nova_template.Service.Repository
     public class ProductRepository : IProductRepository
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+        private FileManager filemanager = new FileManager();
+
 
         public IQueryable<Product> Products { get { return db.Products.Include("ProdImages"); } }
         public IQueryable<ProdImage> ProdImages { get { return db.ProdImages; } }
@@ -53,27 +55,38 @@ namespace x_nova_template.Service.Repository
         {
             return from obj in Products select obj;
         }
-        public int SavePhoto(HttpPostedFileBase photo, int pid)
+        public int SavePhoto(HttpPostedFileBase file, int pid)
         {
+
+            if (file.ContentLength > 4000000) throw new HttpException();
+
+            int imagesCount = 0;
             var prodImg = new ProdImage();
-            WebImage formImg = null;
-            byte[] imgBytes = null;
-            //if (photo.ContentLength > 1000000) {
-            //    formImg = new WebImage(photo.InputStream);
-            //    imgBytes = formImg.Resize(formImg.Width / 2, formImg.Height / 2).GetBytes();
-            //    prodImg.ImageDataType = imgBytes;
-            //}
-            //else
-            prodImg.ImageDataType = new BinaryReader(photo.InputStream).ReadBytes(photo.ContentLength);
 
             prodImg.ProductID = pid;
-
-            prodImg.ImageMimeType = photo.ContentType;
             db.ProdImages.Add(prodImg);
-
             db.SaveChanges();
             prodImg.Sortindex = prodImg.ID;
+
+            var dirPath = HttpContext.Current.Server.MapPath("~/Content/Files/Product/" + pid);
+            var dirPaths = HttpContext.Current.Server.MapPath("~/Content/Files/Product/" + pid + "/200x150");
+
+            imagesCount = filemanager.CheckDirectory(dirPath);
+            var rndName = filemanager.GetRandomName(imagesCount);
+            var filePath = Path.Combine(dirPath, rndName + Path.GetExtension(file.FileName));
+
+            imagesCount = filemanager.CheckDirectory(dirPaths);
+            var filePaths = Path.Combine(dirPaths, rndName + Path.GetExtension(file.FileName));
+            var istream = new WebImage(file.InputStream).Resize(1920, 1080, true, true).GetBytes();
+
+            filemanager.WriteImage(istream, filePath);
+            istream = new WebImage(istream).Resize(200, 150, false, true).GetBytes();
+            filemanager.WriteImage(istream, filePaths);
+
+            prodImg.ImageMimeType = rndName + Path.GetExtension(file.FileName);
+
             db.SaveChanges();
+
             return prodImg.ID;
         }
         public void SetPreview(int pimgid)
@@ -111,10 +124,14 @@ namespace x_nova_template.Service.Repository
         }
         public void PhotoDel(ProdImage pimg)
         {
+            var Prodimg = db.ProdImages.SingleOrDefault(x => x.ID == pimg.ID);
+            var dirPath = HttpContext.Current.Server.MapPath("~/Content/Files/Product/" + pimg.ProductID + "/" + Prodimg.ImageMimeType);
+            var dirPaths = HttpContext.Current.Server.MapPath("~/Content/Files/Product/" + pimg.ProductID + "/200x150" + "/" + Prodimg.ImageMimeType);
+            filemanager.RemoveFile(dirPath);
+            filemanager.RemoveFile(dirPaths);
 
             db.ProdImages.Remove(pimg);
             db.SaveChanges();
-
         }
         public void Save()
         {
@@ -133,6 +150,8 @@ namespace x_nova_template.Service.Repository
         }
         public void Delete(Product product)
         {
+            var dirPath = HttpContext.Current.Server.MapPath("~/Content/Files/Product/" + product.ID);
+            filemanager.RemoveDir(dirPath);
             db.Products.Remove(product);
             db.SaveChanges();
         }

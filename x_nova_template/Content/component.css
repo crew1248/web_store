@@ -244,6 +244,7 @@
     top: 50px;
     width: 30%;
     display: inline-block;
+    text-align:right;
 }
 div.md-close
 {
@@ -453,20 +454,24 @@ display: block;
     {
         font-family: Roboto;
     padding-right: 10px;
-   width:100px;
-    font-size: 12px;
-    font-weight:300;
-    
+   width:110px;
+   font-size: 12px;
+    font-weight: 600;
+      
     }
+ .xn-i-details table th{color:#262626;}
     .md-cat .xn-i-details table td
     {
        
      
         word-wrap: break-word;
-        l
+        
     }
 
-
+.prod-view__details .listview-wrap{
+    padding: 10px;
+    background: whitesmoke;
+}
 .md-cat .xn-i-current ~ div
 {
 

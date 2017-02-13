@@ -337,6 +337,7 @@
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Config.cs" />
     <Compile Include="Models\Feedback.cs" />
+    <Compile Include="Models\FileManager.cs" />
     <Compile Include="Models\Gallery.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Image.cs" />

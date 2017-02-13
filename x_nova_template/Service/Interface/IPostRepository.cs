@@ -10,10 +10,12 @@ namespace x_nova_template.Service.Interface
     {
         IQueryable<Post> Posts { get; }
 
-        void Create(Post post,HttpPostedFileBase file=null);
-
+        void Create(Post post);
+        void RemoveDir(string path);
         Post Get(int id);
         void Delete(Post post);
-        void Edit(Post post,HttpPostedFileBase file=null);
+        void Edit(Post post);
+        void SavePhoto(HttpPostedFileBase file, int pid, bool isWM);
+        void PhotoDel(string src);
     }
 }
