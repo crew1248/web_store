@@ -17,7 +17,7 @@ namespace x_nova_template.Service.Interface
         Image GetImage(int id);
         void Save();
         void UpdateImage(int id, string title);
-        void UpdateSort(int id, int oldSort, int newSort);
+        void UpdateSort(int id, int newSort);
 
         IQueryable<Gallery> Galleries { get; }
 

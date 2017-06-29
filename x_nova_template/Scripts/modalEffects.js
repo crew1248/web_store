@@ -238,7 +238,7 @@ XN.Inscreaser = { // Widget - Catalog/Gallery
             ins_modal.find('.xn-i-sphoto').removeAttr('style');
             ins_modal.find('.xn-i-sphoto').addClass('style');
             //var rouble = $('<i class="fa fa-rouble"></i>');
-            //el.added ? $('.xn-cart-option').attr('data-event-type', 'cart__view').html('В корзину') : '';
+            el.added ? $('.xn-cart-option').attr({ dataEventType: 'cart__view' }).attr( 'href', '/Checkout/Index?step=1' ).html('В корзину') : '';
             //$('.xn-h-w a').attr('href', '/Product/Details/' + el.id);
             $('.d-title td').html(el.name);
             $('.d-cat td').html(el.cat);
@@ -256,7 +256,7 @@ XN.Inscreaser = { // Widget - Catalog/Gallery
 
 
             //$('.d-price td').html(el.price + ' <i class="fa fa-rouble"></i>');
-            //$('*[data-event-type="cart__add"]').attr('data-pid', el.id);
+            $('*[data-event-type="cart__add"]').attr('data-pid', el.id);
             //if(XN.IsMobile)$('.prod-link-details').attr('href', '/Product/Details/'+el.id);
             //$('.prod-link-details').attr('href', '/Product/Details/' + el.id);
             for (i = 0; i < el.si.length; i++) {
@@ -648,8 +648,9 @@ XN.AjaxRequest = {
             success: function (response) {
                 setTimeout(function () {
                     $(target).html(response);
-                    $('.prod-more-btn').on('click', function () {
-                        XN.Inscreaser.BuildModal('/Widget/Inscreaser', { type: 1, id: $(this).closest('.listview-item').data('id') });
+                    $('.xn__popup').on('click', function () {
+                     
+                        XN.Inscreaser.BuildModal('/Widget/Inscreaser', { type: 1, id: $(this).closest('.xn-listview-item').data('id') });
                     });
 
 

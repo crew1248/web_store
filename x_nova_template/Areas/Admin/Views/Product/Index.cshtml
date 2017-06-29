@@ -36,9 +36,8 @@
     .Columns(columns =>
     {
         columns.Bound(e => e.ID).Width(100);
-        columns.Template(e => { }).ClientTemplate("<div><img class='preview grid-img' src='" + Url.Action("GetProdImage", "ImageData") + "?pid=${ID}&width=75&height=75'  id='${ID}'  alt='${ProductName}' height='50' width='50'  /> </div>").Width(100).Title("Картинка");
-
-        columns.Bound(e => e.Description).Encoded(false).Width(200).HtmlAttributes(new { style = "height:60px;overflow:hidden;display:block;" }).Title("Описание");
+        columns.Template(e => { }).ClientTemplate("<div><img class='preview grid-img' src='${imgLink}'  id='${ID}'  alt='${ProductName}' height='50' width='50'  /> </div>").Width(100).Title("Картинка");
+        columns.Bound(e => e.ProductName).Encoded(false).Width(200).HtmlAttributes(new { style = "height:60px;overflow:hidden;display:block;" }).Title("Описание");
         // columns.Bound(e => e.Price).Width(100)/*.ClientTemplate("#:kendo.toString(Price, 'c0')#")*/.Title("Цена");
 
         columns.ForeignKey(p => p.CategoryID, (System.Collections.IEnumerable)ViewData["Catss"], "ID", "CategoryName")
@@ -80,15 +79,14 @@
 
 )
 
+
 @(Html.Kendo().Window()
     .Title("Загрузка фото")
     .Name("prod-popup")
     .Modal(false)
     .Visible(false)
-
-    .LoadContentFrom(Url.Action("UploadProdImages"))
-    .Width(500)
-    .Height(500)
+    .Width(700)
+    .Height(700)
     .Events(e => e.Close("pClose").Open("pOpen"))
 )
 <div id="u-popup"></div>
@@ -96,12 +94,10 @@
     var wnd, uploadTemplate;
     $(function () {
         wnd = $('#prod-popup').data("kendoWindow");
-
         uploadTemplate = kendo.template($('#windowTemp').html());
     });
     function UploadWindow(e) {
         e.preventDefault();
-
         var dataItem = this.dataItem($(e.currentTarget).closest("tr"));
         wnd.content(uploadTemplate(dataItem));
         wnd.center().open();
@@ -123,10 +119,10 @@
     $(function () {
         $(document).on('mouseover', '.preview', function (e) {
 
-            $("body").append("<p id='preview'><span style='display:block;width:600px'>" + $(this).attr('alt') + "</span><img class='prew-img'  style='display:none' src='/Admin/ImageData/GetProdImage?pid=" + $(this).attr('id') + "&width=600&height=400' alt='Image preview' /></p>");
+            $("body").append("<p id='preview'><span style='display:block;width:200px;'>" + $(this).attr('alt') + "</span><img class='prew-img'  style='display:none;max-width:600px;' src='" + $(this).attr('src') + "' alt='Image preview' /></p>");
             $("#preview")
             .css("top", (e.pageY - 50) + "px")
-            .css("left", (e.pageX + 200) + "px")
+            .css("left", (e.pageX + 50) + "px")
             .fadeIn("fast");
             $('.prew-loader').remove(); $('#preview img').fadeIn('slow');
         });
@@ -148,7 +144,7 @@
                 $table.find("span").removeClass('preview-text').empty();
                 $row.find("span").addClass('preview-text').text("превью");
 
-                $('#' + data.pid).attr('src', '/Admin/ImageData/GetProdImage?pid=' + data.pid + '&width=75&height=75&' + (new Date()).getTime());
+                $('#' + data.pid).attr('src', data.src);
                 $('#' + data.pid).effect("bounce", {}, 2000);
             });
         })

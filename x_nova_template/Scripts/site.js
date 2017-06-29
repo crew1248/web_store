@@ -172,10 +172,11 @@ function updateTotal(total, quant) {
 
 function ExpandPartialCart(id, title, p, c, t) {
     var subTitle = title.length > 25 ? title.substring(0, 25) + '...' : title;
-
+    var src = $('#mpic_' + id).attr('src');
+    var img = $('<img src="'+src+'" />');
     $('.forg-menu').append(
         '<tr class="item-row" data-pid="' + id + '">' +
-        '<td><img src="/ImageData/GetProdImage?pid=' + id + '&width=50&height=50" /></td>' +
+        '<td><img class="forg-img" src="'+src+'" /></td>' +
         '<td><span>' + subTitle + '</span><span class="top-cart-remove" data-event-type="cart__remove">удалить</span></td>' +
         '<td>' + p + ' </td>' +
         '</tr>'
@@ -501,7 +502,7 @@ $(function () {
     $(document).on('click', '*[data-event-type="cart__increase"]', cartItemIncrease);
     $(document).on('click', '*[data-event-type="cart__remove"]', removeFromCart);
     $(document).on('click', '*[data-event-type="cart__add"]', addToCart);
-    $(document).on('click', '*[data-event-type="cart__view"]', toTheCart);
+    //$(document).on('click', '*[data-event-type="cart__view"]', toTheCart);
     $(document).on('click', '*[data-event-type="cart__checkout"]', cartCheckout);
     //$(document).on('click', '.checkout-auth', authAttach);
     $(document).on('click', '#popup-livechat', popupLivechat);

@@ -38,7 +38,7 @@ namespace x_nova_template.Models
         [StringLength(500)]
         public string Coupling { get; set; }  // Система охлаждения
 
-
+        public Category Category { get; set; }
 
       
         [StringLength(500)]

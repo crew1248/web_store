@@ -57,8 +57,8 @@
 
             </div>
             <div class="xn-i-button">
-                <button class="xn-dark-button btn xn-cart-option btn-default" data-event-type="cart__add" data-pid="" >Купить</button>
-                <button class="xn-dark-button btn btn-default" onclick="XN.Inscreaser.Close();" data-pid="">Продолжить</button>
+                <a class="xn-dark-button btn xn-cart-option btn-default" data-event-type="cart__add" data-pid="" >Купить</a>
+                <a class="xn-dark-button btn btn-default" onclick="XN.Inscreaser.Close();" data-pid="">Продолжить</a>
             </div>
         </div>
     </div>
@@ -104,7 +104,7 @@ else
     $(function () {
 
         XN.Inscreaser.Init(@ViewBag.type,@Html.Raw(ViewBag.result),@ViewBag.el);
-        @if(ViewBag.result=="[]"){ <text>alert('Пустой объект');</text>}
+        @if(ViewBag.result==null){ <text>alert('Пустой объект');</text>}
         if($('#screenWidth').val()<500){
             //$('.xn-i-button').cleanWhitespace();
             $('.xn-cart-option').after('<br /><br />');}

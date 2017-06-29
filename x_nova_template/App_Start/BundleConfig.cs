@@ -13,7 +13,10 @@ namespace x_nova_template
                         "~/Scripts/jquery-2.1.4.min.js",
                         "~/Scripts/jquery-ui-1.11.4.min.js"
                           ));
+            bundles.Add(new ScriptBundle("~/bundles/zoom").Include(
+                    "~/Scripts/jquery.elevateZoom-3.0.8.min.js"
 
+                      ));
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
 
                         "~/Scripts/jquery.validate*",
@@ -49,6 +52,8 @@ namespace x_nova_template
           
             "~/Scripts/jquery.signalR-2.2.0.min.js"  
             ));
+           
+            
             bundles.Add(new ScriptBundle("~/bundles/tt").Include(
                 //"~/Scripts/jquery.jcarousel.min.js",
                 
@@ -57,14 +62,18 @@ namespace x_nova_template
                 "~/Scripts/menu.js",
                 "~/Scripts/site.js",
                 "~/Scripts/jquery.signalR-2.2.0.min.js"
-           
-                ));
+               
+                )); 
+          
             //main css
             bundles.Add(new StyleBundle("~/Content/authcss").Include(
                  "~/Content/auth.css"
                 ));
             bundles.Add(new StyleBundle("~/Content/css").Include(
+
+             
               "~/Content/site.css",
+              "~/Content/comm.css",
               "~/font-awesome/css/font-awesome.min.css",
 
               //"~/Content/kendo/2013.3.1324/kendo.common.min.css",
@@ -105,14 +114,7 @@ namespace x_nova_template
                 "~/Scripts/scale-raphael.js",
                 "~/Scripts/svg-map.js"
                 ));
-            bundles.Add(new ScriptBundle("~/bundles/zoomjs").Include(
-
-                 "~/Scripts/plugin/tiksluszoom.min.js"
-                ));
-            bundles.Add(new StyleBundle("~/Content/zoomcss").Include(
-                "~/Content/plugin/tiksluszoom.css"
-                ));
-
+           
             bundles.Add(new ScriptBundle("~/bundles/signalr").Include(
                 "~/Scripts/jquery.signalR-2.2.0.min.js"
                 ));

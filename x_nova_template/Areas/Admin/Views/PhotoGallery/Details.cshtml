@@ -6,12 +6,12 @@
 }
 
 @(Html.Kendo().Sortable()
-    .For("#img-cont")
-
+    .For(".xn-sort")
+    .Axis(SortableAxis.X)
     .HintHandler("hint")
     .PlaceholderHandler("placeholder")
 
-    .Events(events => events.Change("onChange").Cancel("onCancel"))
+    .Events(events => events.Move("onMove").Cancel("onCancel").End("onEnd").Start("onStart"))
 )
 <script>
     $(document).on('click', '.gal-item-del', function () {
@@ -19,7 +19,8 @@
             $('#'+data.imgId).closest("div").remove();
         });
     });
-
+    var arr = [],
+        itemData = {};
     function hint(element) {
         return element.clone().addClass("hint");
     }
@@ -27,49 +28,72 @@
     function placeholder(element) {
         return element.clone().addClass("placeholder").text("Поместить сюда");
     }
+    /* main fucntions */
+    function onStart(e) {
+        var id = e.sender.element.attr("id");
+        console.log(id + " start: " + e.item.text());
+    }
 
-    //function onStart(e) {
-    //    var target = $('#droptarget');
-    //    var id = e.item.data("sort");
+    function onMove(e) {
+        var id = e.sender.element.attr("id"),
+            text = e.item.attr('data-sort'),
+            placeholder = e.list.placeholder;
 
-    //    target.html(id + " start: " + e.item.find('img').attr('title')+', action - '+e.sender.event);
-    //}
+        console.log(text + " "+id+" move to index: " + this.indexOf(placeholder));
+    }
 
-    //function onMove(e) {
-    //    var target = $('#droptarget');
-    //    var id = e.item.data("sort"),
-    //        placeholder = e.list.placeholder;
-
-    //    target.html(id + " move to index: " + this.indexOf(placeholder)+',action - '+e.action);
-    //}
-
-    //function onEnd(e) {
-    //    var target = $('#droptarget');
-    //    var id = e.sender.element.attr("data-id"),
-    //        text = e.item.text(),
-    //        oldIndex = e.oldIndex,
-    //        newIndex = e.newIndex;
-
-    //    target.html(id + " end: " + text + " oldIndex: " + oldIndex + " newIndex: " + newIndex + " action: " + e.action);
-    //}
+    function onEnd(e) {
+        var id = e.sender.element.attr("id"),
+            text = e.item.find('>div').text(),
+            oldIndex = e.oldIndex,
+            newIndex = e.newIndex;
+        if(oldIndex>newIndex){
+            for(var i=newIndex;i<=oldIndex;i++){
+                var sortlist= $('.xn-sort').children('.xn-sortitem');
+                var sortitem = sortlist.eq(i);
+                var sortitem1 = sortlist.eq(i+1);
+                console.log('id - '+sortitem.attr('id')+', sort - '+sortitem1.data('sort')+'old - '+oldIndex+', new - '+newIndex);
+                arr.push({id:sortitem.attr('id'),sort:sortitem1.data('sort')});
+               
+            }
+            $.post('/PhotoGallery/EditSort',{jsonData:JSON.stringify(arr)},function(){
+                
+            });
+        }
+        else if(oldIndex<newIndex){
+            for(var i=newIndex;i>=oldIndex;i--){
+                var sortlist,sortitem,sortitem1;
+                if(oldIndex==i){
+                    sortlist= $('.xn-sort').children('.xn-sortitem');
+                    sortitem = sortlist.eq(i);
+                    sortitem1 = sortlist.eq(newIndex);
+                }
+                else{
+                    sortlist= $('.xn-sort').children('.xn-sortitem');
+                    sortitem = sortlist.eq(i);
+                    sortitem1 = sortlist.eq(i-1);
+                }
+                console.log('id - '+sortitem.attr('id')+', sort - '+sortitem1.data('sort')+'old - '+oldIndex+', new - '+newIndex);
+                //arr.push({id:sortitem.attr('id'),sort:sortitem1.data('sort')});
+               
+            } 
+            $.post('/PhotoGallery/EditSort',{jsonData:JSON.stringify(arr)},function(){
+                
+            });
+        }
+        else{}
+        //console.log(id + " end: " + text + " oldIndex: " + oldIndex + " newIndex: " + newIndex + " action: " + e.action);
+    }
 
     function onChange(e) {
-        var target = $('#droptarget');
-        var idx = e.item.data("id"),
-            gid= e.item.data("galid")
-        text = e.item.text(),
-        newIndex = e.newIndex+1,
-        oldIndex = e.oldIndex+1;
+        var id = e.sender.element.attr("id"),
+            text = e.item.text(),
+            newIndex = e.newIndex,
+            oldIndex = e.oldIndex;
 
-        opos = $('.gal-item:eq('+e.newIndex+')').data('sort');
-        npos = $('.gal-item:eq('+e.oldIndex+')').data('sort');
-        console.log( opos+', '+npos);
-        $.post('/PhotoGallery/EditSort', { id: idx, galId: gid, newPos: npos, oldPos: opos }, function () {
-
-        });
-
-
+        console.log(id + " change: " + text + " newIndex: " + newIndex + " oldIndex: " + oldIndex + " action: " + e.action);
     }
+    /* end main fucntions */
     function DeleteAll(id) {
         $.post('/PhotoGallery/DeleteAll', { galid: id },function(){$('.gal-item').remove();});
     }
@@ -95,7 +119,7 @@
 <div>
 
     <div style="float:left;">
-        <img width="150" height="150" src="@Url.Action("GetPhotoGalleryImage", "ImageData", new {id= Model.ID,width=150,height=150,isGallery=true })" />
+        <img width="150" height="150" src="@Url.Content("~/Content/Files/Gallery/" + Model.ID + "/" + Model.GalleryMimeType)" />
     </div>
 
 
@@ -105,34 +129,26 @@
     <a href="#" onclick="$('#gal-popup').data('kendoWindow').open()"><button class="k-button"><i class="fa fa-upload"></i>  Загрузить</button></a><br /><br /><br />
     <a class="k-button" onclick="DeleteAll(@Model.ID);">Удалить все</a>
     <p id="droptarget"></p>
-    <div id="img-cont">
+    <div id="img-cont" class="xn-sort">
         @foreach (var item in Model.Images.OrderBy(x => x.Sortindex))
-        {
+{
+
+
+    <div class="gal-item xn-sortitem" data-sort="@item.Sortindex" data-id="@item.ID" data-galid="@item.GalleryID" id="@item.ID">
+        
+        <div class="xn-sortitem-title">@item.ID - @item.Sortindex </div>
+        <a href="#">
+
+            <img width="65" height="65" class="preview gal-img-item" id="@item.ID" title="@item.ImageTitle" src="@Url.Content("~/Content/Files/Gallery/" + Model.ID + "/images/"+item.ImageMimeType)" />
+        </a>
+        <button id="gal-item_@item.ID" data-id="@item.ID" data-galid="@item.GalleryID" title="удалить" class="gal-item-del" style="width: 33px;padding: 0;float: right;" class="action">
+            <span class="fa fa-trash"></span>
+        </button>
+    </div>
 
 
 
-            if (item.ImageData == null)
-            {
-                @:None
-                 }
-            else
-            {
-
-
-                <div class="gal-item" data-sort="@item.Sortindex" data-id="@item.ID" data-galid="@item.GalleryID">
-                    <div>@item.Sortindex - @item.ImageTitle</div>
-                    <a href="#">
-
-                        <img width="65" height="65" class="preview gal-img-item" id="@item.ID" title="@item.ImageTitle" src="@Url.Action("GetPhotoGalleryImage", "ImageData", new { id = item.ID,width=100,height=100,isGallery=false })" />
-                    </a>
-                    <button id="gal-item_@item.ID" data-id="@item.ID" data-galid="@item.GalleryID" title="удалить" class="gal-item-del" style="width: 33px;padding: 0;float: right;" class="action">
-                        <span class="fa fa-trash"></span>
-                    </button>
-                </div>
-            }
-
-
-        }
+}
     </div>
 </div>
 

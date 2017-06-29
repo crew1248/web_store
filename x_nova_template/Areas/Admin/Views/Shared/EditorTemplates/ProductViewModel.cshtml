@@ -21,25 +21,25 @@
             <span data-for="ProductName" class="k-invalid-msg"></span>
         </dd>
         -->
-        <dt>Название</dt>
+        <dd>Название</dd>
         <dd>
             @(Html.TextBoxFor(p => p.ProductName))
             <!-- UnitPrice validation message placeholder -->
             <span data-for="Price" class="k-invalid-msg"></span>
         </dd>
-        <dt>Описание</dt>
+        <dd>Описание</dd>
         <dd>
-            @(Html.TextAreaFor(p => p.Description, new { style = "height:50px;" }))
+            @(Html.TextAreaFor(p => p.Description))
             <!-- UnitsInStock validation message placeholder -->
             <span data-for="Description" class="k-invalid-msg"></span>
         </dd>
-        <dt>Цена</dt>
+        <dd>Цена</dd>
         <dd>
-            @(Html.TextBoxFor(p => p.Price, new { style = "width:50px;" }))
+            @(Html.TextBoxFor(p => p.Price, new { style = "width:100px;" }))
             <!-- UnitsInStock validation message placeholder -->
-            <span data-for="Description" class="k-invalid-msg"></span>
+            <span data-for="Price" class="k-invalid-msg"></span>
         </dd>
-        <dt>Категория</dt>
+        <dd>Категории</dd>
         <dd>
             @(Html.DropDownListFor(p => p.CategoryID, (SelectList)ViewBag.Cats, new { style = "width:200px;" }))
             <!-- UnitsInStock validation message placeholder -->
@@ -52,3 +52,10 @@
     </dl>
 
 </div>
+
+<script>
+
+    $('.k-grid-cancel').text("Отмена");
+    $('.k-grid-update').text("Сохранить");
+    $('.k-edit-buttons').css('backgroundColor', ' white');
+</script>

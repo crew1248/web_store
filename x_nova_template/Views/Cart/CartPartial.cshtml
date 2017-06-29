@@ -16,7 +16,7 @@
             @foreach (var item in Model.Cart.Lines)
             {
                 <tr class="item-row" data-pid="@item.Product.ID">
-                    <td><img src="@Url.Action("GetProdImage", "ImageData", new {pid=item.Product.ID,width=50,height=50 })" /></td>
+                    <td><img class="forg-img" src="/Content/Files/Product/@item.Product.ID/200x150/@item.Product.ProdImages.SingleOrDefault(x=>x.IsPreview==1).ImageMimeType" /></td>
                     <td><span>@(item.Product.ProductName.Length > 25 ? item.Product.ProductName.Substring(0, 25) + "..." : item.Product.ProductName)</span><span class="top-cart-remove" data-event-type="cart__remove">удалить</span></td>
                     <td>@item.Product.Price.ToString("N0") <i class="fa fa-rouble"></i></td>
                 </tr>

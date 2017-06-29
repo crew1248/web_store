@@ -83,6 +83,7 @@ p.breadcrumbs a {
 }
 
 .gal-item {
+        float: left;
     font-size:11px;
     cursor: move;
     margin: 3px;

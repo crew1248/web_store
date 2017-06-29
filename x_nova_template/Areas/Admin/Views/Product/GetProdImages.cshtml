@@ -33,7 +33,8 @@
 
         console.log(opos + ', ' + npos + ' eq: ' + e.newIndex + ' ' + e.oldIndex);
         $.post('/Product/EditSort', { id: idx, newPos: npos, oldPos: opos }, function () {
-
+            var prodId = $('#photos').data('prodid');
+            $('.prod-images').load('/Admin/Product/GetProdImages?pid=' + prodId).effect("highlight", {}, 2000);
         });
 
 
@@ -44,39 +45,43 @@
 
 
 
+@if (Model.ProdImages.Count() != 0)
+{
+    <h3>Все фото:(@Model.ProdImages.Count())</h3>
+    <div>
+        <table>
+            <tr style="background:gray;color:white;">
+                <th>очередность</th>
+                <th>фото</th>
 
-<h3>Все фото:(@Model.ProdImages.Count())</h3>
-<div>
-    <table>
-        <tr style="background:gray;color:white;">
-            <th>очередность</th>
-            <th>фото</th>
+                <th>в превью</th>
+                <th>ссылка</th>
+                <th>удалить</th>
+            </tr>
+            <tbody id="img-cont">
+                @foreach (var item in Model.ProdImages.OrderByDescending(x => x.Sortindex))
+                {
 
-            <th>в превью</th>
-            <th>удалить</th>
-        </tr>
-        <tbody id="img-cont">
-            @foreach (var item in Model.ProdImages.OrderByDescending(x => x.Sortindex))
-            {
+                    <tr class="sort-item" data-sort="@item.Sortindex" data-id="@item.ProductID">
+                        <td style="width:30px;">@item.Sortindex</td>
+                        <td style="width:100px;">
+                            @*<img src="@Url.Action("GetProdImage", "ImageData", new {pimgid=item.ID,width=100,height=100 })" width="75" height="75" />*@
+                            <img src="@Url.Content("~/Content/Files/Product/"+item.ProductID+"/200x150/"+item.ImageMimeType)" width="75" height="75" />
+                            <span @(x_nova_template.Areas.Admin.Controllers.ProductController.CheckPreview(item.ID) ? "class=preview-text" : "")>
+                                @(x_nova_template.Areas.Admin.Controllers.ProductController.CheckPreview(item.ID) ? "превью" : "")
+                            </span>
+                        </td>
 
-                <tr class="sort-item" data-sort="@item.Sortindex" data-id="@item.ProductID">
-                    <td style="width:30px;">@item.Sortindex</td>
-                    <td style="width:100px;">
-                        <img src="@Url.Action("GetProdImage", "ImageData", new {pimgid=item.ID,width=100,height=100 })" width="75" height="75" />
-                        <span @(x_nova_template.Areas.Admin.Controllers.ProductController.CheckPreview(item.ID) ? "class=preview-text" : "")>
-                            @(x_nova_template.Areas.Admin.Controllers.ProductController.CheckPreview(item.ID) ? "превью" : "")
-                        </span>
-                    </td>
+                        <td style="width:30px;"><input type="radio" name="previewImg" data-pimgid="@item.ID" @(x_nova_template.Areas.Admin.Controllers.ProductController.CheckPreview(item.ID) ? "checked" : "") /> </td>
+                        <td style="width:100px;">@Url.Content("~/Content/Files/Product/" + item.ProductID + "/" + item.ImageMimeType)</td>
+                        <td style="width:30px;"><i class="fa fa-times preview-del" style="cursor:pointer" data-pimgid="@item.ID"></i></td>
+                    </tr>
 
-                    <td style="width:30px;"><input type="radio" name="previewImg" data-pimgid="@item.ID" @(x_nova_template.Areas.Admin.Controllers.ProductController.CheckPreview(item.ID) ? "checked" : "") /> </td>
-                    <td style="width:30px;"><i class="fa fa-times preview-del" style="cursor:pointer" data-pimgid="@item.ID"></i></td>
-                </tr>
-
-            }
-        </tbody>
-    </table>
-</div>
-
+                }
+            </tbody>
+        </table>
+    </div>
+}
 @(Html.Kendo().Sortable()
     .For("#img-cont")
 

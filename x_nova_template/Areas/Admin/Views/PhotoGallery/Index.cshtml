@@ -24,7 +24,7 @@
 foreach (var item in Model.Galleries) {
     <tr >
         <td>
-          <img class="preview gal-img" src="@Url.Action("GetPhotoGalleryImage", "ImageData",new {id=item.ID,width=75,height=75,isGallery = true}) "  id="@item.ID"  alt="@item.GalleryTitle" height="50" width="50" />
+            <img class="preview grid-img" src="@Url.Content("~/Content/Files/Gallery/" + item.ID + "/"+item.GalleryMimeType)" id="@item.ID" alt="@item.GalleryTitle" height="50" width="50" />
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.GalleryTitle)

@@ -96,7 +96,7 @@ namespace x_nova_template.Areas.Admin.Controllers
             }
             return View();
         }
-
+      
         public ActionResult Details(int id)
         { 
         
@@ -170,7 +170,7 @@ namespace x_nova_template.Areas.Admin.Controllers
             var gal  = _gRepo.GetGallery(id);
             if (gal.Images.Count() != 0)
             {
-                foreach (var item in gal.Images)
+                foreach (var item in gal.Images.ToArray())
                 {
                     _gRepo.Delete(null, item);
                 }
@@ -183,9 +183,13 @@ namespace x_nova_template.Areas.Admin.Controllers
 
         }
         [HttpPost]
-        public JsonResult EditSort(int id, int galId, int newPos, int oldPos)
+        public JsonResult EditSort(string jsonData)
         {
-            this._gRepo.UpdateSort(galId, oldPos, newPos);
+            var result = JsonConvert.DeserializeObject<List<SortViewModel>>(jsonData);
+            foreach (var x in result)
+            {
+                _gRepo.UpdateSort(Int32.Parse(x.id),Int32.Parse(x.sort));
+            }
             return base.Json("");
         }
         public ActionResult Edit(int id,int page) {

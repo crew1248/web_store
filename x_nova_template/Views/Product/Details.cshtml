@@ -1,31 +1,47 @@
 ﻿@model x_nova_template.Models.Product
 @{
     ViewBag.Title = Model.ProductName;
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_PageMenuLayout.cshtml";
+    x_nova_template.Models.ProdImage previewImg = Model.ProdImages.SingleOrDefault(x => x.IsPreview == 1);
+    string siteurl = "";
+    bool islocal = Request.IsLocal;
+    siteurl = islocal ? siteurl = "~" : siteurl = System.Configuration.ConfigurationManager.AppSettings["SitePath"] as string;
 }
 
-<div class="breadcrumb">@Html.RouteLink("Главная", "home") / @Html.ActionLink(ProductController.GetCatName(Model.CategoryID), "ProdList", new { catId = Model.CategoryID }) / @Model.ProductName</div>
-<h3>@Model.ProductName</h3>
 <div class="prod-view prod-view__details clear-fix" id="pid_@Model.ID">
+
+    <div class="breadcrumb">@Html.RouteLink("Главная", "home") /<a href="@Url.Action("ProdList", "Product", new { catId = Model.CategoryID })">@ProductController.GetCatName(Model.CategoryID)</a> / @Model.ProductName</div>
+    <h1>@Model.ProductName</h1>
+
     <div class="view-img">
         <div class="prod-image">
-            <img src="@Url.Action("GetProdImage", "ImageData", new {pid=Model.ID,width=500,height=400 },Request.Url.Scheme)" />
+            <div id="imwrap" style="display: inline-block;">
+                <img class="prod-view__target-img img-responsive" data-zoom-image="@Url.Content(siteurl+"/Content/Files/Product/" + Model.ID + "/" + Model.ProdImages.Where(x => x.IsPreview == 1).SingleOrDefault().ImageMimeType)" id="zoom_1" src="@Url.Content(siteurl+"/Content/Files/Product/" + Model.ID + "/" + Model.ProdImages.Where(x => x.IsPreview == 1).SingleOrDefault().ImageMimeType)" />
+            </div>
         </div>
         <div class="imglist-wrap imglist-view" id="prod_sl_1">
-            @*<i class="fa fa-chevron-left prev"></i>*@
+            <i class="fa fa-chevron-left prev"></i>
             <div class="prod-imglist view-imglist">
 
-                <ul>
-                    @foreach (var img in Model.ProdImages)
+                <ul id="gallery_01">
+
+                    <li>
+                        <img class="detail-item" data-id="@previewImg.ID" data-pid="@previewImg.ProductID" src="@Url.Content(siteurl + "/Content/Files/Product/" + previewImg.ProductID + "/200x150/" + previewImg.ImageMimeType)" height="76" width="60" />
+                    </li>
+
+                    @foreach (var img in Model.ProdImages.Where(x => x.IsPreview != 1).OrderByDescending(x => x.Sortindex))
                     {
 
+
                         <li>
-                            <img class="detail-item" data-id="@img.ID" data-pid="@img.ProductID" src="@Url.Action("GetProdImage", "ImageData", new {pimgid=img.ID,type="small" },Request.Url.Scheme)" width="60"    height="60"  />
+                            <img class="detail-item" data-id="@img.ID" data-pid="@img.ProductID" src="@Url.Content(siteurl+"/Content/Files/Product/" + img.ProductID + "/200x150/" + img.ImageMimeType)" height="76" width="60" />
                         </li>
+
                     }
                 </ul>
+
             </div>
-            @*<i class="fa fa-chevron-right next"></i>*@
+            <i class="fa fa-chevron-right next"></i>
         </div>
     </div>
     <div class="listview-wrap">
@@ -40,14 +56,15 @@
                     <th>Область</th>
                     <td>@ProductController.GetCatName(Model.CategoryID)</td>
                 </tr>
-                @if (!string.IsNullOrWhiteSpace(Model.MatForm))
+                @if (!string.IsNullOrWhiteSpace(Model.MatIronForm))
                 {
 
-                    <tr class="d-matform">
-                        <th>Материал формообразующих</th>
-                        <td>@Model.MatForm</td>
+                    <tr class="d-matprod">
+                        <th>Марка стали формообразующих</th>
+                        <td>@Model.MatIronForm</td>
                     </tr>
                 }
+
                 @if (!string.IsNullOrWhiteSpace(Model.Hardness))
                 {
 
@@ -72,6 +89,14 @@
                         <td>@Model.ProdTime</td>
                     </tr>
                 }
+                @if (!string.IsNullOrWhiteSpace(Model.MatForm))
+                {
+
+                    <tr class="d-matform">
+                        <th>Материал формообразующих</th>
+                        <td>@Model.MatForm</td>
+                    </tr>
+                }
                 @if (!string.IsNullOrWhiteSpace(Model.Channel))
                 {
 
@@ -86,14 +111,6 @@
                     <tr class="d-coup">
                         <th>Система охлаждения</th>
                         <td>@Model.Coupling</td>
-                    </tr>
-                }
-                @if (!string.IsNullOrWhiteSpace(Model.MatIronForm))
-                {
-
-                    <tr class="d-matprod">
-                        <th>Марка стали формообразующих</th>
-                        <td>@Model.MatIronForm</td>
                     </tr>
                 }
 
@@ -121,10 +138,49 @@
 
 
 </div>
+@Scripts.Render("~/bundles/zoom")
 <script>
     $(function () {
         $('.prod-imglist li:eq(0)').css({ border: '1px solid rgb(189, 41, 41)' });
+        // $('#zoom_1').elevateZoom({ tint: true, tintColour: 'black', tintOpacity: 0.5 });
+
+        if (!XN.IsTablet)
+            $('#zoom_1').elevateZoom();
+
+        $('.prev, .next').hide();
+        // slider 1
+
+        $('#prod_sl_1 .prod-imglist').jcarousel({ wrap: null });
+        var pimgList = $('#prod_sl_1  .prod-imglist').jcarousel();
+        $('#prod_sl_1 .prev')
+                   .on('jcarouselcontrol:active', function () {
+                       $(this).removeClass('inactive');
+                   })
+                   .on('jcarouselcontrol:inactive', function () {
+                       $(this).addClass('inactive');
+
+                   })
+                   .jcarouselControl({
+                       target: '-=1',
+                       carousel: pimgList
+                   });
+
+        $('#prod_sl_1 .next')
+                .on('jcarouselcontrol:active', function () {
+
+                    $(this).removeClass('inactive');
+                })
+                .on('jcarouselcontrol:inactive', function () {
+                    $(this).addClass('inactive');
+
+                }).jcarouselControl({
+                    target: '+=1',
+                    carousel: pimgList
+                });
+
+        $("#prod_sl_1 .prod-imglist").jcarousel();
 
     });
+
 
 </script>

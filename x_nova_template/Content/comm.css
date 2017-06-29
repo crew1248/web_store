@@ -68,103 +68,266 @@ text-align:center;
 {
     margin: 0 0 0 242px!important;
 }
-/* =========================== header area ======================== */
 
-.top-h
-{
-  
-    background:#233d55;
-    box-shadow:0 5px 5px #152433;
+/* =========================== footer area ======================== */
+
+/* =========================== Cart area ======================== */
+/* =========================== Gallery area ======================== */
+/* =========================== Catalog area ======================== */
+.prod-view__details .prod-imglist ul li{
+    padding:4px;
 }
-.bottom-h
+
+.prod-view .xn-i-details {
+    margin-top: 20px;
+    padding:0;
+    font-size:12px;
+    max-width:500px;
+}
+.prod-view .xn-i-details tr {
+    height:20px;
+}
+.prod-view     .xn-i-details table {
+     
+    }
+.prod-view .xn-i-details table th {
+    font-family:Roboto,Arial;
+  width:120px;
+     font-weight: 600;
+    font-size: 12px;
+
+}
+.prod-view .xn-i-details table td {
+       word-break: break-word;
+    padding-left: 10px;
+padding-top: 7px;
+}
+.prod-view .xn-i-details table th,.prod-view .xn-i-details table td {
+    padding-bottom:15px;
+}
+.primers img {
+    padding: 0 20px 20px 0;
+    margin: 0;
+    display:inline-block
+}
+.prod-imglist ul
 {
-    height: 236px;
-    background-image: url(/content/qm/light1.png);
-    background-position: left;
-    background-position-x: -250px;
-    background-repeat: no-repeat;   
+    list-style-type:none!important;
+    width: 20000em;
+    position: relative;
+    list-style: none;
+    left: 0px;
+    top: 0px;
+    margin: 0px!important;
+    padding: 0px!important;
+}
+    .prod-imglist ul li
+    {
+        float: left;
+      
+           margin: 0 5px;
+    padding: 4px 4px 0 4px;
+    border: 1px solid #E4E4E4;
+    }
+.imglist-item
+{
+    cursor:pointer;
+    padding-right:0;
+}
+#listview .prod-image
+{
+      
+    text-align: center;
+    position:relative;
    
 }
-.bottom-m-wrap
-{
-    /*margin:0 50px;*/
-    
+#listview .prod-image img {
+    width: 150px;
 }
-.m-header
+.prod-details
 {
-    background-image:url(/content/qm/opacity-bg.png);
-    background-position:center bottom;
-    background-repeat: no-repeat;
-    margin-bottom:0;
-    border:0;
-        background-size: cover;
-            background-position-y: -5px;
+    cursor:zoom-in;
+    display:none;
+    position: absolute;
+    top: 50%;
+    left: 45px;
+    color: #111;
+    background: #FFF;
+    opacity: 0.8;
+    font-weight: bold;
+    padding: 2px;
+    border-radius: 2px;
 }
-#services
+.prod-imglist
 {
-    height: 370px;
-    position:relative;
-    z-index: 10;
+      width: 140px;
+    height: 94px;
+    position: relative;
+    overflow: hidden;
+    top: 10px;
+        left: 10px;
+}
+.imglist-wrap
+{
+   
+    position: relative;
+    height: 90px;
+    overflow: hidden;
+    width: 170px;
+        margin: 0 auto;
+}
+    .imglist-wrap i
+    {
+        position: absolute;
+        top: 30px;
+        left: 0;
+        width: 15px;
+        height: 15px;
+        font-size: 15px;
+        z-index: 3;
+        cursor:pointer;
     }
-#phone
+.imglist-wrap i.prev
 {
+    left:0px;
+}
+.imglist-wrap i.next
+{
+   left: 145px;
+}
+.imglist-wrap i.inactive {
+  display: none;
+}
+.separ
+{
+    height: 50px;
+}
+.listview-item a {
+    font-size: 12px;
+}
+.listview-item
+{
+       min-height: 250px;
+    border:1px solid #233D55;
+    padding:10px;
+     
+    background: url(/content/qm/prod-linear.png);
+   
+    background-repeat: no-repeat;
+    background-position: bottom right;
+}
+    .listview-item:hover
+    {
+           box-shadow: 0px 0px 0px 3px #d6d6d6;
+    border: 1px solid gray;
+    }
+        .listview-item:hover .prod-more-btn
+        {
+           display:block;
+        }
+.prod-desc
+{   
+    font-size: 12px;
     padding: 10px 0;
-    /*float: left;
+    word-break: break-word;
+    height: 170px;
+    display: inline-block;
+    overflow: hidden;
+}
+.prod-img-wrapper
+{
+    float:right;   
     
-    width: 200px;*/
+}
+.listview-item table th,.listview-item table td {
+    padding-bottom: 7px;
 
 }
-.btns
+.listview-item table th {
+    font-weight:300;
+    width:120px;
+}
+.listview-item table td {
+    vertical-align:top;
+    padding-left:5px;
+    font-weight:700;
+}
+
+.prod-more-btn
+{
+    z-index: 1;
+    width: 100%;
+    height: 40px;
+    bottom: 0;
+    position: absolute;
+    left: 0;
+    background: whitesmoke;
+    display: none;
+}
+
+.more-btn
+{
+    color: #7a7a7a;
+    padding: 10px;
+    display:block;
+    text-align: center;
+    font-size: 13px!important;
+        font-family: Roboto slab;
+            text-transform: uppercase;
+}
+    .more-btn:hover
+    {
+       color: #7a7a7a;
+    }
+
+.listview-wrap
+{
+    float: left;
+        padding: 0 0 0 15px;
+}
+
+/*   prod details  */
+
+.prod-view
 {
     padding:20px 0;
-    position:relative;
-}
-    .btns a:first-child {
-       
-    }
-.h-btn
-{
 
 }
-
-.white-wrapper
+   
+.imglist-view
 {
-    height:300px;
-    background:white;
-  
+       width: 450px;
+       margin:0;
 }
-    .white-wrapper .container {
-        padding:0;
-    }
-.top-h-wrap,.bottom-h-wrap,.serv-wrap
+.view-img .prod-image img
 {
-    margin:0 auto;
-    width:100%;
+    /*max-width: 450px;*/
+       /*margin: 0 auto;*/
 }
-.serv-m-wrap
+.view-imglist
 {
-   /*margin:0 100px;*/
-}
-.s-title
-{
-padding-top: 10px;
-height: 110px;
-}
-    .s-title p
-    {
-        width:400px;
-        font-size:14px;
-        color:#444;
-    }
-#logo
-{
-    /*width: 170px;
-    height: 170px;
-    float: left;*/
-    padding-top: 30px;
+            /*margin: 0 auto;*/
+                width: 350px;
    
 }
-
+    .view-imglist img {
+        cursor:pointer;
+        width: 50px;
+        height: 50px;
+    }
+    .imglist-view i.next
+    {
+        right: 0;
+        left: inherit;
+    }
+        .imglist-view i.prev
+    {
+        left: 0;
+    }
+/* =========================== Product page area ======================== */
+.prod-view__target-img {
+    max-width:450px;
+}
 /* =========================== static sections area ======================== */
 #section_1 p {
     margin:0!important;

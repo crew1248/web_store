@@ -13,18 +13,47 @@
         <div class="xn-listview-tr">
             <div class="xn-listview-td">
                 <div class="xn-listview-wrapper">
-                    <ul class="xn-listview-feed" id="anim-listview">
+                    <ul class="xn-listview-feed" >
                         <!-- start of list-->
                         @foreach (var item in Model.Products)
                         {
 
                             <li class="xn-listview-item" data-id="@item.ID">
-
-                                <div class="xn-lockup">
+                                <div class="thumbnail">
                                     <div class="item-img">
                                         @if (item.ProdImages.Any(x => x.IsPreview == 1))
                                         {
-                                            <img id="mpic_@item.ID" data-id="@item.ProdImages.SingleOrDefault(x=>x.IsPreview==1).ID" src="@Url.Action("GetProdImage", "ImageData", new {pid=item.ID,width=130,height=150,noredirect=true },Request.Url.Scheme)" />
+                                            <img id="mpic_@item.ID" data-id="@item.ProdImages.SingleOrDefault(x=>x.IsPreview==1).ID" src="@Url.Content("~/Content/Files/Product/" + item.ID + "/200x150/" + item.ProdImages.Where(x => x.IsPreview == 1).SingleOrDefault().ImageMimeType)" />
+                                        }
+
+                                    </div>
+                                    <div class="caption">
+                                        <h4 class="group inner list-group-item-heading">
+                                           
+                                            @{var name = item.ProductName.Length > 50 ? item.ProductName.Substring(0, 50) + "..." : item.ProductName;}
+                                            @Html.ActionLink(name, "Details", "Product", new { id = item.GenerateSlug() }, new { @class = "prod-preview" })
+                                        </h4>
+                                        <p class="group inner list-group-item-text">
+                                            @item.Description
+                                        </p>
+                                        <div class="row">
+                                            <div class="col-xs-12 col-md-6">
+                                                <p class="lead item-pric">
+                                                    @item.Price.ToString("C0") <i class="fa fa-rouble"></i>
+                                                </p>
+                                            </div>
+                                            <div class="col-xs-12 col-md-6">
+                                                <button class="btn btn-default xn-dark-button" data-event-type="cart__add" data-pid="@item.ID">купить</button>
+                                                <button class="btn btn-default xn-details xn__popup">просмотр</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @*<div class="xn-lockup">
+                                    <div class="item-img">
+                                        @if (item.ProdImages.Any(x => x.IsPreview == 1))
+                                        {
+                                             <img id="mpic_@item.ID" data-id="@item.ProdImages.SingleOrDefault(x=>x.IsPreview==1).ID" src="@Url.Content("~/Content/Files/Product/" + item.ID + "/200x150/" + item.ProdImages.Where(x => x.IsPreview == 1).SingleOrDefault().ImageMimeType)" />
                                         }
                                     </div>
                                     <div class="item-title">
@@ -37,11 +66,11 @@
                                     <div class="item-desc">
                                         <div class="item-price">@item.Price.ToString("C0") <i class="fa fa-rouble"></i></div>
                                         <div>
-                                        <button class="btn btn-default xn-dark-button" data-event-type="cart__add" data-pid="@item.ID">купить</button>
-                                        <button class="btn btn-default xn-details">просмотр</button>
+                                            <button class="btn btn-default xn-dark-button" data-event-type="cart__add" data-pid="@item.ID">купить</button>
+                                            <button class="btn btn-default xn-details xn__popup">просмотр</button>
                                         </div>
                                     </div>
-                                </div>
+                                </div>*@
                             </li>
 
 
@@ -56,4 +85,62 @@
 <div class="pager">@Ajax.AjaxPageLinks(Model.PagingInfo)</div>
 
 
+<style>    .thumbnail {
+        margin:0;
+        border:inherit;
+        transition:inherit;
+    }
+    .thumbnail {
+        margin-bottom: 20px;
+        padding: 0px;
+        -webkit-border-radius: 0px;
+        -moz-border-radius: 0px;
+        border-radius: 0px;
+        border: 1px solid gray;
+    }
 
+    .item.list-group-item {
+        float: none;
+        width: 100%;
+        background-color: #fff;
+        margin-bottom: 10px;
+    }
+
+        .item.list-group-item:nth-of-type(odd):hover, .item.list-group-item:hover {
+            background: #428bca;
+        }
+
+        .item.list-group-item .list-group-image {
+            margin-right: 10px;
+        }
+
+        .item.list-group-item .thumbnail {
+            margin-bottom: 0px;
+        }
+
+        .item.list-group-item .caption {
+            padding: 9px 9px 0px 9px;
+        }
+
+        .item.list-group-item:nth-of-type(odd) {
+            background: #eeeeee;
+        }
+
+        .item.list-group-item:before, .item.list-group-item:after {
+            display: table;
+            content: " ";
+        }
+
+        .item.list-group-item img {
+            float: left;
+        }
+
+        .item.list-group-item:after {
+            clear: both;
+        }
+
+    .list-group-item-text {
+        margin: 0 0 11px;
+    }
+
+</style>

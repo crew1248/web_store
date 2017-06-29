@@ -405,6 +405,7 @@
     <Compile Include="ViewModel\ProductListViewModel.cs" />
     <Compile Include="ViewModel\ProductViewModel.cs" />
     <Compile Include="ViewModel\SectionsViewModel.cs" />
+    <Compile Include="ViewModel\SortViewModel.cs" />
     <Compile Include="ViewModel\TemplatesViewModel.cs" />
     <Compile Include="ViewModel\TreeViewModel.cs" />
     <Compile Include="ViewModel\UsersViewModel.cs" />
@@ -1538,6 +1539,7 @@
     <Content Include="Scripts\jquery-ui-1.11.4.min.js" />
     <Content Include="Scripts\jquery.arcticmodal-0.2.min.js" />
     <Content Include="Scripts\jquery.cookie.js" />
+    <Content Include="Scripts\jquery.elevateZoom-3.0.8.min.js" />
     <Content Include="Scripts\jquery.jcarousel.min.js" />
     <Content Include="Scripts\jquery.lazyload.min.js" />
     <Content Include="Scripts\jquery.mCustomScrollbar.concat.min.js" />
@@ -1907,13 +1909,10 @@
     <Content Include="Views\Post\Index.cshtml" />
     <Content Include="Views\Post\LastNews.cshtml" />
     <Content Include="Views\Product\Details.cshtml" />
-    <Content Include="Views\Product\dfg.cshtml" />
     <Content Include="Views\Product\ProdList.cshtml" />
     <Content Include="Views\Product\ProdListPartial.cshtml" />
-    <Content Include="Views\Product\ProdListToy.cshtml" />
     <Content Include="Views\Product\ProdsToSlider.cshtml" />
     <Content Include="Views\Product\RndProds.cshtml" />
-    <Content Include="Views\Product\ToyDetails.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Currency.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Date.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\DateTime.cshtml" />

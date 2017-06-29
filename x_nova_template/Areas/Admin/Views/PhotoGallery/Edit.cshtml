@@ -29,7 +29,7 @@
              Фото
         </div>
         <div class="editor-field">
-           <img width="150" height="150" src="@Url.Action("GetPhotoGalleryImage", "ImageData", new { id=Model.ID,width=150,height=150,isGallery=true})" />
+            <img width="250" height="250" src="@Url.Content("~/Content/Files/Gallery/" + Model.ID + "/"+Model.GalleryMimeType)" />
         </div>
         <div class="editor-label">
              Название
