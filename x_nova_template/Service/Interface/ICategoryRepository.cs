@@ -16,5 +16,6 @@ namespace x_nova_template.Service.Interface
         Category Get(int id);
         void Delete(Category post);
         void Edit(CategoryViewModel post);
+        void UpdateSort(int id, int newSort);
     }
 }

@@ -9,7 +9,7 @@
     .HintHandler("hint")
     .PlaceholderHandler("placeholder")
 
-    .Events(events => events.Change("onChange"))
+    .Events(events => events.End("onEnd").Start("onStart").Move("onMove"))
 )
 <script>
   
@@ -20,39 +20,78 @@
         //$('#tar').html(table);
         return table;
     }
+    var arr = [],
+      itemData = {};   
 
     function placeholder(element) {
         return $('<tr />').addClass("placeholder").append('<td colspan="6">Поместить сюда</td></tr>');
     }
 
-    function onChange(e) {
-        var target = $('#droptarget');
-        var idx = e.item.data("id"),
-            gid= e.item.data("galid"),           
-        text = e.item.text(),
-        newIndex = e.newIndex+1,
-        oldIndex = e.oldIndex+1,
-        opos,npos
-             
-        if(e.newIndex<e.oldIndex){
-            npos=e.item.data('sort')
-            opos = $('.sort-item:eq('+e.newIndex+')').next().data('sort');
-        }else{
-            npos=e.item.data('sort')
-            opos = $('.sort-item:eq('+e.newIndex+')').prev().data('sort');
-        }
-
-
-
-        console.log( opos+', '+npos+' eq: '+e.newIndex+' '+e.oldIndex);
-        
-        $.post('/Menu/EditSort', { id: idx, newPos: npos, oldPos: opos }, function () {
-
-        });
-
-
+    function onStart(e) {
+        var id = e.sender.element.attr("id");
+        console.log(id + " start: " + e.item.text());
     }
-   
+
+    function onMove(e) {
+        var id = e.sender.element.attr("id"),
+            text = e.item.attr('data-sort'),
+            placeholder = e.list.placeholder;
+
+        console.log(text + " "+id+" move to index: " + this.indexOf(placeholder));
+    }
+
+    function onEnd(e) {
+        var id = e.sender.element.attr("data-id"),
+            text = e.item.find('>div').text(),
+            oldIndex = e.oldIndex,
+            newIndex = e.newIndex;
+        if(oldIndex>newIndex){
+            for(var i=newIndex;i<=oldIndex;i++){
+                var sortlist,sortitem,sortitem1;
+                if(oldIndex==i){
+                    sortlist= $('.xn-sort').children('.xn-sortitem');
+                    sortitem = sortlist.eq(i);
+                    sortitem1 = sortlist.eq(newIndex);
+                }
+                else{
+                    sortlist= $('.xn-sort').children('.xn-sortitem');
+                    sortitem = sortlist.eq(i);
+                    sortitem1 = sortlist.eq(i+1);
+                }
+                //console.log('id - '+sortitem.attr('id')+', sort - '+sortitem1.data('sort')+'old - '+oldIndex+', new - '+newIndex);
+                arr.push({id:sortitem.attr('data-id'),sort:sortitem1.data('sort')});
+               
+            }
+            $.post('/Menu/EditSort',{jsonData:JSON.stringify(arr)},function(){
+                
+            });
+        }
+        else if(oldIndex<newIndex){
+           
+            for(var i=newIndex;i>=oldIndex;i--){
+                var sortlist,sortitem,sortitem1;
+                if(oldIndex==i){
+                    sortlist= $('.xn-sort').children('.xn-sortitem');
+                    sortitem = sortlist.eq(i);
+                    sortitem1 = sortlist.eq(newIndex);
+                }
+                else{
+                    sortlist= $('.xn-sort').children('.xn-sortitem');
+                    sortitem = sortlist.eq(i);
+                    sortitem1 = sortlist.eq(i-1);
+                }
+                //console.log('id - '+sortitem.attr('id')+', sort - '+sortitem1.data('sort')+'old - '+oldIndex+', new - '+newIndex);
+                arr.push({id:sortitem.attr('data-id'),sort:sortitem1.data('sort')});
+               
+            } 
+            $.post('/Menu/EditSort',{jsonData:JSON.stringify(arr)},function(){
+                
+            });
+        }
+        else{}
+        //console.log(id + " end: " + text + " oldIndex: " + oldIndex + " newIndex: " + newIndex + " action: " + e.action);
+    }
+
 </script>
 <h2>Главное меню @(Model.ctype == 0 ? "1го уровня" : "2го уровня")</h2>
 <p style="display: inline-block;">
@@ -77,11 +116,11 @@
         </th>
         <th></th>
     </tr>
-    <tbody id="img-cont">
+    <tbody id="img-cont" class="xn-sort">
     @foreach (var item in Model.Menues)
     {
 
-        <tr class="sort-item" data-sort="@item.SortOrder" data-id="@item.Id">
+        <tr class="sort-item xn-sortitem" data-sort="@item.SortOrder" data-id="@item.Id">
             <td>
                 @Html.DisplayFor(modelItem => item.Id)
             </td>

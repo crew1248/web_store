@@ -18,5 +18,7 @@ namespace x_nova_template.ViewModel
         [Range(0,500)]
         public int? Sequance { get; set; }
         public string CatDescription { get; set; }
+
+        public int Sortindex { get; set; }
     }
 }

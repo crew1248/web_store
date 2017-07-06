@@ -55,5 +55,13 @@ namespace x_nova_template.Service.Repository
             db.Categories.Remove(post);
             db.SaveChanges();
         }
+        public void UpdateSort(int id, int newSort)
+        {
+            Category image = Get(id);
+
+            image.Sortindex = newSort;
+
+            this.db.SaveChanges();
+        }
     }
 }

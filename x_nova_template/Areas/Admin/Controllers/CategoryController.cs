@@ -8,6 +8,7 @@ using x_nova_template.Service.Interface;
 using x_nova_template.ViewModel;
 using Kendo.Mvc.Extensions;
 using x_nova_template.Controllers;
+using Newtonsoft.Json;
 
 namespace x_nova_template.Areas.Admin.Controllers
 {
@@ -55,7 +56,16 @@ namespace x_nova_template.Areas.Admin.Controllers
             return View(result);
                 
         }
-
+        [HttpPost]
+        public JsonResult EditSort(string jsonData)
+        {
+            var result = JsonConvert.DeserializeObject<List<SortViewModel>>(jsonData);
+            foreach (var x in result)
+            {
+                _repository.UpdateSort(Int32.Parse(x.id), Int32.Parse(x.sort));
+            }
+            return base.Json("");
+        }
         public ActionResult Filter_Categories() {
             var items = _repository.Categories.Select(
                     x => new CategoryViewModel
@@ -74,7 +84,7 @@ namespace x_nova_template.Areas.Admin.Controllers
                 CatDescription = o.CatDescription,
                 CatType=o.CatType,
                 CategoryName = o.CategoryName,
-                Sequance = o.Sequance,
+                Sortindex = o.Sortindex,
                 ID=o.ID
 
             });

@@ -52,15 +52,13 @@ namespace x_nova_template.Service.Repository
             db.SaveChanges();
         }
 
-        public void UpdateSort(int id, int oldSort, int newSort)
+        public void UpdateSort(int id, int newSort)
         {
-            var curr = this.Get(id);
-            Menu image = this.Get().Where(x=>x.MenuSection==curr.MenuSection&&x.ParentId==curr.ParentId).SingleOrDefault<Menu>(x => x.SortOrder == oldSort);
-            Menu image2 = this.Get().Where(x => x.MenuSection == curr.MenuSection && x.ParentId == curr.ParentId).SingleOrDefault<Menu>(x => x.SortOrder == newSort);
-            image.SortOrder = newSort;
-            image2.SortOrder = oldSort;
+            Menu image = Get(id);
+
+            image.SortOrder= newSort;
+
             this.db.SaveChanges();
         }
-       
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -128,9 +129,13 @@ namespace x_nova_template.Areas.Admin.Controllers
             return View(menu);
         }
         [HttpPost]
-        public JsonResult EditSort(int id,  int newPos, int oldPos)
+        public JsonResult EditSort(string jsonData)
         {
-            _repository.UpdateSort(id, oldPos, newPos);
+            var result = JsonConvert.DeserializeObject<List<SortViewModel>>(jsonData);
+            foreach (var x in result)
+            {
+                _repository.UpdateSort(Int32.Parse(x.id), Int32.Parse(x.sort));
+            }
             return base.Json("");
         }
         public ActionResult Details(int id, int page = 1)

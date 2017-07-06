@@ -6,24 +6,120 @@
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
-<script>
-    
+@(Html.Kendo().Sortable()
+    .For("tbody")
+
+    .HintHandler("hint")
+    .PlaceholderHandler("placeholder")
+
+    .Events(events => events.End("onEnd").Start("onStart").Move("onMove"))
+)
+<style>    .grid-placeholder {
+       width:1000px;
+        padding:5px;
+        margin:0;
        
-       // $('#grid').delegate('.preview', 'click', function () { alert('s'); });
-  
+    }
+    tr[role="row"] {
+        cursor: move;
+    }
+</style>
+<script>
+
+    function hint(element) {
+        var row = element.clone();
+        var table = $('<table class="admTable stripedMe" ></table>');
+        table.append(row);
+        //$('#tar').html(table);
+        return table;
+    }
+    var arr = [],
+      itemData = {};
+
+    function placeholder(element) {
+        return $('<div class="grid-placeholder" />').addClass("placeholder").append('<p>Поместить сюда</p>');
+    }
+
+    function onStart(e) {
+        var id = e.sender.element.attr("id");
+        console.log(id + " start: " + e.item.text());
+    }
+
+    function onMove(e) {
+        var id = e.item.children("td:first").text(),
+            text = e.item.children("td:eq(4)").text(),
+            placeholder = e.list.placeholder;
+
+        console.log(text + " " + id + " move to index: " + this.indexOf(placeholder));
+    }
+
+    function onEnd(e) {
+        var id = e.item.children("td:first").text(),
+            text = e.item.children("td:eq(4)").text(),
+            oldIndex = e.oldIndex,
+            newIndex = e.newIndex;
+        if (oldIndex > newIndex) {
+            for (var i = newIndex; i <= oldIndex; i++) {
+                var sortlist, sortitem, sortitem1;
+                if (oldIndex == i) {
+                    sortlist = $('tbody').children('tr');
+                    sortitem = sortlist.eq(i);
+                    sortitem1 = sortlist.eq(newIndex);
+                }
+                else {
+                    sortlist = $('tbody').children('tr');
+                    sortitem = sortlist.eq(i);
+                    sortitem1 = sortlist.eq(i + 1);
+                }
+                //console.log('id - ' + sortitem.children("td:first") + ', sort - ' + sortitem1.children("td:eq(4)") + 'old - ' + oldIndex + ', new - ' + newIndex);
+                arr.push({ id: sortitem.children("td:first").text(), sort: sortitem1.children("td:eq(4)").text() });
+
+            }
+            $.post('/Category/EditSort', { jsonData: JSON.stringify(arr) }, function () {
+
+            });
+        }
+        else if (oldIndex < newIndex) {
+          
+            for (var i = newIndex; i >= oldIndex; i--) {
+                var sortlist, sortitem, sortitem1;
+                if (oldIndex == i) {
+                    sortlist = $('tbody').children('tr');
+                    sortitem = sortlist.eq(i);
+                    sortitem1 = sortlist.eq(newIndex);
+                }
+                else {
+                    sortlist = $('tbody').children('tr');
+                    sortitem = sortlist.eq(i);
+                    sortitem1 = sortlist.eq(i - 1);
+                }
+                //console.log('id - ' + sortitem.children("td:first").text() + ', sort - ' + sortitem1.children("td:eq(4)").text() + 'old - ' + oldIndex + ', new - ' + newIndex);
+                arr.push({ id: sortitem.children("td:first").text(), sort: sortitem1.children("td:eq(4)").text() });
+
+            }
+            $.post('/Category/EditSort', { jsonData: JSON.stringify(arr) }, function () {
+
+            });
+        }
+        else { }
+        //console.log(id + " end: " + text + " oldIndex: " + oldIndex + " newIndex: " + newIndex + " action: " + e.action);
+    }
+
 </script>
+
  
 
 @(Html.Kendo().Grid<x_nova_template.ViewModel.CategoryViewModel>()
     .Name("grid")
     
     .Columns(columns =>
-    {        
+    {
+        columns.Bound(e => e.ID).Width(50).Title("ID");
         columns.Bound(e => e.CategoryName).Width(150).Title("Название");
         
         columns.Bound(e => e.CatDescription).Width(200).HtmlAttributes(new {style="" }).Title("Описание");
         columns.Bound(e => e.CatType).Width(150).Title("тип");
-        columns.Bound(e => e.Sequance).Width(100).Title("Сортировка");       
+        columns.Bound(e => e.Sortindex).Width(100).Title("Сортировка");       
         columns.Command(command => {  command.Edit().Text(" "); command.Destroy().Text(" "); }).Width(150);
     })
     .Filterable()
@@ -39,7 +135,7 @@
         .Ajax()
         .PageSize(20)
         .Model(model => { model.Id(p => p.ID); model.Field(p => p.ID).Editable(false); })        
-        .Sort(x=>x.Add("ID").Descending())
+        .Sort(x=>x.Add("Sortindex").Descending())
         .Create(update => update.Action("Editing_Create", "Category"))
         .Read(read => read.Action("Editing_Read", "Category"))
         .Update(update => update.Action("Editing_Update", "Category"))

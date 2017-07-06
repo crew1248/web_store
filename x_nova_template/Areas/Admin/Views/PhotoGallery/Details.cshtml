@@ -74,7 +74,7 @@
                     sortitem1 = sortlist.eq(i-1);
                 }
                 console.log('id - '+sortitem.attr('id')+', sort - '+sortitem1.data('sort')+'old - '+oldIndex+', new - '+newIndex);
-                //arr.push({id:sortitem.attr('id'),sort:sortitem1.data('sort')});
+                arr.push({id:sortitem.attr('id'),sort:sortitem1.data('sort')});
                
             } 
             $.post('/PhotoGallery/EditSort',{jsonData:JSON.stringify(arr)},function(){
