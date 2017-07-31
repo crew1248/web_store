@@ -108,6 +108,7 @@ namespace x_nova_template.Areas.Admin.Controllers
                             orderby x.ID descending
                             select x).Skip<Product>(((num - 1) * this.PageSize)).Take<Product>(this.PageSize),
                 Category = _catRep.Categories.SingleOrDefault(x => x.ID == id)
+               
             };
             PagingInfo info = new PagingInfo
             {

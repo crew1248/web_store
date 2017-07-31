@@ -1,14 +1,4 @@
 ﻿
-a {
-    color: #4e89bf;
-    font-size: 13px;
-    text-decoration: none;
-}
-
-    a:hover {
-        color: #fc601f;
-        text-decoration: none;
-    }
 
 #showLeft {
     /*float:left;

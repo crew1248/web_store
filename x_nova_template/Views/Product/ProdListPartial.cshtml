@@ -8,46 +8,59 @@
 
 
 
-<div class="xn-listview-cont aligned-content">
-    <div class="xn-listview-table">
-        <div class="xn-listview-tr">
-            <div class="xn-listview-td">
-                <div class="xn-listview-wrapper">
-                    <ul class="xn-listview-feed" >
+<div class="xn-listview-cont clearfix">
+    <div class="xn-listview-wrapper">
+       
+                    <div class="xn-listview-feed row" >
                         <!-- start of list-->
                         @foreach (var item in Model.Products)
                         {
 
-                            <li class="xn-listview-item" data-id="@item.ID">
-                                <div class="thumbnail">
-                                    <div class="item-img">
-                                        @if (item.ProdImages.Any(x => x.IsPreview == 1))
-                                        {
-                                            <img id="mpic_@item.ID" data-id="@item.ProdImages.SingleOrDefault(x=>x.IsPreview==1).ID" src="@Url.Content("~/Content/Files/Product/" + item.ID + "/200x150/" + item.ProdImages.Where(x => x.IsPreview == 1).SingleOrDefault().ImageMimeType)" />
-                                        }
-
+                            <div class="xn-listview-item" data-id="@item.ID">
+                                <div class="xn-listview-item__row">
+                                   
+                                    <div class="caption-btns">
+                                        <button class="btn btn-default xn-dark-button @(ProductController.ProdIsAdded(item.ID) ? "prod-added":"prod-toadd")" data-event-type="cart__add" data-pid="@item.ID">@(ProductController.ProdIsAdded(item.ID) ? "В корзине" : "Купить")</button>
+                                        
                                     </div>
-                                    <div class="caption">
-                                        <h4 class="group inner list-group-item-heading">
+                                    <div class="caption-more-details">
+
+                                        <div class="xn-details xn__popup">просмотр</div>
+                                    </div>
+                                    <a href="@Url.Action( "Details", "Product", new { id = item.GenerateSlug() })" class="xn-listview-link">
+
+                                        <div class="item-img">
                                            
-                                            @{var name = item.ProductName.Length > 50 ? item.ProductName.Substring(0, 50) + "..." : item.ProductName;}
-                                            @Html.ActionLink(name, "Details", "Product", new { id = item.GenerateSlug() }, new { @class = "prod-preview" })
-                                        </h4>
-                                        <p class="group inner list-group-item-text">
-                                            @item.Description
-                                        </p>
-                                        <div class="row">
-                                            <div class="col-xs-12 col-md-6">
-                                                <p class="lead item-pric">
-                                                    @item.Price.ToString("C0") <i class="fa fa-rouble"></i>
-                                                </p>
+                                            @if (item.ProdImages.Any(x => x.IsPreview == 1))
+                                            {
+                                                <img id="mpic_@item.ID" data-id="@item.ProdImages.SingleOrDefault(x=>x.IsPreview==1).ID" src="@Url.Content("~/Content/Files/Product/" + item.ID + "/200x150/" + item.ProdImages.Where(x => x.IsPreview == 1).SingleOrDefault().ImageMimeType)" />
+                                            }
+
+                                        </div>
+                                        <div class="caption-discount">-15%</div>
+                                        <div class="caption">
+                                            <div class="caption-title">
+                                                <div class="caption-h4">
+
+                                                    @{var name = item.ProductName.Length > 50 ? item.ProductName.Substring(0, 50) + "..." : item.ProductName;}
+                                                    <span>@name</span>
+                                                </div>
                                             </div>
-                                            <div class="col-xs-12 col-md-6">
-                                                <button class="btn btn-default xn-dark-button" data-event-type="cart__add" data-pid="@item.ID">купить</button>
-                                                <button class="btn btn-default xn-details xn__popup">просмотр</button>
+                                            <div class="caption-info">
+                                                @*<div class="caption-text">
+                                                    @item.Description
+                                                </div>*@
+                                                <div class="caption-des">
+                                                    <div class="caption-price">
+                                                        <span class="">
+                                                            @item.Price.ToString("C0") @*<i class="fa fa-rouble"></i>*@
+                                                        </span>
+                                                    </div>
+                                                   
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </a>
                                 </div>
                                 @*<div class="xn-lockup">
                                     <div class="item-img">
@@ -71,21 +84,19 @@
                                         </div>
                                     </div>
                                 </div>*@
-                            </li>
+                            </div>
 
 
                         }
                         <!-- End listview -->
-                    </ul>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
+
 <div class="pager">@Ajax.AjaxPageLinks(Model.PagingInfo)</div>
 
 
-<style>    .thumbnail {
+<style>    /*.thumbnail {
         margin:0;
         border:inherit;
         transition:inherit;
@@ -141,6 +152,6 @@
 
     .list-group-item-text {
         margin: 0 0 11px;
-    }
+    }*/
 
 </style>

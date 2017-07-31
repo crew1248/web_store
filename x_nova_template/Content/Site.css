@@ -35,7 +35,8 @@ img
     /*IE10*/
     -ms-user-select: none;
     user-select: none;
-
+    border:0;
+    max-width:100%;
     /*You just need this if you are only concerned with android and not desktop browsers.*/
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }    
@@ -134,10 +135,8 @@ p {
 }
 
 a {
-    color: black;
-    font-size: 13px;
-    text-decoration: none;
-    font-family:Roboto;
+        color: inherit;
+    outline: 0;
 }
 
     a:hover {
@@ -296,7 +295,7 @@ span.dot {
     cursor: pointer;
 }
 
-.partial-cart__summary {
+.top-cart-total-title {
     width: 80%;
     display: inline-block;
 }
@@ -323,20 +322,36 @@ span.dot {
 }
 
 .top-cart-total {
-    margin-right: 140px;
+    
     padding-right: 20px;
+    max-width: 200px;
+    
+    display: inline-block;
 }
-
-.forg-top-content {
+.forg-h2{
     display: block;
+    color: gray;
+}
+.forg-top-content {
+   display: block;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     text-align: left;
-        height: 45px;
+    height: 53px;
     padding: 10px;
+    box-sizing: border-box;
+    background: #f2f2f2;
+    position: relative;
+    border-bottom: 1px solid #e6e6e6;
 }
-
+.partial-cart__total {
+        float: right;
+    margin-right: 5px;
+    line-height: 40px;
+    font-size: 14px;
+    font-weight: 700;
+}
 .top-cart-checkout {
     float: right;
     position: relative;
@@ -488,28 +503,29 @@ span.dot {
 .forg-menu
 {
     list-style-type:none;
+        width: 100%;
 }
 .forg-tnl {
-width: 100%;
-height: 50px;
-position: absolute;
-overflow: hidden;
-top: -50px;
-right: -130px;
+    width: 100%;
+    height: 50px;
+    position: absolute;
+    overflow: hidden;
+    top: -50px;
+    right: -130px;
 }
 
 .forg-tnl:after {
-content: "";
-position: absolute;
-width: 10px;
-height: 10px;
-border: 1px solid #2E3367;
-background: #FFF;
-transform: rotate(45deg);
--webkit-transform: rotate(45deg);
-top: 45px;
-left: 70px;
-box-shadow: -1px -1px 10px -2px rgba(0, 0, 0, 0.5);
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+       background: #f2f2f2;
+    
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    top: 45px;
+    left: 70px;
+    box-shadow: -1px -1px 10px -2px rgba(0, 0, 0, 0.5);
 }
 .right-h-section
 {
@@ -517,32 +533,50 @@ box-shadow: -1px -1px 10px -2px rgba(0, 0, 0, 0.5);
 }
 .design-pics
 {
-width:auto;float:right;
+    width:auto;
+    float:right;
 }
 .foreign-cont
 {
     background: #FFF;
-   width:250px;
+    width: 400px;
     line-height: 17px;
     font-size: 13px;
     z-index:13;
     margin: 50px 0;
-   border: 2px solid #2E3367;
+    box-shadow: 0px 1px 3px 1px rgba(0,0,0,0.3);
     position: absolute;
     display: inline-block;
-     -moz-transition: all 0.5s ease; 
+    -moz-transition: all 0.5s ease; 
     -webkit-transition: all 0.5s ease;  
     -ms-transition: all 1s ease;  
     -o-transition: all 1s ease;  
     transition: all 0.5s ease;  
-   opacity:0;
+    opacity:0;
     margin-top:50px;
-   left: -180px;
+    left: -180px;
 }
 .forg-img {
-    width: 60px;
+    width: 80px;
     height: 60px;
+        display: block;
 }
+.forg-menu td {
+    border-bottom: 1px solid #e6e6e6;
+}
+.forg-menu tr:hover {
+        background: #f2f2f2;
+}
+.forg-menu tr td:first-child {
+    padding:5px;
+   
+}
+/*.forg-menu tr:first-child td:first-child {
+    padding-top:5px;
+}
+.forg-menu tr:last-child td:first-child {
+    padding-bottom:5px;
+}*/
 .forg-menu a
 {
 color: #444;
@@ -845,6 +879,30 @@ aside
     margin: 0;
     display:inline-block
 }
+.prod-added {
+         background: linear-gradient(to bottom,#9fbf00,#80ab00)!important;
+    border: 1px solid #a6a6a6!important;
+    border-color: #adadad!important;
+    color:white!important;
+}
+    .prod-added:hover {
+         background: linear-gradient(to bottom,#9fbf00,#80ab00)!important;
+    border: 1px solid #a6a6a6!important;
+    border-color: #adadad!important;
+    color:white!important;
+    }
+.prod-toadd{
+    background: #e8e8e8!important;
+    border: 1px solid #a6a6a6!important;
+    border-color: #adadad!important;
+    color: #262626!important;
+}
+    .prod-toadd:hover {
+             background: linear-gradient(to bottom,#9fbf00,#80ab00)!important;
+    border: 1px solid #a6a6a6!important;
+    border-color: #adadad!important;
+    color:white!important;
+    }
 .prod-imglist ul
 {
     list-style-type:none!important;
