@@ -69,6 +69,7 @@ namespace x_nova_template.Controllers
             var result = _mrepo.Menues.FirstOrDefault(x => x.Url == "Home");
             return View(result);
         }
+
         public ActionResult AttachSession() {
             Session["test"] = "тестовая сессия - "+Request.RequestContext.HttpContext.Session.SessionID;
             return Redirect("/");

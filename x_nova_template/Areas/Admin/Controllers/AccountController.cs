@@ -209,6 +209,7 @@ namespace x_nova_template.Areas.Admin.Controllers
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut();
+            ConsultantController.SetConsultOffline();
             return Redirect("/");
         }
       

@@ -51,8 +51,8 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="FiftyOne.Foundation, Version=3.2.5.6, Culture=neutral, PublicKeyToken=e0b3a8da0bbce49c, processorArchitecture=MSIL">
-      <HintPath>..\packages\51Degrees.mobi.3.2.5.6\lib\NET40\FiftyOne.Foundation.dll</HintPath>
+    <Reference Include="FiftyOne.Foundation, Version=3.2.17.2, Culture=neutral, PublicKeyToken=e0b3a8da0bbce49c, processorArchitecture=MSIL">
+      <HintPath>packages\51Degrees.mobi-core.3.2.17.2\lib\NET40\FiftyOne.Foundation.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="HtmlAgilityPack, Version=1.4.9.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
@@ -1455,7 +1455,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\roboto-bold-webfont.woff2" />
     <Content Include="fonts\roboto-regular-webfont.woff2" />
-    <Content Include="51Degrees.config" />
     <Content Include="Scripts\ckeditor.js" />
     <Content Include="Scripts\classie.js" />
     <Content Include="Scripts\comm.js" />
@@ -1470,7 +1469,6 @@
     <Content Include="Scripts\history.min.js" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap.min.css.map" />
-    <Content Include="App_Data\51Degrees.dat" />
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Views\Account\ChangePassword.cshtml" />
     <Content Include="Areas\Admin\Views\Account\GetUsers.cshtml" />
@@ -1528,6 +1526,8 @@
     <Content Include="Areas\Admin\Views\UploadFiles\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Users\Index.cshtml" />
     <Content Include="Areas\Admin\Views\WebParser\Index.cshtml" />
+    <Content Include="App_Data\51Degrees.dat" />
+    <Content Include="51Degrees.config" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.4.min.map" />
     <None Include="Scripts\jquery-1.6.4-vsdoc.js" />
@@ -1946,6 +1946,8 @@
     <Content Include="Views\Widget\InscreaserView.cshtml" />
     <Content Include="Views\Shared\_Logo.cshtml" />
     <Content Include="Views\Shared\_HeaderMobile.cshtml" />
+    <Content Include="Views\Shared\_Layout.Mobile.cshtml" />
+    <Content Include="Views\Home\Index.mobile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Admin\Models\" />

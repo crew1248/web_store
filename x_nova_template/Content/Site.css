@@ -209,6 +209,17 @@ line-height: 1.2;
 #logo {
     width:150px;
 }
+    #logo a {
+            display: block;
+    position: relative;
+    z-index: 10;
+    float: left;
+    width: 42px;
+    height: 42px;
+    margin-right: 29px;
+    padding-top: 7px;
+    line-height: 52px;
+    }
 #catalog h2 {
     font-size: 16px;
 }
@@ -310,7 +321,8 @@ span.dot {
     text-align: center;
     font-size: 18px;
     color: black;
-    
+   margin-bottom:0;
+        
 }
 
 .cart__add {
@@ -1145,6 +1157,13 @@ footer
 /* =========================== navigation ======================== */
 
 /* tmenu */
+.top-left-h a {
+    font-size:13px;
+}
+.top-header {
+    
+    
+}
 
 .no-pseudo:after
     {   content: '';

@@ -24,7 +24,7 @@
     @Styles.Render("~/Content/bootstrap")
     @Styles.Render("~/Content/css")
     @Styles.Render("~/Content/authcss")
-    
+
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/jqueryval")
 
@@ -79,19 +79,17 @@
 
     <div>
         <div id="main-wrapper">
-            
-               <!-----------------   Header    ------------------- -->
+            <!--     BOOTSTRAP RESPONSIVE HEADER-->
             <header class="top-header navbar-default navbar" role="navigation">
 
                 <div class="container">
                     <div class="row">
 
                         <!------------------   Mobile header   ------------------- -->
-
                         @Html.Partial("_HeaderMobile")
 
-                
-                     
+                        <!-----------------   Mobile header  end  ------------------- -->
+                        <!-----------------   Header    ------------------- -->
 
                         <div class="collapse navbar-collapse" id="top-navbar-collapse">
 
@@ -115,12 +113,15 @@
                             </div>
                         </div>
 
-                      
+                        <!-----------------   Header  end  ------------------- -->
 
                     </div>
                 </div>
             </header>
-
+            <!--   END  BOOTSTRAP RESPONSIVE HEADER-->
+            <!--     FIXED MENU     -->
+            <nav></nav>
+            <!--  END   FIXED MENU     -->
             <!-----------------   Content area    ------------------- -->
 
             <section id="content" class="clear-fix">
@@ -128,7 +129,7 @@
                     <div class="row">
                         <div class="col-md-12 col-sm-12 hidden-xs">
                             <div class="container carousel-wrapper">
-                                @Html.Partial("_MainSlider")
+
                             </div>
                         </div>
 
@@ -150,15 +151,13 @@
                 </div>
             </section>
 
-           
+            <!-----------------   Content area  end  ------------------- -->
             <!-----------------   Footer area    ------------------- -->
-
             @Html.Partial("_Footer")
             <!-----------------   Footer area  end  ------------------- -->
         </div>
     </div>
 
-   
 
 </body>
 </html>

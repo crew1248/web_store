@@ -121,8 +121,8 @@ namespace x_nova_template.Areas.Admin
 
             using (ApplicationDbContext db = new ApplicationDbContext())
             {
-                var user = db.LiveUsers.SingleOrDefault(x => (bool)x.IsOnline && (bool)x.IsAdmin);
-                if (user != null)
+                var user = db.LiveUsers.SingleOrDefault(x =>(bool) x.IsAdmin);
+                if (user.IsOnline)
                     return true;
             }
             return false;
