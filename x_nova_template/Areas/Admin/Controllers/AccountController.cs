@@ -34,7 +34,7 @@ namespace x_nova_template.Areas.Admin.Controllers
 
         public ApplicationSignInManager SignInManager
         {
-            //asd
+            //as
             get
             {
                 return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
