@@ -25,7 +25,7 @@ namespace x_nova_template.Areas.Admin.Controllers
         }
 
         public ActionResult Index(){
-
+            //dfg
             return View(_db.getAll());
         }
         public ActionResult GetSlider(){
