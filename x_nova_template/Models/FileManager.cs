@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Helpers;
+using System.Security.AccessControl;
 
 namespace x_nova_template.Models
 {
@@ -26,6 +27,7 @@ namespace x_nova_template.Models
         private WebImage webimg = null;
         private int imagesCount = 0;
         private static Random random = new Random();
+        public string mainDir = "~/Content/Files/Pages";
         
         public void WriteFiles(IEnumerable<HttpPostedFileBase> files, string path) {
 
@@ -142,7 +144,7 @@ namespace x_nova_template.Models
         }
         public void RemoveDir(string path)
         {
-            if (Directory.Exists(path))
+            if (Directory.Exists(path)&&path!=null)
             {
                 Directory.Delete(path, true);                
            }
@@ -161,6 +163,37 @@ namespace x_nova_template.Models
             const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
             return new string(Enumerable.Repeat(chars, length)
               .Select(s => s[random.Next(s.Length)]).ToArray());
+        }
+
+        // DIRECTORIES
+     
+        public void CreateDir(string path) {
+           
+            
+            var newpath = HttpContext.Current.Server.MapPath(mainDir + "/"+path);
+          
+            if (Directory.Exists(newpath))
+            {
+                DirectoryInfo di = Directory.CreateDirectory(newpath + "1");
+            }
+            else { DirectoryInfo di = Directory.CreateDirectory(newpath); }
+
+            DirectoryInfo dir = new DirectoryInfo(newpath);
+            DirectorySecurity security = dir.GetAccessControl();
+
+            //security.AddAccessRule(new FileSystemAccessRule("everyone", FileSystemRights.Read, AccessControlType.Allow));
+            //security.AddAccessRule(new FileSystemAccessRule("everyone", FileSystemRights.FullControl, AccessControlType.Allow));
+           // security.AddAccessRule(new FileSystemAccessRule("everyone", FileSystemRights.FullControl, AccessControlType.Allow));
+
+            //security.AddAccessRule(new FileSystemAccessRule("everyone", FileSystemRights.Modify, InheritanceFlags.ObjectInherit, PropagationFlags.None, AccessControlType.Allow));
+            dir.SetAccessControl(security);
+        }
+        public IEnumerable<DirectoryInfo> GetDirs() {
+            
+            DirectoryInfo dinfo = new DirectoryInfo(HttpContext.Current.Server.MapPath(mainDir));
+
+            var dirs = dinfo.GetDirectories();
+            return dirs;
         }
     }
 }

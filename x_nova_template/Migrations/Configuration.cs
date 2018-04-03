@@ -17,7 +17,7 @@
         {
             AutomaticMigrationsEnabled = true;
             AutomaticMigrationDataLossAllowed = true;
-            
+
         }
 
         protected override void Seed(x_nova_template.Models.ApplicationDbContext context)
@@ -99,15 +99,15 @@
 
                 var adminName = "admin";
                 var adminEmail = "admin@admin.ru";
-                
+
                 var role1 = new IdentityRole { Name = "admin" };
                 var role2 = new IdentityRole { Name = "user" };
 
-               
+
                 roleManager.Create(role1);
                 roleManager.Create(role2);
 
-             
+
                 var admin = new ApplicationUser { Email = adminEmail, UserName = adminName };
                 string password = "123222";
                 var result = userManager.Create(admin, password);

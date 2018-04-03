@@ -1,0 +1,23 @@
+﻿@model x_nova_template.ViewModel.FilesViewModel
+@using x_nova_template.Extension
+@{
+    ViewBag.Title = "GetFolders";
+
+
+
+}
+
+
+<h3>Папки</h3>
+<ul class="folder-ul">
+    @foreach (var item in Model.Dirs)
+    {
+        <li class="folder-li">
+
+
+            <span class="folder-item "><i class="fa @(item!=Model.Dirs.First()?"fa-folder-o":"fa-folder-open")"></i> <span>@item.Name</span> </span>
+            <span class="folder-remove">удалить</span>
+        </li>
+    }
+</ul>
+

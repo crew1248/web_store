@@ -95,6 +95,7 @@ namespace x_nova_template.Models
             ClientDetails.Phone = vm.Phone;
             ClientDetails.Email = vm.Email;
 
+
         }
         public void UpdateClientDetails(ApplicationUser user) {
             ClientDetails.Address = user.Address;

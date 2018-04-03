@@ -106,19 +106,25 @@ var addToCart = function () {
     
     $this = $(this);
     console.log($this.attr('class'));
-    !$this.hasClass('xn-cart-option') && !$this.hasClass('prod-added')? $this.removeClass('prod-toadd').addClass('prod-added').html('В корзину') : toTheCart();
+    if(!$this.hasClass('xn-cart-option') && !$this.hasClass('prod-added')){
+        $this.removeClass('prod-toadd').addClass('prod-added').html('В корзину');
+    }else{
+        toTheCart();
+        return false;
+    }
     addLoader();
     XN.Inscreaser.Close();
     var id = $this.hasClass('xn-cart-option') ? $this.data('pid') : $this.closest('.xn-listview-item').data('id');
     
-    $.post('/Cart/AddToCart', { prodId: id }, function (data) {
-        updateSummary(data.count);
-        ExpandPartialCart(id, data.title, data.price, data.count, data.total);
-        initCartEvents();
-        //updateCartEvent(id,true);
-        setTimeout(function () { closeLoader(); }, '500');
-        //partialOff();
-    });
+        $.post('/Cart/AddToCart', { prodId: id }, function (data) {
+            updateSummary(data.count);
+            ExpandPartialCart(id, data.title, data.price, data.count, data.total);
+            initCartEvents();
+            //updateCartEvent(id,true);
+            setTimeout(function () { closeLoader(); }, '500');
+            //partialOff();
+        });
+    
 }
 var toTheCart = function () {
 

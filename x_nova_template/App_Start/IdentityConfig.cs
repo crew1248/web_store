@@ -24,7 +24,7 @@ namespace x_nova_template
             : base(store)
         {
         }
-
+        
         public static ApplicationUserManager Create(IdentityFactoryOptions<ApplicationUserManager> options, IOwinContext context) 
         {
             var manager = new ApplicationUserManager(new UserStore<ApplicationUser>(context.Get<ApplicationDbContext>()));

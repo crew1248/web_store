@@ -44,7 +44,7 @@ namespace x_nova_template.Areas.Admin.Controllers
                 .Take(PageSize));
         }
         public PartialViewResult CatsMenu() {
-            return PartialView(_repository.Categories.OrderBy(x=>x.Sequance).ToList());
+            return PartialView(_repository.Categories.OrderBy(x=>x.Sortindex).ToList());
         }
         public PartialViewResult CatsMenu2()
         {
@@ -107,7 +107,7 @@ namespace x_nova_template.Areas.Admin.Controllers
             {
 
                 _repository.Create(cat);
-                cat.ID = _repository.Categories.First().ID;
+                //cat.ID = _repository.Categories.First().ID;
                 results.Add(cat);
             }
              

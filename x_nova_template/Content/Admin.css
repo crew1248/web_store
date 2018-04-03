@@ -294,7 +294,57 @@ DIV.categories a #ChildBar
     }    
 
     */
-    
+
+
+
+/*=====================================   Manager files ==========================*/
+.folder-ul {
+    list-style-type: none;
+    padding: 0;
+}
+#folder-list {
+        float: left;
+    margin: 0 25px;
+        width: 300px;
+}
+.folder-item {
+        display: block;
+    padding: 10px;
+   
+    color: black;
+    cursor:pointer;
+}
+    .folder-item:hover {
+            background: #e8e7e7;
+    }
+.folder-li {
+    position:relative;
+}
+.selected-folder {
+      background: #e8e7e7;
+}
+#filesleft {
+        clear: both;
+}
+#FilesList {
+    float:left;
+}
+.folder-remove {
+        position: absolute;
+    text-align: right;
+    right: 0;
+    top: 10px;
+    cursor:pointer;
+}
+.manager-loader {
+        position: absolute;
+    display: inline-block;
+    left: 150px;
+        top: 0;
+}
+.manager-loader img {
+    width: 34px;
+}
 /*=====================================   Main ==========================*/
 
 

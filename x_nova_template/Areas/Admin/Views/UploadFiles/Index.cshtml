@@ -6,10 +6,10 @@
 
 
 }
-
+<h3>Файлы</h3>
 <div>
-
-
+   
+    
 
     <div class="pager">
         <table class="admTable stripedMe">
@@ -22,18 +22,18 @@
             </tr>
             @foreach (var file in Model.Files)
             {
-                var row = Path.GetFileNameWithoutExtension(Path.GetFileName("~/Content/Files/" + file));
+                var row = Path.GetFileNameWithoutExtension(Path.GetFileName("~/Content/Files/Pages/" + Model.PagingInfo.Dir.Name+"/" + file));
                 long size = file.Length;
                 <tr id="@(row+file.Length)">
                     <td>
                         @if (file.Extension.ToLower().Contains("jpg") || file.Extension.ToLower().Contains("png"))
-                        {
-                            <img class="preview files-img" title="/Content/Files/@file.Name" width="15" height="15" src="/Content/Files/@file.Name" />
-                        }
+{
+    <img class="preview files-img" title="/Content/Files/Pages/@Model.PagingInfo.Dir.Name/@file.Name" width="15" height="15" src="/Content/Files/Pages/@Model.PagingInfo.Dir.Name/@file.Name" />
+}
 
                     </td>
                     <td><span title="@file">@(file.Name.Length > 20 ? file.Name.Substring(0, 20) + "..." : file.Name)</span> </td>
-                    <td><span title="@file">/Content/Files/@file.Name  </span></td>
+                    <td><span title="@file">/Content/Files/Pages/@Model.PagingInfo.Dir.Name/@file.Name  </span></td>
                     <td>@size.ToFileSize()</td>
                     <td><i class="fa fa-trash file-d" data-row="@(row+file.Length)" data-file="@file"></i></td>
                 </tr>
@@ -56,3 +56,8 @@
 }
 
 
+<script>
+    $(function () {
+        $('.files-count').html(@Model.PagingInfo.TotalItems);
+    });
+</script>

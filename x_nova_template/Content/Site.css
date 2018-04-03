@@ -1338,7 +1338,9 @@ position: relative;
 
 /*===================== Form Styles ============================== */
 
-
+.feededitor {
+    position:relative;
+}
 
 .order-wrap
 {

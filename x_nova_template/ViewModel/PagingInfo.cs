@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 
@@ -13,7 +14,8 @@ namespace x_nova_template.ViewModel
         public string Service { get; set; }
         public int CatId { get; set; }
         public string Sort { get; set; }
-        
+        public DirectoryInfo Dir { get; set; }
+
         public int TotalPage
         {
             get { return (int)Math.Ceiling((double)TotalItems / (double)ItemsPerPage); }

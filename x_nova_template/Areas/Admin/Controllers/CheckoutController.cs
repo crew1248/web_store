@@ -77,13 +77,13 @@ namespace x_nova_template.Areas.Admin.Controllers
                     cart.UpdateClientDetails(user);
                     return View(new CheckoutViewModel
                     {
-                        Address = user.Address,
-                        FirstName = user.Firstname,
-                        LastName = user.Sirname,
-                        Email = user.Email,
-                        Phone = user.Phone,
-                        Delivery = user.Delivery,
-                        Payment = user.Payment
+                        Address = cart.ClientDetails.Address,
+                        FirstName = cart.ClientDetails.FirstName,
+                        LastName = cart.ClientDetails.LastName,
+                        Email = cart.ClientDetails.Email,
+                        Phone = cart.ClientDetails.Phone,
+                        Delivery = cart.ClientDetails.Delivery,
+                        Payment = cart.ClientDetails.Payment
                     });
                     
                   
@@ -151,28 +151,44 @@ namespace x_nova_template.Areas.Admin.Controllers
             return Json(new { type = t });
         }
         [HttpPost]
-        public ActionResult ProceedCheckout(CheckoutViewModel vm)
+        public async Task<ActionResult> ProceedCheckout(CheckoutViewModel vm)
         {
 
             if (ModelState.IsValid)
             {
+                var userManager = HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+                var user = await userManager.FindByNameAsync(User.Identity.Name);
+
                 var cart = GetCart();
                 cart.Step3 = true;
                 cart.UpdateClientDetails(vm);
+                                
+                user.Address = vm.Address;
+                user.Firstname = vm.FirstName;
+                user.Sirname = vm.LastName;
+                user.Phone = vm.Phone;
+                user.Delivery = vm.Delivery;
+                user.Payment = vm.Payment;
+                await userManager.UpdateAsync(user);
+                
                 return RedirectToAction("Index", new { step = 3 });
             }
             return RedirectToAction("Index", new { step = 2 });
         }
         [HttpPost]
-        public ActionResult ProceedDelivery(Checkout_Delivery vm)
+        public async Task<ActionResult> ProceedDelivery(Checkout_Delivery vm)
         {
 
             if (ModelState.IsValid)
             {
-
+                var userManager = HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+                var user = await userManager.FindByNameAsync(User.Identity.Name);
                 var cart = GetCart();
                 cart.Step4 = true;
                 cart.UpdateDelivery(vm);
+                user.Delivery = vm.Delivery;
+                await userManager.UpdateAsync(user);
+
                 return RedirectToAction("Index", new { step = 4 });
             }
             return RedirectToAction("Index", new { step = 3 });
@@ -180,10 +196,12 @@ namespace x_nova_template.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult ProceedPayment(Checkout_Payment vm)
+        public async Task<ActionResult> ProceedPayment(Checkout_Payment vm)
         {
             if (ModelState.IsValid)
             {
+                var userManager = HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+                var user = await userManager.FindByNameAsync(User.Identity.Name);
                 var cart = GetCart();
                 var clientInfo = cart.ClientDetails;
                 var step2CheckInputs = cart.ClientDetails.HasEmptyProperties();
@@ -191,6 +209,10 @@ namespace x_nova_template.Areas.Admin.Controllers
                     RedirectToAction("Checkout", new { step = 2 });
                 }
                 cart.UpdatePayment(vm);
+                //update user payment details
+                user.Payment = vm.Payment;
+                await userManager.UpdateAsync(user);
+                //make order
                 var order = new Order();
                 order.Address = cart.ClientDetails.Address;
                 order.Name = string.Format("{0} {1}", clientInfo.FirstName, clientInfo.LastName);

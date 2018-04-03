@@ -3,7 +3,7 @@ namespace x_nova_template.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class initialcreate : DbMigration
+    public partial class inic : DbMigration
     {
         public override void Up()
         {
@@ -27,8 +27,8 @@ namespace x_nova_template.Migrations
                         ID = c.Int(nullable: false, identity: true),
                         ProductName = c.String(maxLength: 500),
                         Description = c.String(),
-                        Size = c.String(maxLength: 500),
                         MatForm = c.String(maxLength: 500),
+                        Size = c.String(maxLength: 500),
                         MatProd = c.String(maxLength: 500),
                         Hardness = c.String(maxLength: 500),
                         Channel = c.String(maxLength: 500),
@@ -36,7 +36,7 @@ namespace x_nova_template.Migrations
                         Block = c.String(maxLength: 500),
                         ProdTime = c.String(maxLength: 500),
                         Coupling = c.String(maxLength: 500),
-                        //Composition = c.String(maxLength: 300),
+                        Composition = c.String(maxLength: 500),
                         Season = c.String(maxLength: 500),
                         ProductType = c.String(maxLength: 500),
                         Sortindex = c.Int(nullable: false),
@@ -230,7 +230,7 @@ namespace x_nova_template.Migrations
                 c => new
                     {
                         ID = c.Int(nullable: false, identity: true),
-                        Title = c.String(nullable: false, maxLength: 100),
+                        Title = c.String(nullable: false, maxLength: 500),
                         Body = c.String(nullable: false),
                         PreviewPhoto = c.Binary(),
                         CreatedAt = c.DateTime(nullable: false),
@@ -283,7 +283,6 @@ namespace x_nova_template.Migrations
                     {
                         Id = c.String(nullable: false, maxLength: 128),
                         Phone = c.String(),
-                        PhoneNumber = c.String(),
                         Name = c.String(),
                         Sirname = c.String(),
                         Firstname = c.String(),
@@ -294,6 +293,7 @@ namespace x_nova_template.Migrations
                         EmailConfirmed = c.Boolean(nullable: false),
                         PasswordHash = c.String(),
                         SecurityStamp = c.String(),
+                        PhoneNumber = c.String(),
                         PhoneNumberConfirmed = c.Boolean(nullable: false),
                         TwoFactorEnabled = c.Boolean(nullable: false),
                         LockoutEndDateUtc = c.DateTime(),
@@ -340,8 +340,8 @@ namespace x_nova_template.Migrations
             DropForeignKey("dbo.OrderItems", "OrderID", "dbo.Orders");
             DropForeignKey("dbo.Messages", "UserID", "dbo.LiveUsers");
             DropForeignKey("dbo.Images", "GalleryID", "dbo.Galleries");
-            DropForeignKey("dbo.Products", "CategoryID", "dbo.Categories");
             DropForeignKey("dbo.ProdImages", "ProductID", "dbo.Products");
+            DropForeignKey("dbo.Products", "CategoryID", "dbo.Categories");
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
             DropIndex("dbo.AspNetUsers", "UserNameIndex");

@@ -321,9 +321,9 @@
     <Compile Include="HtmlHelpers\PagingHelper.cs" />
     <Compile Include="HtmlHelpers\SiteMenuHelper.cs" />
     <Compile Include="Hubs\XnovaHub.cs" />
-    <Compile Include="Migrations\201601052024150_initialcreate.cs" />
-    <Compile Include="Migrations\201601052024150_initialcreate.Designer.cs">
-      <DependentUpon>201601052024150_initialcreate.cs</DependentUpon>
+    <Compile Include="Migrations\201801221214380_inic.cs" />
+    <Compile Include="Migrations\201801221214380_inic.Designer.cs">
+      <DependentUpon>201801221214380_inic.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Mobile\Default.aspx.cs">
@@ -1526,8 +1526,9 @@
     <Content Include="Areas\Admin\Views\UploadFiles\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Users\Index.cshtml" />
     <Content Include="Areas\Admin\Views\WebParser\Index.cshtml" />
-    <Content Include="App_Data\51Degrees.dat" />
     <Content Include="51Degrees.config" />
+    <Content Include="App_Data\51Degrees.dat" />
+    <Content Include="Areas\Admin\Views\UploadFiles\GetFolders.cshtml" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.4.min.map" />
     <None Include="Scripts\jquery-1.6.4-vsdoc.js" />
@@ -1952,6 +1953,7 @@
   <ItemGroup>
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Admin\Views\ExcelData\" />
+    <Folder Include="Content\Files\Pages\" />
     <Folder Include="Exstentions\" />
     <Folder Include="Service References\" />
   </ItemGroup>
@@ -1959,12 +1961,14 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="packages.config" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201601052024150_initialcreate.resx">
-      <DependentUpon>201601052024150_initialcreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201801221214380_inic.resx">
+      <DependentUpon>201801221214380_inic.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resourses\Resource.en.resx" />
     <EmbeddedResource Include="Resourses\Resource.resx" />

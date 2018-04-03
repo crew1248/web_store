@@ -104,12 +104,12 @@ namespace x_nova_template
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
                 namespaces: new[] { "x_nova_template.Controllers" }
             );
-            //routes.MapRoute(
-            //    name: "home",
-            //    url: "main",
-            //    defaults: new { controller = "Home", action = "Index" },
-            //    namespaces: new[] { "x_nova_template.Controllers" }
-            //);
+            routes.MapRoute(
+                name: "home",
+                url: "main",
+                defaults: new { controller = "Home", action = "Index" },
+                namespaces: new[] { "x_nova_template.Controllers" }
+            );
             //routes.MapRoute(
             //    name: "Default",
             //    url: "{controller}/{action}/{id}",

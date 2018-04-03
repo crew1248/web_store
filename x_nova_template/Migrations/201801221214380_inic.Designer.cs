@@ -6,14 +6,14 @@ namespace x_nova_template.Migrations
     using System.Data.Entity.Migrations.Infrastructure;
     using System.Resources;
     
-    [GeneratedCode("EntityFramework.Migrations", "6.1.0-30225")]
-    public sealed partial class initialcreate : IMigrationMetadata
+    [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
+    public sealed partial class inic : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(initialcreate));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(inic));
         
         string IMigrationMetadata.Id
         {
-            get { return "201601052024150_initialcreate"; }
+            get { return "201801221214380_inic"; }
         }
         
         string IMigrationMetadata.Source

@@ -32,7 +32,7 @@ namespace x_nova_template.Areas.Admin.Controllers
         //
         // GET: /Product/
 
-        public int PageSize = 8;
+        public int PageSize = 1;
 
         IProductRepository _pRepository;
         ICategoryRepository _catRep;
@@ -208,13 +208,13 @@ namespace x_nova_template.Areas.Admin.Controllers
 
         public ActionResult Index()
         {
-            var list = _catRep.Categories.Select(x => new { ID = x.ID, CategoryName = x.CategoryName + " (" + x.CatType + ")" });
+            var list = _catRep.Categories.Select(x => new { ID = x.ID, CategoryName = x.CategoryName });
             ViewBag.Cats = new SelectList(list, "ID", "CategoryName");
             ViewData["Catss"] = _cRep.Categories
                         .Select(e => new
                         {
                             ID = e.ID,
-                            CategoryName = e.CategoryName + " (" + e.CatType + ")",
+                            CategoryName = e.CategoryName //+ " (" + e.CatType + ")",
 
                         });
             return View();

@@ -13,16 +13,31 @@ var ins_loader_black='<img class="ov-spin" src="/Content/ajax-loaders/horizont/t
 var istablet = $('#screenWidth').val() < 768 ? "tablet" : "desktop";
 
 
-$(function(){
-    
+$(function () {
+    //history back state
+    window.onpopstate = function (event) {
+        
+
+        if ($('#listview-target').length) { XN.AjaxRequest.MakeRequest('/Product/ProdListPartial', { jsonData: event.state }, '#listview-target'); }
+    };
+
+
     XN.Auth.startModal(0, null, null);
     // lazy loading - main-slider, prodlist
     var data = { type: istablet };
     var catid= $('.content-wrap').data('catid')!=undefined?0: $('#listview').data('catid');
-    var data1 = { catId: catid, page: 1 };
+    data1 = { catId: catid, page: 1 };//XN.getUrlParameter('page') ==null ? 1 : XN.getUrlParameter('page') };
 
     if ($('.s-slider').length) XN.AjaxRequest.MakeRequest('/Product/ProdsToSlider', { jsonData: JSON.stringify(data) }, '.s-slider');    
-    if ($('#listview-target').length) XN.AjaxRequest.MakeRequest('/Product/ProdListPartial', { jsonData: JSON.stringify(data1) }, '#listview-target'); 
+    if ($('#listview-target').length) {
+        XN.AjaxRequest.MakeRequest('/Product/ProdListPartial', { jsonData: JSON.stringify(data1), url: "prod" }, '#listview-target');
+        //hisotry ajax start page 1
+
+        var dataJson = data1;
+        var str = $.param({ catId: catid });
+        history.pushState(JSON.stringify(dataJson), 'prod+' + 1, '/Product/ProdList?' + str);
+       
+    }
     // content image resize
     $('.content-wrap img').on('click', function () {
         var arr = [];
@@ -72,7 +87,20 @@ XN.AbsoluteUrl = document.URL;
 XN.JavaEnabled = navigator.javaEnabled();
 XN.Lang = navigator.language;
 XN.IsTablet = $(window).width() < 768 ? true : false;
+XN.getUrlParameter = function (sParam) {
+    var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
 
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
+
+        if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : sParameterName[1];
+        }
+    }
+};
 
 
 /*==========================================================================================*/
@@ -638,7 +666,9 @@ XN.AjaxRequest = {
         }, '500');
     },
     MakeRequest: function (url, data, target) {
-
+     
+      
+      
         $.ajax({
             beforeSend: function () {
                 if (target == '#listview-target') $(target).html('<img class="ov-spin" src="/Content/ajax-loaders/horizont/tail-spin.svg" />');
@@ -646,6 +676,7 @@ XN.AjaxRequest = {
             url: url,
             data: data,
             success: function (response) {
+             
                 setTimeout(function () {
                     $(target).html(response);
                     $('.xn__popup').on('click', function () {
@@ -655,8 +686,16 @@ XN.AjaxRequest = {
 
 
                     $('.page-link').on('click', function () {
+                        //ajax history state
                         var data = { catId: $(this).data('catid'), page: $(this).data('page') };
-                        XN.AjaxRequest.MakeRequest('/Product/ProdListPartial', { jsonData: JSON.stringify(data) }, '#listview-target');
+                        
+                        var str = $.param(data);
+                        history.pushState(JSON.stringify(data), 'prod+' + XN.getUrlParameter('page'), '/Product/ProdList?' + str);
+                        console.log(history.state+", "+str);
+                       
+                        //ajax page request
+                       
+                        XN.AjaxRequest.MakeRequest('/Product/ProdListPartial', { jsonData: JSON.stringify(data)}, '#listview-target');
                     });
 
                 }, '500');
