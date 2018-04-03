@@ -6,7 +6,7 @@ namespace x_nova_template
     public class BundleConfig
     {
         
-        //dДополнительные сведения об объединении см. по адресу: http://go.microsoft.com/fwlink/?LinkId=301862
+        //ddДополнительные сведения об объединении см. по адресу: http://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
