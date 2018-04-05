@@ -15,7 +15,7 @@
              Фото
         </div>
         <div class="editor-field">
-           <img width="150" height="150" src="@Url.Action("GetSliderImage", "Slider", new { id = Model.ID,width=300,height=300 })" />
+            <img width="150" height="150" src="@Url.Content("~/Content/Files/Slider/"+Model.ID+"/200x150/"+Model.ImageMimeType) " />
         </div>
         <div class="editor-label">
              Название
@@ -30,6 +30,13 @@
         <div class="editor-field">
            @Html.TextBoxFor(model => model.Description)
             @Html.ValidationMessageFor(model => model.Description)
+        </div>
+        <div class="editor-label">
+            Ссылка на изделие (url)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.ProdLink)
+            @Html.ValidationMessageFor(model => model.ProdLink)
         </div>
         <div class="editor-label">
              Цена

@@ -28,7 +28,8 @@ $(function () {
     var catid= $('.content-wrap').data('catid')!=undefined?0: $('#listview').data('catid');
     data1 = { catId: catid, page: 1 };//XN.getUrlParameter('page') ==null ? 1 : XN.getUrlParameter('page') };
 
-    if ($('.s-slider').length) XN.AjaxRequest.MakeRequest('/Product/ProdsToSlider', { jsonData: JSON.stringify(data) }, '.s-slider');    
+    //if ($('.s-slider').length) XN.AjaxRequest.MakeRequest('/Product/ProdsToSlider', { jsonData: JSON.stringify(data) }, '.s-slider');
+    if ($('.s-slider').length) XN.AjaxRequest.MakeRequest('/Slider/GetSlider', { jsonData: JSON.stringify(data) }, '.s-slider');
     if ($('#listview-target').length) {
         XN.AjaxRequest.MakeRequest('/Product/ProdListPartial', { jsonData: JSON.stringify(data1), url: "prod" }, '#listview-target');
         //hisotry ajax start page 1

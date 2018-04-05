@@ -19,6 +19,8 @@ namespace x_nova_template.Models
         public string Description { get; set; }
         
         public int? Price { get; set; }
+        public int Sortindex { get; set; }
+        public string ProdLink { get; set; }
 
         public Portfolio(object str) { 
             

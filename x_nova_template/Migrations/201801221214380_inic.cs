@@ -222,6 +222,8 @@ namespace x_nova_template.Migrations
                         Title = c.String(nullable: false, maxLength: 200),
                         Description = c.String(maxLength: 250),
                         Price = c.Int(),
+                        Sortindex = c.Int(),
+                        ProdLink = c.String()
                     })
                 .PrimaryKey(t => t.ID);
             

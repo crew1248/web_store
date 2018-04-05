@@ -1494,11 +1494,6 @@
     <Content Include="Areas\Admin\Views\PhotoGallery\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\PhotoGallery\Index.cshtml" />
     <Content Include="Areas\Admin\Views\PhotoGallery\UploadStart.cshtml" />
-    <Content Include="Areas\Admin\Views\Post\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\Post\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\Post\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\Post\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\Post\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Product\GetProdImages.cshtml" />
     <Content Include="Areas\Admin\Views\Product\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Product\ProdList.cshtml" />
@@ -1529,6 +1524,12 @@
     <Content Include="51Degrees.config" />
     <Content Include="App_Data\51Degrees.dat" />
     <Content Include="Areas\Admin\Views\UploadFiles\GetFolders.cshtml" />
+    <Content Include="Areas\Admin\Views\Post\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Post\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Post\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Post\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Post\GetPostImages.cshtml" />
+    <Content Include="Areas\Admin\Views\Post\Index.cshtml" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.4.min.map" />
     <None Include="Scripts\jquery-1.6.4-vsdoc.js" />

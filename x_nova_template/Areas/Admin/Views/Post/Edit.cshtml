@@ -3,77 +3,65 @@
 @{
     ViewBag.Title = "Edit";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
-
+    
     string[] files = null;
     if (Directory.Exists(Server.MapPath("~/Content/Files/Post/" + Model.ID)))
     {
         files = Directory.GetFiles(Server.MapPath("~/Content/Files/Post/" + Model.ID));
     }
-
+    
 }
 
 <script src="//cdn.ckeditor.com/4.4.3/full/ckeditor.js"></script>
-<p class="breadcrumbs" style="font-weight:bold;">
-    @Html.ActionLink("архив новостей", "Index")  &rArr;
-<span style="font-weight:normal;"> @Model.Title</span>
-</p>
+<p class="breadcrumbs" style="font-weight:bold;">@Html.ActionLink("архив новостей","Index")  &rArr;     
+   <span style="font-weight:normal;"> @Model.Title</span></p>
 
-@using (Html.BeginForm())
-{
+@using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
     <fieldset>
         <legend>Редактировать</legend>
 
-
-
+       
+       
         <div class="editor-label">
             Название
         </div>
         <div class="editor-field">
-            @Html.TextBoxFor(model => model.Title, new { style = "width:400px;" })
+            @Html.TextBoxFor(model => model.Title, new {style="width:400px;"})
             @Html.ValidationMessageFor(model => model.Title)
         </div>
-        <div class="editor-label">
+        @*<div class="editor-label">
             Главное фото
         </div>
         <div class="editor-field">
             @Html.Kendo().Upload().Name("file")
-        </div>
+        </div>*@
         <div class="editor-label">
             Внутренние фото (загрузка идет в новую папку на сервере - /Content/Files/Post/@Model.ID/)
         </div>
         <div class="editor-field">
-
-            @(Html.Kendo().Upload()
-        .ShowFileList(true)
+        
+        @(Html.Kendo().Upload()
+        .ShowFileList(true)        
         .Name("files")
-        .Async(a => a
-            .Save("PostUploadStart", "Post")
-
+        .Async(a => a            
+            .Save("PostUploadStart", "Post") 
             .AutoUpload(true))
+            .Events(x => x.Complete("uploadComplete").Success("uploadSuccess").Upload(@<text>
+            function(e) {    
+            console.log($('#wm').prop('checked'));
+             e.data = { id: @Model.ID,isWM:$('#wm').prop('checked') };
+            }
+          </text>)))
 
-
-    .Events(x => x.Success("uploadSuccess").Upload(@<text>
-                function(e) {
-                e.data = { id: @Model.ID };
-                }
-    </text>)))
-
+            </div>
+        <div class="editor-label">
+            <input type="checkbox" id="wm" /> c водяным знаком (сохранение идет в папку /Content/watermark )
         </div>
         <div id="files-holder">
-            <h3>Список файлов: (@(files != null ? files.Count().ToString() : "0"))</h3>
-            <div class="post-img-list">
-                @if (files != null)
-                {
-                    foreach (var file in files)
-                    {
-
-                        <div class="file-d" data-id="@Model.ID" id="@Path.GetFileName(file)"><span>удалить</span><img title="/Content/Files/Post/@Model.ID/@Path.GetFileName(file)" src="/Content/Files/Post/@Model.ID/@Path.GetFileName(file)" width="100" height="100" class="preview files-img" /> </div>
-                    }
-                }
-            </div>
+            @Html.Action("GetPostImages")
 
         </div>
         <div class="editor-label">
@@ -91,12 +79,12 @@
             @Html.ValidationMessageFor(model => model.Preview)
         </div>
 
-
+      
         <div class="editor-label">
             Контент
         </div>
         <div class="editor-field">
-            @Html.TextAreaFor(m => m.Body)
+             @Html.TextAreaFor(m=>m.Body)
         </div>
         <p>
             <button class="k-button k-primary" type="submit"><span class="label">Сохранить</span></button>
@@ -105,43 +93,50 @@
 }
 
 <div>
-
+    
     <a class="k-button " href="@Url.Action("Index", "Post", new {page=ViewBag.page})">Назад к списку</a>
-
+     
 </div>
 <script>
-    window.onload = function () {
+  window.onload = function () {
         CKEDITOR.replace('Body');
         //CKEDITOR.replace('Preview');
-    };
+  };
+  function uploadComplete(e) {
+      // var check = $("<input type='radio' class='isMain' name='isMain' /><span>в превью</span>");
+      // check.insertAfter($('.k-filename'));      
+      var prodId = '@Model.ID';
+      
+      $('#files-holder').load('/Admin/Post/GetPostImages?id=' + prodId, function () { imagePreview(); }).effect("highlight", {}, 2000);
+    
+  }
+  function uploadSuccess(e) {
+      var resp = $.parseJSON(e.XMLHttpRequest.responseText);
+      if (resp.type == "length") alert(resp.mess);
+      if (resp.type == "error") alert("Ошибка сервера!");//"Ошибка сервера!");
+  }
 
-    function uploadSuccess(e) {
-        var resp = $.parseJSON(e.XMLHttpRequest.responseText);
-        if (resp.type == "length") alert(resp.mess);
-        if (resp.type == "error") alert("Ошибка сервера!");//"Ошибка сервера!");
-    }
+  $(document).ready(function () {
+      var str = $('#files').closest('.k-upload-button');
 
-    $(document).ready(function () {
-        var str = $('#files').closest('.k-upload-button');
+      str.find('span').html('Выбрать файлы');
+      str.closest('.k-dropzone').find('em').html('перетащить сюда');
+      //console.log(str.closest('div').find('em').selector);
+      str = $('#file').closest('.k-upload-button');
+      str.find('span').html('Выбрать файл');
 
-        str.find('span').html('Выбрать файлы');
-        str.closest('.k-dropzone').find('em').html('перетащить сюда');
-        //console.log(str.closest('div').find('em').selector);
-        str = $('#file').closest('.k-upload-button');
-        str.find('span').html('Выбрать файл');
-
-    });
-    $(document).on("click", ".file-d", function () {
-        var list = $('.file-d');
-        $this = $(this);
-        var index = $.map(list, function (obj, index) {
-            if (obj.id == $this.attr('id')) {
-                return index;
-            }
-        });
-        console.log(index);
-        $.post("/Post/RemoveImage", { name: $(this).attr('id'), id: $(this).data('id') }, function () {
-            list[index].remove();
-        });
-    });
+  });
+  $(document).on("click", ".file-d", function () {
+      var list = $('.file-d');
+      $this = $(this);
+      var index = $.map(list, function (obj, index) {
+          if (obj.id == $this.attr('id')) {
+              return index;
+          }
+      });
+     
+      $.post("/Post/RemoveImage", { name: $(this).attr('id'),id:$(this).data('id') }, function () {
+          list[index].remove();
+      });
+  });
 </script>

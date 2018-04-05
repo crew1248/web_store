@@ -16,16 +16,16 @@ var getImages = function () {
 
 $(document).ready(function () {
 
-     //getImages();
-    
+    //getImages();
+
     if ($('#screenWidth').val() < 992) isTablet = true;
-   
+
 
     $('.sl-arrs img:first-child').on('click', function () {
-        animSlides(false,isTablet);
+        animSlides(false, isTablet);
     });
     $('.sl-arrs img:last-child').on('click', function () {
-        animSlides(true,isTablet);
+        animSlides(true, isTablet);
     });
 
     $('.slider-wrap').hover(function () {
@@ -34,7 +34,7 @@ $(document).ready(function () {
     }, function () { onHover = false; });
 
     function StartSliding() {
-        timer = setInterval(function () { animSlides(true, isTablet,onInit); }, 4000);
+        timer = setInterval(function () { animSlides(true, isTablet, onInit); }, 4000);
     }
     /*$('.sl-arrs').hover(function () {
 
@@ -43,28 +43,28 @@ $(document).ready(function () {
         setInterval(function () { animSlides(true, isTablet); }, 4000);
     });*/
     animSlides(true, isTablet, onInit);
-   
-    
+
+
     onInit = false;
-   // StartSliding();
-    
+    // StartSliding();
+
 });
 
 
-function animSlides(direction,isTablet) {
-   
-    var slidesVisible = isTablet ? 3 : 5;
+function animSlides(direction, isTablet) {
+
+    var slidesVisible = isTablet ? 1 : 1;
     var wrapper = $('.slider-wrap');
-   // $('.sl-slide').css({ opacity: 1, display: 'none' });
-   
-  
+    // $('.sl-slide').css({ opacity: 1, display: 'none' });
+
+
 
     var settings = {
-        list: $('.sl-slide').length-1,
-        current: $('.sl-active'),                
-        elem:0        
+        list: $('.sl-slide').length - 1,
+        current: $('.sl-active'),
+        elem: 0
     }
-    
+
     if (!onHover) {
         //if (settings.onInit) {
         //    $('.sl-slide').slice(0, slidesVisible).addClass('sl-active');
@@ -72,10 +72,10 @@ function animSlides(direction,isTablet) {
         //}
         ShowSlides(direction);
 
-        
 
-       
-        
+
+
+
         function ShowSlides(direction) {
             if (direction) {
                 settings.elem = settings.current.last().index();
@@ -84,55 +84,55 @@ function animSlides(direction,isTablet) {
                 settings.elem = settings.current.first().index();
                 var difference = settings.elem;
             }
-            Activate(settings.elem,direction);
-            
+            Activate(settings.elem, direction);
 
-            
-            function Activate(index,dir){
-              
-                
+
+
+            function Activate(index, dir) {
+
+
                 $('.sl-slide').removeClass('sl-active');
-                               
+
                 if (dir) {
                     //wrapper.css({ left: settings.current.last().outerWidth()+"px" });
                     if (settings.elem == settings.list) {
-                      
+
                         $('.sl-slide').slice(0, slidesVisible).addClass('sl-active');
                     }
                     else if (difference < slidesVisible) {
-                       
+
                         $('.sl-slide').slice(-slidesVisible).addClass('sl-active');
                     }
                     else {
                         $('.sl-slide').slice(settings.elem + 1, settings.elem + 1 + slidesVisible).addClass('sl-active');
-                    }                  
+                    }
 
                 } else {
-                   // wrapper.css({ left: settings.current.last().outerWidth() + "px" });
+                    // wrapper.css({ left: settings.current.last().outerWidth() + "px" });
                     if (settings.elem == 0) {
-                        
+
                         $('.sl-slide').slice(-slidesVisible).addClass('sl-active');
                     }
                     else if (difference < slidesVisible) {
                         $('.sl-slide').slice(0, slidesVisible).addClass('sl-active');
                     }
                     else {
-                        $('.sl-slide').slice(settings.elem - slidesVisible,settings.elem ).addClass('sl-active');
-                    }                   
+                        $('.sl-slide').slice(settings.elem - slidesVisible, settings.elem).addClass('sl-active');
+                    }
                 }
                 settings.current = $('.sl-active');
                 var idx = settings.current.first().index();
-                var outer = 240;
-                $('.slider-counter').html(settings.current.last().index() + 1 + " из " + (settings.list+1));
+                var outer = 190;
+                $('.slider-counter').html(settings.current.last().index() + 1 + " из " + (settings.list + 1));
                 //onInit ? wrapper.css({ left: -outer * idx+ "px" }) : wrapper.css({ left: (-outer * idx+1) + "px" });
                 wrapper.css({ left: (-outer * idx) + "px" });
-               
+                console.log(idx + ", ");
                 //$('.sl-circle[data-slide-index="' + settings.elem + '"]').addClass('sl-active');
-                
-                
+
+
                 //settings.current = $('.sl-active');
-                
-                
+
+
 
             }
             //$('#slide_' + index).css({ background: "url(/ImageData/GetProdImage?pid=" + $(this).data('pid') + "&width=400&height=300) no-repeat 50%", opacity: "0.5" }).animate({ opacity: "1" }, 1000);

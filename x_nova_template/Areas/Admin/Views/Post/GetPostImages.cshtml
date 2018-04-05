@@ -1,0 +1,23 @@
+﻿@model x_nova_template.Models.Post
+
+@{
+    string[] files = null;
+    if (Directory.Exists(Server.MapPath("~/Content/Files/Post/" + Model.ID)))
+    {
+        files = Directory.GetFiles(Server.MapPath("~/Content/Files/Post/" + Model.ID));
+    }   
+    
+}
+
+<h3>Список файлов: (@(files != null ? files.Count().ToString() : "0"))</h3>
+<div class="post-img-list">
+    @if (files != null)
+    {
+        foreach (var file in files)
+        {
+
+            <div class="file-d" data-id="@Model.ID" id="@Path.GetFileName(file)"><span>удалить</span><img title="/Content/Files/Post/@Model.ID/200x150/@Path.GetFileName(file)" src="/Content/Files/Post/@Model.ID/@Path.GetFileName(file)" data-large="/Content/Files/Post/@Model.ID/@Path.GetFileName(file)" width="100" height="100" class="preview files-img" /> </div>
+        }
+    }
+</div>
+

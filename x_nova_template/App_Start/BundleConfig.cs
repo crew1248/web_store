@@ -47,9 +47,8 @@ namespace x_nova_template
              "~/Scripts/jquery.jcarousel.min.js",
             
             "~/Scripts/site.js",
-            "~/Scripts/modalEffects.js", 
-           
-          
+            "~/Scripts/modalEffects.js",
+      
             "~/Scripts/jquery.signalR-2.2.0.min.js"  
             ));
            
@@ -74,6 +73,8 @@ namespace x_nova_template
              
               "~/Content/site.css",
               "~/Content/comm.css",
+
+              "~/Content/slider.css",
               "~/font-awesome/css/font-awesome.min.css",
 
               //"~/Content/kendo/2013.3.1324/kendo.common.min.css",
@@ -106,6 +107,7 @@ namespace x_nova_template
                 "~/font-awesome/css/font-awesome.min.css"
 
                ));
+            bundles.Add(new ScriptBundle("~/bundles/mslider").Include("~/Scripts/slider.js", new IItemTransform[0]));
             bundles.Add(new StyleBundle("~/Content/sitecss").Include(
                 "~/Content/site.css"
                ));

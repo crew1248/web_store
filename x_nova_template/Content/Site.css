@@ -55,7 +55,7 @@ input[type="text"], textarea, [contenteditable]
     outline: 0;
 }
 .carousel-wrapper {
-    width: 400px!important;
+    /*width: 400px!important;*/
 }
 
 .f-copyright {

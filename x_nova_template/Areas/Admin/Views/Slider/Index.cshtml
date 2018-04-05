@@ -27,10 +27,12 @@
         <th></th>
     </tr>
 @if(Model.Count()!=0){
-foreach (var item in Model) {
+    foreach (var item in Model)
+    {
+        var previewName = Directory.Exists(Server.MapPath("/Content/Files/Slider/" + item.ID + "/200x150")) ? Path.GetFileName(Directory.GetFiles(Server.MapPath("/Content/Files/Slider/" + item.ID + "/200x150")).FirstOrDefault()) : "";
     <tr >
         <td>
-          <img class="preview slider-img" src="@Url.Action("GetFolioSmall", "Slider", new { id=item.ID}) "  id="@item.ID"  alt="@item.Title" height="50" width="50" />
+            <img class="preview files-img" data-large="/Content/Files/Slider/@item.ID/@previewName" src="@Url.Content("~/Content/Files/Slider/"+item.ID+"/200x150/"+previewName) " id="@item.ID" alt="@item.Title" height="50" width="50" />
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Title)

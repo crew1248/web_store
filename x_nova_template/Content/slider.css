@@ -1,8 +1,9 @@
 ﻿.s-slider
 {
+     margin-left: 100px;
     margin-top: -10px;
     position: relative;
-    width: 100%;
+   
     height: 250px;
     overflow: hidden;
 }
@@ -34,6 +35,8 @@
 {
     float: right;
     margin-right: 50px;
+        z-index: 1;
+    position: relative;
 }
 
 .s-slider .sl-circle
@@ -41,13 +44,13 @@
     cursor:pointer;
     background-repeat:no-repeat;
     background-position:center;
-    width:200px;
-    height:200px;
+    width:150px;
+    height:150px;
     border-radius:165px;
      float:left;
      margin:0 20px;
      position:relative;
-     box-shadow: 0 0 20px #516C86;
+    border: 5px solid #dddddd;
      
 }
 
@@ -55,11 +58,11 @@
 .s-slider .sl-active{opacity:1!important;}
 .s-slider .sl-circle:hover
     {
-        -moz-animation:spinShadow 1s infinite ease-in-out;
+        /*-moz-animation:spinShadow 1s infinite ease-in-out;
         -moz-animation-iteration-count:1;
         -webkit-animation: spinShadow 1s infinite linear;
         -webkit-animation-iteration-count: 1;
-        box-shadow: 0 0 20px #00203F;
+        box-shadow: 0 0 20px #00203F;*/
     }
 .anim-border_0 {
    background-color: rgba(0, 0, 0, 0);

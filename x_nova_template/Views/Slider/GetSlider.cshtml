@@ -1,7 +1,7 @@
 ﻿
 @model IEnumerable<x_nova_template.Models.Portfolio>
 
-<div class="img-holder" >
+@*<div class="img-holder" >
     <div class="arr-left arrow"><img src="/Content/catalog/left-arrow.png" /></div>
      <div class="arr-right arrow"><img src="/Content/catalog/right-arrow.png" /></div>
      <div class="links">
@@ -18,10 +18,40 @@
             @foreach (var item in Model)
             {
                 if (SliderController.GetFirstSlide() == item.ID)
-                {<img id="@item.ID"  class="slide-selected slide-img" src="@Url.Action("GetSliderImage", "Slider", new {item.ID })" data-title="@item.Description" data-price="@item.Price.ToString("N0")" data-desc="@item.Title" width="200" height="200" /> }
-                else{<img id="@item.ID"  class=" slide-img" src="@Url.Action("GetSliderImage","Slider", new {item.ID })" data-title="@item.Description" data-price="@item.Price.ToString("N0")" data-desc="@item.Title" width="200" height="200" />}
+                {<img id="@item.ID"  class="slide-selected slide-img" src="@Url.Action("GetSliderImage", "Slider", new {item.ID })" data-title="@item.Description" data-price="@item.Price" data-desc="@item.Title" width="200" height="200" /> }
+                else{<img id="@item.ID"  class=" slide-img" src="@Url.Action("GetSliderImage","Slider", new {item.ID })" data-title="@item.Description" data-price="@item.Price" data-desc="@item.Title" width="200" height="200" />}
             }
     
      </div>
 
+</div>*@
+
+
+
+
+
+
+@Scripts.Render("~/bundles/mslider")
+
+<div class="sl-arrs">
+    <img src="@Url.Content("~/Content/qm/arr-left.png")" />
+    <span class="slider-counter"></span>
+    <img src="@Url.Content("~/Content/qm/arr-right.png")" />
+
 </div>
+
+<div class="slider-wrap clear-fix">
+    @{int circleCounter = 0; int slideCounter = 0;}
+    @foreach (var item in Model)
+    {
+
+        <a href="@item.ProdLink" class="sl-slide" title="@item.Title" onmousemove=""><div class="sl-circle" style="background-image:url(@Url.Content("~/Content/Files/Slider/"+item.ID+"/200x150/"+item.ImageMimeType))">@*<div class="anim-border_@slideCounter"></div>*@ </div></a>
+        circleCounter++;
+        if (slideCounter == 4) { slideCounter = 1; }
+        else { slideCounter++; }
+    }
+
+
+
+</div>
+

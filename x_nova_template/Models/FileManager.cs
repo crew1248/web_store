@@ -195,5 +195,12 @@ namespace x_nova_template.Models
             var dirs = dinfo.GetDirectories();
             return dirs;
         }
+        public void ClearDir(string path) {
+            DirectoryInfo dir = new DirectoryInfo(path);
+            var files = dir.GetFiles();
+            foreach (var file in files) {
+                File.Delete(file.FullName);
+            }
+        }
     }
 }
