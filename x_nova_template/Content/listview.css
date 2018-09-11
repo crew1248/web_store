@@ -1,35 +1,32 @@
-﻿.xn-listview-wrapper{
-  padding:15px;
-  position:relative;
+﻿#listview {
+    min-height:300px;
+}
+.xn-listview-wrapper{
+   
+    position:relative;
 }
 .xn-listview-cont{    
-    width:1060px;
-        margin-left: auto;
-    margin-right: auto;
-     position: relative;
+ 
+    position: relative;
 }
 .aligned-content{
-  margin-left: auto;
+    margin-left: auto;
     margin-right: auto;
 }
 .item-img{
-  /*width:200px;
-  height:200px;*/
-  background:#444;
-      opacity: 1;
-      padding-bottom:74.5%;
-      position:relative;
-     height:0;
+    opacity: 1;
+    position: relative;
+    padding:20px 0;
 }
-
-.item-img img{
-    position:absolute;
-    float:left;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
+    .item-img img {
+        
+    max-width: 100%;
+    margin-right: auto;
+ 
+    margin-left: auto;
+    border: none;
+    outline: none;
+    }
 
 .xn-lockup {
     display:block;
@@ -40,29 +37,49 @@
 }
 .xn-listview-feed
 {
-  display:block;
-  position:relative;
-  list-style:none;
+    display: flex;
+    position: relative;
+    list-style: none;
+    flex-direction: row;
+    flex-wrap: wrap;
   
 }
 .xn-listview-item>div{
-  padding:5px;
+
 }
 .xn-listview-item{
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    float: left;
-    padding-left: 20px;
-
+    margin-right: 20px;
+    margin-bottom: 20px;
+    width: 200px;
+    display: inline-block;
+    box-shadow: 0 1px 5px rgba(0,0,0,.15);
+    border: 1px solid gray;
 }
-    .xn-listview-item::before {
-            content: " ";
-    display: table;
+    .xn-listview-item:hover {
+        border: 1px solid #585858;
+        box-shadow: 0 -3px 0 grey;
     }
+        .xn-listview-item:hover caption {
+
+        }
+#listview-target .carousel-main__loader {
+    margin: 0 auto;
+    display: block;
+}
 .caption {
     padding-top: 8px;
     padding-right: 10px;
     padding-left: 10px;
+        -ms-flex-direction: column;
+    -webkit-flex-direction: column;
+        flex-direction: column;
+    display:flex;
+     background: #f3f3f3;
+}
+.caption-wrap {
+
 }
 .caption-discount {
         position: absolute;
@@ -74,16 +91,18 @@
     border-radius: 2px;
 }
 .caption-btns {
-        position: absolute;
-    bottom: 5px;
-    right: 10px;
+     
+   
 }
 .caption-more-details {
-        position: absolute;
-  top: 30%;
-    left: 35%;
+background: rgba(0, 0, 0, 0.07);
+    position: absolute;
+    bottom: 85px;
+    z-index: 1;
+    color: #848484;
+    width: 100%;
+    text-align: center;
     display:none;
-        z-index: 1;
 }
 .caption-h4 a {
     display: block;
@@ -117,25 +136,30 @@
 .caption-text {
 }
 .caption-title {
-    height:34px;
+       padding: 10px 0;
 }
 .caption-info {
-        display: block;
-    height: 59px;
-    padding-top: 8px;
+       height: 40px;
+}
+.caption-btns {
+    display: inline-block;
+        float: right;
+}
+.caption-item-price {
+        padding-top: 5px;
 }
 .xn-details {
-        color: white;
-    background: black;
-    opacity: 0.7;
-    padding: 5px;
-    font-weight: 600;
+    color: #585858;
+    padding: 3px;
+    font-weight: 300;
+    cursor: pointer;
 }
 .xn-listview-item button {
     padding:4px 10px;
 }
 .caption-price {
     font-size:14px;
+    display: inline-block;
 }
 .xn-listview-link {
         display: block;
@@ -147,18 +171,14 @@
 .xn-listview-item__row {
     z-index: 0;
     padding: 0;
-    margin-top: 20px;
-    height: auto;
-    background: #e1e1e1;
-    box-shadow: 0 1px 5px rgba(0,0,0,.15);
-    display: block;
+    
+    height: auto; 
     position: relative;
-   
-   
-    border: 1px solid #cfcfcf;
     font-size: 13px;
     color: #595959;
     overflow: hidden;
+   
+  
 }
 /*ul#anim-listview:hover li:not(:hover) {
 	opacity: .3;
@@ -171,57 +191,3 @@
 	transform: scale(.9);
 }*/
 
-#listview-target .xn-listview-item {
-       
-        width: 100%;
-}
-@media (min-width: 20em) {
-  
-    #listview-target .xn-listview-item {
-        width: 50%;
-    }
-}
-@media (min-width: 39.375em) {
-   
-    #listview-target .xn-listview-item {
-        width: 33.333333%;
-    }
-}
-@media (min-width: 53.75em) {
-  
-    #listview-target .xn-listview-item {
-        width: 25%;
-    }
-}
-
-@media (min-width: 67.1875em) {
-   
-    #listview-target .xn-listview-item{
-        width: 20%;
-    }
-}
-
-/* max width */
-
-@media (max-width: 20em) {
-      .xn-listview-cont {
-      
-    }
-}
-@media (max-width: 39.375em) {
-   .xn-listview-cont {
-       
-    }
-}
-@media (max-width: 53.75em) {
-      .xn-listview-cont {
-     
-    }
-}
-
-@media (max-width: 67.1875em) {
-      .xn-listview-cont {
-        width:auto;
-    }
-   
-}

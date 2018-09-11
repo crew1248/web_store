@@ -36,8 +36,8 @@
     .Columns(columns =>
     {
         columns.Bound(e => e.ID).Width(100);
-        columns.Template(e => { }).ClientTemplate("<div><img class='preview grid-img' src='${imgLink}'  id='${ID}'  alt='${ProductName}' height='50' width='50'  /> </div>").Width(100).Title("Картинка");
-        columns.Bound(e => e.ProductName).Encoded(false).Width(200).HtmlAttributes(new { style = "height:60px;overflow:hidden;display:block;" }).Title("Описание");
+        columns.Template(e => { }).ClientTemplate("<div><img class='preview grid-img' src='${imgLink}'  id='${ID}'  alt='${ProductName}' width='100'  /> </div>").Width(100).Title("Картинка");
+        columns.Bound(e => e.ProductName).Encoded(false).Width(200).HtmlAttributes(new { style = "height:100px;overflow:hidden;display:block;" }).Title("Описание");
         // columns.Bound(e => e.Price).Width(100)/*.ClientTemplate("#:kendo.toString(Price, 'c0')#")*/.Title("Цена");
 
         columns.ForeignKey(p => p.CategoryID, (System.Collections.IEnumerable)ViewData["Catss"], "ID", "CategoryName")
@@ -45,7 +45,7 @@
         columns.Command(command =>
         {
             /*command.Custom("asd").HtmlAttributes(new { @class = "k-button k-button-icontext prod-image" }).Text("<i style='margin-left: -2px;position:relative' class='icon-picture'><input type='file' data-id = '${ID}' name='file' class='prodimg' /></i>");*/
-            command.Custom("asd").HtmlAttributes(new { @class = "k-button k-button-icontext prod-image" }).Click("UploadWindow").Text("<i style='margin-left: -2px;position:relative' class='fa fa-picture-o'></i>");
+            command.Custom("asd").HtmlAttributes(new { @class = "k-button k-button-icontext prod-image" }).Click("UploadWindow").Text("<i style='margin-left: -2px;position:relative' class='fa fa-image'></i>");
             command.Edit().Text(" ");
             command.Destroy().Text(" ");
         }).Width(150);

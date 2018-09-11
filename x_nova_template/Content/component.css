@@ -153,8 +153,8 @@
 }
 .md-modal .modalh
 {
-        background: #dedede;
-        border-top: 1px solid #bdbdbd;
+    background: #ececec;
+    border-top: 1px solid #d4d2d2;
 }
 .md-modal .mob-opts {
 
@@ -201,6 +201,10 @@
     }
     .md-modal .md-mainarrs i:hover {
         color: white;
+    }
+      .md-modal .md-mainarrs i:before {
+           font-size: 40px;
+            margin: 0;
     }
 .md-modal .md-loader {
       position: absolute;
@@ -265,7 +269,7 @@ div.md-close
     text-align: center;
     line-height: 18px;  
     font-family:Roboto;  
-    font-weight:bold;
+        font-weight: 400;
 }
 
 .modal-wrap {
@@ -312,10 +316,10 @@ div.md-close
    
 }
 .md-modal .xn-i-wrap1 {
-    background-color: #dedede;
+    /*background-color: #ececec;*/
 }
 .md-modal .xn-i-mphoto {
-      
+   
     display: block;
     overflow: hidden;
     padding-bottom: 100%;
@@ -398,7 +402,9 @@ div.md-close
 /*   MODAL  CATALOG  */
 /*--------------------------*/
 
-
+.md-cat .xn-inscreaser {
+    box-shadow: 0 4px 2px -1px #dadada;
+}
 .md-cat .md-close
 {
     font-size: 18px!important;
@@ -434,8 +440,8 @@ display: block;
 .md-cat .xn-i-details
 {
 
-    /*overflow-y: scroll;*/
-     padding: 0 20px;
+    overflow-y: auto;
+         border-left: 1px solid gainsboro;
        min-height: 30px;
     bottom: 0;
     box-sizing: border-box;
@@ -455,15 +461,16 @@ display: block;
         font-family: Roboto;
     padding-right: 10px;
    width:110px;
-   font-size: 12px;
-    font-weight: 600;
+    font-size: 12px;
+    font-weight: 300;
       
     }
  .xn-i-details table th{color:#262626;}
     .md-cat .xn-i-details table td
     {
        
-     
+         font-weight: 400;
+    font-size: 13px;
         word-wrap: break-word;
         
     }
@@ -519,8 +526,43 @@ display: block;
     padding: 0 9px;
     float: left;
 }
-
-
+.md-cat .xn-d-w {
+padding: 0 20px 20px 20px;
+}
+.md-cat .xn-i-price {
+padding:20px;
+background: #efefef;
+    color: black;
+}
+.md-cat .xn-i-price__value {
+    font-size: 24px;
+    font-weight: 300;
+    display: inline-block;
+}
+.md-cat .xn-i-price__currency {
+    display: inline-block;
+    font-size: 16px;
+}
+.md-cat .xn-i-price__wrap {
+        display: block;
+}
+.md-cat .modalh {
+background: #efefef;
+}
+.md-cat .xn-i-title__cat {
+        font-size: 14px;
+    color: gray;
+    font-weight: 300;
+}
+.md-cat .xn-i-title {
+        padding: 10px 20px;
+    display: block;
+}
+.md-cat .xn-i-title__value {
+        font-size: 18px;
+   
+   
+}
 /*--------------------------*/
 /*   MODAL  GALLERY  */
 /*--------------------------*/
@@ -574,7 +616,7 @@ display: block;
 }
 .xn-i-mleft
 {
-    left: -40px;
+    left: -50px;
 }
 .xn-i-mright
 {
@@ -629,8 +671,7 @@ display: block;
     width: 48px;
     border: 2px solid #001b3d;
 }
-
-
+   
 /* default */
 
 
@@ -644,7 +685,7 @@ display: block;
     top:30px;
 }
 .md-cat .xn-i-details {
-    top:10px;
+    top:0;
     position:relative;
     width:auto;
 }

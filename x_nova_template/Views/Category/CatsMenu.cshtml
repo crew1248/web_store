@@ -7,8 +7,14 @@
     });
 </script>
 
-<ul id="catsList">
-    @foreach(var item in Model){
-        <li data-cat-id="@item.ID"><i class="icon-check"></i><span><a href="@Url.Action("ProdList", "Product", new {catId=item.ID })" >@item.CategoryName</a></span></li>
-    }
+<ul class="tmenu" style="float:left;">
+    <li class="tmenu-item">
+        <a onclick="javascript: void (0);">Продукция <i class="fa fa-angle-down"></i></a>
+        <ul id="catsList" class="tmenu__submenu">
+            @foreach (var item in Model)
+            {
+                <li data-cat-id="@item.ID" class="tmenu__submenu-item"><a class="submenu-link" href="@Url.Action("ProdList", "Product", new {catId=item.ID })">@item.CategoryName</a></li>
+            }
+        </ul>
+    </li>
 </ul>

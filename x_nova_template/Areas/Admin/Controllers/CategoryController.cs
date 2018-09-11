@@ -15,7 +15,7 @@ namespace x_nova_template.Areas.Admin.Controllers
     public class CategoryController : BaseController
     {
         //
-        // GET: /Category/
+        // GET: /Category/gfd
 
         public int PageSize = 4;
         ICategoryRepository _repository;

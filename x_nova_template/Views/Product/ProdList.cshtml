@@ -7,12 +7,12 @@
 
 <h4>@ViewBag.Test</h4>
 <div id="listview" class="prodlist" data-catid="@ViewBag.CatID">
-    <div class="breadcrumb">@Html.RouteLink("Главная", "home") / @ProductController.GetCatName(ViewBag.CatID)</div>
-    <h2>Каталог продукции</h2>
+    <div class="breadcrumb">@Html.ActionLink("Главная", "Index","Home") / @ProductController.GetCatName(ViewBag.CatID)</div>
+    
     <h3>@ProductController.GetCatName(ViewBag.CatID)</h3>
-    <div class="separ"></div>
+    
     <div id="listview-target">
-
+        
     </div>
 
 </div>

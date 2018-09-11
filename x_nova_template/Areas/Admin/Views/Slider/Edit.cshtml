@@ -39,6 +39,13 @@
             @Html.ValidationMessageFor(model => model.ProdLink)
         </div>
         <div class="editor-label">
+           сортировка
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.Sortindex)
+            @Html.ValidationMessageFor(model => model.Sortindex)
+        </div>
+        <div class="editor-label">
              Цена
         </div>
         <div class="editor-field">

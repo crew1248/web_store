@@ -75,7 +75,7 @@ namespace x_nova_template
               "~/Content/comm.css",
 
               "~/Content/slider.css",
-              "~/font-awesome/css/font-awesome.min.css",
+               "~/Content/menu.css",
 
               //"~/Content/kendo/2013.3.1324/kendo.common.min.css",
               //"~/Content/kendo/2013.3.1324/kendo.default.min.css",

@@ -20,7 +20,10 @@
         <th>
            Описание
         </th>
-       
+        <th>
+            сортировка
+        </th>
+
        
        
         
@@ -40,7 +43,9 @@
        <td>
             @Html.DisplayFor(modelItem => item.Description)
         </td>
-      
+        <td>
+            @Html.DisplayFor(modelItem => item.Sortindex)
+        </td>
        
         <td>
             <a href="@Url.Action("Edit", "Slider", new { id = item.ID})" title="Редактировать" class="k-button"><span class="k-icon k-i-pencil"></span></a>

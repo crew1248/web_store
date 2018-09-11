@@ -33,8 +33,8 @@
 //}
 
 var footNav = function () {
-    $mainNav = $('.tmenu');
-    $serviceNav = $('.bmenu');
+    $mainNav = $('.tmenu:eq(1)');
+    $serviceNav = $('.tmenu:first');
     $footWrap = $('.f-menu');
     $mobnavWrap = $('.mob-nav-target');
     $cat = $('#catsList');
@@ -42,7 +42,7 @@ var footNav = function () {
 
     $serviceNav.clone().appendTo($mobnavWrap);
     $mainNav.clone().appendTo($footWrap);
-    $serviceNav.clone().appendTo($footWrap);
+   // $serviceNav.clone().appendTo($footWrap);
     $cat.clone().appendTo($footWrap);
     $('.f-menu ul').attr('class', 'foot-nav');
     $('.f-menu ul').removeAttr('id');
@@ -51,8 +51,8 @@ var footNav = function () {
         return h.replace(/&nbsp;/g, '');
     });
     $('<li>Разделы</li>').insertBefore($('.f-menu ul:eq(0) li:eq(0)'));
-    $('<li>Услуги</li>').insertBefore($('.f-menu ul:eq(1) li:eq(0)'));
-    $('<li>Каталог</li>').insertBefore($('.f-menu ul:eq(2) li:eq(0)'));
+    $('<li>Продукция</li>').insertBefore($('.f-menu ul:eq(1) li:eq(0)'));
+    
 }
 
 
@@ -513,10 +513,11 @@ $(function () {
     mainConfiguration();
     zoomedImg();  
     initSections();
-    partialCartInit();
-    summaryCartInit();
-   
+    //partialCartInit();
+    //summaryCartInit();
     
+    $(document).on('mouseover', '.tmenu-item', function () { if ($(this).find('i').length) $('.main-overlay').show(); });
+    $(document).on('mouseout', '.tmenu-item', function () { if ($(this).find('i').length) $('.main-overlay').hide(); });
     $(document).on('mouseover', '.xn-listview-item', function(){$(this).find('.caption-more-details').show();});
     $(document).on('mouseout', '.xn-listview-item', function(){$(this).find('.caption-more-details').hide();});
     $(document).on('click', '*[data-event-type="cart__decrease"]', cartItemDecrease);
@@ -536,13 +537,36 @@ $(function () {
     
     // $(document).on('click', '.dropdown-item', dropdownListItem);
     
+
+    var shrinkHeader = 100;
+    $(window).scroll(function () {
+        var scroll = getCurrentScroll();
+        if (scroll >= shrinkHeader) {
+            $('#top-section').addClass('shrink');
+           
+        }
+        else {
+            $('#top-section').removeClass('shrink');
+          
+        }
+    });
+    function getCurrentScroll() {
+        return window.pageYOffset || document.documentElement.scrollTop;
+    }
+
     $(document).on("click", ".md-close", function (e) {
         XN.Inscreaser.Close();
         XN.Auth.CloseModal();
     });
-    $(document).on("click", ".md-overlay", function (e) {
-        if ($('.md-modal').hasClass('md-show')) $('.md-modal').removeClass('md-show');
-    })
+     $(document).on("click", "body", function (e) {
+       if (!$(e.target).closest(".md-content,.caption-more-details,.md-mainarrs").length) {
+      XN.Inscreaser.Close();
+        XN.Auth.CloseModal();
+  }
+   });
+
+
+
     $(document).on("keyup", "body", function (e) {
         if (e.keyCode == 13 || e.keyCode == 27) {
             XN.Inscreaser.Close();

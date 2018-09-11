@@ -45,12 +45,12 @@ text-align:center;
 }
     .pager a:hover
     {
-        background: #233D55;
+        background: #ffb40d;
         color: #FFF;
     }
 .pager .current-page
 {
-    background: #233D55;
+    background: #ffb40d;
     color: #FFF;
 }
 

@@ -1,6 +1,6 @@
 ﻿@{/*بسم الله الرحمن الرحيم*/}
 @{
-    if (!User.Identity.IsAuthenticated)
+    if (!User.IsInRole("admin"))
     { Context.RedirectLocal("/Admin"); }
 
 }
@@ -18,7 +18,7 @@
     @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/admjs")
     @Scripts.Render("~/bundles/kjs")
-   
+    <link rel="stylesheet" type="text/css" href="~/font-awesome/css/fontawesome-all.min.css">
     
 </head>
 <body>

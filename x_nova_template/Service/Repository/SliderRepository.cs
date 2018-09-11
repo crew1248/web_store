@@ -55,10 +55,10 @@ namespace x_nova_template.Service.Repository
 
                 imagesCount = filemanager.CheckDirectory(dirPaths);
                 var filePaths = Path.Combine(dirPaths, rndName + Path.GetExtension(file.FileName));
-                var istream = new WebImage(file.InputStream).Resize(1920, 1080, true, true).GetBytes();
+                var istream = new WebImage(file.InputStream).Resize(1921, 1081, true, true).Crop(1, 1).GetBytes();
 
                 filemanager.WriteImage(istream, filePath);
-                istream = new WebImage(istream).Resize(200, 150, false, true).GetBytes();
+                istream = new WebImage(istream).Resize(201, 151, false, true).Crop(1, 1).GetBytes();
                 filemanager.WriteImage(istream, filePaths);
 
                 gall.ImageMimeType = rndName + Path.GetExtension(file.FileName);
@@ -100,10 +100,10 @@ namespace x_nova_template.Service.Repository
                     imagesCount = filemanager.CheckDirectory(dirPaths);
                     filemanager.ClearDir(dirPaths);
                     var filePaths = Path.Combine(dirPaths, rndName + Path.GetExtension(file.FileName));
-                    var istream = new WebImage(file.InputStream).Resize(1920, 1080, true, true).GetBytes();
+                    var istream = new WebImage(file.InputStream).Resize(1921, 1081, true, true).Crop(1, 1).GetBytes();
 
                     filemanager.WriteImage(istream, filePath);
-                    istream = new WebImage(istream).Resize(200, 150, false, true).GetBytes();
+                    istream = new WebImage(istream).Resize(201, 151, false, true).Crop(1, 1).GetBytes();
                     filemanager.WriteImage(istream, filePaths);
 
                     fol.ImageMimeType = rndName + Path.GetExtension(file.FileName);

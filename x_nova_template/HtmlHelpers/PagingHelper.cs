@@ -19,8 +19,8 @@ namespace x_nova_template.HtmlHelpers
             bool bThreeDots2 = false;
             int links_visible = 2;
             var currentPage = pageingInfo.CurrentPage;
-            var totalPages =pageingInfo.TotalPage;
-            
+            var totalPages = pageingInfo.TotalPage;
+
 
             int links_visible_head = links_visible;
             if (links_visible >= (currentPage - links_visible)) links_visible_head = 3;
@@ -35,18 +35,18 @@ namespace x_nova_template.HtmlHelpers
                     || (i <= currentPage && i >= (currentPage - links_visible))
                     || (i >= currentPage && i <= (currentPage + links_visible)))
                 {
-                TagBuilder tag = new TagBuilder("a");
-                    
-                tag.MergeAttribute("href", pageUrl(i));
-                tag.InnerHtml = i.ToString();
+                    TagBuilder tag = new TagBuilder("a");
+
+                    tag.MergeAttribute("href", pageUrl(i));
+                    tag.InnerHtml = i.ToString();
 
 
-                if (i == currentPage) 
-                    tag.AddCssClass("current-page k-primary k-button");
-                else 
-                    tag.AddCssClass("k-button");
+                    if (i == currentPage)
+                        tag.AddCssClass("current-page k-primary k-button");
+                    else
+                        tag.AddCssClass("k-button");
 
-                str.Append(tag.ToString());
+                    str.Append(tag.ToString());
                 }
                 else
                 {
@@ -74,7 +74,7 @@ namespace x_nova_template.HtmlHelpers
             }
             else return MvcHtmlString.Empty;
         }
-        public static MvcHtmlString PageLinks(this HtmlHelper html, PagingInfo pageingInfo, Func<int,string, string> pageUrl)
+        public static MvcHtmlString PageLinks(this HtmlHelper html, PagingInfo pageingInfo, Func<int, string, string> pageUrl)
         {
             StringBuilder str = new StringBuilder();
 
@@ -101,7 +101,7 @@ namespace x_nova_template.HtmlHelpers
                 {
                     TagBuilder tag = new TagBuilder("a");
 
-                    tag.MergeAttribute("href", pageUrl(i,sort));
+                    tag.MergeAttribute("href", pageUrl(i, sort));
                     tag.InnerHtml = i.ToString();
 
 
@@ -144,7 +144,7 @@ namespace x_nova_template.HtmlHelpers
         {
             StringBuilder str = new StringBuilder();
 
-            
+
             bool bThreeDots1 = false;
             bool bThreeDots2 = false;
             int links_visible = 2;

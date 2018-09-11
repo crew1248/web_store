@@ -1,5 +1,5 @@
 ﻿@{
-    var jarr = new Newtonsoft.Json.Linq.JArray();
+
 
 
 }
@@ -8,33 +8,92 @@
 {
 
 
-       <div class="xn-inscreaser">
+    <div class="xn-inscreaser">
         <div class="xn-i-wrap1 xn-i-wrap1__cat clear-fix">
             <div class="xn-i-mphoto">
                 <img src="" id="xn-i-main" />
             </div>
             <div class="xn-i-details">
+                <div class="xn-i-price">
+                    <div class="xn-i-price__wrap">
+                        <div class="xn-i-price__value d-price"></div>
+                        <div class="xn-i-price__currency"></div>
+                    </div>
+                </div>
+                <div class="xn-i-title">
+                    <div class="xn-i-title__cat d-cat"></div>
+                    <div class="xn-i-title__value d-title"></div>
+
+                </div>
                 <div class="xn-i-details__spoiler hidden-lg hidden-md hidden-sm visible-xs">Характеристики:<i class="fa fa-arrow-down "></i> </div>
                 <div class="xn-d-w">
-                    <table>
-                        
-                        <tr class="d-price">
-                            <th>Цена</th>
-                            <td></td>   
 
-                        </tr>
-                        <tr class="d-title">
+                    <table>
+
+                        @*<tr class="d-price">
+                            <th>Цена</th>
+                            <td></td>
+                        </tr>*@
+                        @*<tr class="d-title">
                             <th>Тип</th>
                             <td></td>
-                        </tr>
-                        <tr class="d-cat">
-                            <th>Область</th>
+                        </tr>*@
+                        @*<tr class="d-cat">
+                            <th>Категория</th>
+                            <td></td>
+                        </tr>*@
+                        <tr class="d-matironform">
+                            <th>Цвет</th>
                             <td></td>
                         </tr>
-                        <tr class="d-desc">
-                            <th>Описание</th>
+                        <tr class="d-size">
+                            <th>Размеры</th>
                             <td></td>
                         </tr>
+                        <tr class="d-hard">
+                            <th>Масса нетто</th>
+                            <td></td>
+                        </tr>
+                        <tr class="d-prodtime">
+                            <th>Сроки исполнения</th>
+                            <td></td>
+                        </tr>
+                        <tr class="d-matprod">
+                            <th>Материал изделия</th>
+                            <td></td>
+                        </tr>
+
+                        <tr class="d-matform">
+                            <th>Упаковка</th>
+                            <td></td>
+                        </tr>
+
+                        <tr class="d-chan">
+                            <th>Производитель</th>
+                            <td></td>
+                        </tr>
+
+                        @*<tr class="d-block">
+                            <th>Блок </th>
+                            <td></td>
+                        </tr>
+                        <tr class="d-auto">
+                            <th>Полуавтомат </th>
+                            <td></td>
+                        </tr>
+                        <tr class="d-newfield">
+                            <th>Новое поле </th>
+                            <td></td>
+                        </tr>
+                        <tr class="d-coup">
+                            <th>Система охлаждения</th>
+                            <td></td>
+                        </tr>*@
+                       @*<tr class="d-desc">
+                            <th>описание</th>
+                            <td></td>
+                        </tr>*@
+
                     </table>
                 </div>
 
@@ -57,8 +116,15 @@
 
             </div>
             <div class="xn-i-button">
-                <a class="xn-dark-button btn xn-cart-option btn-default" data-event-type="cart__add" data-pid="" >Купить</a>
-                <a class="xn-dark-button btn btn-default" onclick="XN.Inscreaser.Close();" data-pid="">Продолжить</a>
+
+                @*<button class="xn-dark-button btn xn-cart-option btn-default" data-event-type="cart__add" data-pid="" >Купить</button>*@
+                
+                <a href="@Url.Action( "Details", "Product", new { id =ViewBag.Prod.GenerateSlug()})" class="cat-btn default-btn prod-link-details" data-pid="">
+                    <span class="cat-btn__text">Узнать больше о товаре</span><div>
+                    </div>
+
+
+                </a>
             </div>
         </div>
     </div>
@@ -102,11 +168,13 @@ else
 
 <script>
     $(function () {
-
         XN.Inscreaser.Init(@ViewBag.type,@Html.Raw(ViewBag.result),@ViewBag.el);
-        @if(ViewBag.result==null){ <text>alert('Пустой объект');</text>}
-        if($('#screenWidth').val()<500){
-            //$('.xn-i-button').cleanWhitespace();
-            $('.xn-cart-option').after('<br /><br />');}
+        @if (ViewBag.result == null)
+        { <text>alert('Пустой объект');</text>}
+
+        if ($('#screenWidth').val() < 500) {
+            $('.xn-i-button').cleanWhitespace();
+            $('.xn-cart-option').after('<br /><br />');
+        }
     });
 </script>

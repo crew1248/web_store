@@ -12,13 +12,14 @@ namespace x_nova_template.HtmlHelpers
 {
     public static class CategoryHelper
     {
-        public static MvcHtmlString GetCats(this HtmlHelper helper,List<Category> catsList) { 
+        public static MvcHtmlString GetCats(this HtmlHelper helper, List<Category> catsList)
+        {
             StringBuilder str = new StringBuilder();
-            
+
             TagBuilder ulTag = new TagBuilder("ul");
             ulTag.AddCssClass("catlist");
-            int count=0;
-            foreach(var item in catsList)
+            int count = 0;
+            foreach (var item in catsList)
             {
                 count++;
                 string catName = item.CategoryName.IndexOf("&") != 0 ?
@@ -28,7 +29,7 @@ namespace x_nova_template.HtmlHelpers
                 if (count == catsList.Count()) { liTag.AddCssClass("last"); }
                 TagBuilder aTag = new TagBuilder("a");
                 aTag.MergeAttribute("href", "/" + catName);
-               
+
                 aTag.AddCssClass("cat-link");
                 aTag.SetInnerText(item.CategoryName);
                 liTag.InnerHtml += aTag.ToString();
@@ -38,7 +39,7 @@ namespace x_nova_template.HtmlHelpers
 
             str.Append(ulTag.ToString());
 
-            if (catsList.Count()!=0)
+            if (catsList.Count() != 0)
             {
                 return MvcHtmlString.Create(str.ToString());
             }

@@ -269,8 +269,9 @@ XN.Inscreaser = { // Widget - Catalog/Gallery
             //var rouble = $('<i class="fa fa-rouble"></i>');
             el.added ? $('.xn-cart-option').attr({ dataEventType: 'cart__view' }).attr( 'href', '/Checkout/Index?step=1' ).html('В корзину') : '';
             //$('.xn-h-w a').attr('href', '/Product/Details/' + el.id);
-            $('.d-title td').html(el.name);
-            $('.d-cat td').html(el.cat);
+            //$('.d-title td').html(el.name);
+            $('.d-title').html(el.name);
+            $('.d-cat').html(el.cat);
 
             el.hard != null ? $('.md-modal .d-hard td').html(el.hard) : $('.md-modal .d-hard').hide();
             el.matform != null ? $('.md-modal .d-matform td').html(el.matform) : $('.md-modal .d-matform').hide();
@@ -281,9 +282,9 @@ XN.Inscreaser = { // Widget - Catalog/Gallery
             el.chan != null ? $('.md-modal .d-chan td').html(el.chan) : $('.md-modal .d-chan').hide();
             el.desc != null ? $('.md-modal .d-desc td').html(el.desc) : $('.md-modal .d-desc').hide();
             el.coup != null ? $('.md-modal .d-coup td').html(el.coup) : $('.md-modal .d-coup').hide();
-
-
-
+            el.size != null ? $('.md-modal .d-size td').html(el.size) : $('.md-modal .d-size').hide();
+            //el.price != null ? $('.md-modal .d-price td').html(el.price) : $('.md-modal .d-price').hide();
+            el.price != null ? $('.md-modal .d-price').html(el.price) : $('.md-modal .d-price').hide();
             //$('.d-price td').html(el.price + ' <i class="fa fa-rouble"></i>');
             $('*[data-event-type="cart__add"]').attr('data-pid', el.id);
             //if(XN.IsMobile)$('.prod-link-details').attr('href', '/Product/Details/'+el.id);
@@ -596,7 +597,7 @@ XN.Inscreaser = { // Widget - Catalog/Gallery
                 return function () {
                     $('#xn-i-beforesend').show();
                 };
-            }(img), 500);
+            }(img), 100);
 
 
         },
@@ -672,7 +673,7 @@ XN.AjaxRequest = {
       
         $.ajax({
             beforeSend: function () {
-                if (target == '#listview-target') $(target).html('<img class="ov-spin" src="/Content/ajax-loaders/horizont/tail-spin.svg" />');
+                if (target == '#listview-target') $(target).html(' <img src="/Content/ajax-loaders/svg-loaders/puff.svg" class="carousel-main__loader" />');
             },
             url: url,
             data: data,

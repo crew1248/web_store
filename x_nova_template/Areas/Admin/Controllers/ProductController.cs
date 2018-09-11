@@ -32,7 +32,7 @@ namespace x_nova_template.Areas.Admin.Controllers
         //
         // GET: /Product/
 
-        public int PageSize = 1;
+        public int PageSize = 6;
 
         IProductRepository _pRepository;
         ICategoryRepository _catRep;
@@ -108,12 +108,13 @@ namespace x_nova_template.Areas.Admin.Controllers
                             orderby x.ID descending
                             select x).Skip<Product>(((num - 1) * this.PageSize)).Take<Product>(this.PageSize),
                 Category = _catRep.Categories.SingleOrDefault(x => x.ID == id)
-               
+
             };
             PagingInfo info = new PagingInfo
             {
                 Service = "Product",
                 CurrentPage = num,
+                Sort = this.PageSize.ToString(),
                 ItemsPerPage = this.PageSize,
                 TotalItems = (from x in this._pRepository.Products
                               where x.CategoryID == id
@@ -208,7 +209,7 @@ namespace x_nova_template.Areas.Admin.Controllers
 
         public ActionResult Index()
         {
-            var list = _catRep.Categories.Select(x => new { ID = x.ID, CategoryName = x.CategoryName });
+            var list = _catRep.Categories.OrderByDescending(x=>x.Sortindex).Select(x => new { ID = x.ID, CategoryName = x.CategoryName });
             ViewBag.Cats = new SelectList(list, "ID", "CategoryName");
             ViewData["Catss"] = _cRep.Categories
                         .Select(e => new
@@ -238,6 +239,7 @@ namespace x_nova_template.Areas.Admin.Controllers
                 Block = o.Block,
                 MatForm = o.MatForm,
                 Size = o.Size,
+
                 ProductType = o.ProductType,
                 CategoryName = "FFFFFFFF",
                 ID = o.ID,
@@ -345,6 +347,13 @@ namespace x_nova_template.Areas.Admin.Controllers
         {
 
             var prod = _pRepository.Get(pid);
+
+            return PartialView(prod);
+        }
+        public ActionResult LastnewProds()
+        {
+
+            var prod = _pRepository.Get().Take(10);
 
             return PartialView(prod);
         }

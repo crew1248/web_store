@@ -80,15 +80,16 @@ namespace Posbank.Controllers
                     {"hard",item.Hardness},
                     {"matform",item.MatForm},
                     {"matprod",item.MatProd},
-                     {"matironform",item.MatIronForm},
-                      {"block",item.Block},
-                      {"coup",item.Coupling},
-                       {"prodtime",item.ProdTime},
+                    {"matironform",item.MatIronForm},
+                    {"block",item.Block},
+                    {"coup",item.Coupling},
+                    {"prodtime",item.ProdTime},
+                    {"size",item.Size},
                     {"chan",item.Channel},
                     {"si",new JArray{
                         item.ProdImages.OrderByDescending(x=>x.Sortindex).Select(x=> new JObject {new JProperty("id",x.ID),new JProperty("src", x.ImageMimeType)}).ToArray()
-                    }}
-                    //{"price",item.Price}
+                    }},
+                    {"price",item.Price.ToString("C0")}
                 };
 
                 var json = result.ToString();
@@ -146,4 +147,5 @@ namespace Posbank.Controllers
             }
         }
     }
+
 }

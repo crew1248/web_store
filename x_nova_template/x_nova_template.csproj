@@ -452,6 +452,8 @@
     <Content Include="Content\comm.css" />
     <Content Include="Content\component.css" />
     <Content Include="Content\css3-buttons.css" />
+    <Content Include="Content\em\logo.png" />
+    <Content Include="Content\em\slide.png" />
     <Content Include="Content\Files\12_9.jpg" />
     <Content Include="Content\Files\15_11.jpg" />
     <Content Include="Content\Files\19_11.jpg" />
@@ -537,6 +539,9 @@
     <Content Include="Content\Files\shot-288.jpg" />
     <Content Include="Content\Files\shot-69.jpg" />
     <Content Include="Content\Files\Снимок.JPG" />
+    <Content Include="Content\fonts\flaticon\flaticon.css" />
+    <Content Include="Content\fonts\flaticon\flaticon.html" />
+    <Content Include="Content\fonts\flaticon\Flaticon.svg" />
     <Content Include="Content\images\ajax-loader.gif" />
     <Content Include="Content\images\icons-png\action-black.png" />
     <Content Include="Content\images\icons-png\action-white.png" />
@@ -1530,6 +1535,10 @@
     <Content Include="Areas\Admin\Views\Post\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Post\GetPostImages.cshtml" />
     <Content Include="Areas\Admin\Views\Post\Index.cshtml" />
+    <Content Include="Content\fonts\flaticon\Flaticon.eot" />
+    <Content Include="Content\fonts\flaticon\Flaticon.ttf" />
+    <Content Include="Content\fonts\flaticon\Flaticon.woff" />
+    <Content Include="Content\fonts\flaticon\_flaticon.scss" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.4.min.map" />
     <None Include="Scripts\jquery-1.6.4-vsdoc.js" />
@@ -1950,6 +1959,9 @@
     <Content Include="Views\Shared\_HeaderMobile.cshtml" />
     <Content Include="Views\Shared\_Layout.Mobile.cshtml" />
     <Content Include="Views\Home\Index.mobile.cshtml" />
+    <Content Include="Views\Shared\_HeaderInfo.cshtml" />
+    <Content Include="Views\Shared\_Slider.cshtml" />
+    <Content Include="Views\Product\LastnewProds.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Admin\Models\" />

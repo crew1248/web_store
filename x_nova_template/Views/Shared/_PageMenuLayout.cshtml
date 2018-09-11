@@ -20,11 +20,14 @@
         <meta name="description" content="@ConfigController.SiteOptions().Description" />
     }
     @*@Styles.Render("~/Content/kcss")*@
+        <link rel="stylesheet" type="text/css" href="/Content/fonts/flaticon/flaticon.css"> 
+    
+    <link rel="stylesheet" type="text/css" href="~/font-awesome/css/fontawesome-all.min.css">
 
     @Styles.Render("~/Content/bootstrap")
     @Styles.Render("~/Content/css")
     @Styles.Render("~/Content/authcss")
-    
+
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/jqueryval")
 
@@ -46,119 +49,95 @@
 
     </script>
     <script>
-    $(function () {
-        var menuLeft = $('#cbp-spmenu-s1'),
-        showLeft = $('#showLeft'),
-        body = $('body');
-        body.on('click', function () {
-            if (menuLeft.hasClass('cbp-spmenu-open')) { menuLeft.toggleClass('cbp-spmenu-open'); showLeft.toggleClass('active'); }
-        });
-        showLeft.on('click', function () {
+        $(function () {
+            var menuLeft = $('#cbp-spmenu-s1'),
+            showLeft = $('#showLeft'),
+            body = $('body');
+            body.on('click', function () {
+                if (menuLeft.hasClass('cbp-spmenu-open')) { menuLeft.toggleClass('cbp-spmenu-open'); showLeft.toggleClass('active'); }
+            });
+            showLeft.on('click', function () {
 
-            $(this).toggleClass('active');
-            setTimeout(function () { menuLeft.toggleClass('cbp-spmenu-open'); }, '100');
-            //disableOther('showLeft');
-        });
+                $(this).toggleClass('active');
+                setTimeout(function () { menuLeft.toggleClass('cbp-spmenu-open'); }, '100');
+                //disableOther('showLeft');
+            });
 
-        function disableOther(button) {
-            if (button !== 'showLeft') {
-                classie.toggle(showLeft, 'disabled');
+            function disableOther(button) {
+                if (button !== 'showLeft') {
+                    classie.toggle(showLeft, 'disabled');
+                }
+
             }
 
-        }
-
-    }); console.log('browser - @Request.Browser.IsMobileDevice');
-        console.log('width: @Request.Browser.ScreenPixelsWidth')
+        });
     </script>
+
 
 
 </head>
 <body class="cbp-spmenu-push" lang="@System.Threading.Thread.CurrentThread.CurrentCulture.Name" onbeforeunload="collapseCycle()" data-pagecounter="@ViewBag.PageCounter">
-    @Html.Partial("_LiveChat")
+    
     @Html.Partial("_ModalWindows", new x_nova_template.ViewModel.TemplatesViewModel { type = 0 })
 
-    <div>
-        <div id="main-wrapper">
-            <!--     BOOTSTRAP RESPONSIVE HEADER-->
-            <header class="top-header navbar-default navbar" role="navigation">
-                
-                <div class="container">
-                    <div class="row">
+    <div class="wrapper">
+        <!----------------- header start ------------------- -->
+        <header id="top-section">
+            <div class="cont">
+                <div class="top-section__main">
+                    @Html.Partial("_Logo")
 
-                        <!------------------   Mobile header   ------------------- -->
+                    <div class="header-nav">
 
-                        @Html.Partial("_HeaderMobile")
-
-                        <!-----------------   Mobile header  end  ------------------- -->
-                        <!-----------------   Header    ------------------- -->
-
-                        <div class="collapse navbar-collapse" id="top-navbar-collapse">
-
-                            <div class=" hidden-sm hidden-xs col-md-2 col-sm-3">
-
-                                @Html.Partial("_Logo")
-
-
-                            </div>
-                            <div class="top-h col-md-6 col-sm-5">
-
-                                @{Html.RenderAction("SS", "Menu", new { menuSection = 0 });}
-
-
-                            </div>
-                            <div class="top-left-h col-md-3 col-sm-3">
-                                @Html.Partial("_TopCart")
-                            </div>
-                            <div class="col-sm-1 col-md-1 top-right-h">
-                                @Html.Partial("_CartButton")
-                            </div>
-                        </div>
-
-                        <!-----------------   Header  end  ------------------- -->
+                        @Html.Partial("_HeaderInfo")
 
                     </div>
                 </div>
-            </header>
-            <!--   END  BOOTSTRAP RESPONSIVE HEADER-->
-
-            <!--     FIXED MENU     -->
-            <nav></nav>
-            <!--  END   FIXED MENU     -->
-            <!-----------------   Content area    ------------------- -->
-
-            <section id="content" class="clear-fix">
-                <div id="content-wrapper" class="container">
-                    <div class="row">
-                        <div class="col-md-12 col-sm-12 hidden-xs">
-                            <div class="container carousel-wrapper">
-                           
-                            </div>
-                        </div>
-
+            </div>
+            <nav class="header-nav__wrap">
+                <div class="cont">
+                    <div class="resp-logo"><img src="@Url.Content("~/Content/em/logo.png")" /></div>
+                    <div class="header-nav__main">
+                        @{Html.RenderAction("CatsMenu", "Category");}
+                        @{Html.RenderAction("SS", "Menu", new { menuSection = 0 });}
                     </div>
-                    <div class="row">
-                        <aside id="catalog" class="col-md-3 col-sm-12 col-xs-12">
-                            <h2>Каталог</h2>
-                            <div class="cat-list">
-                                @{Html.RenderAction("CatsMenu", "Category");}
-                            </div>
-                        </aside>
-
-                        <article id="article" class="col-md-8 col-sm-12 col-xs-12">
-
-                            @RenderBody()
-                        </article>
-                    </div>
-
                 </div>
-            </section>
+            </nav>
 
-            <!-----------------   Content area  end  ------------------- -->
-            <!-----------------   Footer area    ------------------- -->
-            @Html.Partial("_Footer")
-            <!-----------------   Footer area  end  ------------------- -->
-        </div>
+
+
+        </header>
+        <!-----------------   Header  end  ------------------- -->
+        <!-----------------   Slider start    ------------------- -->
+      
+        <!-----------------   Slider end    ------------------- -->
+        <!-----------------   Content start    ------------------- -->
+
+        <main id="content" class="clear-fix">
+            <div class="main-overlay"></div>
+            <div class="cont">
+
+                @*<h1>Добро пожаловать</h1>
+                <section class="section_1 section_default">
+                    Мы создаем уют в любом пространстве — будь то долгожданная квартира, новый офис или любимая дача. Вот уже 8 лет мы каждый день работаем, стараясь сделать мир еще удобнее, мягче и счастливее. Ведь жизнь в каждом доме начинается с мебели. С правильной мебели начинается хорошая жизнь.
+
+                </section>*@
+               
+                <article id="article" >
+
+                    @RenderBody()
+                </article>
+
+
+            </div>
+        </main>
+
+        <!-----------------   Content area  end  ------------------- -->
+        <!-----------------   Footer area    ------------------- -->
+        @Html.Partial("_Footer")
+        <!-----------------   Footer area  end  ------------------- -->
     </div>
+
 
 
 </body>

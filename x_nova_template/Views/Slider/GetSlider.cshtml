@@ -28,30 +28,39 @@
 
 
 
-
+@{var price = (int)Model.FirstOrDefault().Price; }
 
 
 @Scripts.Render("~/bundles/mslider")
+<div class="slider-leftside">
+    <div class="slider-title">@Model.FirstOrDefault().Title</div>
+    <div class="slider-price" style=" font-size: 24px; color: #ffb40d;">@price.ToString("N0") р.</div>
 
-<div class="sl-arrs">
-    <img src="@Url.Content("~/Content/qm/arr-left.png")" />
-    <span class="slider-counter"></span>
-    <img src="@Url.Content("~/Content/qm/arr-right.png")" />
+    <div class="slider-btn">
+   
+        <a href="@Model.FirstOrDefault().ProdLink" class="default-btn-main" title="@Model.FirstOrDefault().Title">
+            <span class="default-main-text ">Подробнее</span><div>
+            </div>
 
+
+        </a>
+        </div>
+    </div>
+<div class="slider-rightside">
+    <div class="slider-wrap clear-fix">
+        @{int circleCounter = 0; int slideCounter = 0;}
+        @foreach (var item in Model)
+        {
+            var price1 = (int)item.Price;
+
+    <div class="sl-slide" data-link="@item.ProdLink" data-title="@item.Title" data-price="@price1.ToString("N0")">
+        <img src="@Url.Content("~/Content/Files/Slider/"+item.ID+"/"+item.ImageMimeType)" />
+    </div>
+
+    circleCounter++;
+    if (slideCounter == 4) { slideCounter = 1; }
+    else { slideCounter++; }
+}
+
+    </div>
 </div>
-
-<div class="slider-wrap clear-fix">
-    @{int circleCounter = 0; int slideCounter = 0;}
-    @foreach (var item in Model)
-    {
-
-        <a href="@item.ProdLink" class="sl-slide" title="@item.Title" onmousemove=""><div class="sl-circle" style="background-image:url(@Url.Content("~/Content/Files/Slider/"+item.ID+"/200x150/"+item.ImageMimeType))">@*<div class="anim-border_@slideCounter"></div>*@ </div></a>
-        circleCounter++;
-        if (slideCounter == 4) { slideCounter = 1; }
-        else { slideCounter++; }
-    }
-
-
-
-</div>
-

@@ -115,7 +115,7 @@ namespace x_nova_template.Areas.Admin.Controllers
                         if (file.ContentLength > 1000000)
                         {
                             formImg = new WebImage(file.InputStream);
-                            imgBytes = formImg.Resize(formImg.Width / 2, formImg.Height / 2).GetBytes();
+                            imgBytes = formImg.Resize(1921,1081).Crop(1,1).GetBytes();
 
                         }
                         else imgBytes = new BinaryReader(file.InputStream).ReadBytes(file.ContentLength);

@@ -152,10 +152,10 @@ namespace x_nova_template.Service.Repository
 
             imagesCount = filemanager.CheckDirectory(dirPaths);
             filePaths = Path.Combine(dirPaths, rndName + Path.GetExtension(file.FileName));
-            istream = new WebImage(file.InputStream).Resize(1920, 1080, true, true).GetBytes();
+            istream = new WebImage(file.InputStream).Resize(1921, 1081, true, true).Crop(1,1).GetBytes();
 
             filemanager.WriteImage(istream, filePath);
-            istream = new WebImage(istream).Resize(200, 150, false, true).GetBytes();
+            istream = new WebImage(istream).Resize(201, 151, false, true).Crop(1, 1).GetBytes();
             filemanager.WriteImage(istream, filePaths);
 
            

@@ -21,14 +21,22 @@ $(document).ready(function () {
     if ($('#screenWidth').val() < 992) isTablet = true;
 
 
-    $('.sl-arrs img:first-child').on('click', function () {
+    $('.sl-arrs i:first-child').on('click', function () {
+        onHover = false;
         animSlides(false, isTablet);
+        onHover = true;
     });
-    $('.sl-arrs img:last-child').on('click', function () {
+    $('.sl-arrs i:last-child').on('click', function () {
+        onHover = false;
         animSlides(true, isTablet);
+        onHover = true;
     });
+    
+    $('.sl-arrs').hover(function () {
+        onHover = true;
 
-    $('.slider-wrap').hover(function () {
+    }, function () { onHover = false; });
+    $('.s-slider').hover(function () {
         onHover = true;
 
     }, function () { onHover = false; });
@@ -46,7 +54,7 @@ $(document).ready(function () {
 
 
     onInit = false;
-    // StartSliding();
+     StartSliding();
 
 });
 
@@ -54,6 +62,7 @@ $(document).ready(function () {
 function animSlides(direction, isTablet) {
 
     var slidesVisible = isTablet ? 1 : 1;
+    var translate = 980;
     var wrapper = $('.slider-wrap');
     // $('.sl-slide').css({ opacity: 1, display: 'none' });
 
@@ -90,43 +99,58 @@ function animSlides(direction, isTablet) {
 
             function Activate(index, dir) {
 
-
+                var currSlide;
+                var slideTitle;
                 $('.sl-slide').removeClass('sl-active');
 
                 if (dir) {
                     //wrapper.css({ left: settings.current.last().outerWidth()+"px" });
                     if (settings.elem == settings.list) {
 
-                        $('.sl-slide').slice(0, slidesVisible).addClass('sl-active');
+                        currSlide = $('.sl-slide').slice(0, slidesVisible);
+                        currSlide.addClass('sl-active');
+
                     }
                     else if (difference < slidesVisible) {
 
-                        $('.sl-slide').slice(-slidesVisible).addClass('sl-active');
+                        currSlide = $('.sl-slide').slice(-slidesVisible)
+                        currSlide.addClass('sl-active');
                     }
                     else {
-                        $('.sl-slide').slice(settings.elem + 1, settings.elem + 1 + slidesVisible).addClass('sl-active');
+                        currSlide = $('.sl-slide').slice(settings.elem + 1, settings.elem + 1 + slidesVisible);
+                        currSlide.addClass('sl-active');
                     }
 
                 } else {
                     // wrapper.css({ left: settings.current.last().outerWidth() + "px" });
                     if (settings.elem == 0) {
 
-                        $('.sl-slide').slice(-slidesVisible).addClass('sl-active');
+                        currSlide = $('.sl-slide').slice(-slidesVisible);
+                        currSlide.addClass('sl-active');
                     }
                     else if (difference < slidesVisible) {
-                        $('.sl-slide').slice(0, slidesVisible).addClass('sl-active');
+                        currSlide = $('.sl-slide').slice(0, slidesVisible);
+                        currSlide.addClass('sl-active');
                     }
                     else {
-                        $('.sl-slide').slice(settings.elem - slidesVisible, settings.elem).addClass('sl-active');
+                        currSlide = $('.sl-slide').slice(settings.elem - slidesVisible, settings.elem);
+                        currSlide.addClass('sl-active');
                     }
                 }
+                slideTitle = currSlide.data('title');
+                slidePrice = currSlide.data('price');
+                $('.slider-title').text(slideTitle);
+                $('.slider-price').text(slidePrice+' р.');
+                $('.slider-leftside a').attr('href', currSlide.data('link'));
+
                 settings.current = $('.sl-active');
                 var idx = settings.current.first().index();
                 var outer = 190;
                 $('.slider-counter').html(settings.current.last().index() + 1 + " из " + (settings.list + 1));
+                $('.sl-arrs').show();
                 //onInit ? wrapper.css({ left: -outer * idx+ "px" }) : wrapper.css({ left: (-outer * idx+1) + "px" });
-                wrapper.css({ left: (-outer * idx) + "px" });
-                console.log(idx + ", ");
+                //wrapper.css({ left: (-outer * idx) + "px" }); 
+                //console.log(idx + ", ");
                 //$('.sl-circle[data-slide-index="' + settings.elem + '"]').addClass('sl-active');
 
 
