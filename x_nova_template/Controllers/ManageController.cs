@@ -32,9 +32,9 @@ namespace x_nova_template.Controllers
             {
                 return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
             }
-            private set 
-            { 
-                _signInManager = value; 
+            private set
+            {
+                _signInManager = value;
             }
         }
 
@@ -78,15 +78,18 @@ namespace x_nova_template.Controllers
         //
         // GET: /Manage/EditProfile
 
-        public async Task<ActionResult> EditProfile() {
+        public async Task<ActionResult> EditProfile()
+        {
             var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
-            var model = new EditProfileViewModel {
-                Address=user.Address,
-                Phone=user.Phone,
-                Firstname=user.Firstname,
-                Sirname=user.Sirname,
-                Delivery=user.Delivery,
-                Payment=user.Payment };
+            var model = new EditProfileViewModel
+            {
+                Address = user.Address,
+                Phone = user.Phone,
+                Firstname = user.Firstname,
+                Sirname = user.Sirname,
+                Delivery = user.Delivery,
+                Payment = user.Payment
+            };
             //ViewBag.Cats = new SelectList(_cRep.Categories, "ID", "CategoryName");
             ViewBag.DeliveryList = new SelectList(model.DeliveryList, "Text", "Value");
             ViewBag.PaymentList = new SelectList(model.PaymentList, "Text", "Value");
@@ -366,7 +369,7 @@ namespace x_nova_template.Controllers
             base.Dispose(disposing);
         }
 
-#region Вспомогательные приложения
+        #region Вспомогательные приложения
         // Используется для защиты от XSRF-атак при добавлении внешних имен входа
         private const string XsrfKey = "XsrfId";
 
@@ -417,6 +420,6 @@ namespace x_nova_template.Controllers
             Error
         }
 
-#endregion
+        #endregion
     }
 }

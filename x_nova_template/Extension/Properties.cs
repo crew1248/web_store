@@ -8,7 +8,7 @@ namespace x_nova_template.Extension
 {
     public static class Properties
     {
-       
+
 
         public static bool IsNullOrEmpty(this object obj)
         {

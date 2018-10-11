@@ -15,7 +15,7 @@ namespace x_nova_template.Models
         [StringLength(300)]
         public string Title { get; set; }
 
-        public int Sequance {get;set;}
+        public int Sequance { get; set; }
 
         [AllowHtml]
         public string Content { get; set; }
@@ -23,10 +23,10 @@ namespace x_nova_template.Models
         public DateTime? CreatedAt { get; set; }
         [StringLength(500)]
         public string Preview { get; set; }
-        
+
         public int Type { get; set; }
         public int SectionType { get; set; }
 
-       
+
     }
 }

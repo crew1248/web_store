@@ -34,74 +34,76 @@ namespace x_nova_template.Models
             }
         }
 
-        public  string GetTokenRequestURL()
+        public string GetTokenRequestURL()
         {
             return "https://sp-money.yandex.ru/oauth/authorize?client_id=" + ClientId +
                                                      "&redirect_uri=" + RedirectUri + "&response_type=code&scope=" + Scope;
 
         }
-        public  string GetProcessPaymentURL()
+        public string GetProcessPaymentURL()
         {
-            return "https://sp-money.yandex.ru/request-payment?patternId="+patternId;
+            return "https://sp-money.yandex.ru/request-payment?patternId=" + patternId;
 
         }
-        public string RequestPayment() {
+        public string RequestPayment()
+        {
             string resultTxt = "";
-            
-            
-                WebRequest request =(HttpWebRequest) WebRequest.Create("https://money.yandex.ru/api/request-payment");
-                request.Method = "POST";
-                request.Timeout = 120000;
-                
-                request.ContentType = "application/x-www-form-urlencoded;charset=UTF-8";
-                request.Headers.Add("Authorization", "Bearer " + _accessToken);
-                System.Net.ServicePointManager.Expect100Continue = false;
-                string data = "pattern_id=p2p&to=" + to + "&amount_due=5.00&message=" + message + "&comment=" + message;
-                //string content = "pattern_id=" + patternId + "&to=41001458233575&amount=5.00&message=" + message;
-              /*  request.ContentLength = Encoding.UTF8.GetByteCount(content);
 
-                Stream reqData = request.GetRequestStream();
 
-                reqData.Write(Encoding.UTF8.GetBytes(content), 0, (int)request.ContentLength);
-                reqData.Close();
-                */
-                byte[] sentData = Encoding.UTF8.GetBytes(data);
-                request.ContentLength = sentData.Length;
+            WebRequest request = (HttpWebRequest)WebRequest.Create("https://money.yandex.ru/api/request-payment");
+            request.Method = "POST";
+            request.Timeout = 120000;
 
-               try
+            request.ContentType = "application/x-www-form-urlencoded;charset=UTF-8";
+            request.Headers.Add("Authorization", "Bearer " + _accessToken);
+            System.Net.ServicePointManager.Expect100Continue = false;
+            string data = "pattern_id=p2p&to=" + to + "&amount_due=5.00&message=" + message + "&comment=" + message;
+            //string content = "pattern_id=" + patternId + "&to=41001458233575&amount=5.00&message=" + message;
+            /*  request.ContentLength = Encoding.UTF8.GetByteCount(content);
+
+              Stream reqData = request.GetRequestStream();
+
+              reqData.Write(Encoding.UTF8.GetBytes(content), 0, (int)request.ContentLength);
+              reqData.Close();
+              */
+            byte[] sentData = Encoding.UTF8.GetBytes(data);
+            request.ContentLength = sentData.Length;
+
+            try
+            {
+                Stream sendStream = request.GetRequestStream();
+
+                // Выполняем запрос
+                sendStream.Write(sentData, 0, (int)sentData.Length);
+                sendStream.Close();
+            }
+            catch (WebException ex)
+            {
+                resultTxt = "Ошибка: " + ex;
+            }
+
+            var result = request.GetResponse();
+
+            if (result is HttpWebResponse)
+            {
+                var httpWebResponse = (HttpWebResponse)result;
+
+                if (httpWebResponse.StatusCode != HttpStatusCode.OK)
                 {
-                    Stream sendStream = request.GetRequestStream();
-
-                    // Выполняем запрос
-                    sendStream.Write(sentData, 0, (int)sentData.Length);
-                    sendStream.Close();
+                    throw new WebException("HTTP protocol error", null,
+                        WebExceptionStatus.ProtocolError, httpWebResponse);
                 }
-                catch (WebException ex) {
-                    resultTxt = "Ошибка: " + ex;
-                }
+            }
 
-                var result =request.GetResponse();
-
-                if (result is HttpWebResponse)
-                {
-                    var httpWebResponse = (HttpWebResponse)result;
-
-                    if (httpWebResponse.StatusCode != HttpStatusCode.OK)
-                    {
-                        throw new WebException("HTTP protocol error", null,
-                            WebExceptionStatus.ProtocolError, httpWebResponse);
-                    }
-                }
-
-                using (StreamReader reader = new StreamReader(result.GetResponseStream()))
-                {
-                    resultTxt = reader.ReadToEnd();
-                }
+            using (StreamReader reader = new StreamReader(result.GetResponseStream()))
+            {
+                resultTxt = reader.ReadToEnd();
+            }
 
 
-                dynamic jsonData = JObject.Parse(resultTxt);
-               
-             return (string)jsonData.request_id;
+            dynamic jsonData = JObject.Parse(resultTxt);
+
+            return (string)jsonData.request_id;
         }
         public string ProcessPayment()
         {
@@ -116,7 +118,7 @@ namespace x_nova_template.Models
             request.Headers.Add("Authorization", "Bearer " + _accessToken);
             System.Net.ServicePointManager.Expect100Continue = false;
             string data = "request_id=" + requestId;
-           
+
             byte[] sentData = Encoding.UTF8.GetBytes(data);
             request.ContentLength = sentData.Length;
 
@@ -166,7 +168,7 @@ namespace x_nova_template.Models
                 request.Timeout = 120000; // Устанавливаем таймаут соединения
                 request.ContentType = "application/x-www-form-urlencoded; charset=UTF-8";
                 request.Headers.Add("Authorization", "Bearer " + _accessToken);
-                
+
                 System.Net.WebResponse result = request.GetResponse();
                 request.ContentLength = 0;
 

@@ -16,7 +16,8 @@ namespace _7Qualityequip.Controllers
             return PartialView();
         }
 
-        public ActionResult GetAction(int id){
+        public ActionResult GetAction(int id)
+        {
             return View();
         }
 

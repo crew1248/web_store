@@ -10,7 +10,7 @@ using System.Configuration;
 
 namespace x_nova_template.Service.Repository
 {
-    public class EmailSender:IEmailSender
+    public class EmailSender : IEmailSender
     {
         public void SendMail(string name, string message, string title, string to)
         {

@@ -38,7 +38,7 @@ namespace x_nova_template.Extension
             if (_validCultures.Where(c => c.Equals(name, StringComparison.InvariantCultureIgnoreCase)).Count() == 0)
                 return GetDefaultCulture(); // return Default culture if it is invalid
             // if it is implemented, accept it
-            if (_cultures.Where(c => c.Equals(name, StringComparison.InvariantCultureIgnoreCase)).Count() > 0 )
+            if (_cultures.Where(c => c.Equals(name, StringComparison.InvariantCultureIgnoreCase)).Count() > 0)
                 return name; // accept it
             // Find a close match. For example, if you have "en-US" defined and the user requests "en-GB",
             // the function will return closes match that is "en-US" because at least the language is the same (ie English) 

@@ -10,7 +10,7 @@ namespace x_nova_template.Service.Interface
     {
         IQueryable<OrderItem> OrderItems { get; }
 
-        void Create(Product prod,int quantity,int orderId);
+        void Create(Product prod, int quantity, int orderId,string cloth,string color);
 
         OrderItem Get(int id);
         void Delete(OrderItem orderItem);

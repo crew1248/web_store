@@ -25,7 +25,8 @@ namespace x_nova_template.Areas.Admin.Controllers
         public string catUrl = "http://www.komus.ru/catalog/5361/_s/page/1/";
         public List<WebParserModel> CartridgeList;
 
-        public WebParserController() {
+        public WebParserController()
+        {
             CartridgeList = new List<WebParserModel>();
         }
         public ActionResult Index()
@@ -33,7 +34,7 @@ namespace x_nova_template.Areas.Admin.Controllers
 
             HttpContext.Server.ScriptTimeout = 60 * 35;
             //PushCartridgeList(18);
-            
+
             //for (var i = 1; i < PagesCount(); i++)
             //{
             //    PushCartridgeList(i);
@@ -50,38 +51,39 @@ namespace x_nova_template.Areas.Admin.Controllers
 
             //var name = xssfWorkbook.CreateName();
             //name.NameName = "name";
-            
+
             //var row = sheet.CreateRow(0);
             //row.CreateCell(0).SetCellValue("value1");
             //row.CreateCell(1).SetCellValue("value2");
             //row.CreateCell(2).SetCellValue("value3");
             //FileStream sw = new FileStream(Server.MapPath("~/test.xlsx"), FileMode.Create);
             //workbook.Write(sw);
-            
+
             //sw.Close();
-           
+
             return View();
         }
 
-        public string GetHtmlString(int id=1) {
+        public string GetHtmlString(int id = 1)
+        {
             using (WebClient wc = new WebClient())
             {
                 wc.Encoding = Encoding.UTF8;
                 wc.Proxy = null;
-                var result = wc.DownloadString("http://www.komus.ru/catalog/5361/_s/page/"+id);
-               
+                var result = wc.DownloadString("http://www.komus.ru/catalog/5361/_s/page/" + id);
+
                 return result;
             }
         }
-        public void PushCartridgeList(int pageId=1)
+        public void PushCartridgeList(int pageId = 1)
         {
             HtmlDocument html = new HtmlDocument();
-          
+
 
             var result = GetHtmlString(pageId);
-            
+
             html.LoadHtml(result);
-            
+
             var list = html.GetElementbyId("page_js")
                 .ChildNodes.FindFirst("div")
                 .ChildNodes.Where(x => x.HasChildNodes).ToArray()[2]//.Where(x=>x.Attributes["class"].Value=="page--middle").Count();
@@ -91,7 +93,7 @@ namespace x_nova_template.Areas.Admin.Controllers
                 .ChildNodes.FindFirst("div")
                 .ChildNodes.Where(x => x.HasChildNodes).ToArray();
 
-           
+
             foreach (var item in list)
             {
 
@@ -99,7 +101,7 @@ namespace x_nova_template.Areas.Admin.Controllers
                 var infoFolder = currFolder.ChildNodes.Where(x => x.HasChildNodes).ToArray()[1].ChildNodes.Where(x => x.HasChildNodes).ToArray()[1];
                 var moreFolder = currFolder.ChildNodes.Where(x => x.HasChildNodes).ToArray()[1].ChildNodes.Where(x => x.HasChildNodes).ToArray()[2].ChildNodes.Where(x => x.Name == "div").ToArray()[1];
                 bool countryExists = moreFolder.ChildNodes.Where(x => x.HasChildNodes).ToArray()[2].ChildNodes.Where(x => x.Name == "span").ToArray()[0].InnerText == "Страна происхождения:" ? true : false;
-                bool fieldsExists = moreFolder.Elements("div").Count() <=5? true : false;
+                bool fieldsExists = moreFolder.Elements("div").Count() <= 5 ? true : false;
                 //ViewBag.result = moreFolder.Elements("div").Count(); return;
                 //var traceSource = new TraceSource("Tracing");
                 //traceSource.TraceEvent(TraceEventType.Warning, 0, infoFolder.ChildNodes.Where(x => x.HasChildNodes).ToArray()[1].ChildNodes[1].ChildNodes[1].InnerText);
@@ -109,8 +111,9 @@ namespace x_nova_template.Areas.Admin.Controllers
                 //traceSource.TraceEvent(TraceEventType.Warning, 0, moreFolder.ChildNodes.Where(x => x.HasChildNodes).ToArray()[3].ChildNodes.Where(x => x.Name == "span").ToArray()[1].InnerText);
                 //traceSource.TraceEvent(TraceEventType.Warning, 0, moreFolder.ChildNodes.Where(x => x.HasChildNodes).ToArray()[2].ChildNodes.Where(x => x.Name == "span").ToArray()[1].InnerText);
                 //return;
-                if (fieldsExists) {
-                
+                if (fieldsExists)
+                {
+
                 }
                 else if (countryExists)
                 {
@@ -144,43 +147,46 @@ namespace x_nova_template.Areas.Admin.Controllers
 
                     });
                 }
-                
+
             }
-           
+
             CartridgeList.ForEach(x => GetBrand(x));
-            
+
             //ViewBag.length = JObject.FromObject(new { items = CartridgeList })["items"][0].ToString();
         }
 
-        public int PagesCount() {
+        public int PagesCount()
+        {
 
             var outer = GetHtmlString();
             HtmlDocument html = new HtmlDocument();
             html.LoadHtml(outer);
 
-            var wrap = html.GetElementbyId("breadcrumb_js");            
+            var wrap = html.GetElementbyId("breadcrumb_js");
             int result = 0;
             result = Int32.Parse(wrap.ParentNode.Elements("div").Where(x => x.Attributes["class"].Value == "pagination").First().ChildNodes[1].Elements("span").Last().PreviousSibling.PreviousSibling.ChildNodes[1].InnerText);
             return result;
         }
 
-        public void GetBrand(WebParserModel md) { 
-            WebRequest wr = WebRequest.Create("http://www.komus.ru/product/"+md.Referense.Substring(5)+"/#features");
-            wr.Proxy=null;
+        public void GetBrand(WebParserModel md)
+        {
+            WebRequest wr = WebRequest.Create("http://www.komus.ru/product/" + md.Referense.Substring(5) + "/#features");
+            wr.Proxy = null;
             var resp = wr.GetResponse();
             var result = "";
-            using(StreamReader sr = new StreamReader(resp.GetResponseStream(),Encoding.UTF8)){
+            using (StreamReader sr = new StreamReader(resp.GetResponseStream(), Encoding.UTF8))
+            {
                 result = sr.ReadToEnd();
             }
 
             HtmlDocument html = new HtmlDocument();
             html.LoadHtml(result);
 
-            var outer = html.GetElementbyId("breadcrumb_js");            
-            var wrapper = outer.NextSibling.NextSibling.NextSibling.NextSibling;            
+            var outer = html.GetElementbyId("breadcrumb_js");
+            var wrapper = outer.NextSibling.NextSibling.NextSibling.NextSibling;
             var bigImg = wrapper.ChildNodes.FindFirst("img").Attributes["src"].Value;
-            var cat="";
-            md.Title=wrapper.ChildNodes[3].ChildNodes.FindFirst("h1").InnerText.Trim(); // title
+            var cat = "";
+            md.Title = wrapper.ChildNodes[3].ChildNodes.FindFirst("h1").InnerText.Trim(); // title
             md.ImageUrl = bigImg; // img url
             outer = html.GetElementbyId("tabs--content-item-features");
             var tableLinesCount = outer.ChildNodes.FindFirst("table").Elements("tr").Last().ChildNodes[3].InnerText.Trim();
@@ -189,11 +195,12 @@ namespace x_nova_template.Areas.Admin.Controllers
                 cat = outer.ChildNodes.FindFirst("table").Elements("tr").Last().PreviousSibling.PreviousSibling.ChildNodes[3].InnerHtml;
                 md.Brand = Regex.Match(cat, @"\w+(?=(</span>))").Value;
             }
-            else {
+            else
+            {
                 cat = tableLinesCount;
                 md.Brand = cat;
             }
-          
+
             //ViewBag.outer = bigImg;
 
         }
@@ -209,7 +216,7 @@ namespace x_nova_template.Areas.Admin.Controllers
         }
 
         //public List<WebParserModel> CartridgeList { get { return _CartridgeList; } set { _CartridgeList = value; } }
-       
+
 
 
     }

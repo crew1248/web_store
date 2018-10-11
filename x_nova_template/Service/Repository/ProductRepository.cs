@@ -33,15 +33,16 @@ namespace x_nova_template.Service.Repository
                 newP.Sortindex = newP.ID + 1;
                 newP.ProductName = prod.ProductName;
                 newP.Description = prod.Description;
-                newP.MatForm = prod.MatForm;
-                newP.MatIronForm = prod.MatIronForm;
-                newP.ProdTime = prod.ProdTime;
-                newP.Block = prod.Block;
-                newP.Season = prod.Season;
-                newP.Coupling = prod.Coupling;
-                newP.MatProd = prod.MatProd;
-                newP.Channel = prod.Channel;
-                newP.Hardness = prod.Hardness;
+                newP.Cloth = prod.Cloth;
+                newP.Color = prod.Color;
+                newP.Decor = prod.Decor;
+                newP.Fill = prod.Fill;
+                newP.Discount = prod.Discount;
+                newP.Lacquering = prod.Lacquering;
+                newP.Material = prod.Material;
+                newP.Packaging = prod.Packaging;
+                newP.PackagingSize = prod.PackagingSize;
+                newP.Weight = prod.Weight;
                 newP.Size = prod.Size;
                 newP.ProductType = prod.ProductType;
                 newP.Price = prod.Price;
@@ -77,10 +78,10 @@ namespace x_nova_template.Service.Repository
 
             imagesCount = filemanager.CheckDirectory(dirPaths);
             var filePaths = Path.Combine(dirPaths, rndName + Path.GetExtension(file.FileName));
-            var istream = new WebImage(file.InputStream).Resize(1921, 1081, true, true).Crop(1, 1).GetBytes();
+            var istream = new WebImage(file.InputStream).Resize(761, 1101, true, true).Crop(1,1).GetBytes();
 
             filemanager.WriteImage(istream, filePath);
-            istream = new WebImage(istream).Resize(301, 211, false, true).Crop(1, 1).GetBytes();
+            istream = new WebImage(istream).Resize(261, 361, false, true).Crop(1,1).GetBytes();
             filemanager.WriteImage(istream, filePaths);
 
             prodImg.ImageMimeType = rndName + Path.GetExtension(file.FileName);

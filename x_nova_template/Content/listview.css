@@ -16,7 +16,9 @@
 .item-img{
     opacity: 1;
     position: relative;
-    padding:20px 0;
+        z-index: 2;
+    position: relative;
+        background: white;
 }
     .item-img img {
         
@@ -52,14 +54,15 @@
     box-sizing: border-box;
     margin-right: 20px;
     margin-bottom: 20px;
-    width: 200px;
+    width: 205px;
     display: inline-block;
-    box-shadow: 0 1px 5px rgba(0,0,0,.15);
-    border: 1px solid gray;
+   position:relative;
+    box-shadow: 1px 2px 2px rgba(0,0,0,.1);
 }
     .xn-listview-item:hover {
-        border: 1px solid #585858;
-        box-shadow: 0 -3px 0 grey;
+    z-index: 3;
+       border: inherit;
+    box-shadow: inherit;
     }
         .xn-listview-item:hover caption {
 
@@ -76,7 +79,10 @@
     -webkit-flex-direction: column;
         flex-direction: column;
     display:flex;
-     background: #f3f3f3;
+        height: 80px;
+         background: hsla(0,0%,98%,.9);
+         z-index: 2;
+    position: relative;
 }
 .caption-wrap {
 
@@ -131,12 +137,59 @@ background: rgba(0, 0, 0, 0.07);
     text-overflow: -o-ellipsis-lastline;
        
 }
+.xn-listview-item:hover .xn-lv__hoverblock {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+}
+.xn-lv__hoverblock-wrap:after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 10px;
+    position: absolute;
+    top: -10px;
+    left: 0;
+    background: #ecebeb;
+}
+.xn-listview-item:hover .xn-lv__hoverblock, .xn-listview-item:hover .xn-lv__hoverblock-wrap {
+    background: hsla(0,0%,98%,.9);
+    border: 1px solid #bbbbbb;
+    box-shadow: 0 1px 4px rgba(0,0,0,.2);
+}
+.xn-lv__hoverblock-wrap {
+    text-align: center;
+    font-size: 14px;
+    padding: 0 5px 10px 5px;
+    font-family: open sans;
+    display: none;
+    color: #8a8a8a;
+    background: #ECECEA!important;
+    position: absolute;
+    cursor:pointer;
+}
+    .xn-lv__hoverblock-wrap i {
+            padding: 0 10px 0 0;
+    }
+        .xn-lv__hoverblock-wrap i:before {
+            font-size:16px;
+        }
+.xn-listview-item:hover .xn-lv__hoverblock-wrap{
+    display: block;
+    z-index: 3;
+    left: -1px;
+    right: -1px;
+    top: 100%;
+}
 .caption-desc {
 }
 .caption-text {
 }
 .caption-title {
-       padding: 10px 0;
+    padding: 5px 0;
+    font-size: 14px;
 }
 .caption-info {
        height: 40px;
@@ -147,6 +200,7 @@ background: rgba(0, 0, 0, 0.07);
 }
 .caption-item-price {
         padding-top: 5px;
+        font-size: 15px;
 }
 .xn-details {
     color: #585858;
@@ -158,8 +212,9 @@ background: rgba(0, 0, 0, 0.07);
     padding:4px 10px;
 }
 .caption-price {
-    font-size:14px;
+font-size: 17px;
     display: inline-block;
+    color: #000000;
 }
 .xn-listview-link {
         display: block;
@@ -176,7 +231,7 @@ background: rgba(0, 0, 0, 0.07);
     position: relative;
     font-size: 13px;
     color: #595959;
-    overflow: hidden;
+    
    
   
 }

@@ -5,7 +5,7 @@ using System.Web;
 
 namespace x_nova_template.ViewModel
 {
-    
+
     public class PriceFilter
     {
         public int price { get; set; }

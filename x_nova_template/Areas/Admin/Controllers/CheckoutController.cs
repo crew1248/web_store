@@ -9,6 +9,8 @@ using x_nova_template.Service.Interface;
 using x_nova_template.ViewModel;
 using Microsoft.AspNet.Identity.Owin;
 using System.Threading.Tasks;
+using x_nova_template.Extension;
+
 
 namespace x_nova_template.Areas.Admin.Controllers
 {
@@ -43,72 +45,74 @@ namespace x_nova_template.Areas.Admin.Controllers
         public async Task<ActionResult> Index(int step)
         {
             //var userManager = new ApplicationUserManager(new UserStore<ApplicationUser>(new ApplicationDbContext()));
+
             var userManager = HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
-            var user =await userManager.FindByNameAsync(User.Identity.Name);
+            var user = await userManager.FindByNameAsync(User.Identity.Name);
             var cart = GetCart();
             var step2CheckInputs = cart.ClientDetails.HasEmptyProperties();
-            
+
             ViewBag.Step1 = GetCart().Step1;
             ViewBag.Step2 = GetCart().Step2;
             ViewBag.Step3 = GetCart().Step3;
             ViewBag.Step4 = GetCart().Step4;
-            
+
             if (cart.Lines.Count() == 0)
             {
                 return Redirect("/");
             }
             // Process for Authenticated
             //
-            if (User.Identity.IsAuthenticated) {
-               
+            //if (User.Identity.IsAuthenticated)
+            //{
 
-                if (step == 1)
-                {
-                    ViewBag.Step = 1;
-                    
-                    cart.Step2 = true;
-                    return View();
-                }
-                else if (step == 2 && cart.Step2)
-                {
-                   
-                    ViewBag.Step = 2;
-                    //if (!step2CheckInputs) ModelState.AddModelError("", "Заполните все данные в вашей профиле");
-                    cart.UpdateClientDetails(user);
-                    return View(new CheckoutViewModel
-                    {
-                        Address = cart.ClientDetails.Address,
-                        FirstName = cart.ClientDetails.FirstName,
-                        LastName = cart.ClientDetails.LastName,
-                        Email = cart.ClientDetails.Email,
-                        Phone = cart.ClientDetails.Phone,
-                        Delivery = cart.ClientDetails.Delivery,
-                        Payment = cart.ClientDetails.Payment
-                    });
-                    
-                  
 
-                }
-                else if (step == 3 && cart.Step3)
-                {
-                    ViewBag.Step = 3;
-                    cart.UpdateDelivery(user);
-                    return View(new CheckoutViewModel { Delivery =user.Delivery });
-                }
-                else if (step == 4 && cart.Step4)
-                {
-                    ViewBag.Step = 4;
-                    cart.UpdatePayment(user);
-                    return View(new CheckoutViewModel { Payment =user.Payment});
-                }
-                else { return RedirectToAction("Index", new { step = 1 }); }
-            }
+            //    if (step == 1)
+            //    {
+            //        ViewBag.Step = 1;
+
+            //        cart.Step2 = true;
+            //        return View();
+            //    }
+            //    else if (step == 2 && cart.Step2)
+            //    {
+
+            //        ViewBag.Step = 2;
+            //        //if (!step2CheckInputs) ModelState.AddModelError("", "Заполните все данные в вашей профиле");
+            //        cart.UpdateClientDetails(user);
+            //        return View(new CheckoutViewModel
+            //        {
+            //            Address = cart.ClientDetails.Address,
+            //            FirstName = cart.ClientDetails.FirstName,
+            //            LastName = cart.ClientDetails.LastName,
+            //            Email = cart.ClientDetails.Email,
+            //            Phone = cart.ClientDetails.Phone,
+            //            Delivery = cart.ClientDetails.Delivery,
+            //            Payment = cart.ClientDetails.Payment
+            //        });
+
+
+
+            //    }
+            //    else if (step == 3 && cart.Step3)
+            //    {
+            //        ViewBag.Step = 3;
+            //        cart.UpdateDelivery(user);
+            //        return View(new CheckoutViewModel { Delivery = user.Delivery });
+            //    }
+            //    else if (step == 4 && cart.Step4)
+            //    {
+            //        ViewBag.Step = 4;
+            //        cart.UpdatePayment(user);
+            //        return View(new CheckoutViewModel { Payment = user.Payment });
+            //    }
+            //    else { return RedirectToAction("Index", new { step = 1 }); }
+            //}
             // Process for Anonymous
             //
             if (step == 1)
             {
                 ViewBag.Step = 1;
-                cart.Step2 = true;
+                //cart.Step2 = true;
                 return View();
             }
             else if (step == 2 && cart.Step2)
@@ -118,16 +122,16 @@ namespace x_nova_template.Areas.Admin.Controllers
 
                 //if (cart.ClientDetails.FirstName != null)
                 //{
-                    return View(new CheckoutViewModel
-                    {
-                        Address = cart.ClientDetails.Address,
-                        FirstName = cart.ClientDetails.FirstName,
-                        LastName = cart.ClientDetails.LastName,
-                        Email = cart.ClientDetails.Email,
-                        Phone = cart.ClientDetails.Phone,
-                        Delivery = cart.ClientDetails.Delivery,
-                        Payment = cart.ClientDetails.Payment
-                    });
+                return View(new CheckoutViewModel
+                {
+                    Address = cart.ClientDetails.Address,
+                    FirstName = cart.ClientDetails.FirstName,
+                    LastName = cart.ClientDetails.LastName,
+                    Email = cart.ClientDetails.Email,
+                    Phone = cart.ClientDetails.Phone,
+                    Delivery = cart.ClientDetails.Delivery,
+                    Payment = cart.ClientDetails.Payment
+                });
                 //}
                 //return View(new CheckoutViewModel());
             }
@@ -145,49 +149,54 @@ namespace x_nova_template.Areas.Admin.Controllers
             else { return RedirectToAction("Index", new { step = 1 }); }
         }
         [HttpPost]
-        public JsonResult Processing() {
+        public JsonResult Processing()
+        {
             System.Threading.Thread.Sleep(1000);
-            var t = (User.Identity.IsAuthenticated?1:0);
+            var t = (User.Identity.IsAuthenticated ? 1 : 0);
+            var cart = GetCart();
+            cart.Step2 = true;
             return Json(new { type = t });
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<ActionResult> ProceedCheckout(CheckoutViewModel vm)
         {
 
             if (ModelState.IsValid)
             {
-                var userManager = HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
-                var user = await userManager.FindByNameAsync(User.Identity.Name);
+                //var userManager = HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+                //var user = await userManager.FindByNameAsync(User.Identity.Name);
 
                 var cart = GetCart();
                 cart.Step3 = true;
                 cart.UpdateClientDetails(vm);
-                                
-                user.Address = vm.Address;
-                user.Firstname = vm.FirstName;
-                user.Sirname = vm.LastName;
-                user.Phone = vm.Phone;
-                user.Delivery = vm.Delivery;
-                user.Payment = vm.Payment;
-                await userManager.UpdateAsync(user);
-                
+
+                //user.Address = vm.Address;
+                //user.Firstname = vm.FirstName;
+                //user.Sirname = vm.LastName;
+                //user.Phone = vm.Phone;
+                //user.Delivery = vm.Delivery;
+                //user.Payment = vm.Payment;
+                //await userManager.UpdateAsync(user);
+
                 return RedirectToAction("Index", new { step = 3 });
             }
             return RedirectToAction("Index", new { step = 2 });
         }
         [HttpPost]
-        public async Task<ActionResult> ProceedDelivery(Checkout_Delivery vm)
+        [ValidateAntiForgeryToken]
+        public async   Task<ActionResult> ProceedDelivery(Checkout_Delivery vm)
         {
 
             if (ModelState.IsValid)
             {
-                var userManager = HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
-                var user = await userManager.FindByNameAsync(User.Identity.Name);
+                //var userManager = HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+                //var user = await userManager.FindByNameAsync(User.Identity.Name);
                 var cart = GetCart();
                 cart.Step4 = true;
                 cart.UpdateDelivery(vm);
-                user.Delivery = vm.Delivery;
-                await userManager.UpdateAsync(user);
+                //user.Delivery = vm.Delivery;
+                //await userManager.UpdateAsync(user);
 
                 return RedirectToAction("Index", new { step = 4 });
             }
@@ -200,18 +209,21 @@ namespace x_nova_template.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                var userManager = HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
-                var user = await userManager.FindByNameAsync(User.Identity.Name);
+                //var userManager = HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+                //var user = await userManager.FindByNameAsync(User.Identity.Name);
                 var cart = GetCart();
                 var clientInfo = cart.ClientDetails;
                 var step2CheckInputs = cart.ClientDetails.HasEmptyProperties();
-                if (!step2CheckInputs) {
+                if (!step2CheckInputs)
+                {
                     RedirectToAction("Checkout", new { step = 2 });
                 }
                 cart.UpdatePayment(vm);
                 //update user payment details
-                user.Payment = vm.Payment;
-                await userManager.UpdateAsync(user);
+
+                //user.Payment = vm.Payment;
+                //await userManager.UpdateAsync(user);
+
                 //make order
                 var order = new Order();
                 order.Address = cart.ClientDetails.Address;
@@ -220,13 +232,14 @@ namespace x_nova_template.Areas.Admin.Controllers
                 order.OrderStatus = "Не просмотрено";
                 order.Payment = clientInfo.Payment;
                 order.CreatedAt = DateTime.Now;
+                order.EmailAddress = cart.ClientDetails.Email;
                 order.Delivery = clientInfo.Delivery;
                 order.OrderSum = cart.TotalValue();
                 order.Sequance = 1;
                 _order.Create(order);
                 foreach (var item in cart.Lines)
                 {
-                    _orderItem.Create(item.Product, item.Quantity, order.ID);
+                    _orderItem.Create(item.Product, item.Quantity, order.ID,item.Cloth,item.Color);
                 }
                 /*
                 YaMoney ya = new YaMoney();
@@ -235,12 +248,13 @@ namespace x_nova_template.Areas.Admin.Controllers
                 */
                 cart.Clear();
 
-                return RedirectToAction("Finished");
+                return RedirectToAction("Finished", new { orderId = EncryptHelper.Encrypt(order.ID.ToString()) });
             }
             return RedirectToAction("Index", new { step = 4 });
         }
         //[x_nova_template.Filters.RequireHttps(RequireSecure = true)]
-        public ActionResult Finished(bool transactionOk = false)
+        
+        public ActionResult Finished(bool transactionOk = false, string orderId =null)
         {
             /* YaMoney ya = new YaMoney();
              if (transactionOk&&(string)Session["token"]!=null) {
@@ -259,7 +273,10 @@ namespace x_nova_template.Areas.Admin.Controllers
 
                 // ViewBag.YaMessage = "Транзакция окончена успешно !";
              }*/
-            return View();
+
+
+            var order = _order.Get(Int32.Parse(EncryptHelper.Decrypt(orderId)));
+            return View(order);
         }
         private Cart GetCart()
         {

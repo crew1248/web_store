@@ -26,7 +26,7 @@ namespace x_nova_template.Models
         [StringLength(250)]
         [Display(Name = "Сообщение")]
         public string Text { get; set; }
-       
+
         [Remote("ValidCaptcha", "Feedback", HttpMethod = "POST",
             ErrorMessage = "<span class='entypo-alert'></span> Ошибка ! Введите код проверки снова.")]
         public string Captcha { get; set; }

@@ -8,13 +8,13 @@ namespace x_nova_template.ViewModel
 {
     public class PhotoGalleryViewModel
     {
-        
+
 
         public IEnumerable<Gallery> Galleries { get; set; }
 
         public IEnumerable<Image> Images { get; set; }
 
-       public PagingInfo PagingInfo { get; set; }
+        public PagingInfo PagingInfo { get; set; }
 
     }
 }

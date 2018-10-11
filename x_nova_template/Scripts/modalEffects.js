@@ -71,10 +71,11 @@ $(function () {
         
         XN.Inscreaser.BuildModal('/Widget/Inscreaser', { type: 2, id:$(this).data('id') });
     });
-   // prodlist preview
-    $('#listview-target .xn-listview-item  .xn-details').on('click', function () {
-       
-        XN.Inscreaser.BuildModal('/Widget/Inscreaser', { type: 1, id: $(this).data('id') });
+    // prodlist preview
+    
+    $('.xn__popup').on('click', function () {
+
+        XN.Inscreaser.BuildModal('/Widget/Inscreaser', { type: 1, id: $(this).closest('.xn-listview-item').data('id') });
     });
 });
 /*==========================================================================================*/
@@ -273,18 +274,18 @@ XN.Inscreaser = { // Widget - Catalog/Gallery
             $('.d-title').html(el.name);
             $('.d-cat').html(el.cat);
 
-            el.hard != null ? $('.md-modal .d-hard td').html(el.hard) : $('.md-modal .d-hard').hide();
-            el.matform != null ? $('.md-modal .d-matform td').html(el.matform) : $('.md-modal .d-matform').hide();
-            el.matironform != null ? $('.md-modal .d-matironform td').html(el.matironform) : $('.md-modal .d-matironform').hide();
-            el.block != null ? $('.md-modal .d-block td').html(el.block) : $('.md-modal .d-block').hide();
-            el.prodtime != null ? $('.md-modal .d-prodtime td').html(el.prodtime) : $('.md-modal .d-prodtime').hide();
-            el.matprod != null ? $('.md-modal .d-matprod td').html(el.matprod) : $('.md-modal .d-matprod').hide();
-            el.chan != null ? $('.md-modal .d-chan td').html(el.chan) : $('.md-modal .d-chan').hide();
-            el.desc != null ? $('.md-modal .d-desc td').html(el.desc) : $('.md-modal .d-desc').hide();
-            el.coup != null ? $('.md-modal .d-coup td').html(el.coup) : $('.md-modal .d-coup').hide();
+            // СКИДКА - disc
+            
+             el.manufacturer != null ? $('.md-modal .d-manufacturer td').html(el.manufacturer) : $('.md-modal .d-manufacturer').hide();
+             el.weight != null ? $('.md-modal .d-weight td').html(el.weight) : $('.md-modal .d-weight').hide();
+             el.packsize != null ? $('.md-modal .d-packsize td').html(el.packsize) : $('.md-modal .d-packsize').hide();
+             el.pack != null ? $('.md-modal .d-pack td').html(el.pack) : $('.md-modal .d-pack').hide();
+             el.mat != null ? $('.md-modal .d-mat td').html(el.mat) : $('.md-modal .d-mat').hide();
+             el.fill != null ? $('.md-modal .d-fill td').html(el.fill) : $('.md-modal .d-fill').hide();
             el.size != null ? $('.md-modal .d-size td').html(el.size) : $('.md-modal .d-size').hide();
             //el.price != null ? $('.md-modal .d-price td').html(el.price) : $('.md-modal .d-price').hide();
             el.price != null ? $('.md-modal .d-price').html(el.price) : $('.md-modal .d-price').hide();
+            el.desc != null ? $('.md-modal .d-desc td').html(el.desc) : $('.md-modal .d-desc').hide();
             //$('.d-price td').html(el.price + ' <i class="fa fa-rouble"></i>');
             $('*[data-event-type="cart__add"]').attr('data-pid', el.id);
             //if(XN.IsMobile)$('.prod-link-details').attr('href', '/Product/Details/'+el.id);

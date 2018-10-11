@@ -97,7 +97,7 @@ namespace x_nova_template.Areas.Admin
                 user.LiveMessages.ToList().ForEach(x => x.Visited = true);
                 user1.GroupId = conn;
                 db.SaveChanges();
-                var newQuestions =db.LiveUsers.Where(x => x.LiveMessages.Any(y => !y.Visited)).Count();
+                var newQuestions = db.LiveUsers.Where(x => x.LiveMessages.Any(y => !y.Visited)).Count();
 
                 var userMessages = user.LiveMessages.Select(x => new
                 {
@@ -121,7 +121,7 @@ namespace x_nova_template.Areas.Admin
 
             using (ApplicationDbContext db = new ApplicationDbContext())
             {
-                var user = db.LiveUsers.SingleOrDefault(x =>(bool) x.IsAdmin);
+                var user = db.LiveUsers.SingleOrDefault(x => (bool)x.IsAdmin);
                 if (user.IsOnline)
                     return true;
             }
@@ -191,7 +191,7 @@ namespace x_nova_template.Areas.Admin
             Thread.Sleep(2000);
             if (ModelState.IsValid)
             {
-                _emailSender.SendMail(user.UserName, user.FeedMessage,"Консультант:Сообщение с сайта!",user.Email);
+                _emailSender.SendMail(user.UserName, user.FeedMessage, "Консультант:Сообщение с сайта!", user.Email);
                 return Json("Ok");
             }
             throw new HttpException();

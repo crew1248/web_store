@@ -65,7 +65,8 @@ namespace x_nova_template.Areas.Admin.Controllers
                 var prodId = prodImg.ProductID;
                 if (prodImg.ImageDataType != null)
                 {
-                     if (type == "small") {
+                    if (type == "small")
+                    {
 
                         new WebImage(prodImg.ImageDataType)
                            .Resize(100, 100, false) // Resizing the image to 100x100 px on the fly...
@@ -78,7 +79,7 @@ namespace x_nova_template.Areas.Admin.Controllers
                             //.Resize(width, height, false, true) // Resizing the image to 100x100 px on the fly...                      
                           .Crop(1, 1) // Cropping it to remove 1px border at top and left sides (bug in WebImage)
                           .Write();
-                    }                   
+                    }
                     else
                     {
 

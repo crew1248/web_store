@@ -11,7 +11,7 @@ using x_nova_template.Service.Interface;
 
 namespace x_nova_template.Service.Repository
 {
-    public class PhotoGalleryRepository:IPhotoGallery
+    public class PhotoGalleryRepository : IPhotoGallery
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
@@ -19,42 +19,45 @@ namespace x_nova_template.Service.Repository
         public IQueryable<Gallery> Galleries { get { return db.Galleries; } }
         private FileManager filemanager = new FileManager();
 
-        public IQueryable<Gallery> GalAll() {
+        public IQueryable<Gallery> GalAll()
+        {
             return from obj in db.Galleries.Include("Images") select obj;
         }
 
-        public void Create(Gallery gallery = null,HttpPostedFileBase file = null,int galId=0)
+        public void Create(Gallery gallery = null, HttpPostedFileBase file = null, int galId = 0)
         {
-          
-           
+
+
             if (gallery != null)
             {
                 var gall = new Gallery();
                 gall.GalleryMimeType = file.ContentType;
-               
+
                 gall.GalleryTitle = gallery.GalleryTitle;
-               
-                this.db.Galleries.Add(gall); 
+
+                this.db.Galleries.Add(gall);
                 db.SaveChanges();
                 gall.Sortindex = gall.ID;
                 db.SaveChanges();
                 int res = SavePhoto(file, gall.ID, true);
             }
-            else {
-                            
-                Image image2 = new Image();                              
-               
-                image2.GalleryID = galId;                                            
+            else
+            {
+
+                Image image2 = new Image();
+
+                image2.GalleryID = galId;
                 this.db.Images.Add(image2);
                 db.SaveChanges();
                 image2.Sortindex = image2.ID;
                 db.SaveChanges();
                 int res = SavePhoto(file, image2.ID, false);
             }
-          
+
         }
 
-        public void Edit(Gallery gallery=null, Image image = null, HttpPostedFileBase file=null,int galId=0) {
+        public void Edit(Gallery gallery = null, Image image = null, HttpPostedFileBase file = null, int galId = 0)
+        {
             byte[] newdata = null;
             if (gallery != null)
             {
@@ -65,11 +68,12 @@ namespace x_nova_template.Service.Repository
                     gallery.GalleryData = newdata;
                     db.Entry(gallery).State = System.Data.Entity.EntityState.Modified;
                 }
-                else {
+                else
+                {
                     var gal = db.Galleries.Find(gallery.ID);
-                    gal.GalleryTitle = gallery.GalleryTitle;                    
+                    gal.GalleryTitle = gallery.GalleryTitle;
                 }
-                
+
             }
             else
             {
@@ -77,14 +81,15 @@ namespace x_nova_template.Service.Repository
                 {
                     image.ImageMimeType = file.ContentType;
                     newdata = new WebImage(file.InputStream).GetBytes();
-                    image.ImageData =newdata;
+                    image.ImageData = newdata;
                 }
                 db.Entry(image).State = System.Data.Entity.EntityState.Modified;
             }
             db.SaveChanges();
         }
-       
-        public Image GetImage(int id) {
+
+        public Image GetImage(int id)
+        {
             var image = db.Images.Find(id);
             return image;
         }
@@ -102,18 +107,19 @@ namespace x_nova_template.Service.Repository
         public void UpdateSort(int id, int newSort)
         {
             Image image = GetImage(id);
-            
+
             image.Sortindex = newSort;
-            
+
             this.db.SaveChanges();
         }
-        public void Save() {
+        public void Save()
+        {
             db.SaveChanges();
         }
 
-        public int SavePhoto(HttpPostedFileBase file, int id,bool isGal=true)
+        public int SavePhoto(HttpPostedFileBase file, int id, bool isGal = true)
         {
-            
+
             if (file.ContentLength > 4000000) throw new HttpException();
 
             int imagesCount = 0;
@@ -125,8 +131,8 @@ namespace x_nova_template.Service.Repository
             byte[] istream = null;
             int resCount = 0;
 
-           
-         
+
+
 
             if (isGal)
             {
@@ -135,11 +141,12 @@ namespace x_nova_template.Service.Repository
                 dirPaths = HttpContext.Current.Server.MapPath("~/Content/Files/Gallery/" + id + "/200x150");
                 imagesCount = filemanager.CheckDirectory(dirPath);
                 rndName = filemanager.GetRandomName(imagesCount);
-                gal.GalleryMimeType= rndName + Path.GetExtension(file.FileName);
+                gal.GalleryMimeType = rndName + Path.GetExtension(file.FileName);
             }
-            else {
+            else
+            {
                 var galImg = GetImage(id);
-                dirPath = HttpContext.Current.Server.MapPath("~/Content/Files/Gallery/" + galImg.GalleryID+ "/Images");
+                dirPath = HttpContext.Current.Server.MapPath("~/Content/Files/Gallery/" + galImg.GalleryID + "/Images");
                 dirPaths = HttpContext.Current.Server.MapPath("~/Content/Files/Gallery/" + galImg.GalleryID + "/Images/200x150");
                 imagesCount = filemanager.CheckDirectory(dirPath);
                 rndName = filemanager.GetRandomName(imagesCount);
@@ -147,18 +154,18 @@ namespace x_nova_template.Service.Repository
                 resCount = id;
             }
 
-           
+
             filePath = Path.Combine(dirPath, rndName + Path.GetExtension(file.FileName));
 
             imagesCount = filemanager.CheckDirectory(dirPaths);
             filePaths = Path.Combine(dirPaths, rndName + Path.GetExtension(file.FileName));
-            istream = new WebImage(file.InputStream).Resize(1921, 1081, true, true).Crop(1,1).GetBytes();
+            istream = new WebImage(file.InputStream).Resize(1920, 1080, true, true).GetBytes();
 
             filemanager.WriteImage(istream, filePath);
-            istream = new WebImage(istream).Resize(201, 151, false, true).Crop(1, 1).GetBytes();
+            istream = new WebImage(istream).Resize(200, 150, false, true).GetBytes();
             filemanager.WriteImage(istream, filePaths);
 
-           
+
 
             db.SaveChanges();
 
@@ -174,12 +181,13 @@ namespace x_nova_template.Service.Repository
             //DirectoryInfo di = new DirectoryInfo(dirPaths);
             //di.Delete(true);
 
-            foreach (var img in Prodimg.Images) {
+            foreach (var img in Prodimg.Images)
+            {
                 db.Images.Remove(img);
                 db.SaveChanges();
             }
-            
-           
+
+
         }
         //public void PhotoDel(ProdImage pimg)
         //{
@@ -210,9 +218,10 @@ namespace x_nova_template.Service.Repository
                 db.Images.Remove(image);
                 db.SaveChanges();
             }
-            else {
+            else
+            {
                 var gal = db.Galleries.SingleOrDefault(x => x.ID == gallery.ID);
-                var filePath = HttpContext.Current.Server.MapPath("~/Content/Files/Gallery/" + gal.ID );
+                var filePath = HttpContext.Current.Server.MapPath("~/Content/Files/Gallery/" + gal.ID);
                 filemanager.RemoveDir(filePath);
                 db.Galleries.Remove(gallery);
                 db.SaveChanges();

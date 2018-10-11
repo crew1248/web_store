@@ -19,26 +19,26 @@ namespace x_nova_template.Areas.Admin.Controllers
         FileManager manager = new FileManager();
         public ActionResult GetFiles()
         {
-            
+
             FilesViewModel vm = new FilesViewModel
             {
                 PagingInfo = new PagingInfo
                 {
                     TotalItems = 0
                 },
-                Dirs=manager.GetDirs()
+                Dirs = manager.GetDirs()
 
             };
             return View(vm);
         }
         public const int FilesPerPage = 5;
-        public ActionResult Index(int page = 1,string dir=null)
+        public ActionResult Index(int page = 1, string dir = null)
         {
-            
-            var defaultDir =  Server.MapPath("~/Content/Files/Pages");
-            var dirp = Server.MapPath("~/Content/Files/Pages/"+dir);
+
+            var defaultDir = Server.MapPath("~/Content/Files/Pages");
+            var dirp = Server.MapPath("~/Content/Files/Pages/" + dir);
             DirectoryInfo directory = new DirectoryInfo(dirp);
-            DirectoryInfo maindir= new DirectoryInfo(defaultDir);
+            DirectoryInfo maindir = new DirectoryInfo(defaultDir);
             var firstdir = maindir.GetDirectories().FirstOrDefault();
             if (maindir.GetDirectories().Count() == 0) directory = new DirectoryInfo(defaultDir); //проверка что основная папка пустая
             else if (dir == null && maindir.GetDirectories().Count() > 0) directory = firstdir;// выбор первой папки при открытии страницы с нулевым параметром dir
@@ -46,7 +46,7 @@ namespace x_nova_template.Areas.Admin.Controllers
 
             var allFiles = directory.GetFiles().Count();
             var files = directory.GetFiles().Skip(FilesPerPage * (page - 1)).Take(FilesPerPage).ToList();
-            
+
 
             FilesViewModel vm = new FilesViewModel
             {
@@ -57,14 +57,15 @@ namespace x_nova_template.Areas.Admin.Controllers
                     ItemsPerPage = FilesPerPage,
                     Service = "Files",
                     Dir = directory
-                    
+
                 },
                 Files = files
-                
+
             };
             return PartialView(vm);
         }
-        public ActionResult GetFolders() {
+        public ActionResult GetFolders()
+        {
             FilesViewModel vm = new FilesViewModel
             {
                 PagingInfo = new PagingInfo
@@ -77,10 +78,11 @@ namespace x_nova_template.Areas.Admin.Controllers
             return PartialView(vm);
         }
         [HttpPost]
-        public ActionResult CreateDirectory(string name) {
+        public ActionResult CreateDirectory(string name)
+        {
             manager.CreateDir(name);
             TempData["message"] = "папка создана";
-            TempData["type"] =1;
+            TempData["type"] = 1;
             return Json("");
         }
         [HttpPost]
@@ -92,7 +94,7 @@ namespace x_nova_template.Areas.Admin.Controllers
             TempData["type"] = 1;
             return Json("");
         }
-        public ActionResult Save(IEnumerable<HttpPostedFileBase> files,string path)
+        public ActionResult Save(IEnumerable<HttpPostedFileBase> files, string path)
         {
             // The Name of the Upload component is "files"
             if (string.IsNullOrWhiteSpace(path)) return Json(new { type = "zero" }, "text/plain", JsonRequestBehavior.AllowGet);
@@ -106,7 +108,7 @@ namespace x_nova_template.Areas.Admin.Controllers
                     // We are only interested in the file name.
                     string fileName = null;
                     string physicalPath = null;
-                    physicalPath = Path.Combine(Server.MapPath("~/Content/Files/Pages/"+path), file.FileName.ToLower());
+                    physicalPath = Path.Combine(Server.MapPath("~/Content/Files/Pages/" + path), file.FileName.ToLower());
                     if (file.ContentType == "image/png" || file.ContentType == "image/jpeg")
                     {
 
@@ -115,7 +117,7 @@ namespace x_nova_template.Areas.Admin.Controllers
                         if (file.ContentLength > 1000000)
                         {
                             formImg = new WebImage(file.InputStream);
-                            imgBytes = formImg.Resize(1921,1081).Crop(1,1).GetBytes();
+                            imgBytes = formImg.Resize(1921, 1081).Crop(1, 1).GetBytes();
 
                         }
                         else imgBytes = new BinaryReader(file.InputStream).ReadBytes(file.ContentLength);
@@ -161,22 +163,23 @@ namespace x_nova_template.Areas.Admin.Controllers
             // Return an empty string to signify success
             return Json(new { type = "error" }, "text/plain", JsonRequestBehavior.AllowGet);
         }
+        public JsonResult CreateDir(string name)
+        {
 
-        public JsonResult CreateDir(string name) {
-          
             manager.CreateDir(name);
-           
+
             return Json("");
         }
-        public JsonResult GetDirs() {
+        public JsonResult GetDirs()
+        {
             return Json(manager.GetDirs());
         }
         [HttpPost]
-        public ActionResult Delete(string fileName,string dirname)
+        public ActionResult Delete(string fileName, string dirname)
         {
 
             var file = Path.GetFileName(fileName);
-            var physicalPath = Path.Combine(Server.MapPath("~/Content/Files/Pages/"+dirname), file);
+            var physicalPath = Path.Combine(Server.MapPath("~/Content/Files/Pages/" + dirname), file);
             if (System.IO.File.Exists(physicalPath))
             {
                 System.IO.File.Delete(physicalPath);

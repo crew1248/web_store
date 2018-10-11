@@ -1,6 +1,6 @@
 ﻿@{/*بسم الله الرحمن الرحيم*/}
 @{
-    if (!User.IsInRole("admin"))
+    if (!User.Identity.IsAuthenticated)
     { Context.RedirectLocal("/Admin"); }
 
 }

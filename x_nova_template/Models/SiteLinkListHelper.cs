@@ -13,7 +13,7 @@ namespace x_nova_template.Models
     {
         public static int GetTopLevelParentId(IEnumerable<Menu> siteLinks)
         {
-            
+
             return siteLinks.OrderBy(i => i.ParentId).Select(i => i.ParentId).FirstOrDefault();
         }
 
@@ -29,6 +29,6 @@ namespace x_nova_template.Models
                 .OrderBy(i => i.SortOrder).ThenBy(i => i.Text);
         }
 
-       
+
     }
 }

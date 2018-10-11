@@ -7,7 +7,7 @@
 
 <h4>@ViewBag.Test</h4>
 <div id="listview" class="prodlist" data-catid="@ViewBag.CatID">
-    <div class="breadcrumb">@Html.ActionLink("Главная", "Index","Home") / @ProductController.GetCatName(ViewBag.CatID)</div>
+    <div class="breadcrumb side-block">@Html.ActionLink("Главная", "Index","Home") / @ProductController.GetCatName(ViewBag.CatID)</div>
     
     <h3>@ProductController.GetCatName(ViewBag.CatID)</h3>
     

@@ -1,11 +1,12 @@
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using System.Web.WebPages;
 
 namespace x_nova_template.Controllers
 {
     public class ViewSwitcherController : Controller
     {
-        public RedirectResult SwitchView(bool mobile, string returnUrl) {
+        public RedirectResult SwitchView(bool mobile, string returnUrl)
+        {
             if (Request.Browser.IsMobileDevice == mobile)
                 HttpContext.ClearOverriddenBrowser();
             else

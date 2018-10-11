@@ -8,23 +8,23 @@ namespace x_nova_template.ViewModel
 {
     public class MakeOrderViewModel
     {
-         [Required(ErrorMessageResourceType = typeof(Resourses.Resource),
-            ErrorMessageResourceName = "NameRequired")]
+        [Required(ErrorMessageResourceType = typeof(Resourses.Resource),
+           ErrorMessageResourceName = "NameRequired")]
         [StringLength(300)]
-        [Display(Name="Name")]
+        [Display(Name = "Name")]
         public string Name { get; set; }
-        
+
         [StringLength(300)]
         [Display(Name = "Company", ResourceType = typeof(Resourses.Resource))]
-        public string Company { get; set; }        
+        public string Company { get; set; }
         [StringLength(1000)]
         [Display(Name = "OrderDetails", ResourceType = typeof(Resourses.Resource))]
         public string Description { get; set; }
-        
+
         [StringLength(300)]
         [Display(Name = "Budget", ResourceType = typeof(Resourses.Resource))]
         public string Budget { get; set; }
-         [Display(Name = "SiteType", ResourceType = typeof(Resourses.Resource))]
+        [Display(Name = "SiteType", ResourceType = typeof(Resourses.Resource))]
         public string SiteType { get; set; }
         [Required(ErrorMessageResourceType = typeof(Resourses.Resource),
             ErrorMessageResourceName = "EmailRequired")]

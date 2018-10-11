@@ -11,10 +11,10 @@ namespace x_nova_template.Models
 {
     public class FileManager
     {
-        
+
         IProductRepository _prodDb;
         IPostRepository _postDb;
-         public FileManager(){}               
+        public FileManager() { }
 
         public FileManager(IProductRepository prodDb, IPostRepository postDb)
         {
@@ -28,26 +28,27 @@ namespace x_nova_template.Models
         private int imagesCount = 0;
         private static Random random = new Random();
         public string mainDir = "~/Content/Files/Pages";
-        
-        public void WriteFiles(IEnumerable<HttpPostedFileBase> files, string path) {
+
+        public void WriteFiles(IEnumerable<HttpPostedFileBase> files, string path)
+        {
 
             foreach (var file in files)
             {
-                if (file.ContentLength > 4000000) throw new HttpException();            
-              
+                if (file.ContentLength > 4000000) throw new HttpException();
+
                 imagesCount = CheckDirectory(path);
 
                 filePath = Path.Combine(path, GetRandomName(imagesCount) + Path.GetExtension(file.FileName));
 
-             
-                if ((file.ContentLength > 1000000&&file.ContentType == "image/png")||(file.ContentLength > 1000000&&file.ContentType == "image/jpeg"))
+
+                if ((file.ContentLength > 1000000 && file.ContentType == "image/png") || (file.ContentLength > 1000000 && file.ContentType == "image/jpeg"))
                 {
                     webimg = new WebImage(file.InputStream);
                     istream = webimg.Resize(webimg.Width / 2, webimg.Height / 2).GetBytes();
 
                 }
                 else istream = new BinaryReader(file.InputStream).ReadBytes(file.ContentLength);
-               
+
                 using (MemoryStream ms = new MemoryStream(istream))
                 {
                     using (FileStream fs = new FileStream(filePath, FileMode.Create))
@@ -55,23 +56,24 @@ namespace x_nova_template.Models
 
                         ms.WriteTo(fs);
                     }
-                }                                
-            }                               
+                }
+            }
         }
-        public void WriteFile(HttpPostedFileBase file, string path) {
+        public void WriteFile(HttpPostedFileBase file, string path)
+        {
             if (file.ContentLength > 4000000) throw new HttpException();
 
             imagesCount = CheckDirectory(path);
 
             filePath = Path.Combine(path, GetRandomName(imagesCount) + Path.GetExtension(file.FileName));
-           
+
             if ((file.ContentLength > 1000000 && file.ContentType == "image/png") || (file.ContentLength > 1000000 && file.ContentType == "image/jpeg"))
             {
                 webimg = new WebImage(file.InputStream);
                 istream = webimg.Resize(webimg.Width / 2, webimg.Height / 2).GetBytes();
             }
             else istream = new BinaryReader(file.InputStream).ReadBytes(file.ContentLength);
-            
+
             using (MemoryStream ms = new MemoryStream(istream))
             {
                 using (FileStream fs = new FileStream(filePath, FileMode.Create))
@@ -79,12 +81,12 @@ namespace x_nova_template.Models
 
                     ms.WriteTo(fs);
                 }
-            }      
+            }
         }
-        public void WriteImage(byte[] buffer, string path,bool isWM=false)
+        public void WriteImage(byte[] buffer, string path, bool isWM = false)
         {
 
-            var sn = System.Configuration.ConfigurationManager.AppSettings["SitePath"];         
+            var sn = System.Configuration.ConfigurationManager.AppSettings["SitePath"];
             //MemoryStream destination = new MemoryStream();
             if (isWM)
             {
@@ -102,7 +104,7 @@ namespace x_nova_template.Models
 
                 }
             }
-           
+
         }
         public int CheckDirectory(string path)
         {
@@ -114,15 +116,15 @@ namespace x_nova_template.Models
             else
             {
 
-                if (Directory.GetFiles(path).Count() == 0) return 1;            
+                if (Directory.GetFiles(path).Count() == 0) return 1;
                 else
                 {
                     return Directory.GetFiles(path).Count() + 1;
 
-                   
+
                 }
-                    
-            
+
+
             }
 
         }
@@ -136,7 +138,7 @@ namespace x_nova_template.Models
             {
                 if (!Char.IsLetter(ch)) res += RandomString(2);
                 else res += ch;
-                                
+
             }
 
             res = c.ToString() + res;
@@ -144,10 +146,10 @@ namespace x_nova_template.Models
         }
         public void RemoveDir(string path)
         {
-            if (Directory.Exists(path)&&path!=null)
+            if (Directory.Exists(path) && path != null)
             {
-                Directory.Delete(path, true);                
-           }
+                Directory.Delete(path, true);
+            }
         }
 
         public void RemoveFile(string path)
@@ -166,12 +168,13 @@ namespace x_nova_template.Models
         }
 
         // DIRECTORIES
-     
-        public void CreateDir(string path) {
-           
-            
-            var newpath = HttpContext.Current.Server.MapPath(mainDir + "/"+path);
-          
+
+        public void CreateDir(string path)
+        {
+
+
+            var newpath = HttpContext.Current.Server.MapPath(mainDir + "/" + path);
+
             if (Directory.Exists(newpath))
             {
                 DirectoryInfo di = Directory.CreateDirectory(newpath + "1");
@@ -183,22 +186,25 @@ namespace x_nova_template.Models
 
             //security.AddAccessRule(new FileSystemAccessRule("everyone", FileSystemRights.Read, AccessControlType.Allow));
             //security.AddAccessRule(new FileSystemAccessRule("everyone", FileSystemRights.FullControl, AccessControlType.Allow));
-           // security.AddAccessRule(new FileSystemAccessRule("everyone", FileSystemRights.FullControl, AccessControlType.Allow));
+            // security.AddAccessRule(new FileSystemAccessRule("everyone", FileSystemRights.FullControl, AccessControlType.Allow));
 
             //security.AddAccessRule(new FileSystemAccessRule("everyone", FileSystemRights.Modify, InheritanceFlags.ObjectInherit, PropagationFlags.None, AccessControlType.Allow));
             dir.SetAccessControl(security);
         }
-        public IEnumerable<DirectoryInfo> GetDirs() {
-            
+        public IEnumerable<DirectoryInfo> GetDirs()
+        {
+
             DirectoryInfo dinfo = new DirectoryInfo(HttpContext.Current.Server.MapPath(mainDir));
 
             var dirs = dinfo.GetDirectories();
             return dirs;
         }
-        public void ClearDir(string path) {
+        public void ClearDir(string path)
+        {
             DirectoryInfo dir = new DirectoryInfo(path);
             var files = dir.GetFiles();
-            foreach (var file in files) {
+            foreach (var file in files)
+            {
                 File.Delete(file.FullName);
             }
         }

@@ -13,7 +13,7 @@ namespace x_nova_template.Models
         [HiddenInput(DisplayValue = false)]
         public int ConfigID { get; set; }
 
-        
+
         [Display(Name = "Название сайта")]
         [StringLength(150)]
         public string SiteName { get; set; }
@@ -21,10 +21,10 @@ namespace x_nova_template.Models
         [Display(Name = "Robots.txt")]
         [StringLength(500)]
         public string Robots { get; set; }
-        
+
         [Display(Name = "Адрес сайта")]
         [StringLength(100)]
-        [Url(ErrorMessage="введите полный адрес страницы")]
+        [Url(ErrorMessage = "введите полный адрес страницы")]
         public string SiteAddress { get; set; }
 
         [Display(Name = "Описание сайта")]
@@ -37,18 +37,18 @@ namespace x_nova_template.Models
 
         [Display(Name = "Email")]
         [StringLength(150)]
-        [EmailAddress(ErrorMessage="некоректная почта")]
+        [EmailAddress(ErrorMessage = "некоректная почта")]
         public string Email { get; set; }
 
-        [Display(Name="Отключить сайт")]
+        [Display(Name = "Отключить сайт")]
         public bool SelectedIsOnlineID { get; set; }
 
         [Display(Name = "Сообщение при неработающем сайте")]
         public string OfflineMessage { get; set; }
 
-        
-       
+
+
     }
 
-    
+
 }

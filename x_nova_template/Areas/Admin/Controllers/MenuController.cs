@@ -158,7 +158,7 @@ namespace x_nova_template.Areas.Admin.Controllers
         {
             if (id != 0)
             {
-                var objs = _repository.Menues.Where(x => x.ParentId == id).OrderBy(x=>x.SortOrder).ToList();
+                var objs = _repository.Menues.Where(x => x.ParentId == id).OrderBy(x => x.SortOrder).ToList();
                 return PartialView(objs);
             }
             return Content("");

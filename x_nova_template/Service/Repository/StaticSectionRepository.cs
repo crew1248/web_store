@@ -9,7 +9,7 @@ using x_nova_template.Areas.Admin.Controllers;
 
 namespace x_nova_template.Service.Repository
 {
-    public class StaticSectionRepository:IStaticSectionRepository
+    public class StaticSectionRepository : IStaticSectionRepository
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
@@ -20,7 +20,8 @@ namespace x_nova_template.Service.Repository
             db.Entry(cnf).State = System.Data.Entity.EntityState.Modified;
             db.SaveChanges();
         }
-        public StaticSection Get(int id) {
+        public StaticSection Get(int id)
+        {
             return db.StaticSections.SingleOrDefault(x => x.ID == id);
         }
         public void Delete(StaticSection section)
@@ -30,23 +31,24 @@ namespace x_nova_template.Service.Repository
         }
         public StaticSection GetSection(int type)
         {
-            switch(type){
+            switch (type)
+            {
                 case 1:
-                    return db.StaticSections.First(x=>x.Type==1);
+                    return db.StaticSections.First(x => x.Type == 1);
                 case 2:
-                    return db.StaticSections.First(x => x.Type ==2);
+                    return db.StaticSections.First(x => x.Type == 2);
                 case 3:
-                    return db.StaticSections.First(x=>x.Type==3);
+                    return db.StaticSections.First(x => x.Type == 3);
                 case 4:
-                    return db.StaticSections.First(x => x.Type ==4);
+                    return db.StaticSections.First(x => x.Type == 4);
                 case 5:
-                    return db.StaticSections.First(x => x.Type ==5);
+                    return db.StaticSections.First(x => x.Type == 5);
                 case 6:
-                    return db.StaticSections.First(x => x.Type ==6);
+                    return db.StaticSections.First(x => x.Type == 6);
                 default:
                     return db.StaticSections.First();
             }
-           
+
         }
     }
 }

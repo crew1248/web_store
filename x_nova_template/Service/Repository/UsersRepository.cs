@@ -7,7 +7,7 @@ using x_nova_template.Service.Interface;
 
 namespace x_nova_template.Service.Repository
 {
-    public class UsersRepository:IUserRepository
+    public class UsersRepository : IUserRepository
     {
         //ApplicationDbContext db = new ApplicationDbContext();
 

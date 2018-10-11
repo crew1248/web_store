@@ -10,7 +10,7 @@ namespace x_nova_template.Models
     {
         public int ID { get; set; }
 
-        [StringLength(500, ErrorMessage = "максимум 500 символов")]        
+        [StringLength(500, ErrorMessage = "максимум 500 символов")]
         public string ImageTitle { get; set; }
 
         public byte[] ImageData { get; set; }

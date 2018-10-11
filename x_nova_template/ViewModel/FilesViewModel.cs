@@ -16,7 +16,7 @@ namespace x_nova_template.ViewModel
         public int someLimit { get; set; }
 
         public string FileName { get; set; }
-        [Required(ErrorMessage="пустое поле")]
+        [Required(ErrorMessage = "пустое поле")]
         public string DirName { get; set; }
 
     }

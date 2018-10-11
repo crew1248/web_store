@@ -9,10 +9,10 @@ namespace x_nova_template.Service.Interface
 {
     public interface ICategoryRepository
     {
-        IQueryable<Category> Categories { get;  }
+        IQueryable<Category> Categories { get; }
         IQueryable<Category> GetForSlider();
         void Create(CategoryViewModel post);
-         IQueryable<Category> Get();
+        IQueryable<Category> Get();
         Category Get(int id);
         void Delete(Category post);
         void Edit(CategoryViewModel post);

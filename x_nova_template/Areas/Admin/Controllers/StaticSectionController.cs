@@ -21,16 +21,17 @@ namespace x_nova_template.Areas.Admin.Controllers
             _rep = rep;
         }
 
-        public ActionResult Index(int page=1) {
+        public ActionResult Index(int page = 1)
+        {
             int pageSize = 15;
-           
+
             SectionsViewModel vm = new SectionsViewModel
             {
-                  StaticSections = _rep.StaticSections
-                    .OrderBy(x => x.ID)
-                    .ToList()
-                    .Skip((page - 1) * pageSize)
-                    .Take(pageSize),
+                StaticSections = _rep.StaticSections
+                  .OrderBy(x => x.ID)
+                  .ToList()
+                  .Skip((page - 1) * pageSize)
+                  .Take(pageSize),
 
                 PagingInfo = new PagingInfo
                 {
@@ -41,18 +42,19 @@ namespace x_nova_template.Areas.Admin.Controllers
                 }
             };
             return View(vm);
-            
+
         }
-        public JsonResult GetSections() {
+        public JsonResult GetSections()
+        {
             var items = _rep.StaticSections
-                .Select(x=>new 
+                .Select(x => new
                 {
-                     SectionType=x.SectionType,
-                     Content=x.Content
+                    SectionType = x.SectionType,
+                    Content = x.Content
                 }).ToArray();
-            return Json(new {sections=items},JsonRequestBehavior.AllowGet);
+            return Json(new { sections = items }, JsonRequestBehavior.AllowGet);
         }
-        public ActionResult Delete(int id,int cpage=1)
+        public ActionResult Delete(int id, int cpage = 1)
         {
             var item = _rep.Get(id);
             _rep.Delete(item);
@@ -60,26 +62,28 @@ namespace x_nova_template.Areas.Admin.Controllers
             TempData["type"] = 1;
             return RedirectToAction("Index", new { page = cpage });
         }
-        public ActionResult Edit(int id,int cpage=1) {
+        public ActionResult Edit(int id, int cpage = 1)
+        {
             ViewBag.page = cpage;
             return View(_rep.Get(id));
         }
         [HttpPost]
-        public ActionResult Edit(StaticSection model,int cpage=1 )
+        public ActionResult Edit(StaticSection model, int cpage = 1)
         {
             if (ModelState.IsValid)
             {
                 TempData["message"] = "Статический блок изменен";
                 TempData["type"] = 1;
                 _rep.Edit(model);
-                return RedirectToAction("Index", new{page=cpage });
+                return RedirectToAction("Index", new { page = cpage });
             }
             else return View(model);
         }
 
         public ActionResult GetSection(SectionType? type)
         {
-            switch(type){
+            switch (type)
+            {
                 case SectionType.TopQuote:
                     return PartialView(_rep.GetSection(1));
                 case SectionType.BottomQuote:
@@ -96,7 +100,7 @@ namespace x_nova_template.Areas.Admin.Controllers
                     return Content("");
             }
         }
-      
+
 
         public enum SectionType
         {

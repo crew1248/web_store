@@ -8,9 +8,10 @@ namespace x_nova_template.Extension
 {
     public static class StringExt
     {
-        
-        public  static string ToCutedUsername(string str) {
-            
+
+        public static string ToCutedUsername(string str)
+        {
+
             var name = Regex.Replace(str, @"@\w+.\w+", " ");
             return name;
         }

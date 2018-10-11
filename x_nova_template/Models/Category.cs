@@ -14,7 +14,7 @@ namespace x_nova_template.Models
         public string CategoryName { get; set; }
 
         public virtual List<Product> Products { get; set; }
-        
+
         public int? Sequance { get; set; }
         public string CatDescription { get; set; }
         [StringLength(300)]

@@ -1,22 +1,25 @@
 ﻿@model x_nova_template.Models.Product
 @{
-    ViewBag.Title = Model.ProductName;
+    ViewBag.Title = Model.ProductName +" - x_nova_template";
     Layout = "~/Views/Shared/_PageMenuLayout.cshtml";
     x_nova_template.Models.ProdImage previewImg = Model.ProdImages.SingleOrDefault(x => x.IsPreview == 1);
     string siteurl = "";
     bool islocal = Request.IsLocal;
     siteurl = islocal ? siteurl = "~" : siteurl = System.Configuration.ConfigurationManager.AppSettings["SitePath"] as string;
+
+    // ТКАНи
+
+
 }
 
 <div class="prod-view prod-view__details clear-fix" id="pid_@Model.ID">
 
-    <div class="breadcrumb">@Html.ActionLink("Главная", "Index","Home") / <a href="@Url.Action("ProdList", "Product", new { catId = Model.CategoryID })">@ProductController.GetCatName(Model.CategoryID)</a> / @Model.ProductName</div>
-    <h1>@Model.ProductName</h1>
-
+    <div class="breadcrumb side-block">@Html.ActionLink("Главная", "Index", "Home") / <a href="@Url.Action("ProdList", "Product", new { catId = Model.CategoryID })">@ProductController.GetCatName(Model.CategoryID)</a> / @Model.ProductName</div>
+   
     <div class="view-img">
         <div class="prod-image">
             <div id="imwrap" style="display: inline-block;">
-                <img class="prod-view__target-img img-responsive" data-zoom-image="@Url.Content("/Content/Files/Product/" + Model.ID + "/" + Model.ProdImages.Where(x => x.IsPreview == 1).SingleOrDefault().ImageMimeType)" id="zoom_1" src="@Url.Content("/Content/Files/Product/" + Model.ID + "/" + Model.ProdImages.Where(x => x.IsPreview == 1).SingleOrDefault().ImageMimeType)" />
+                <img class="prod-view__target-img img-responsive" data-zoom-image="@Url.Content(siteurl+"/Content/Files/Product/" + Model.ID + "/" + Model.ProdImages.Where(x => x.IsPreview == 1).SingleOrDefault().ImageMimeType)" id="zoom_1" src="@Url.Content(siteurl+"/Content/Files/Product/" + Model.ID + "/" + Model.ProdImages.Where(x => x.IsPreview == 1).SingleOrDefault().ImageMimeType)" />
             </div>
         </div>
         <div class="imglist-wrap imglist-view" id="prod_sl_1">
@@ -26,15 +29,15 @@
                 <ul id="gallery_01">
 
                     <li>
-                        <img class="detail-item" data-id="@previewImg.ID" data-pid="@previewImg.ProductID" src="@Url.Content("/Content/Files/Product/" + previewImg.ProductID + "/200x150/" + previewImg.ImageMimeType)" height="76" width="60" />
+                        <img class="detail-item" id="mpic_@Model.ID" data-id="@previewImg.ID" data-pid="@previewImg.ProductID" src="@Url.Content(siteurl + "/Content/Files/Product/" + previewImg.ProductID + "/200x150/" + previewImg.ImageMimeType)" height="76" width="60" />
                     </li>
 
-                    @foreach (var img in Model.ProdImages.Where(x => x.IsPreview != 1).OrderByDescending(x => x.Sortindex))
+                    @foreach (var img in Model.ProdImages.Where(x=>x.IsPreview==0).OrderByDescending(x => x.Sortindex))
                     {
 
 
                         <li>
-                            <img class="detail-item" data-id="@img.ID" data-pid="@img.ProductID" src="@Url.Content("/Content/Files/Product/" + img.ProductID + "/200x150/" + img.ImageMimeType)" height="76" width="60" />
+                            <img class="detail-item"  data-id="@img.ID" data-pid="@img.ProductID" src="@Url.Content(siteurl+"/Content/Files/Product/" + img.ProductID + "/200x150/" + img.ImageMimeType)" height="76" width="60" />
                         </li>
 
                     }
@@ -45,103 +48,137 @@
         </div>
     </div>
     <div class="item-features-wrap">
-        <div class="item-features">
+        <div class="item-features side-block">
             <div class="item-features__price">
-                <div class="item-features__price-value">@Model.Price.ToString("N0") р. </div>
+                <div class="item-features__h1">
+                    
+                    <h1>
+                        <span>@Model.ProductName</span>
+                    <span>@ProductController.GetCatName(Model.CategoryID)</span>
+                    </h1>
+                    
+                    
+                    <div></div>
+                </div>
+                <div class="item-features__price-value">@Model.Price.ToString("N", System.Globalization.CultureInfo.CreateSpecificCulture("ru")).Replace(",00", "") <span class="item-features__curr"> руб</span> </div>
+                <div class="item-features__tobuy">
+                    <a class="tobuy-btn prod-view-btn @(ProductController.ProdIsAdded(Model.ID) ? "prod-added":"prod-toadd")" data-event-type="cart__add" data-pid="@Model.ID" title="Кухонный стол Вестерн-Мини Комби" href="javascript:void(0);">
+                        <span class="default-main-text ">@(ProductController.ProdIsAdded(Model.ID) ? "Товар добавлен" : "Купить")</span>
+                        <div>
+                        </div>
+
+
+                    </a></div>
             </div>
-            <div class="item-features__title">Детали изделия:</div>
+            <div class="item-features__title"><div>Подбор параметров</div></div>
+            <div class="item-features__options">
+                <div class="dropdown-wrap">
+                    <div class="dropdown" data-type="cloth">
+                        <div class="dropdown-text">
+                            Ткани
+                        </div>
+                        <div class="dropdown-i">
+                            <i class="fas fa-sort"></i>
+                        </div>
+                        <div id="cloth-target"><img src="/Content/ajax-loaders/svg-loaders/puff.svg" class="carousel-main__loader" /></div>
+                       
+                    </div>
+                    <div id="cloth-valid">Выберете ткань</div>
+                </div>
+                <div class="dropdown-wrap">
+                    <div class="dropdown" data-type="color">
+                        <div class="dropdown-text">
+                            Окрас
+                        </div>
+                        <div class="dropdown-i">
+                            <i class="fas fa-sort"></i>
+                        </div>
+                        <div id="color-target"><img src="/Content/ajax-loaders/svg-loaders/puff.svg" class="carousel-main__loader" /></div>
+                      
+                    </div>
+                    <div id="color-valid">Выберете окрас</div>
+                </div>
+
+
+               
+                
+            </div>
+            <div class="item-features__title"><div>Детали изделия</div></div>
             <div class="item-features__table">
+
                 <table>
                     @*@if (!string.IsNullOrWhiteSpace(Model.Price.ToString()))
-                    {
+                        {
 
-                        <tr class="d-price">
-                            <th>Цена</th>
-                            <td>@Model.Price p</td>
+                            <tr class="d-price">
+                                <th>Цена</th>
+                                <td>@Model.Price p</td>
+                            </tr>
+                        }
+
+                        <tr class="d-type">
+                            <th>Название</th>
+                            <td> @Model.ProductName</td>
                         </tr>
-                    }
-
-                    <tr class="d-type">
-                        <th>Название</th>
-                        <td> @Model.ProductName</td>
-                    </tr>
-                    <tr class="d-cat">
-                        <th>Категория</th>
-                        <td>@ProductController.GetCatName(Model.CategoryID)</td>
-                    </tr>*@
-                    @if (!string.IsNullOrWhiteSpace(Model.MatIronForm))
-                    {
-
-                        <tr class="d-matprod">
-                            <th>Цвет</th>
-                            <td>@Model.MatIronForm</td>
-                        </tr>
-                    }
-
-                    @if (!string.IsNullOrWhiteSpace(Model.Hardness))
-                    {
-
-                        <tr class="d-hard">
-                            <th>Масса нетто</th>
-                            <td>@Model.Hardness</td>
-                        </tr>
-                    }
-                    @if (!string.IsNullOrWhiteSpace(Model.MatProd))
-                    {
-
-                        <tr class="d-matprod">
-                            <th>Материал изделия</th>
-                            <td>@Model.MatProd</td>
-                        </tr>
-                    }
-                    @if (!string.IsNullOrWhiteSpace(Model.ProdTime))
-                    {
-
-                        <tr class="d-chan">
-                            <th>Срок изготовления</th>
-                            <td>@Model.ProdTime</td>
-                        </tr>
-                    }
-                    @if (!string.IsNullOrWhiteSpace(Model.MatForm))
-                    {
-
-                        <tr class="d-matform">
-                            <th>Упаковка</th>
-                            <td>@Model.MatForm</td>
-                        </tr>
-                    }
-                    @if (!string.IsNullOrWhiteSpace(Model.Channel))
-                    {
-
-                        <tr class="d-chan">
-                            <th>Тип канала</th>
-                            <td>@Model.Channel</td>
-                        </tr>
-                    }
-                    @if (!string.IsNullOrWhiteSpace(Model.Coupling))
-                    {
-
-                        <tr class="d-coup">
-                            <th>Система охлаждения</th>
-                            <td>@Model.Coupling</td>
-                        </tr>
-                    }
-
-                    @if (!string.IsNullOrWhiteSpace(Model.Block))
-                    {
-
-                        <tr class="d-block">
-                            <th>Блок</th>
-                            <td>@Model.Block</td>
-                        </tr>
-                    }
-
+                        <tr class="d-cat">
+                            <th>Категория</th>
+                            <td>@ProductController.GetCatName(Model.CategoryID)</td>
+                        </tr>*@
                     @if (!string.IsNullOrWhiteSpace(Model.Size))
                     {
 
-                        <tr class="d-size">
-                            <th>Размер</th>
+                        <tr class="d-matprod">
+                            <th>Размеры</th>
                             <td>@Model.Size</td>
+                        </tr>
+                    }
+
+                    @if (!string.IsNullOrWhiteSpace(Model.Material))
+                    {
+
+                        <tr class="d-hard">
+                            <th>Материал</th>
+                            <td>@Model.Material</td>
+                        </tr>
+                    }
+                    @if (!string.IsNullOrWhiteSpace(Model.Packaging))
+                    {
+
+                        <tr class="d-matprod">
+                            <th>Упаковка</th>
+                            <td>@Model.Packaging</td>
+                        </tr>
+                    }
+                    @if (!string.IsNullOrWhiteSpace(Model.Fill))
+                    {
+
+                        <tr class="d-fill">
+                            <th>Наполнение</th>
+                            <td>@Model.Fill</td>
+                        </tr>
+                    }
+                    @if (Model.PackagingSize != 0)
+                    {
+
+                        <tr class="d-chan">
+                            <th>Размер упаковки</th>
+                            <td>@Model.PackagingSize</td>
+                        </tr>
+                    }
+                    @if (!string.IsNullOrWhiteSpace(Model.Manufacturer))
+                    {
+
+                        <tr class="d-matform">
+                            <th>Производитель</th>
+                            <td>@Model.Manufacturer</td>
+                        </tr>
+                    }
+                    @if (!string.IsNullOrWhiteSpace(Model.Description))
+                    {
+
+                        <tr class="d-matform">
+                            <th>Описание</th>
+                            <td>@Model.Description</td>
                         </tr>
                     }
                 </table>
@@ -149,7 +186,6 @@
         </div>
 
     </div>
-
     <div class="item-tabstrip-wrap">
         <div class="item-tabstrip">
             <div class="item-tabstrip__tabs">
@@ -161,7 +197,7 @@
                 </ul>
 
             </div>
-            <div class="item-tabstrip__text-wrap">
+            <div class="item-tabstrip__text-wrap side-block">
                 <div class="item-tabstrip__text tab" data-id="desc">
                     Диван «Каир» – отличное решение для организации минималистичной зоны отдыха. Модель выполнена в современном европейском стиле. Главная особенность «Каира» заключается в том, что при довольно компактных габаритах он раскладывается в полноценную кровать для двоих. Разумный выбор для небольшой студии или однокомнатной квартиры!
 
@@ -172,10 +208,24 @@
                 <div class="item-tabstrip__text tab" data-id="del">
                     доставка
                 </div>
-</div>
+            </div>
+        </div>
     </div>
+    @Html.Partial("_CartInfoPartial")
+   
+
+
+    <div class="similar-prods clear-fix">
+        <div class="cont">
+            @{Html.RenderAction("LastnewProds", "Product", new { id = Model.CategoryID,prodid=Model.ID });}
+        </div>
+    </div>
+
 </div>
-</div>
+
+
+
+
 @Scripts.Render("~/bundles/zoom")
 <script>
     $(function () {
@@ -185,7 +235,7 @@
         if (!XN.IsTablet)
             $('#zoom_1').elevateZoom();
 
-        $('.prev, .next').hide();
+        $('.imglist-view .prev,.imglist-view  .next').hide();
         // slider 1
         $('.tab:first').show();
         $(document).on('click', '.item-tabstrip__tabs-wrap li', function () {
@@ -195,8 +245,24 @@
             $('.tab[data-id="' + id + '"]').show();
             $('.item-tabstrip__tabs-wrap li[data-id="' + id + '"]').addClass('active');
 
-        })
+        });
+        $('.dropdown[data-type="cloth"]').on('click', function () {
+
+            $("#cloth-target").show();
+            $(this).find('.dropdown-list').length ? "" : XN.AjaxRequest.MakeRequest('/Product/ClothList', {}, '#cloth-target');
+        });
+        $('.dropdown[data-type="color"]').on('click', function () {
+
+            $("#color-target").show();
+            $(this).find('.dropdown-list').length ? "" : XN.AjaxRequest.MakeRequest('/Product/ColorList', {}, '#color-target');
+        });
     });
 
 
 </script>
+<style>
+    #cloth-target, #color-target {
+        display: none;
+    }
+</style>
+

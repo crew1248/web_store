@@ -15,11 +15,14 @@
         <dd>@Model.Order.Phone</dd>
         <dt>Адрес: </dt>
         <dd>@Model.Order.Address</dd>
-        <dt>Страна: </dt>
-        <dd>@Model.Order.Country</dd>
+        @*<dt>Страна: </dt>
+        <dd>@Model.Order.Country</dd>*@
         <dt>Доставка: </dt>
         <dd>@Model.Order.Delivery</dd>
-
+        <dt>Оплата: </dt>
+        <dd>@Model.Order.Payment</dd>
+        <dt>Почта: </dt>
+        <dd>@Model.Order.EmailAddress</dd>
         <dt>Статус: </dt>
         <dd id="orderS">@Model.Order.OrderStatus</dd>
     </dl>
@@ -44,8 +47,9 @@
 
 
         <th>Наименование</th>
-        <th>Производитель</th>
-
+        <th>Тип</th>
+        <th>Ткань</th>
+        <th>Окрас</th>
         <th>Цена</th>
         <th>Количество</th>
         <th>Общая стоимость</th>
@@ -56,10 +60,13 @@
 
         <td>@item.ProductName</td>
         <td>@item.Category</td>
-        <td>@item.Price.ToString("N0") <i class="fa fa-rouble"></i></td>
+        <td>@item.Cloth</td>
+        <td>@item.Color</td>
+        
+        <td>@item.Price.ToString("N0") руб</td>
         <td>@item.Quantity</td>
         <td>
-            @((item.Price * item.Quantity).ToString("N0")) <i class="fa fa-rouble"></i> <br />
+            @((item.Price * item.Quantity).ToString("N0")) руб <br />
         </td>
 
     </tr>
@@ -68,11 +75,12 @@
         <td>&nbsp;</td>
         <td>&nbsp;</td>
         <td>&nbsp;</td>
-
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
 
 
         <td style="padding:15px;">Итого:</td>
-        <td style="padding:15px;">@Model.Order.OrderSum.ToString("N0") <i class="fa fa-rouble"></i></td>
+        <td style="padding:15px;">@Model.Order.OrderSum.ToString("N0") руб</td>
     </tr>
 
 </table>

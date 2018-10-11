@@ -9,17 +9,17 @@ using x_nova_template.ViewModel;
 
 namespace x_nova_template.Service.Repository
 {
-    public class CategoryRepository:ICategoryRepository
+    public class CategoryRepository : ICategoryRepository
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
         public IQueryable<Category> Categories { get { return db.Categories; } }
-       
+
 
         public void Create(CategoryViewModel post)
         {
             Category cat = new Category();
-            cat.Sortindex =Categories.Any()? Categories.ToList().LastOrDefault().ID + 1:1;
+            cat.Sortindex = Categories.Any() ? Categories.ToList().LastOrDefault().ID + 1 : 1;
             //cat.CatType = post.CatType;
             cat.CatDescription = post.CatDescription;
             cat.CategoryName = post.CategoryName;
@@ -29,7 +29,7 @@ namespace x_nova_template.Service.Repository
         }
         public IQueryable<Category> GetForSlider()
         {
-            return from obj in db.Categories.Include("Products") select obj ;
+            return from obj in db.Categories.Include("Products") select obj;
         }
         public Category Get(int id)
         {
@@ -43,7 +43,7 @@ namespace x_nova_template.Service.Repository
         public void Edit(CategoryViewModel post)
         {
             var cat = Get(post.ID);
-            cat.CatType =post.CatType;
+            cat.CatType = post.CatType;
             cat.CatDescription = post.CatDescription;
             cat.CategoryName = post.CategoryName;
             cat.Sequance = post.Sequance;

@@ -9,7 +9,7 @@ namespace x_nova_template.ViewModel
 {
     public class SectionsViewModel
     {
-        public IEnumerable<StaticSection> StaticSections{ get; set; }
+        public IEnumerable<StaticSection> StaticSections { get; set; }
         public PagingInfo PagingInfo { get; set; }
     }
 }

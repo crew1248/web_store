@@ -19,7 +19,7 @@ using x_nova_template.Filters;
 
 namespace x_nova_template.Controllers
 {
-   
+
     public class HomeController : BaseController
     {
 
@@ -57,7 +57,7 @@ namespace x_nova_template.Controllers
             {
                 throw new HttpException(410, "Offline");
             }
-            var user = await UserManager.FindByIdAsync(userid);            
+            var user = await UserManager.FindByIdAsync(userid);
             ViewBag.ConfirmEmail = userid != null && !User.Identity.IsAuthenticated && codeAuth == null ? true : false;
             ViewBag.SetPassword = userid != null && codeAuth != null ? true : false;
             ViewBag.UserName = userid != null && !User.Identity.IsAuthenticated ? user.UserName : "";
@@ -66,12 +66,13 @@ namespace x_nova_template.Controllers
             ViewBag.Style = style;
             ViewBag.Token = credentialToken;
             ViewBag.Titlee = _conf.Options().SiteName;
-            var result = _mrepo.Menues.FirstOrDefault(x => x.Url == "Home");
-            return View(result);
+            //var result = _mrepo.Menues.FirstOrDefault(x => x.Url == "Home");
+            return View();
         }
 
-        public ActionResult AttachSession() {
-            Session["test"] = "тестовая сессия - "+Request.RequestContext.HttpContext.Session.SessionID;
+        public ActionResult AttachSession()
+        {
+            Session["test"] = "тестовая сессия - " + Request.RequestContext.HttpContext.Session.SessionID;
             return Redirect("/");
         }
         public ActionResult SetCulture(string culture)

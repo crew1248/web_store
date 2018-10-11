@@ -7,7 +7,8 @@ namespace x_nova_template.Extension
 {
     public static class LinqTest
     {
-        public static string ToFullNames(this string firstName) {
+        public static string ToFullNames(this string firstName)
+        {
             return firstName.ToUpper();
         }
 

@@ -7,19 +7,21 @@ using x_nova_template.Service.Interface;
 
 namespace x_nova_template.Service.Repository
 {
-    public class OrderItemRepository:IOrderItemRepository
+    public class OrderItemRepository : IOrderItemRepository
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
         public IQueryable<OrderItem> OrderItems { get { return db.OrderItems; } }
 
-        public void Create(Product product,int quantity, int orderId)
+        public void Create(Product product, int quantity, int orderId,string cloth,string color)
         {
             OrderItem oitem = new OrderItem();
 
             oitem.OrderID = orderId;
             oitem.ProductName = product.ProductName;
             oitem.Quantity = quantity;
+            oitem.Cloth = cloth;
+            oitem.Color = color;
             oitem.Price = product.Price;
             oitem.Category = db.Categories.Find(product.CategoryID).CategoryName;
             oitem.Description = product.Description;

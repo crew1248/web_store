@@ -6,7 +6,7 @@ using x_nova_template.Models;
 
 namespace x_nova_template.Service.Interface
 {
-   
+
     public interface IConfigRepository
     {
         IQueryable<Config> Configs { get; }

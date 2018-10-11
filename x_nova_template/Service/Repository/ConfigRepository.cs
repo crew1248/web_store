@@ -8,7 +8,7 @@ using x_nova_template.Service.Interface;
 
 namespace x_nova_template.Service.Repository
 {
-    public class ConfigRepository:IConfigRepository
+    public class ConfigRepository : IConfigRepository
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
@@ -20,7 +20,8 @@ namespace x_nova_template.Service.Repository
             db.SaveChanges();
         }
 
-        public Config Options() {
+        public Config Options()
+        {
             return db.Configs.First();
         }
     }

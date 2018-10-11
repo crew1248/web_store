@@ -19,7 +19,7 @@ namespace x_nova_template.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
-        
+
 
         public AccountController()
         {
@@ -106,7 +106,7 @@ namespace x_nova_template.Controllers
 
                 //return Content("reg-ok");
                 var user = new ApplicationUser { UserName = x_nova_template.Extension.StringExt.ToCutedUsername(model.Email), Email = model.Email };
-                
+
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

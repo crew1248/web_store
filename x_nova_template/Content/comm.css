@@ -38,19 +38,19 @@ text-align:center;
 {
     padding: 10px;
     text-decoration: none;
-    background: #D4D6D9;
+    background: #b9babb;
     color: #2E2E2E;
     border-radius: 4px;
     margin-right: 5px;
 }
     .pager a:hover
     {
-        background: #ffb40d;
+        background: #f57d00;
         color: #FFF;
     }
 .pager .current-page
 {
-    background: #ffb40d;
+    background: #f57d00;
     color: #FFF;
 }
 
@@ -65,7 +65,7 @@ text-align:center;
 /* =========================== Gallery area ======================== */
 /* =========================== Catalog area ======================== */
 .prod-view__details .prod-imglist ul li{
-    padding:4px;
+    
 }
 
 .prod-view .xn-i-details {
@@ -116,7 +116,7 @@ padding-top: 7px;
         float: left;
       
            margin: 0 5px;
-    padding: 4px 4px 0 4px;
+    padding: 4px;
     border: 1px solid #E4E4E4;
     }
 .imglist-item
@@ -454,3 +454,4 @@ display:none;
         width: 45%;
     }
 }
+

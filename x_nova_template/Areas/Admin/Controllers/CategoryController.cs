@@ -15,7 +15,7 @@ namespace x_nova_template.Areas.Admin.Controllers
     public class CategoryController : BaseController
     {
         //
-        // GET: /Category/gfd
+        // GET: /Category/
 
         public int PageSize = 4;
         ICategoryRepository _repository;
@@ -26,7 +26,8 @@ namespace x_nova_template.Areas.Admin.Controllers
 
         }
 
-        public ActionResult Index() {
+        public ActionResult Index()
+        {
             var types = new List<SelectListItem> {
                 new SelectListItem {Text="игрушка",Value="игрушка"},
                 new SelectListItem {Text="пресс-форма",Value="пресс-форма"}
@@ -35,26 +36,28 @@ namespace x_nova_template.Areas.Admin.Controllers
             return View();
         }
 
-        public ActionResult CatList(int page=1)
+        public ActionResult CatList(int page = 1)
         {
-            
+
             return View(_repository.Categories
-                .OrderBy(x=>x.ID)
-                .Skip((page-1)*PageSize)
+                .OrderBy(x => x.ID)
+                .Skip((page - 1) * PageSize)
                 .Take(PageSize));
         }
-        public PartialViewResult CatsMenu() {
-            return PartialView(_repository.Categories.OrderBy(x=>x.Sortindex).ToList());
+        public PartialViewResult CatsMenu()
+        {
+            return PartialView(_repository.Categories.OrderBy(x => x.Sortindex).ToList());
         }
         public PartialViewResult CatsMenu2()
         {
             return PartialView(_repository.Categories.Where(x => x.CatType == "игрушка").OrderBy(x => x.Sequance).ToList());
         }
-        public ActionResult Create(int id) {
+        public ActionResult Create(int id)
+        {
             var result = _repository.Categories.FirstOrDefault(x => x.ID == id);
 
             return View(result);
-                
+
         }
         [HttpPost]
         public JsonResult EditSort(string jsonData)
@@ -66,7 +69,8 @@ namespace x_nova_template.Areas.Admin.Controllers
             }
             return base.Json("");
         }
-        public ActionResult Filter_Categories() {
+        public ActionResult Filter_Categories()
+        {
             var items = _repository.Categories.Select(
                     x => new CategoryViewModel
                     {
@@ -82,10 +86,10 @@ namespace x_nova_template.Areas.Admin.Controllers
             DataSourceResult result = _repository.Categories.ToDataSourceResult(request, o => new CategoryViewModel
             {
                 CatDescription = o.CatDescription,
-                CatType=o.CatType,
+                CatType = o.CatType,
                 CategoryName = o.CategoryName,
                 Sortindex = o.Sortindex,
-                ID=o.ID
+                ID = o.ID
 
             });
             return Json(result);
@@ -107,10 +111,10 @@ namespace x_nova_template.Areas.Admin.Controllers
             {
 
                 _repository.Create(cat);
-                //cat.ID = _repository.Categories.First().ID;
+                cat.ID = _repository.Categories.First().ID;
                 results.Add(cat);
             }
-             
+
 
             return Json(results.ToDataSourceResult(request, ModelState));
         }
@@ -120,8 +124,8 @@ namespace x_nova_template.Areas.Admin.Controllers
         {
             if (cat != null && ModelState.IsValid)
             {
-              
-                    _repository.Edit(cat);                
+
+                _repository.Edit(cat);
             }
 
             return Json(ModelState.ToDataSourceResult());

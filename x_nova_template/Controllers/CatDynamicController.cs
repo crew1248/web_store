@@ -13,13 +13,14 @@ namespace x_nova_template.Controllers
         // GET: /CatDynamic/
 
         ICategoryRepository _rep;
-        public CatDynamicController(ICategoryRepository rep) {
+        public CatDynamicController(ICategoryRepository rep)
+        {
             _rep = rep;
         }
         [x_nova_template.Filters.RequireHttps(RequireSecure = false)]
         public ActionResult Index(int id)
         {
-            var str = _rep.Categories.Single(x => x.ID==id);
+            var str = _rep.Categories.Single(x => x.ID == id);
             ViewBag.Body = str.CatDescription;
             return View(str);
         }

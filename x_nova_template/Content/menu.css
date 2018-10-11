@@ -9,7 +9,7 @@
         padding: 0 16px;
         line-height: inherit;
         cursor: pointer;
-        color: #dcdcdc;
+        color: #d0d0d0;
         font-size: 14px;
         text-decoration:none;
         font-family: open sans;
@@ -17,10 +17,11 @@
     .tmenu-item {
          display: inline-block;
          position: relative;
+             height: 56px;
        
     }
         .tmenu-item:hover {
-              background-color: #ffb40d;
+              background-color: #f57d00;
               color:white;
         }
            .tmenu-item:hover a{
@@ -71,12 +72,13 @@ nav ul {
 
  .foot-nav li:first-child {
         display: inline-block;
-        color: #ffb40d;
+        color: #f57d00;
         font-size: 15px;
         width: 150px;
     }
     .foot-nav .tmenu-item {
         display:inherit;
+        height: inherit;
     }
     .foot-nav .tmenu__submenu-item {
         display:inherit;
@@ -86,10 +88,10 @@ nav ul {
             background:none;
         }
     .foot-nav .tmenu-item a,.tmenu__submenu-item a {
-            color: #c7c7c7;
+            color: #e4e4e4;
     }
         .foot-nav .tmenu-item a:hover,.tmenu__submenu-item a:hover{
-            color: #ffb40d;
+            color: #f57d00;
              background:none;
         }
     .foot-nav li:hover {

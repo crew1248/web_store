@@ -20,5 +20,10 @@ namespace x_nova_template.Models
         public string Category { get; set; }
         [StringLength(500)]
         public string Description { get; set; }
+        [StringLength(500)]
+        public string Cloth { get; set; }
+        [StringLength(500)]
+        public string Color { get; set; }
+
     }
 }

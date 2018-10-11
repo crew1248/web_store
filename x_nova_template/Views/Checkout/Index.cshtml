@@ -21,18 +21,35 @@
         Html.ActionLink("Детали", "Index", "Checkout", new { step = 2 }, new { @class = "inactive" });
     var step1 = Html.ActionLink("Корзина", "Index", "Checkout", new { step = 1 }, new { @class = "addtocart" });
     }
-
-    <ol class="breadcrumb">
-        @if (ViewBag.step == 1){<li class="active">Корзина</li>}
-        else{<li >@step1</li> }
-         @if (ViewBag.step == 2){<li class="active">Детали</li>}
-        else{<li>@step2</li> }         
-        @if (ViewBag.step == 3){<li class="active">Доставка</li>}
-        else{<li >@step3</li> }
-        @if (ViewBag.step == 4){<li class="active">Оплата</li>}
-        else{<li>@step4</li> }
+<nav class="no-touch">
+    <ol class="cd-multi-steps text-top">
+    @if (ViewBag.step == 1)
+    {
+    <li class="current"><em>Корзина</em></li>}
+    else
+    {
+    <li class="visited">@step1</li> }
+    @if (ViewBag.step == 2)
+{
+    <li class="current"><em>Детали</em></li>}
+else
+{
+    <li class="@(ViewBag.Step2?"visited":"")">@step2</li> }
+    @if (ViewBag.step == 3)
+{
+    <li class="current"><em>Доставка</em></li>}
+    else
+    {
+        <li class="@(ViewBag.Step3?"visited":"")">@step3</li> }
+    @if (ViewBag.step == 4)
+{
+    <li class="current"><em>Оплата</em></li>}
+    else
+    {
+        <li class="@(ViewBag.Step4?"visited":"")">@step4</li> }
 </ol>
-<p id="ch-content">
+    </nav>
+<div id="ch-content">
     @if (ViewBag.Step == 1)
     {
        
@@ -51,5 +68,9 @@
     {
         @Html.Partial("_Payment")
     }
-</p>
+    
+    @Html.Partial("_CartInfoPartial")
+</div>
+
+
 

@@ -43,7 +43,7 @@ namespace x_nova_template.Models
         [System.ComponentModel.DataAnnotations.Compare("NewPassword", ErrorMessage = "Новый пароль и его подтверждение не совпадают.")]
         public string ConfirmPassword { get; set; }
 
-        
+
     }
     public class AdmChangePasswordViewModel
     {
@@ -107,7 +107,8 @@ namespace x_nova_template.Models
         [Display(Name = "Имя")]
         public string Firstname { get; set; }
 
-        public IEnumerable<SelectListItem> DeliveryList {
+        public IEnumerable<SelectListItem> DeliveryList
+        {
             get
             {
                 return new List<SelectListItem>

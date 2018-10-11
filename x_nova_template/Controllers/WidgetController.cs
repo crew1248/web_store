@@ -67,6 +67,8 @@ namespace Posbank.Controllers
             else if (type == 1 && id != 0) // КАТАЛОГ
             {
                 var item = _prep.Get(id);
+                item.VisitesCount++;
+                _prep.Save();
                 var cart = Session["Cart"] as Cart;
                 var isAdded = cart != null ? cart.Lines.Select(x => x.Product.ID).Contains(id) : false;
 
@@ -77,19 +79,19 @@ namespace Posbank.Controllers
                     {"name",item.ProductName},
                     {"added", isAdded},
                     {"desc",item.Description},
-                    {"hard",item.Hardness},
-                    {"matform",item.MatForm},
-                    {"matprod",item.MatProd},
-                    {"matironform",item.MatIronForm},
-                    {"block",item.Block},
-                    {"coup",item.Coupling},
-                    {"prodtime",item.ProdTime},
+                    {"mat",item.Material},
+                    {"pack",item.Packaging},
+                    {"fill",item.Fill},
+                    {"packsize",item.PackagingSize},
+                    {"weight",item.Weight},
+                    {"manufacturer",item.Manufacturer},
+                    {"disc",item.Discount},
                     {"size",item.Size},
-                    {"chan",item.Channel},
+                   
                     {"si",new JArray{
                         item.ProdImages.OrderByDescending(x=>x.Sortindex).Select(x=> new JObject {new JProperty("id",x.ID),new JProperty("src", x.ImageMimeType)}).ToArray()
                     }},
-                    {"price",item.Price.ToString("C0")}
+                    {"price",item.Price.ToString("N", System.Globalization.CultureInfo.CreateSpecificCulture("ru")).Replace(",00", "")}
                 };
 
                 var json = result.ToString();
@@ -147,5 +149,4 @@ namespace Posbank.Controllers
             }
         }
     }
-
 }

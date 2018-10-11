@@ -28,7 +28,7 @@ namespace x_nova_template.Areas.Admin.Controllers
         public ActionResult Index(HttpPostedFileBase file)
         {
             DataSet ds = new DataSet();
-            
+
             if (Request.Files["file"].ContentLength > 0)
             {
                 string fileExtension =
@@ -96,14 +96,14 @@ namespace x_nova_template.Areas.Admin.Controllers
 
                     Request.Files["file"].SaveAs(fileLocation);
 
-                    XmlTextReader xmlreader = new XmlTextReader(new StreamReader(file.InputStream,Encoding.GetEncoding(1251)));
-                  
+                    XmlTextReader xmlreader = new XmlTextReader(new StreamReader(file.InputStream, Encoding.GetEncoding(1251)));
+
                     //CultureInfo currentCultureInfo = new CultureInfo("en-US");
-                   
+
                     // DataSet ds = new DataSet();
                     //ds.Locale = System.Globalization.CultureInfo.InvariantCulture;
                     ds.ReadXml(xmlreader);
-                     //ds.Locale = currentCultureInfo;
+                    //ds.Locale = currentCultureInfo;
                     xmlreader.Close();
                 }
 
@@ -111,13 +111,13 @@ namespace x_nova_template.Areas.Admin.Controllers
                 {
                     string conn = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
                     SqlConnection con = new SqlConnection(conn);
-                    
+
                     string query = "Insert into ImportDataProducts(Title,Description,Category,Price) Values(N'" +
                     ds.Tables[0].Rows[i][0].ToString() + "', N'" + ds.Tables[0].Rows[i][1].ToString() +
                     "',N'" + ds.Tables[0].Rows[i][2].ToString() + "',N'" + ds.Tables[0].Rows[i][3].ToString() + "')";
                     con.Open();
                     SqlCommand cmd = new SqlCommand(query, con);
-                    
+
                     cmd.ExecuteNonQuery();
                     con.Close();
                 }

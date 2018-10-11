@@ -13,19 +13,20 @@ namespace x_nova_template.Controllers
 {
     public class BaseController : Controller
     {
-        
+
         IConfigRepository _conf = new ConfigRepository();
         public BaseController() { }
-        public BaseController(IConfigRepository conf) {
+        public BaseController(IConfigRepository conf)
+        {
             _conf = conf;
         }
         protected override IAsyncResult BeginExecuteCore(AsyncCallback callback, object state)
         {
 
-            
-           
+
+
             string cultureName = null;
-           
+
             /*
             string routeCultureName = RouteData.Values["culture"] as string;
  
@@ -44,8 +45,8 @@ namespace x_nova_template.Controllers
             }
 
             */
-        
-            
+
+
             HttpCookie cultureCookie = Request.Cookies["_culture"];
             if (cultureCookie != null)
                 cultureName = cultureCookie.Value;
@@ -61,7 +62,7 @@ namespace x_nova_template.Controllers
             }
             // Validate culture name
             cultureName = CultureHelper.GetImplementedCulture(cultureName); // This is safe
-            
+
             // Modify current thread's cultures           
             Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo(cultureName);
             Thread.CurrentThread.CurrentUICulture = Thread.CurrentThread.CurrentCulture;

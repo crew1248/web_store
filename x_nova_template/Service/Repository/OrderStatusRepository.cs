@@ -8,7 +8,7 @@ using x_nova_template.Service.Interface;
 
 namespace x_nova_template.Service.Repository
 {
-    public class OrderStatusRepository:IOrderStatusRepository
+    public class OrderStatusRepository : IOrderStatusRepository
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 

@@ -1,28 +1,33 @@
 ﻿@model x_nova_template.ViewModel.CheckoutViewModel
-<h3>Доставка </h3>
-<div>
+
+<h3>Доставка заказа</h3>
+<div id="paym-deliv" class="checkout-block">
+   
     @using (Html.BeginForm("ProceedDelivery", "Checkout"))
     {
+        @Html.AntiForgeryToken()
         <div class="form-group">
-            @Html.LabelFor(m => m.Delivery, new { @class = "col-md-2 control-label" })
+            <label class="col-md-2 control-label" for="Delivery">Доставка</label>
             <div class="col-md-10">
                 @Html.DropDownListFor(m => m.Delivery, Model.DeliveryList, new { @class = "form-control" })
             </div>
+
+
         </div>
         @*@Html.RadioButtonFor(x => x.Delivery, "В радиусе МКАД", new { style = "width:auto" })
-        <span>
-            доставка товара в радиусе МКАД - 200р.
+            <span>
+                доставка товара в радиусе МКАД - 200р.
 
-        </span>
-        <br />
-        @Html.RadioButtonFor(x => x.Delivery, "За МКАД", new { style = "width:auto" })
-        <span>
-            доставка за МКАД - 500р.
+            </span>
+            <br />
+            @Html.RadioButtonFor(x => x.Delivery, "За МКАД", new { style = "width:auto" })
+            <span>
+                доставка за МКАД - 500р.
 
-        </span>*@
+            </span>*@
 
-        <div>
-            <input type="submit" class="xn-dark-button btn btn-default" style="width:100px" value="к оплате" />
+        <div class="col-md-offset-2 col-md-10" style="padding:20px;">
+            <input type="submit" class="default-btn main-btn" style="width:100px" value="к оплате" />
         </div>
     }
 </div>

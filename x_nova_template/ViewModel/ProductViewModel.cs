@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
@@ -10,6 +11,11 @@ namespace x_nova_template.ViewModel
     [Serializable]
     public class ProductViewModel
     {
+
+        public ProductViewModel(){
+            Fill = "высоко эластичный ППУ";
+    }
+
         [HiddenInput(DisplayValue = false)]
         public int ID { get; set; }
 
@@ -20,34 +26,29 @@ namespace x_nova_template.ViewModel
         public int CategoryID { get; set; }
         [Required]
         public float Price { get; set; }
-
         public string CategoryName { get; set; }
-        [StringLength(500)]
-        public string MatProd { get; set; }
-        [StringLength(500)]
-        public string Hardness { get; set; }
-        [StringLength(500)]
-        public string Channel { get; set; }
         public string ImageMimeType { get; set; }
-        public byte[] ImageData { get; set; }
-
-
-        [StringLength(500)]
-        public string MatIronForm { get; set; } // Марка стали формообразующих частей
-        [StringLength(500)]
-        public string Block { get; set; } // Блок
-        public string ProdTime { get; set; }  // Время производства
-        public string Coupling { get; set; }  // Система охлаждения
-
-        [StringLength(500)]
-        public string Size { get; set; }
-        [StringLength(500)]
-        public string MatForm { get; set; }
-        [StringLength(500)]
-        public string Season { get; set; }
+        public byte[] ImageData { get; set; }        
         [StringLength(300)]
         public string ProductType { get; set; }
 
+
+
+        public string Size { get; set; } // размеры
+        public string Packaging { get; set; } // упак
+        public float PackagingSize { get; set; } //размер упак
+        public float Weight { get; set; } // вес
+        public string Manufacturer { get; set; } //производитель
+        public string Cloth { get; set; }//ткань
+        public string Color { get; set; } //окрас
+        public string Lacquering { get; set; }//лакировка
+        public string Decor { get; set; } //декор
+        public int Discount { get; set; } //скидка
+        public string Material { get; set; }//материал
+        
        
+        public string Fill { get; set; }//наполнение
+
+
     }
 }

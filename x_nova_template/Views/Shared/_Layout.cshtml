@@ -22,7 +22,7 @@
     @*@Styles.Render("~/Content/kcss")*@
     <link rel="stylesheet" type="text/css" href="/Content/fonts/flaticon/flaticon.css"> 
     
-    <link rel="stylesheet" type="text/css" href="/font-awesome/css/fontawesome-all.min.css">
+    <link rel="stylesheet" type="text/css" href="~/font-awesome/css/fontawesome-all.min.css">
     
     @Styles.Render("~/Content/bootstrap")
     @Styles.Render("~/Content/css")
@@ -84,7 +84,7 @@
         <!----------------- header start ------------------- -->
         <header id="top-section">
             <div class="cont">
-                <div class="top-section__main">
+                <div class="top-section__main clear-fix">
                 @Html.Partial("_Logo")
 
                 <div class="header-nav">
@@ -96,11 +96,16 @@
             </div>
             <nav class="header-nav__wrap">
                 <div class="cont">
-                    <div class="resp-logo"><img src="@Url.Content("~/Content/em/logo.png")" /></div>
+                    <div class="resp-logo"><img src="@Url.Content("~/Content/em/eligo-logo/logo2/eligo-part2.png")" /></div>
                     <div class="header-nav__main">
                         @{Html.RenderAction("CatsMenu", "Category");}
                         @{Html.RenderAction("SS", "Menu", new { menuSection = 0 });}
                     </div>
+                    <div class="top-cart-wrap">
+                        @Html.Partial("_CartButton")
+
+                    </div>
+                    
                 </div>
             </nav>
 
@@ -119,56 +124,24 @@
 
         </section>
         <!-----------------   Slider end    ------------------- -->
-            <!-----------------   Content start    ------------------- -->
 
-            <main id="content" class="clear-fix">
+        <!--   advantages  -->
+        @Html.Partial("_AdvantagesPartial")
+            <!-----------------   Content start    ------------------- -->
+        @RenderBody()
+            @*<main id="content" class="clear-fix">
                
                 <div class="cont" >
                  
-                    <h1>Добро пожаловать</h1>          
-                    <section class="section_1 section_default">
-                        Мы создаем уют в любом пространстве — будь то долгожданная квартира, новый офис или любимая дача. Вот уже 8 лет мы каждый день работаем, стараясь сделать мир еще удобнее, мягче и счастливее. Ведь жизнь в каждом доме начинается с мебели. С правильной мебели начинается хорошая жизнь.
-
-                    </section> 
-                    <section class="advantages">
-
-                        <div class="adv-item">
-                            <div class="adv-icon"><i class="flaticon-cogwheel"></i></div>
-                            <div class="adv-title">Сборка</div>
-                            <div class="adv-body">Мы создаем уют в любом пространстве — будь то долгожданная квартира, новый офис или любимая дача</div>
-
-                        </div>
-                        <div class="adv-item">
-                            <div class="adv-icon"><i class="flaticon-people"></i></div>
-                            <div class="adv-title">Личный подход</div>
-                            <div class="adv-body">Мы создаем уют в любом пространстве — будь то долгожданная квартира, новый офис или любимая дача</div>
-
-                        </div>
-                        <div class="adv-item">
-                            <div class="adv-icon"><i class="flaticon-tag"></i></div>
-                            <div class="adv-title">Скидки</div>
-                            <div class="adv-body">Мы создаем уют в любом пространстве — будь то долгожданная квартира, новый офис или любимая дача</div>
-
-                        </div>
-                        <div class="adv-item">
-                            <div class="adv-icon"><i class="flaticon-business"></i></div>
-                            <div class="adv-title">Оплата</div>
-                            <div class="adv-body">Мы создаем уют в любом пространстве — будь то долгожданная квартира, новый офис или любимая дача</div>
-
-                        </div>
-                    </section>
-                    <section class="new-prods">
-                        @{Html.RenderAction("LastnewProds", "Product");}
-
-                    </section>
+                   
                     <article id="article" class="col-md-8 col-sm-12 col-xs-12">
 
-                        @RenderBody()
+                       
                     </article>
                   
 
                 </div>
-            </main>
+            </main>*@
 
             <!-----------------   Content area  end  ------------------- -->
             <!-----------------   Footer area    ------------------- -->

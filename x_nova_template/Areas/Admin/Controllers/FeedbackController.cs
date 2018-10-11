@@ -11,7 +11,7 @@ using x_nova_template.Service.Interface;
 
 namespace x_nova_template.Areas.Admin.Controllers
 {
-    
+
     public class FeedbackController : Controller
     {
         //
@@ -19,7 +19,8 @@ namespace x_nova_template.Areas.Admin.Controllers
 
         IEmailSender _emailSender;
 
-        public FeedbackController(IEmailSender emailSender) {
+        public FeedbackController(IEmailSender emailSender)
+        {
             _emailSender = emailSender;
         }
         [HttpPost]
@@ -28,7 +29,7 @@ namespace x_nova_template.Areas.Admin.Controllers
 
             var isValidCaptcha = DataCaptchaController.IsValidCaptchaValue(Captcha);
 
-           
+
 
             if (!isValidCaptcha)
             {
@@ -57,7 +58,7 @@ namespace x_nova_template.Areas.Admin.Controllers
             {
                 throw new HttpException();
             }*/
-           
+
             if (ModelState.IsValid)
             {
                 _emailSender.SendMail(feed.Name, feed.Text, "Письмо с сайта!", feed.Email);

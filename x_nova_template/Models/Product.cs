@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -9,43 +10,47 @@ using UnidecodeSharpFork;
 
 namespace x_nova_template.Models
 {
-    [Serializable]    
+    [Serializable]
     public class Product
     {
         public int ID { get; set; }
         [StringLength(500)]
         public string ProductName { get; set; }
-      
+
         [AllowHtml]
         public string Description { get; set; } //описание
-        [StringLength(500)]
-        public string MatForm { get; set; } // материал формообразующих
-        [StringLength(500)]
-        public string Size { get; set; } // размер
-        [StringLength(500)]
-        public string MatProd { get; set; } // материал изделия
-        [StringLength(500)]
-        public string Hardness { get; set; } // Жесткость
-        [StringLength(500)]
-        public string Channel { get; set; } // Канал
-        [StringLength(500)]
-        public string MatIronForm { get; set; } // Марка стали формообразующих частей
-        [StringLength(500)]
-        public string Block { get; set; } // Блок
-        [StringLength(500)]
-        public string ProdTime { get; set; }  // Время производства
-
-        [StringLength(500)]
-        public string Coupling { get; set; }  // Система охлаждения
-
+       
         public Category Category { get; set; }
+         [StringLength(500)]
+        public string Size { get; set; } // размеры
+         [StringLength(500)]
+        public string Packaging { get; set; } // упак
+         
+        public float PackagingSize {get;set;} //размер упак
+    
+        public float Weight { get; set; } // вес
+         [StringLength(500)]
+        public string Manufacturer { get; set; } //производитель
+         [StringLength(500)]
+        public string Cloth { get; set;  }//ткань
+         [StringLength(500)]
+        public string Color { get; set; } //окрас
+         [StringLength(500)]
+        public string Lacquering { get; set; }//лакировка
+         [StringLength(500)]
+        public string Decor { get; set; } //декор
+        
+        public int Discount { get; set; } //скидка
+         [StringLength(500)]
+        public string Material { get; set;  }//материал
 
-      
-        [StringLength(500)]
-        public string Composition { get; set; } // состав
-        [StringLength(500)]
-        public string Season { get; set; } // Сезон
-        [StringLength(500)]
+         [StringLength(500)]         
+         public string Fill { get; set; }//наполнение
+         
+         public int VisitesCount { get; set; }//просмотров товара
+
+
+
         public string ProductType { get; set; }
         public int Sortindex { get; set; }
         public virtual List<ProdImage> ProdImages { get; set; }
@@ -72,7 +77,7 @@ namespace x_nova_template.Models
         private string RemoveAccent(string text)
         {
             var unicoder = text.Unidecode();
-           
+
             return unicoder;
         }
 

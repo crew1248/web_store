@@ -15,6 +15,7 @@ namespace x_nova_template.Models
         private bool step2 { get; set; }
         private bool step3 { get; set; }
         private bool step4 { get; set; }
+        
 
         public bool Step1
         {
@@ -44,7 +45,7 @@ namespace x_nova_template.Models
 
         private List<CartLine> line = new List<CartLine>();
 
-        public void AddItem(Product product, int quantity = 1)
+        public void AddItem(Product product, int quantity = 1,string cloth=null,string color=null)
         {
             CartLine cline = line.Find(x => x.Product.ID == product.ID);
             //.Where(x => x.Product.ID == product.ID)
@@ -52,7 +53,7 @@ namespace x_nova_template.Models
 
             if (cline == null)
             {
-                line.Add(new CartLine { Product = product, Quantity = quantity });
+                line.Add(new CartLine { Product = product, Quantity = quantity,Cloth=cloth,Color=color });
             }
             else
             {
@@ -76,10 +77,15 @@ namespace x_nova_template.Models
 
         public void Clear()
         {
+            Step2 = false;
+            Step3 = false;
+            Step4 = false;
+            
             line.Clear();
 
         }
-        public CartLine GetLine(int id) {
+        public CartLine GetLine(int id)
+        {
             return line.Find(x => x.Product.ID == id);
         }
         public IEnumerable<CartLine> Lines
@@ -97,7 +103,8 @@ namespace x_nova_template.Models
 
 
         }
-        public void UpdateClientDetails(ApplicationUser user) {
+        public void UpdateClientDetails(ApplicationUser user)
+        {
             ClientDetails.Address = user.Address;
             ClientDetails.FirstName = user.Firstname;
             ClientDetails.LastName = user.Sirname;
@@ -108,7 +115,7 @@ namespace x_nova_template.Models
         {
             ClientDetails.Delivery = vm.Delivery;
         }
-        
+
         public void UpdatePayment(Checkout_Payment vm)
         {
             ClientDetails.Payment = vm.Payment;
@@ -130,6 +137,8 @@ namespace x_nova_template.Models
         {
             public Product Product { get; set; }
             public int Quantity { get; set; }
+            public string Cloth { get; set; }
+            public string Color { get; set; }
 
         }
         [Serializable]
@@ -148,19 +157,19 @@ namespace x_nova_template.Models
                 var type = GetType();
                 var properties = type.GetProperties(BindingFlags.Public | BindingFlags.Instance);
                 var hasProperty = properties
-                    .Where(x=>x.Name!="Delivery"&&x.Name!="Payment")
+                    .Where(x => x.Name != "Delivery" && x.Name != "Payment")
                     .Select(x => x.GetValue(this, null))
                     .Any(x => x.IsNullOrEmpty());
                 return hasProperty;
             }
-            
+
             public void AttachEmptyProperties()
             {
                 var type = GetType();
                 var properties = type.GetProperties(BindingFlags.Public | BindingFlags.Instance);
                 var propList = properties.Select(x => x.GetValue(this, null))
                                             .Where(x => x.IsNullOrEmpty());
-                
+
             }
         }
     }

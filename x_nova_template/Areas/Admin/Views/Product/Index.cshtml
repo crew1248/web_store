@@ -36,7 +36,7 @@
     .Columns(columns =>
     {
         columns.Bound(e => e.ID).Width(100);
-        columns.Template(e => { }).ClientTemplate("<div><img class='preview grid-img' src='${imgLink}'  id='${ID}'  alt='${ProductName}' width='100'  /> </div>").Width(100).Title("Картинка");
+        columns.Template(e => { }).ClientTemplate("<div><img class='preview grid-img' src='${imgLink}'  id='${ID}'  alt='${ProductName}' width='70'  /> </div>").Width(100).Title("Картинка");
         columns.Bound(e => e.ProductName).Encoded(false).Width(200).HtmlAttributes(new { style = "height:100px;overflow:hidden;display:block;" }).Title("Описание");
         // columns.Bound(e => e.Price).Width(100)/*.ClientTemplate("#:kendo.toString(Price, 'c0')#")*/.Title("Цена");
 
@@ -45,7 +45,7 @@
         columns.Command(command =>
         {
             /*command.Custom("asd").HtmlAttributes(new { @class = "k-button k-button-icontext prod-image" }).Text("<i style='margin-left: -2px;position:relative' class='icon-picture'><input type='file' data-id = '${ID}' name='file' class='prodimg' /></i>");*/
-            command.Custom("asd").HtmlAttributes(new { @class = "k-button k-button-icontext prod-image" }).Click("UploadWindow").Text("<i style='margin-left: -2px;position:relative' class='fa fa-image'></i>");
+            command.Custom("asd").HtmlAttributes(new { @class = "k-button k-button-icontext prod-image" }).Click("UploadWindow").Text("<i style='margin-left: -2px;position:relative' class='fas fa-image'></i>");
             command.Edit().Text(" ");
             command.Destroy().Text(" ");
         }).Width(150);
@@ -66,7 +66,7 @@
 
         .Ajax()
         .PageSize(20)
-            .Model(model => { model.Id(p => p.ID); model.Field(p => p.ID).DefaultValue(16000000).Editable(false); })
+                    .Model(model => { model.Id(p => p.ID); model.Field(p => p.ID).DefaultValue(16000000).Editable(false); model.Field(p => p.Fill).DefaultValue("высоко эластичный ППУ"); })
 
         .Sort(x => x.Add("ID").Descending())
         .Create(update => update.Action("Editing_Create", "Product"))

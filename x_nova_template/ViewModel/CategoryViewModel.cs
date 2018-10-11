@@ -11,11 +11,11 @@ namespace x_nova_template.ViewModel
     {
         [HiddenInput]
         public int ID { get; set; }
-        
+
         public string CategoryName { get; set; }
 
         public string CatType { get; set; }
-        [Range(0,500)]
+        [Range(0, 500)]
         public int? Sequance { get; set; }
         public string CatDescription { get; set; }
 

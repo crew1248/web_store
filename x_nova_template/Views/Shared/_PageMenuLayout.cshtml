@@ -20,8 +20,8 @@
         <meta name="description" content="@ConfigController.SiteOptions().Description" />
     }
     @*@Styles.Render("~/Content/kcss")*@
-        <link rel="stylesheet" type="text/css" href="/Content/fonts/flaticon/flaticon.css"> 
-    
+    <link rel="stylesheet" type="text/css" href="/Content/fonts/flaticon/flaticon.css">
+
     <link rel="stylesheet" type="text/css" href="~/font-awesome/css/fontawesome-all.min.css">
 
     @Styles.Render("~/Content/bootstrap")
@@ -83,8 +83,8 @@
     <div class="wrapper">
         <!----------------- header start ------------------- -->
         <header id="top-section">
-            <div class="cont">
-                <div class="top-section__main">
+            <div class="cont hidden-xs hidden-sm" >
+                <div class="top-section__main clear-fix">
                     @Html.Partial("_Logo")
 
                     <div class="header-nav">
@@ -96,11 +96,17 @@
             </div>
             <nav class="header-nav__wrap">
                 <div class="cont">
-                    <div class="resp-logo"><img src="@Url.Content("~/Content/em/logo.png")" /></div>
-                    <div class="header-nav__main">
+                    <div class="resp-logo "><img src="@Url.Content("~/Content/em/eligo-logo/logo2/eligo-part2.png")" /></div>
+                    <div class="header-nav__main ">
                         @{Html.RenderAction("CatsMenu", "Category");}
                         @{Html.RenderAction("SS", "Menu", new { menuSection = 0 });}
                     </div>
+                    <div class="top-cart-wrap">
+                        @Html.Partial("_CartButton")
+
+                    </div>
+                    
+
                 </div>
             </nav>
 

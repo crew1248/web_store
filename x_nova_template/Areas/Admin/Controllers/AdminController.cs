@@ -9,13 +9,13 @@ using System.Text.RegularExpressions;
 
 namespace x_nova_template.Areas.Admin.Controllers
 {
-    [Authorize(Roles="admin")]
+    [Authorize(Roles = "admin")]
     public class AdminController : Controller
     {
         //
         // GET: /Admin/Admin/
 
-        
+
         public ActionResult Index()
         {
             var input = "admin@admin.ru";
@@ -23,15 +23,15 @@ namespace x_nova_template.Areas.Admin.Controllers
             ViewBag.regex = name;
             return View();
         }
-          
-#region -- Robots() Method --
-public ActionResult Robots()
-{
-    Response.ContentType = "text/plain";
-    return View();
-}
-#endregion
-       
+
+        #region -- Robots() Method --
+        public ActionResult Robots()
+        {
+            Response.ContentType = "text/plain";
+            return View();
+        }
+        #endregion
+
 
     }
 }

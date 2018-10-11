@@ -22,7 +22,8 @@ namespace x_nova_template.Areas.Admin.Controllers
 
         public UsersController() { }
 
-        public UsersController(ApplicationUserManager userManager) {
+        public UsersController(ApplicationUserManager userManager)
+        {
             UserManager = userManager;
         }
         private ApplicationUserManager _userManager;
@@ -39,7 +40,7 @@ namespace x_nova_template.Areas.Admin.Controllers
             }
         }
 
-        
+
         //public async Task<ActionResult> Index()
         //{
         //    var manager = await UserManager.FindByIdAsync(User.Identity.GetUserId());

@@ -11,7 +11,7 @@ namespace x_nova_template.Models
     {
         public int ID { get; set; }
 
-        public byte[] ImageDataType {get;set;}
+        public byte[] ImageDataType { get; set; }
         [StringLength(300)]
         public string ImageMimeType { get; set; }
         public int IsPreview { get; set; }

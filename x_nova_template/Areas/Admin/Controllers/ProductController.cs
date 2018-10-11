@@ -32,7 +32,7 @@ namespace x_nova_template.Areas.Admin.Controllers
         //
         // GET: /Product/
 
-        public int PageSize = 6;
+        public int PageSize = 15;
 
         IProductRepository _pRepository;
         ICategoryRepository _catRep;
@@ -114,7 +114,7 @@ namespace x_nova_template.Areas.Admin.Controllers
             {
                 Service = "Product",
                 CurrentPage = num,
-                Sort = this.PageSize.ToString(),
+                Sort=this.PageSize.ToString(),
                 ItemsPerPage = this.PageSize,
                 TotalItems = (from x in this._pRepository.Products
                               where x.CategoryID == id
@@ -157,6 +157,7 @@ namespace x_nova_template.Areas.Admin.Controllers
             }
             return isAdded;
         }
+
         public JsonResult ItemInfo(int id)
         {
             // Thread.Sleep(500000);
@@ -190,6 +191,17 @@ namespace x_nova_template.Areas.Admin.Controllers
             var idlist = prods.Select(x => new { pid = x.ID, title = x.ProductName }).ToArray();
             return Json(new { pids = idlist }, JsonRequestBehavior.AllowGet);
         }
+        public ActionResult ClothList() {
+          
+
+            return PartialView();
+        }
+        public ActionResult ColorList()
+        {
+
+
+            return PartialView();
+        }
         public ActionResult ProdsToSlider()
         {
             var cats = _cRep.GetForSlider().ToList();
@@ -209,9 +221,10 @@ namespace x_nova_template.Areas.Admin.Controllers
 
         public ActionResult Index()
         {
-            var list = _catRep.Categories.OrderByDescending(x=>x.Sortindex).Select(x => new { ID = x.ID, CategoryName = x.CategoryName });
+            var list = _catRep.Categories.OrderBy(x => x.Sortindex).Select(x => new { ID = x.ID, CategoryName = x.CategoryName });
             ViewBag.Cats = new SelectList(list, "ID", "CategoryName");
-            ViewData["Catss"] = _cRep.Categories
+            ViewBag.Fill = "QQQQQ";
+            ViewData["Catss"] = _cRep.Categories.OrderBy(x => x.Sortindex)
                         .Select(e => new
                         {
                             ID = e.ID,
@@ -224,22 +237,20 @@ namespace x_nova_template.Areas.Admin.Controllers
 
         public ActionResult Editing_Read([DataSourceRequest] DataSourceRequest request)
         {
+            
             DataSourceResult result = _pRepository.Products.ToDataSourceResult(request, o => new ProductViewModel
             {
                 ProductName = o.ProductName,
                 Description = o.Description,
                 Price = o.Price,
-                Season = o.Season,
-                Channel = o.Channel,
-                Hardness = o.Hardness,
-                MatProd = o.MatProd,
-                MatIronForm = o.MatIronForm,
-                Coupling = o.Coupling,
-                ProdTime = o.ProdTime,
-                Block = o.Block,
-                MatForm = o.MatForm,
-                Size = o.Size,
-
+                Material=o.Material,
+                Size=o.Size,
+                Decor=o.Decor,
+                Lacquering=o.Lacquering,
+                Manufacturer=o.Manufacturer,
+                Weight = o.Weight,
+                Fill = o.Fill,
+                Discount=o.Discount,
                 ProductType = o.ProductType,
                 CategoryName = "FFFFFFFF",
                 ID = o.ID,
@@ -278,18 +289,18 @@ namespace x_nova_template.Areas.Admin.Controllers
                 {
 
                     target.ID = product.ID;
+                    target.CategoryID = product.CategoryID;
                     target.Price = product.Price;
                     target.ProductName = product.ProductName;
-                    target.Channel = product.Channel;
-                    target.Hardness = product.Hardness;
-                    target.MatProd = product.MatProd;
-                    target.MatIronForm = product.MatIronForm;
-                    target.ProdTime = product.ProdTime;
-                    target.Coupling = product.Coupling;
-                    target.Block = product.Block;
-                    target.MatForm = product.MatForm;
+                    target.Manufacturer = product.Manufacturer;
+                    target.Material = product.Material;
+                    target.Packaging = product.Packaging;
+                    target.PackagingSize = product.PackagingSize;
+                    target.Weight = product.Weight;
+                    target.Discount = product.Discount;
+                    target.Fill = product.Fill;
                     target.Description = product.Description;
-                    target.Season = product.Season;
+
                     target.ProductType = product.ProductType;
                     target.Size = product.Size;
 
@@ -350,11 +361,14 @@ namespace x_nova_template.Areas.Admin.Controllers
 
             return PartialView(prod);
         }
-        public ActionResult LastnewProds()
+        public ActionResult LastnewProds(int id=0,int prodid=0)
         {
-
-            var prod = _pRepository.Get().Take(10);
-
+            List<Product> prod;
+      
+            ViewBag.ID = id;
+            if (id == 0)
+                prod = _pRepository.Get().Take(10).ToList();
+            else prod = _catRep.Get(id).Products.Where(x=>x.ID!=prodid).OrderByDescending(x => x.ID).Take(10).ToList();
             return PartialView(prod);
         }
         public JsonResult ImgPreview(int pimgid)
@@ -556,5 +570,7 @@ namespace x_nova_template.Areas.Admin.Controllers
             }
             return cart;
         }
+
+
     }
 }

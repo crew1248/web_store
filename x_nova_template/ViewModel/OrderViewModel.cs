@@ -15,10 +15,10 @@ namespace x_nova_template.ViewModel
         public Order Order { get; set; }
 
         public string OrderStatus { get; set; }
-       
-        public IEnumerable<OrderItem> OrderItems { get;set; }
+
+        public IEnumerable<OrderItem> OrderItems { get; set; }
         public int Items { get; set; }
-        public PagingInfo PagingInfo {get;set;}
+        public PagingInfo PagingInfo { get; set; }
 
         public IEnumerable<SelectListItem> StatusList
         {
@@ -48,6 +48,6 @@ namespace x_nova_template.ViewModel
 
             }
         }
-       
+
     }
 }

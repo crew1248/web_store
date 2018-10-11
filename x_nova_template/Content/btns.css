@@ -15,13 +15,13 @@
     }
 .default-btn {
     min-width: 4.54545em;
-    background: rgba(0,0,0,.01);
+    background: rgba(0,0,0,.02);
     box-shadow: 0 1px 3px -1px rgba(0,0,0,.25);
     cursor: default;
     height: 32px;
     padding: 0 .5em;
     line-height: 0;
-    border: 1px solid #a6a6a6;
+    border:1px solid #c1c1c1;
     border-radius: 3px;
         display: inline-block;
     position: relative;
@@ -40,14 +40,42 @@
     -ms-user-select: none;
     user-select: none;
 }
+    .default-btn:hover {
+
+    }
+.default-btn-active {
+        font-family: open sans;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid #f57d00;
+    border-bottom-color: #c36400;
+    border-left-color: #e47400;
+    border-right-color: #e47400;
+    margin-bottom: 16px;
+    color: #fff;
+    background-image: linear-gradient(-180deg,#f57d00,#e47501 91%);
+    border-radius: 5px;
+    padding: 5px;
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,.25);
+    font-weight: 700;
+}
+.default-btn-active:hover {
+        background: linear-gradient(180deg,#ff901d,#e27c11);
+    color: white;
+}
 .main-btn {
-    background: rgba(0, 0, 0, 0.07);
+    background: rgba(0, 0, 0, 0.02);
 }
 .main-btn:hover {
         background-repeat: no-repeat;
     border-color: #a2a2a2 #999 #8b8b8b;
     cursor: pointer;
-        background: rgba(0, 0, 0, 0.03);
+        background: #f1f0f0;
   
 }
 .cat-btn__text {
@@ -61,29 +89,25 @@
 button .cat-btn__text {
     height:inherit;
 }
-.cat-btn:hover {
-        background-repeat: no-repeat;
-    border-color: #a2a2a2 #999 #8b8b8b;
-    cursor: pointer;
-        background: linear-gradient(180deg,#ffb40d,#d89a10);
-    color: #fff;
 
+.cat-btn:hover {
+    background-repeat: no-repeat;
+    border-color: #bf6100;
+    cursor: pointer;
+    background: linear-gradient(180deg,#f57d00,#d66e03);
+    color: #fff;
 }
 
-
 .default-btn-main {
+   background: #f57d00;
     min-width: 4.54545em;
-        background-repeat: no-repeat;
-    border-color: #a2a2a2 #999 #8b8b8b;
+    background-repeat: no-repeat;
     cursor: pointer;
-        background: linear-gradient(180deg,#ffb40d,#d89a10);
     color: #fff;
-
-    box-shadow: 0 1px 3px -1px rgba(0,0,0,.25);
+    box-shadow: 0 1px 3px -1px rgba(0,0,0,.5);
     cursor: default;
     padding: 5px 20px;
     line-height: 0;
-    border: 1px solid #a6a6a6;
     border-radius: 3px;
     display: inline-block;
     position: relative;
@@ -94,7 +118,6 @@ button .cat-btn__text {
     font-weight: 600;
     text-align: center;
     font-size: 14px;
-    
     cursor: pointer;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -102,7 +125,7 @@ button .cat-btn__text {
     user-select: none;
 }
     .default-btn-main:hover {
-            background: linear-gradient(180deg,#ffc647,#d4a43a);
+            background: #f9c653;
     color: white;
               } 
 .default-main-text {
@@ -112,3 +135,39 @@ button .cat-btn__text {
     vertical-align: middle;
     padding: 9px;
 }
+
+.tobuy-btn {
+    font-family: open sans;
+    font-weight: 600;
+    text-align: center;
+    font-size: 15px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid #f57d00;
+    border-bottom-color: #c36400;
+    border-left-color: #e47400;
+    border-right-color: #e47400;
+    margin-bottom: 16px;
+    color: #fff;
+    background-image: linear-gradient(-180deg,#f57d00,#e47501 91%);
+    display: block;
+    border-radius: 5px;
+    padding: 5px;
+    width: 100%;
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,.25);
+    font-weight: 700;
+}
+
+    .tobuy-btn:hover {
+    background: linear-gradient(180deg,#ff901d,#e27c11);
+    color: white;
+    }
+    .tobuy-btn::selection {
+        color:white;
+    }
+    .tobuy-btn:focus{
+        color:white;
+    }

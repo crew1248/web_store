@@ -4,49 +4,50 @@
     Заполните анкету для продолжения оформелния заказа !
 
 </p>
-<div class="ship-details">
+<div class="ship-details checkout-block">
     @using (Html.BeginForm("ProceedCheckout", "Checkout", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
     {
+        @Html.AntiForgeryToken()
         <p>@Html.ValidationSummary(true)</p>
-         <div class="form-group">
-        @Html.LabelFor(m => m.FirstName, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+        <div class="form-group">
+            @Html.LabelFor(m => m.FirstName, "Имя", new { @class = "col-md-3 control-label" })
+            <div class="col-md-9">
+                @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.LastName, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+        <div class="form-group">
+            @Html.LabelFor(m => m.LastName, "Фамилия", new { @class = "col-md-3 control-label" })
+            <div class="col-md-9">
+                @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Address, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Address, new { @class = "form-control" })
+        <div class="form-group">
+            @Html.LabelFor(m => m.Address, "Адрес", new { @class = "col-md-3 control-label" })
+            <div class="col-md-9">
+                @Html.TextBoxFor(m => m.Address, new { @class = "form-control" })
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+        <div class="form-group">
+            @Html.LabelFor(m => m.Email, "Почта", new { @class = "col-md-3 control-label" })
+            <div class="col-md-9">
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+            </div>
         </div>
-    </div>
-   <div class="form-group">
-        @Html.LabelFor(m => m.Phone, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Phone, new { @class = "form-control" })
+        <div class="form-group">
+            @Html.LabelFor(m => m.Phone, "Номер телефона", new { @class = "col-md-3 control-label" })
+            <div class="col-md-9">
+                @Html.TextBoxFor(m => m.Phone, new { @class = "form-control" })
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Сохранить" class="btn btn-default" />
+        <div class="form-group">
+            <div class="col-md-offset-3 col-md-9">
+                <input type="submit" class="default-btn main-btn" style="width:100px" value="Сохранить" />
+            </div>
         </div>
-    </div>
-        
-        
-        
-     
+
+
+
+
 
 
     }

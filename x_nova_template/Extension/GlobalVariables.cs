@@ -5,7 +5,7 @@ using System.Web;
 
 namespace x_nova_template.Extension
 {
-    public static  class GlobalVariables
+    public static class GlobalVariables
     {
         public static string ErrorText { get; set; }
         public static int VarNumber { get; set; }

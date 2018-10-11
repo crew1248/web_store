@@ -8,10 +8,11 @@ using x_nova_template.ViewModel;
 
 namespace x_nova_template.Service.Repository
 {
-    public class OrderProcessor:IOrderProcessor
+    public class OrderProcessor : IOrderProcessor
     {
-        public void ProcessOrder(Cart cart, CheckoutViewModel vm) { 
-            
+        public void ProcessOrder(Cart cart, CheckoutViewModel vm)
+        {
+
         }
     }
 }

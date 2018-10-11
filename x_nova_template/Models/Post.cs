@@ -11,7 +11,7 @@ namespace x_nova_template.Models
     {
         public int ID { get; set; }
         [StringLength(500)]
-        [Required(ErrorMessage="Заполните поле")]
+        [Required(ErrorMessage = "Заполните поле")]
         public string Title { get; set; }
         [Required(ErrorMessage = "Заполните поле")]
         [AllowHtml]

@@ -8,14 +8,15 @@ using x_nova_template.Service.Interface;
 
 namespace x_nova_template.Service.Repository
 {
-    public class MenuRepository:IMenuRepository
+    public class MenuRepository : IMenuRepository
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        public IQueryable<Menu> Menues{ get { return db.Menues; } }
+        public IQueryable<Menu> Menues { get { return db.Menues; } }
 
 
-        public void Create(Menu menu) {
+        public void Create(Menu menu)
+        {
             menu.LastModifiedDate = DateTime.Now;
             //Menu image = (from i in this.db.Images
             //               where i.Sortindex == (from x in this.db.Images select x.Sortindex).Max<int>()
@@ -29,8 +30,9 @@ namespace x_nova_template.Service.Repository
             res.SortOrder = res.Id + 1;
             db.SaveChanges();
         }
-        
-        public Menu Get(int id) {
+
+        public Menu Get(int id)
+        {
             var item = db.Menues.Find(id);
             return item;
         }
@@ -56,7 +58,7 @@ namespace x_nova_template.Service.Repository
         {
             Menu image = Get(id);
 
-            image.SortOrder= newSort;
+            image.SortOrder = newSort;
 
             this.db.SaveChanges();
         }

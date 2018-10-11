@@ -9,10 +9,9 @@ using System.Net;
 namespace x_nova_template.Exstentions
 {
     public static class ConfirmUser
-
     {
 
-        public static void SendConfirm(string confirmToken,string name,string uemail)
+        public static void SendConfirm(string confirmToken, string name, string uemail)
         {
             MailMessage email = new MailMessage();
 

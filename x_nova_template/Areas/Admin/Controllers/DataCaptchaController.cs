@@ -20,7 +20,7 @@ namespace x_nova_template.Areas.Admin.Controllers
 
         public ActionResult Show()
         {
-            
+
             var randomText = GenerateRandomText(6);
             var hash = ComputeMd5Hash(randomText + GetSalt());
             Session["CaptchaHash"] = hash;
@@ -42,26 +42,26 @@ namespace x_nova_template.Areas.Admin.Controllers
             {
                 var g = Graphics.FromImage(bmpOut);
 
-               /* if (set == 1)
-                {
-                    var gradientBrush = new LinearGradientBrush(new Rectangle(0, 0, width, height),
+                /* if (set == 1)
+                 {
+                     var gradientBrush = new LinearGradientBrush(new Rectangle(0, 0, width, height),
 
-                         Color.FromArgb(238, 240, 241, 240), Color.FromArgb(238, 240, 241, 240)
+                          Color.FromArgb(238, 240, 241, 240), Color.FromArgb(238, 240, 241, 240)
 
-                    , orientationAngle);
+                     , orientationAngle);
 
-                    g.FillRectangle(gradientBrush, 0, 0, width, height);
-                }
-               */
-                
-                    var gradientBrush = new LinearGradientBrush(new Rectangle(0, 0, width, height),
+                     g.FillRectangle(gradientBrush, 0, 0, width, height);
+                 }
+                */
 
-                            Color.White, Color.White
+                var gradientBrush = new LinearGradientBrush(new Rectangle(0, 0, width, height),
 
-                       , orientationAngle);
+                        Color.White, Color.White
 
-                    g.FillRectangle(gradientBrush, 0, 0, width, height);
-                
+                   , orientationAngle);
+
+                g.FillRectangle(gradientBrush, 0, 0, width, height);
+
                 //DrawRandomLines(ref g, width, height);              
                 float x = 0;
                 //g.SmoothingMode = SmoothingMode.AntiAlias;
@@ -71,13 +71,13 @@ namespace x_nova_template.Areas.Admin.Controllers
 
                 var rec = new Rectangle(-30, 4, width, height);
                 var path = new GraphicsPath();
-                path.AddString(randomText, font.FontFamily, (int)FontStyle.Italic | (int)FontStyle.Bold, 30, new Point                 (-5, 10), StringFormat.GenericTypographic);
+                path.AddString(randomText, font.FontFamily, (int)FontStyle.Italic | (int)FontStyle.Bold, 30, new Point(-5, 10), StringFormat.GenericTypographic);
 
                 // Determine physical size of the character when rendered
                 var area = Rectangle.Round(path.GetBounds());
 
                 // Slide it to be centered in the specified bounds
-                var offset = new Point(rec.Left + (rec.Width / 2 - area.Width / 2) - area.Left, rec.Top + (rec.Height /                2 - area.Height / 2) - area.Top);
+                var offset = new Point(rec.Left + (rec.Width / 2 - area.Width / 2) - area.Left, rec.Top + (rec.Height / 2 - area.Height / 2) - area.Top);
                 var translate = new Matrix();
                 translate.Translate(offset.X, offset.Y);
                 translate.Rotate(-10, MatrixOrder.Append);
@@ -113,7 +113,8 @@ namespace x_nova_template.Areas.Admin.Controllers
                 return new FileContentResult(bmpBytes, "image/png");
             }
         }
-        public ActionResult Captcha(int set=0) {
+        public ActionResult Captcha(int set = 0)
+        {
             ViewBag.Set = set;
             return PartialView();
         }

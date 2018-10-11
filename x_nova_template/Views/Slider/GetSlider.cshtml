@@ -28,13 +28,13 @@
 
 
 
-@{var price = (int)Model.FirstOrDefault().Price; }
+@{var price = (float)Model.FirstOrDefault().Price; }
 
 
 @Scripts.Render("~/bundles/mslider")
 <div class="slider-leftside">
     <div class="slider-title">@Model.FirstOrDefault().Title</div>
-    <div class="slider-price" style=" font-size: 24px; color: #ffb40d;">@price.ToString("N0") р.</div>
+    <div class="slider-price" style=" font-size: 24px; color: #f57d00;">@price.ToString("C0")</div>
 
     <div class="slider-btn">
    
@@ -51,9 +51,9 @@
         @{int circleCounter = 0; int slideCounter = 0;}
         @foreach (var item in Model)
         {
-            var price1 = (int)item.Price;
+            var price1 = (float)item.Price;
 
-    <div class="sl-slide" data-link="@item.ProdLink" data-title="@item.Title" data-price="@price1.ToString("N0")">
+    <div class="sl-slide" data-link="@item.ProdLink" data-title="@item.Title" data-price="@price1.ToString("C0")">
         <img src="@Url.Content("~/Content/Files/Slider/"+item.ID+"/"+item.ImageMimeType)" />
     </div>
 

@@ -140,7 +140,7 @@ function animSlides(direction, isTablet) {
                 slideTitle = currSlide.data('title');
                 slidePrice = currSlide.data('price');
                 $('.slider-title').text(slideTitle);
-                $('.slider-price').text(slidePrice+' р.');
+                $('.slider-price').text(slidePrice);
                 $('.slider-leftside a').attr('href', currSlide.data('link'));
 
                 settings.current = $('.sl-active');

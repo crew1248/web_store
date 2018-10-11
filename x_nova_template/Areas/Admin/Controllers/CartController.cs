@@ -58,14 +58,15 @@ namespace x_nova_template.Areas.Admin.Controllers
         [HttpPost]
         public JsonResult Clear(Cart cart)
         {
-            
+
             cart.Clear();
             return Json("");
         }
-        public JsonResult UpdateItem(int pid,int type) {
-            
+        public JsonResult UpdateItem(int pid, int type)
+        {
+
             var prod = _repo.Get(pid);
-           
+
             var newQ = type == 0 ? --GetCart().GetLine(pid).Quantity : ++GetCart().GetLine(pid).Quantity;
             if (GetCart().GetLine(pid).Quantity == 0)
                 newQ = ++GetCart().GetLine(pid).Quantity;
@@ -73,7 +74,7 @@ namespace x_nova_template.Areas.Admin.Controllers
                 newQ = --GetCart().GetLine(pid).Quantity;
             //GetCart().ChangeQuantity(prod, newQ);
 
-            return Json(new { s = GetCart().TotalValue().ToString("000"), t = newQ, quant = GetCart().GetLine(pid).Quantity,price=prod.Price });
+            return Json(new { s = GetCart().TotalValue().ToString("000"), t = newQ, quant = GetCart().GetLine(pid).Quantity, price = prod.Price });
         }
         public ActionResult NewItem(int prodId)
         {
@@ -81,12 +82,14 @@ namespace x_nova_template.Areas.Admin.Controllers
             return PartialView(prod);
         }
         [HttpPost]
-        public JsonResult AddToCart(int prodId)
+        public JsonResult AddToCart(int prodId,string cloth=null,string color=null)
         {
             var prod = _repo.Products.FirstOrDefault(x => x.ID == prodId);
+            if (cloth==null || color == null) throw new HttpException();
             if (prod != null)
             {
-                GetCart().AddItem(prod, 1);
+              
+                GetCart().AddItem(prod, 1,cloth,color);
             }
             //Guid.NewGuid().ToString();
             return Json(new
@@ -123,7 +126,7 @@ namespace x_nova_template.Areas.Admin.Controllers
         [HttpPost]
         public JsonResult RemoveFromCart(int prodId)
         {
-            
+
             var prod = _repo.Products.FirstOrDefault(x => x.ID == prodId);
             if (prod != null)
             {

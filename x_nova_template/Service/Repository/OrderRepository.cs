@@ -8,7 +8,7 @@ using x_nova_template.Service.Interface;
 
 namespace x_nova_template.Service.Repository
 {
-    public class OrderRepository:IOrderRepository
+    public class OrderRepository : IOrderRepository
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
@@ -22,7 +22,7 @@ namespace x_nova_template.Service.Repository
 
         public Order Get(int id)
         {
-            var item = Orders.SingleOrDefault(x=>x.ID==id);
+            var item = Orders.SingleOrDefault(x => x.ID == id);
             return item;
         }
         public void Edit(Order order)
@@ -35,7 +35,8 @@ namespace x_nova_template.Service.Repository
             db.Orders.Remove(order);
             db.SaveChanges();
         }
-        public void Update() {
+        public void Update()
+        {
             db.SaveChanges();
         }
     }

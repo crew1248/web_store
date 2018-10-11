@@ -13,7 +13,7 @@ namespace x_nova_template.Models
         public string СartridgeLength { get; set; }
         public string Color { get; set; }
         public string ImageUrl { get; set; }
-        public string Title {get;set;}
+        public string Title { get; set; }
         public string Description { get; set; }
         public string ModelType { get; set; }
         public string Type { get; set; }
@@ -22,7 +22,7 @@ namespace x_nova_template.Models
         private int _quantity;
         public int Quantity
         {
-            get{return _quantity;}
+            get { return _quantity; }
             set
             {
                 _quantity = (value == 0 ? 1 : value);
@@ -31,9 +31,10 @@ namespace x_nova_template.Models
         public string Brand { get; set; }
         public string Referense { get; set; }
 
-        public WebParserModel() {
+        public WebParserModel()
+        {
             Id = Guid.NewGuid().ToString();
-            
+
         }
 
 

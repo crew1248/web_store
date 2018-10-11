@@ -145,7 +145,7 @@
 /* Content styles */
 .md-modal .md-content {
     margin: auto;
-    max-width: 935px;
+    max-width: 835px;
     pointer-events: auto;
     width: 100%;
     background-color: #fff;
@@ -319,7 +319,7 @@ div.md-close
     /*background-color: #ececec;*/
 }
 .md-modal .xn-i-mphoto {
-   
+  
     display: block;
     overflow: hidden;
     padding-bottom: 100%;
@@ -525,6 +525,9 @@ display: block;
 {
     padding: 0 9px;
     float: left;
+}
+.md-cat .xn-i-sphoto img {
+    display:inline;
 }
 .md-cat .xn-d-w {
 padding: 0 20px 20px 20px;

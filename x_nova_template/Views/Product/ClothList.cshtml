@@ -1,0 +1,38 @@
+﻿@using x_nova_template.Extension
+@{
+    
+    // ОКРАС
+    List<x_nova_template.ViewModel.ProdOptionsViewModel> clothList = x_nova_template.Extension.ProductOpts.GetCloth();
+    
+}
+
+
+<input type="hidden" name="Cloth">
+<div class="dropdown-list">
+    <div class="dropdown-list__wrap">
+        @foreach (var x in clothList)
+{
+    <div class="dropdown-item  clear-fix">
+        <div class="dd-item__img"><img src="@x.imglink" /></div>
+        <div class="dd-item__title">@x.title</div>
+        <div class="dd-item__large-img"><img src="@x.imglink" /></div>
+            </div>
+
+}
+        </div>
+    </div>
+
+
+<script>
+    $(function () {
+        $(document).on("mouseover", ".dropdown-item", function () {
+            var img = $(this).find('.dd-item__large-img');
+            var item = $(this);
+
+          
+            img.offset({ top: 600 });
+
+        });
+    });
+
+</script>

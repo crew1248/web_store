@@ -9,9 +9,9 @@ namespace x_nova_template.Models
 {
     public class Menu
     {
-        
+
         public int Id { get; set; }
-        [Required(ErrorMessage="Заполните Id-родитель")]
+        [Required(ErrorMessage = "Заполните Id-родитель")]
         public int ParentId { get; set; }
         [StringLength(200)]
         [Required(ErrorMessage = "Заполните название")]
@@ -37,6 +37,6 @@ namespace x_nova_template.Models
         public int SortOrder { get; set; }
         [Required(ErrorMessage = "Заполните позиционирование")]
         public int MenuSection { get; set; }
-       
+
     }
 }
